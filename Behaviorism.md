@@ -175,6 +175,7 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - Emma Welsby - Divergent Minds
 - [Autistic Collaboration Trust](https://autcollab.org)
 - [Jorn Bettin](https://JornBettin.com)
+- [Alicja Nocon (Expand the Circle)](https://www.expandthecircle.co.uk)
 
 [Add your signature.](/?page_id=71302)
 
