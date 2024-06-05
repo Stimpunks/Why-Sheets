@@ -1,6 +1,6 @@
 # Behaviorism
 
-[Behaviorist](/?p=17693) education is [ableist](/?p=17664) education.
+[Behaviorist](https://stimpunks.org/glossary/behaviorism/) education is [ableist](https://stimpunks.org/glossary/ableism/) education.
 
 Here's why:
 
@@ -104,7 +104,7 @@ Here's why:
 > 
 > [Quiet Hands | Just Stimming…](https://juststimming.wordpress.com/2011/10/05/quiet-hands/)
 
-For details, visit this extensively sourced [behaviorism glossary page](/?p=17693).
+For details, visit this extensively sourced [behaviorism glossary page](https://stimpunks.org/glossary/behaviorism/).
 
 ## References
 
