@@ -17,7 +17,7 @@ Here's why:
 - [References](#references)
 - [Signatories](#signatories)
 
-## Behaviorism measures the surface, badly. {#behaviorism-measures-the-surface-badly}
+## Behaviorism measures the surface, badly.
 
 - [Behaviorism is a theory of learning that focuses on observable behaviors and environmental stimuli.](https://www.verywellmind.com/behavioral-psychology-4157183)
 - [Behaviorism only looks at observable behavior which can be measured. It doesn’t take into account thoughts, genetics, anxiety, trauma, health, or emotions because those things cannot be measured.](https://neuroclastic.com/2021/04/08/what-is-aba-and-does-it-work/)
@@ -33,7 +33,7 @@ Here's why:
 - [Radical Behaviourism is broadly seen by psychology professionals as a simplistic and restrictive theory which is useful in certain situations but cannot sum up the entirety of the human experience. It doesn’t even satisfactorily answer some questions about behaviours seen in animals.](https://neuroclastic.com/is-aba-really-dog-training-for-children-a-professional-dog-trainer-weighs-in/?__twitter_impression=true&fbclid=IwAR3E6kZQHA7IJtpN279-WEhfM2FegGynTGgiKm-QLFM4DlBeseoh9egos0Q&amp)
 - [It’s been refuted so overwhelmingly.](https://www.youtube.com/watch?v=OrQ0LfqxABM)
 
-## The primary legacy of ABA is trauma. {#the-primary-legacy-of-aba-is-trauma}
+## The primary legacy of ABA is trauma.
 
 - [“I have ABA (Applied Behavioural Analysis) therapy and I hate it, probably the worst part of my autism. Everyday I have someone come to my house wake me up and boss me around for 4 hours.”](https://www.youtube.com/watch?v=VmhNWH10UJw&t=3s)
 - [The problems associated with ABA run very deep. It is a human rights violation to continue to ignore and discount the voices of Autistic people about deeply traumatising and harmful “therapies” such as ABA.](https://twitter.com/jornbettin/status/1525331264659546112?s=20&t=89NQYIy_HYjPMz6wO94onA)
@@ -52,7 +52,7 @@ Here's why:
 - [Behaviorism is harmful for vulnerable children, including those with developmental delays, neuro-diversities (ADHD, Autism, etc.), mental health concerns (anxiety, depression, etc.)](https://endseclusion.org/research/the-problem-with-behaviorism/)
 - [Any reasonable observer cannot confidently deny that ABA is negatively affecting the autistic population.](https://fortune.com/2022/05/13/autistic-community-reckoning-aba-therapy-rights-autism-insurance-private-equity-ariana-cernius/)
 
-## ABA violates the fundamental tenets of bioethics. {#aba-violates-the-fundamental-tenets-of-bioethics}
+## ABA violates the fundamental tenets of bioethics.
 
 - [Applied Behavior Analysis (ABA) … manifests systematic violations of the fundamental tenets of bioethics.](https://pubmed.ncbi.nlm.nih.gov/32336692/)
 - [Adult autistics who have undergone ABA have described as violating the fundamental tenets of bioethics, as well as the United Nation’s Convention on the Rights of Persons with Disabilities.](https://fortune.com/2022/05/13/autistic-community-reckoning-aba-therapy-rights-autism-insurance-private-equity-ariana-cernius/)
@@ -63,27 +63,27 @@ Here's why:
 - [Providing a treatment that causes pain in exchange for no benefit, even if unknowingly, is tantamount to torture and violates the most basic requirement of any therapy: to do no harm.](https://link.springer.com/article/10.1007/s41252-021-00201-1)
 - [Autistics have been excluded from all committees, panels, boards, etc., charged with developing, directing, and assessing ABA research and treatment programs.](https://www.sentex.ca/~nexus23/naa_aba.html)
 
-## Behaviorist education is ableist education. {#behaviorist-education-is-ableist-education}
+## Behaviorist education is ableist education.
 
 - [Behaviorist education is ableist education.](/?p=17693)
 - [We are in a sort of remediation industrial complex, where there’s all sorts of services and treatments and interventions to make the square peg fit the round hole. Parents are relentlessly told that that’s their job.](https://longreads.com/2019/12/17/normal-sucks-author-jonathan-mooney-on-how-schools-fail-kids-with-learning-differences/)
 - [This is a top-down, power over, authoritarian approach that is not in alignment with the rest of the goals of the educational system that is designed to teach children to think and learn.](https://endseclusion.org/research/the-problem-with-behaviorism/)
 - [The most restrictive virtual straitjacket that educators face is behaviorism.](https://www.alfiekohn.org/article/behavior/)
 
-## ABA violates autonomy. {#aba-violates-autonomy}
+## ABA violates autonomy.
 
 - [ABA violates autonomy insofar as it coercively closes off certain paths of identity formation.](https://muse.jhu.edu/article/753840)
 - [ABA violates autonomy by coercively modifying children’s patterns of behavior to be misaligned with their preferences, passions, and pursuits. Such superficial change is a pervasive form of interference that compromises children’s present and future autonomy.](https://muse.jhu.edu/article/753840)
 - [Pretty much everything an autistic child does, says, doesn’t do or doesn’t say is pathologised and made into a way to invent a ‘therapy’ for it. It’s actually hell to experience.](https://twitter.com/annmemmott/status/1015968112674574336?s=12)
 - [Our non-compliance is not intended to be rebellious. We simply do not comply with things that harm us. But since a great number of things that harm us are not harmful to most neurotypicals, we are viewed as untamed and in need of straightening up.](http://www.thinkingautismguide.com/2018/04/on-hans-asperger-nazis-and-autism.html?m=1)
 
-## Autistic adults loathe ABA. {#autistic-adults-loathe-aba}
+## Autistic adults loathe ABA.
 
 - [It is nothing short of stunning to learn just how widely and intensely ABA is loathed by autistic adults who are able to describe their experience with it.](https://www.alfiekohn.org/blogs/autism/)
 - [The majority of the 620 survey respondents from Europe were strongly against the use of ABA and ABA-based methods with autistic people.](https://eucap.eu/2024/04/02/aba-statement/)
 - [Yet the vast majority of autistic people when polled (typically 97%) oppose ABA including and _especially_ those who went through it as children.](https://neuroclastic.com/is-aba-really-dog-training-for-children-a-professional-dog-trainer-weighs-in/?__twitter_impression=true&fbclid=IwAR3E6kZQHA7IJtpN279-WEhfM2FegGynTGgiKm-QLFM4DlBeseoh9egos0Q&amp)
 
-## ABA is badly out of date. {#aba-is-badly-out-of-date}
+## ABA is badly out of date.
 
 - [ABA therapy is badly out of date, scientifically speaking.](https://neuroclastic.com/2020/10/14/behaviorism-is-dead-how-do-we-tell-the-autism-parents/)
 - [Until ABA updates its scientific methods, its functions of behavior, and incorporates modern day psychology – including neurology, child development, educational psychology, and other vital research – it cannot be considered to be a safe, effective, or ethical field.](https://neuroclastic.com/2020/10/14/behaviorism-is-dead-how-do-we-tell-the-autism-parents/)
@@ -91,7 +91,7 @@ Here's why:
 - [Radical Behaviourism is considered out-of-date by modern psychologists.](https://neuroclastic.com/is-aba-really-dog-training-for-children-a-professional-dog-trainer-weighs-in/?__twitter_impression=true&fbclid=IwAR3E6kZQHA7IJtpN279-WEhfM2FegGynTGgiKm-QLFM4DlBeseoh9egos0Q&amp)
 - [The future of Autism and other conditions ABA professes to treat is very bleak.](https://link.springer.com/article/10.1007/s41252-021-00201-1)
 
-## I would never treat a dog that way. {#i-would-never-treat-a-dog-that-way}
+## I would never treat a dog that way.
 
 - [Trainers are rejecting behaviorism because it harms animals emotionally and psychologically. What does that say about classrooms that embrace it?](https://www.humanrestorationproject.org/writing/empty-pedagogy-behaviorism-and-the-rejection-of-equity)
 - [Dog trainers don’t talk about systematically altering behaviour as if the dog weren’t a thinking, feeling, sentient being.](https://neuroclastic.com/is-aba-really-dog-training-for-children-a-professional-dog-trainer-weighs-in/?__twitter_impression=true&fbclid=IwAR3E6kZQHA7IJtpN279-WEhfM2FegGynTGgiKm-QLFM4DlBeseoh9egos0Q&amp)
@@ -106,7 +106,7 @@ Here's why:
 
 For details, visit this extensively sourced [behaviorism glossary page](/?p=17693).
 
-## References {#references}
+## References
 
 - [Behaviorism: Definition, History, Concepts, and Impact](https://www.verywellmind.com/behavioral-psychology-4157183)
 - [Not an Autism Mom’s Thoughts on ABA: Part One » NeuroClastic](https://neuroclastic.com/2021/04/08/what-is-aba-and-does-it-work/)
@@ -135,7 +135,7 @@ For details, visit this extensively sourced [behaviorism glossary page](/?p=1769
 - [Noam Chomsky on Behaviorism](https://www.youtube.com/watch?v=OrQ0LfqxABM)
 - [The Case Against B.F. Skinner](https://chomsky.info/19711230/)
 
-## Signatories {#signatories}
+## Signatories
 
 The following individuals, organizations, and communities endorse this [Why Sheet](/?page_id=69263).
 
