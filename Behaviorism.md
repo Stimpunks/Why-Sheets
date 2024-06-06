@@ -65,7 +65,7 @@ Here's why:
 
 ## Behaviorist education is ableist education.
 
-- [Behaviorist education is ableist education.](/?p=17693)
+- [Behaviorist education is ableist education.](https://stimpunks.org/glossary/behaviorism/)
 - [We are in a sort of remediation industrial complex, where there’s all sorts of services and treatments and interventions to make the square peg fit the round hole. Parents are relentlessly told that that’s their job.](https://longreads.com/2019/12/17/normal-sucks-author-jonathan-mooney-on-how-schools-fail-kids-with-learning-differences/)
 - [This is a top-down, power over, authoritarian approach that is not in alignment with the rest of the goals of the educational system that is designed to teach children to think and learn.](https://endseclusion.org/research/the-problem-with-behaviorism/)
 - [The most restrictive virtual straitjacket that educators face is behaviorism.](https://www.alfiekohn.org/article/behavior/)
