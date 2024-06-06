@@ -137,7 +137,7 @@ For details, visit this extensively sourced [behaviorism glossary page](https://
 
 ## Signatories
 
-The following individuals, organizations, and communities endorse this [Why Sheet](/?page_id=69263).
+The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
 
 - [Stimpunks Foundation](https://stimpunks.org/)
 - [Autistic Realms](https://www.autisticrealms.com)
@@ -177,7 +177,7 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - [Jorn Bettin](https://JornBettin.com)
 - [Alicja Nocon (Expand the Circle)](https://www.expandthecircle.co.uk)
 
-[Add your signature.](/?page_id=71302)
+[Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
 
 Version: 1.1  
 License: [Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
