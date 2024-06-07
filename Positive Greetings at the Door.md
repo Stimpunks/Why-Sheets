@@ -14,7 +14,7 @@ Two studies often cited in favor of PGD are full of behaviorist framing and lang
 [Behaviorist](https://stimpunks.org/glossary/behaviorism/) education is [ableist](https://stimpunks.org/glossary/ableism/) education.
 You don’t need to do door greetings. There are better ways to invite people into shared space that don’t induce anxiety at thresholds, those liminal lines between [inclusion](https://stimpunks.org/glossary/inclusion/) and exclusion.
 
-We advise against posting any sort of threshold guardian or threshold ritual. If you must implement PDG, PDG policies can be improved and better avoid ableism by supporting multiple [modalities](https://stimpunks.org/glossary/modality/) and embracing [flexibility](https://stimpunks.org/glossary/flexibility/) as good [UDL](https://stimpunks.org/glossary/universal-design-for-learning/). Allow greetings of all sorts:
+We advise against posting any sort of threshold guardian or threshold ritual. If you must implement PGD, PGD policies can be improved and better avoid ableism by supporting multiple [modalities](https://stimpunks.org/glossary/modality/) and embracing [flexibility](https://stimpunks.org/glossary/flexibility/) as good [UDL](https://stimpunks.org/glossary/universal-design-for-learning/). Allow greetings of all sorts:
 
 - Spoken
 - Fist bump
