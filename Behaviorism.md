@@ -180,4 +180,4 @@ The following individuals, organizations, and communities endorse this [Why Shee
 [Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
 
 Version: 1.1  
-License: [Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
