@@ -22,7 +22,7 @@ For our [Neuroqueering Learning Spaces project](https://stimpunks.org/projects/
 
 Why Sheets feel like a good balance of concision and explanation.
 
-Students and families battling [behaviorism](https://stimpunks.org/why/behaviorism/) and [school induced-anxiety](https://stimpunks.org/glossary/school-induced-anxiety/)and systemic exclusion need whatever resources we can give them.
+Students and families battling [behaviorism](https://stimpunks.org/why/behaviorism/) and [school induced-anxiety](https://stimpunks.org/glossary/school-induced-anxiety/) and systemic exclusion need whatever resources we can give them.
 
 To that end, we started a repository for Why Sheets.
 Contributions welcome. These are licensed under [Creative Commons CC0](https://creativecommons.org/public-domain/cc0/) so students and families can do what they want with the sheets.
