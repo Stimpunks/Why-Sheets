@@ -66,7 +66,7 @@
 - Why doesn’t presumption of competence get applied to gender as well?[^42]
 
 Version: 0.2  
-License: [“Queer and Neurodivergent Liberation are Entwined”](https://stimpunks.org/why/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+License: [“Queer and Neurodivergent Liberation are Entwined Why Sheet”](https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
 
 [^1]:	[Largest study to date confirms overlap between autism and gender diversity](https://www.spectrumnews.org/news/largest-study-to-date-confirms-overlap-between-autism-and-gender-diversity/)
 
