@@ -1,0 +1,130 @@
+# Alternatives to ABA
+
+[ABA is bad, very bad.](https://stimpunks.org/why/behaviorism/)
+
+Here’s what to do instead.
+
+## Table of Contents
+
+- [Back Off](#back-off)
+- [Instead of ABA](#instead-of-aba)
+- [Resources](#resources)
+- [Don’t take away your child’s voice; take away their suffering.](#dont-take-away-your-childs-voice-take-away-their-suffering)
+
+## Back Off
+
+> I want to talk about the potential benefits of less therapies.  I want to talk about eliminating interventions.  I want to talk about why what is called “prompting” is actually forcing and how that should be stopped.
+> 
+> Basically, I want to make the case for backing the eff off Autistic kids–Autistic people in general, actually.
+> 
+> [the case for backing the frick off | love explosions](https://loveexplosions.net/2013/07/05/the-case-for-backing-the-frick-off/)
+
+> **All I’m asking for is a SINGLE study that provides any evidence that ABA is any more effective than kids spending equivalent time with someone who knows nothing about ABA.**
+> 
+> If they can’t show that, how on Earth do they think they can justify a multi-billion dollar industry? What?
+> 
+> [@MxOolong](https://twitter.com/MxOolong/status/1527208283513176065?s=20&t=iJesXbRJWg9o77LgVfUp2w)
+
+> Pretty much everything an autistic child does, says, doesn’t do or doesn’t say is pathologised and made into a way to invent a ‘therapy’ for it.
+> 
+> **It’s actually \_hell\_ to experience.**
+> 
+> We should **stop doing this and start learning about autism**.
+> 
+> [Ann Memmott PGC](https://twitter.com/annmemmott/status/1015968112674574336?s=12)
+
+## Instead of ABA
+
+> We categorically reject the use of rewards and punishments as behaviour management strategies. Research and experience have shown that these traditional methods are ineffective in addressing the needs of young people and can have negative consequences. Rewards may encourage short-term compliance but do not foster long-term growth or self-regulation. 
+> 
+> [High School Anti-Behaviourism Behaviour Management Policy](https://docs.google.com/document/d/1iVi_RY1HUyW92iYAhgshL_YYXFbsKOH14Ua4Zc4T2s0/edit)
+
+First, reject rewards, punishments, [behaviourism](https://stimpunks.org/glossary/behaviorism/), and restrictive practices.
+
+Next, use these tools instead:
+
+- [The Basics of Neurodiversity Affirming Practice](https://blog.jkp.com/2024/02/neurodiversity-affirming-practice/)
+	- **Presume Competence** — Presuming competence means assuming an individual can learn, think, and understand, even when we may not have evidence available to confirm this.
+	- **Promote Autonomy** — When we promote autonomy with children and young people, we are giving them the opportunity to make informed decisions about their care and supporting them to have a voice in all aspects of their lives.
+	- **Respect all Communication Styles** — To be neurodiversity affirming regarding communication, we need to consider all communication as valid and acknowledge that there are many ways that individuals communicate beyond spoken language.
+	- **Be Informed by Neurodivergent Voices** — Evidence-based practice incorporates research, clinical knowledge and expert opinion, along with client preferences, to provide effective support, and who better to provide expert opinion than neurodivergent individuals themselves.
+	- **Take a Strengths-Based Approach** — A strengths-based approach not only considers an individual’s personal strengths, but also how conditions in their environment can be adapted to remove barriers and facilitate access to desired activities.
+	- **Honor Neurodivergent Culture** — As therapists, we can honor our client’s neurodivergence by giving them a safe space to be themselves, accommodating their needs and being accepting of their neurodivergent style of being.
+	- **Tailor Support to Individual Needs** — Tailoring an approach specifically to a client’s needs involves recognising that due to differences in sensory processing, cognition, communication, and perception, neurodivergent individuals experience the world differently to the neurotypical population, and as such are likely to need different therapeutic supports.
+- [The 5 As of Neurodiversity Affirming Practice](https://www.barrierstoeducation.co.uk/nd-affirming)
+	- **Authenticity** – A feeling of being your genuine self. Being able to act in a way that feels comfortable and happy for you.
+	- **Acceptance** – A process whereby you feel validated as the person you are, not only by yourself but by others too.
+	- **Agency** – A feeling of control over actions and their consequences in your day-to-day life.
+	- **Autonomy** – A state of being self-directed, independent, and free. Being able to act on your ideas and wants.
+	- **Advocacy** – To speak for yourself, communicate what is important to you and your needs or the needs of others.
+- [The 6 Key Principles of Trauma-Informed Practice](https://www.gov.uk/government/publications/working-definition-of-trauma-informed-practice/working-definition-of-trauma-informed-practice)
+	- **Safety**: Prioritising the physical, psychological and emotional safety of young people.
+	- **Trustworthiness**: Explaining what we do and why, doing what we say we will do, expectations being clear and not overpromising.
+	- **Choice**: Young people are supported to be shared decision makers and we actively listen to the needs and wishes of young people. 
+	- **Collaboration**: The value of young people’s experience is recognised through actively working alongside them and actively involving young people in the delivery of services. 
+	- **Empowerment**: We share power as much as we can, to give young people the strongest possible voice. 
+	- **Cultural consideration**: We actively aim to move past cultural stereotypes and biases based on, for example, gender, sexual orientation, age, religion, disability, geography, race or ethnicity.
+- [The NEST Approach for Supporting Young People in Distress](https://drive.google.com/file/d/1AtfbW7thIyzVqAtONnYKyXtzUPrCoOaC/view)
+	- **Nurture** — The very first thing we need to remember is to help a young person feel safe - remember that experiencing a meltdown is incredibly scary. If someone is upset/ stressed/ having a meltdown, focusing on helping them to feel calm is important as people cannot think logically at this time. Until they feel safe, there is no next productive step.
+	- **Empathise** — If someone is struggling or has reached crisis point, it is important to assume there is a good reason why and to try to understand their perspective, plus any reasoning for their current struggle.
+	- **Sharing Context** — Why do we want to problem solve with the young person? We need to show that how the young person feels is important to us, but also share the perspectives of other people so they can fully understand the situation if the situation is a result of miscommunication.
+	- **Teamwork** — Most services and settings focus on a system of rewards and punishments for changing behaviour. We understand that when young people are struggling we need to address the root cause. The best way to do this is by working together.
+- [Understanding Motivation and Behaviour through Self-Determination Theory](https://docs.google.com/document/d/1iVi_RY1HUyW92iYAhgshL_YYXFbsKOH14Ua4Zc4T2s0/edit#heading=h.cww8ly28o4vn)
+	- **Autonomy** — Self-Determination Theory (SDT) underscores the importance of autonomy in motivation and behaviour. Autistic young people are more likely to engage positively when they have choices and control over their actions. Our school environment is designed to provide opportunities for autonomy, such as choosing activities and setting goals.
+	- **Competence** — Competence is another key component of SDT. We recognize the importance of providing opportunities for young people to develop and showcase their skills and abilities. This fosters a sense of competence and achievement. We take an asset-based approach: identifying key strengths that our pupils have and fostering these strengths rather than solely focusing on their challenges. As a result, pupils feel empowered to further develop their own skill sets and recognise their unique contributions.
+	- **Relatedness** — Relatedness, the third component of SDT, emphasises the significance of positive social connections. Our school promotes acceptance, teamwork, and relationship-building among participants, creating a sense of belonging and relatedness.
+	- **Integration with Our Principles** — The principles of SDT are integrated into our behaviour management approach. By supporting autonomy, competence, and relatedness, we enhance motivation, engagement, and overall wellbeing of our students.
+- [Key Principles When Supporting Autistic People](https://www.barrierstoeducation.co.uk/key-principles)
+	- **Autism Acceptance** — In many spaces and places autism is seen as a negative thing. Autism is not a 'disorder' or a 'burden', it is simply a difference. Just like every other brain type, the autistic brain has its negatives and its positives.
+	- **Young people often need to recover from their negative experiences to be able to thrive** — Young people need time, and the right support to recover. Especially since outside of safe spaces, they may still be exposed daily to trauma and stress.
+	- **Young people do well if they can** — We believe that all young people do well if they can. Everyone wants to thrive, do well, and no one wants to cause upset with others or break rules. If someone is struggling - there is a reason why they are struggling. We can work together to identify reasons why and what may help.
+	- **Co-regulation** — Young people need repeated experiences of co-regulation from a regulated adult before they can begin to self-regulate. They may also not know how to regulate by themselves and we may be a key resource to help them create ways that work for them.
+	- **Self-Care** — Self care is vital - it isn’t possible to properly care for young people when you are overwhelmed yourself. 
+	- **Neurodiversity affirming practice** — We believe in the 5 As of neurodiversity affirming practice, from The Autistic Advocate. This is a strengths and rights-based approach to affirm a young person’s identity, rather than focusing on ‘fixing’ a young person because of their neurotype.
+- [Top 5 Neurodivergent-Informed Strategies](https://www.autisticrealms.com/post/top-5-neurodivergent-informed-strategies)
+	- **Be Kind** — Take time to listen and be with people in meaningful ways to help bridge the Double Empathy Problem ([Milton, 2012](https://www.tandfonline.com/doi/full/10.1080/09687599.2012.710008)). Be embodied and listen not only to people’s words but also to their bodies and sensory systems.
+	- **Be Curious** — Be informed by the voices of those with lived experience, learn from and act on the neurodiversity-affirming research that is evolving and that validates the inner experiences of neurodivergent people. For Autistic/ ADHD people, this includes understanding how the theory of monotropism and embracing people’s natural  flow state  can support well-being ([Murray et al., 2005](https://journals.sagepub.com/doi/abs/10.1177/1362361305051398)) and ([Heasman et al., 2024](https://onlinelibrary.wiley.com/doi/10.1111/jtsb.12427)).
+	- **Be Open** — Be open and be compassionate. It has been shown that neurodivergent people are at a higher risk of mental difficulties and suicide ([Moseley, 2023](https://www.bournemouth.ac.uk/news/2023-09-08/autism-suicide-bu-research-exploring-increased-risk)). Think about the weight a neurodivergent person carries in a society that values neuronormative ways of being and consider the impact of masking on people’s mental health ([Pearson and Rose, 2023](https://pavpub.com/catalogue-2024/autistic-masking-understanding-identity-management)).
+	- **Be Radically Inclusive** — We need a strength-based approach to care and education. ([Laube 2023](https://www.autismbc.ca/blog/resource-guide/neuroaffirming-care-matters/#:~:text=This%20is%20an%20umbrella%20term,key%20principles%20will%20likely%20evolve)) suggested we must acknowledge and respect a person’s neurodivergence, learn how it affects them, and value their unique experiences. We need individualised support instead of using a one-size-fits-all approach. We should try to reduce and challenge stigma and stereotypes and provide radically inclusive spaces for people to thrive in.
+	- **Be Neurodiversity-Affirming** — Take time to read about the neurodiversity paradigm “Neurodiversity itself is just biological fact!” ([Walker, 2021](https://neuroqueer.com/)); a person is neurodivergent if they diverge from the dominant norms of society. “The Neurodiversity Paradigm is a perspective that understands, accepts and embraces everyone’s differences. Within this theory, it is believed there is no single ‘right’ or ‘normal’ neurotype, just as there is no single right or normal gender or race. It rejects the medical model of seeing differences as deficits.” ([Edgar, 2023](https://www.amazon.co.uk/Neurodiversity-Affirming-Glossary-Key-Vocabulary-ebook/dp/B0C3JBT9D5))
+- [Autistic SPACE: A Novel Framework for Meeting the Needs of Autistic People](https://www.magonlinelibrary.com/doi/full/10.12968/hmed.2023.0006)
+	- **Sensory needs** — Autistic people experience the world differently (Royal College of Psychiatrists, 2020). Sensory sensitivities are common to almost all autistic people (MacLennan et al, 2022), but the pattern of sensitivities varies (Lyons-Warren and Wan, 2021). Autistic people can be sensory avoidant, sensory seeking or both (Royal College of Psychiatrists, 2020); hypo- or hyper-reactivity to any sensory modality is possible (Tavassoli et al, 2014) and a person's sensory responsiveness can vary depending on circumstances (Strömberg et al, 2022). A ‘sensory diet’ provides scheduled sensory input which can aid physical and emotional regulation (Hazen et al, 2014).
+	- **Predictability** — Autistic people need predictability and may experience extreme anxiety with unexpected change (Royal College of Psychiatrists, 2020). This underlies the autistic preference for routine and structure.
+	- **Acceptance** — Beyond simple awareness, there is a pressing need for autism acceptance. A neurodiversity-affirmative approach recognises that neurodevelopmental differences are part of the natural range of human development (Shaw et al, 2021) and acknowledges that attempts to make autistic people appear non-autistic can be deeply harmful (Bernard et al, 2022). This does not exclude inherent or environmental disability.
+	- **Communication** — Autistic people communicate differently. Many use fluent speech, but may experience challenges with verbal communication at times of stress or sensory overload (Cummins et al, 2020; Haydon et al, 2021). Others do not speak or may use few words (Brignell et al, 2018). Many non-speaking or minimally speaking autistic people use augmentative and alternative communication (AAC) methods, including visual cards, writing or electronic devices, which should be facilitated (Zisk and Dalton, 2019).
+	- **Empathy** — Despite common assumptions to the contrary, autistic people do not lack empathy (Fletcher-Watson and Bird, 2020). It may be experienced or expressed differently, but this is perhaps the most damaging misconception about autism (Hume and Burgess, 2021). In fact, many autistic people report experiencing hyper-empathy, to the point of being unable to deal with the onslaught of emotions, leading to ‘shutdown’ in order to cope (Hume and Burgess, 2021). A bi-directional, mutual misunderstanding occurs between autistic and non-autistic people, termed ‘the double empathy problem’ (Milton, 2012). As such, non-autistic healthcare providers may struggle to empathise with autistic patients, particularly where communication training is generally conducted from a neuronormative, non-autistic perspective, in which the needs of autistic people are not considered (Bradshaw et al, 2021).
+
+## Resources
+
+- [Neurodiversity Affirming Practice | Autism Barriers to Education](https://www.barrierstoeducation.co.uk/nd-affirming)
+- [Neurodivergent Wellbeing Approach — Neurodiverse Connection](https://ndconnection.co.uk/ndwatraining)
+- [Alternatives to ABA: If not ABA... then WHAT? - ABA for "Problem Behaviors"](https://neurodivergentrebel.substack.com/p/alternatives-to-aba-if-not-aba-then)
+- [Alternatives to ABA: If not ABA... then WHAT? - Helping Autistic People With "Self-Care Skills"](https://neurodivergentrebel.substack.com/p/alternatives-to-aba-if-not-aba-then-33b)
+- [If Not ABA, then What? Autistic People, Social Skills, and "Appropriate Play"- We socialize and play Autistically!](https://neurodivergentrebel.substack.com/p/if-not-aba-then-what-autistic-people)
+- [If Not ABA, then What? Increasing Communication, Language, and Academic Skills](https://neurodivergentrebel.substack.com/p/if-not-aba-then-what-increasing-communication)
+- [My Anti-ABA Testimony: Parents are desperate to receive ABA for their children because they've been told its the only thing that will help them.](https://neurodivergentrebel.substack.com/p/my-anti-aba-testimony-parents-are)
+- [Alternatives to ABA: If not ABA... then WHAT?](https://www.linkedin.com/posts/neurodivergentrebel_alternatives-to-aba-if-not-aba-then-what-activity-7140025945293275136-70w8/?utm_source=share&utm_medium=member_desktop)
+- [What are some alternatives to ABA therapy | by magimark | Medium](https://medium.com/@magimark01/what-are-some-alternatives-to-aba-therapy-8ec516973df8)
+- [What are alternatives to ABA? - YouTube]()
+- [Non-ABA Evidence Based Practice | Therapist Neurodiversity Collective](https://therapistndc.org/therapy/non-aba-evidence-based-practice/)
+- [Alternatives to ABA (Applied Behavioural Analysis) | AUsome | Autism](https://ausometraining.com/alternatives-to-aba/)
+- [How to Spot a Good-- or Bad-- Therapist for Your Autistic Child](https://neuroclastic.com/good-or-bad-therapist-for-your-autistic-child/)
+- [Autism: It's not OUGHTism. On making decisions about intervention therapies » NeuroClastic](https://neuroclastic.com/what-therapy-for-autism/)
+- [If Not ABA Therapy, Then What?](https://thinkingautismguide.com/2017/04/if-not-aba-therapy-then-what.html)
+- [High School Anti-Behaviourism Behaviour Management Policy - Stimpunks Foundation](https://stimpunks.org/2024/01/02/high-school-anti-behaviourism-behaviour-management-policy/)
+- [Alternatives To Behaviour Therapies | Jillian Enright | neurodiversified](https://medium.com/neurodiversified/alternatives-to-behaviour-therapies-547b917a1202)
+
+## Don’t take away your child’s voice; take away their suffering.
+
+> **Don’t take away your child’s voice; take away their suffering.** ABA is a cruel response to aggressive behavior. Meet that behavior with love, calm, support, and an investigative search for the source of your child’s struggle instead. Learn why your child is getting so stressed out that they are frightening the people around them, and help make your child’s life calmer, safer, and happier. That is what you were hoping ABA therapy would do, but I am here to tell you that ABA cannot do that. It is your role as a loving parent and **you don’t need a behaviorist. You just need the love and compassion you already have for your beautiful child.** Dealing with aggression really is a situation in life where love conquers all. Go forth now and vanquish suffering with curiosity, compassion, and calmness.
+>  
+> [If Not ABA Therapy, Then What?](https://thinkingautismguide.com/2017/04/if-not-aba-therapy-then-what.html)
+
+> This study was performed to investigate why some caregivers of autistics choose an intervention other than ABA. The TA revealed that these **parents quit ABA because of their observation of trauma symptoms coinciding with the intervention.**
+> 
+> Overall, the longitudinal data provided a closer look into how the caregiver's choice may impact the emotional wellbeing of the autistic child into adulthood. **Autistics who received no intervention ("none") in their lifetime, experienced the lowest rates of PTSS.** Autistics who were not exposed to ABA were also accustomed to scoring sensitive behaviors pertaining to selfharm. They avoided the behaviorism-based self-report by abandoning the survey, and/or commenting about their aversion to these metrics. **Parents may consider these findings to make an informed decision about pursuing an autism intervention that is least likely to correlate with traumatic stress**, while optimizing the long-term outcomes. It is recommended that future researchers should develop inclusive self-report instruments to clinically evaluate PTSD in autistics by adapting to known stressors for this demographic.
+>  
+> [Why caregivers discontinue applied behavior analysis (ABA) and choose communication-based autism interventions | Emerald Insight](https://www.emerald.com/insight/content/doi/10.1108/AIA-02-2019-0004/full/html)
+
+Version: 0.1  
+License: “[Alternative to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
