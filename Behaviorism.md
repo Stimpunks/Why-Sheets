@@ -51,6 +51,8 @@ Here's why:
 - [It focuses on training children by holding their sources of happiness hostage and using them as blackmail to get the children to meet goals which are not necessarily in the best interest of their emotional health.](https://neuroclastic.com/is-aba-really-dog-training-for-children-a-professional-dog-trainer-weighs-in/?__twitter_impression=true&fbclid=IwAR3E6kZQHA7IJtpN279-WEhfM2FegGynTGgiKm-QLFM4DlBeseoh9egos0Q&amp)
 - [Behaviorism is harmful for vulnerable children, including those with developmental delays, neuro-diversities (ADHD, Autism, etc.), mental health concerns (anxiety, depression, etc.)](https://endseclusion.org/research/the-problem-with-behaviorism/)
 - [Any reasonable observer cannot confidently deny that ABA is negatively affecting the autistic population.](https://fortune.com/2022/05/13/autistic-community-reckoning-aba-therapy-rights-autism-insurance-private-equity-ariana-cernius/)
+- [Compliance, learned helplessness, food/reward-obsessed, magnified vulnerabilities to sexual and physical abuse, low self-esteem, decreased intrinsic motivation, robbed confidence, inhibited interpersonal skills, isolation, anxiety, suppressed autonomy, prompt dependency, adult reliance, etc., continue to be created in a marginalized population who are unable to defend themselves.](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
+- [These children are the population that was chosen to be the subjects of an experimentally intense, lifelong treatment within a therapy where most practitioners are ignorant regarding the Autistic brain—categorically, this cannot be called anything except abuse.](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
 
 ## ABA violates the fundamental tenets of bioethics.
 
@@ -134,6 +136,7 @@ For details, visit this extensively sourced [behaviorism glossary page](https://
 - [On ‘Positive Behaviour Support’ – AMASE](https://amase.org.uk/pbs/)
 - [Noam Chomsky on Behaviorism](https://www.youtube.com/watch?v=OrQ0LfqxABM)
 - [The Case Against B.F. Skinner](https://chomsky.info/19711230/)
+- [Full article: How much compliance is too much compliance: Is long-term ABA therapy abuse?](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
 
 ## Signatories
 
