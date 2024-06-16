@@ -179,6 +179,17 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - [Autistic Collaboration Trust](https://autcollab.org)
 - [Jorn Bettin](https://JornBettin.com)
 - [Alicja Nocon (Expand the Circle)](https://www.expandthecircle.co.uk)
+- [David Gray-Hammond](https://emergentdivergence.com)
+- [Autistically Scott](https://autisticallyscott.uk/)
+- [Autistic Revolution](https://www.autistic-revolution.com)
+- Lisa
+- Natasha Leahy (Karuna Therapeutic Services)
+- Luis Robertson
+- [Neurodiverse Journeys](https://www.neurodiversejourneys.com)
+- [Katie Munday, Autistic and living the dream](https://autisticltd.co.uk/)
+- [Jennifer Abbanat, Crow’s Nest Advocacy & Consulting](https://www.crowsnestadvocacy.com)
+- [Katy Elphinstone](https://www.neurofabulous.org.uk)
+- [Carrie Warren - Best life therapy](https://bestlife-therapy.co.uk)
 
 [Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
 
