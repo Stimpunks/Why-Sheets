@@ -127,6 +127,8 @@ Next, use these tools instead:
 >  
 > [Why caregivers discontinue applied behavior analysis (ABA) and choose communication-based autism interventions | Emerald Insight](https://www.emerald.com/insight/content/doi/10.1108/AIA-02-2019-0004/full/html)
 
+For more on the problems with ABA and behaviorism, visit the “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)”.
+
 ## Signatories
 
 The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
