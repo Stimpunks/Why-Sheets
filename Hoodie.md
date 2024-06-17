@@ -31,7 +31,8 @@
 > [Ann’s Autism Blog: Autism, School, Exclusion. What’s fair?](https://annsautism.blogspot.com/2018/08/autism-school-exclusion-whats-fair.html)
 
 ## Signatories
-The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
+
+The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/). Want to join them? [Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
 
 - [Stimpunks Foundation](https://stimpunks.org/)
 - [Autistic Realms](https://www.autisticrealms.com/)
@@ -56,7 +57,10 @@ The following individuals, organizations, and communities endorse this [Why She
 - [Autistic Collaboration Trust](https://autcollab.org/)
 - [Jorn Bettin](https://jornbettin.com/)
 
-[Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
+## License
+
+This why sheet is free to download, modify, and share.
 
 Version: 1.0  
 License: [Hoodie Why Sheet](https://stimpunks.org/why/hoodie/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Hoodie.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Hoodie.md)

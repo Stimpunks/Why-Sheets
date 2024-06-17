@@ -142,7 +142,7 @@ For alternatives to ABA and behaviorism, visit the “[Alternatives to ABA Why S
 
 ## Signatories
 
-The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
+The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/). Want to join them? [Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
 
 - [Stimpunks Foundation](https://stimpunks.org/)
 - [Autistic Realms](https://www.autisticrealms.com)
@@ -193,7 +193,10 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - [Katy Elphinstone](https://www.neurofabulous.org.uk)
 - [Carrie Warren - Best life therapy](https://bestlife-therapy.co.uk)
 
-[Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
+## License
+
+This why sheet is free to download, modify, and share.
 
 Version: 1.2  
 License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md)
