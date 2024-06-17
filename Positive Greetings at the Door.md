@@ -32,6 +32,15 @@ We advise against posting any sort of threshold guardian or threshold ritual. If
 Also allow no response at all. Compliance is not the goal, a good start to the day is the goal. Forcing students to perform against their mood is a bad start to the day. Forcing students to be false to themselves and their reality is counterproductive.
 
 [Trust](https://stimpunks.org/glossary/trust/) and [authenticity](https://stimpunks.org/glossary/very-grand-emotions/) are important to many autistic people. We’re [wired for it](https://stimpunks.org/glossary/canary/). Forcing us to perform neuronormativity and [toxic positivity](https://stimpunks.org/glossary/toxic-positivity/)destroys trust and authenticity. Such coercion is [gaslighting](https://medium.com/@sheaemmafett/10-things-i-wish-i-d-known-about-gaslighting-22234cb5e407), as it is an attempt to “[overwrite another person’s reality](https://medium.com/@sheaemmafett/10-things-i-wish-i-d-known-about-gaslighting-22234cb5e407)“. Such coercion contributes to [school-induced anxiety](https://stimpunks.org/glossary/school-induced-anxiety/).
-  
+
+## Signatories
+
+The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
+
+- [Stimpunks Foundation](https://stimpunks.org/)
+- [Autistic Realms](https://www.autisticrealms.com)
+
+[Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
+
 Version: 1.0  
 License: [“Positive Greetings at the Door Why Sheet”](https://stimpunks.org/why/positive-greetings-at-the-door/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)

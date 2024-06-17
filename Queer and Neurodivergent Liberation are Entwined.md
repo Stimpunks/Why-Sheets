@@ -7,6 +7,7 @@
 - [ABA and Conversion Therapy](#aba-and-conversion-therapy)
 - [Our Liberation is Entwined](#our-liberation-is-entwined)
 - [Our Dual Identities Are Not Competing](#our-dual-identities-are-not-competing)
+- [Signatories](#signatories)
 
 ## Double Rainbows
 
@@ -65,8 +66,19 @@
 - Autistic people know what they want and need. They are the ones who know best about their identities and how to ensure that their bodies line up with what is in their minds.[^41]
 - Why doesn’t presumption of competence get applied to gender as well?[^42]
 
-Version: 0.2  
+## Signatories
+
+The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
+
+- [Stimpunks Foundation](https://stimpunks.org/)
+- [Autistic Realms](https://www.autisticrealms.com)
+
+[Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
+
+Version: 0.9  
 License: [“Queer and Neurodivergent Liberation are Entwined Why Sheet”](https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+
+## References
 
 [^1]:	[Largest study to date confirms overlap between autism and gender diversity](https://www.spectrumnews.org/news/largest-study-to-date-confirms-overlap-between-autism-and-gender-diversity/)
 

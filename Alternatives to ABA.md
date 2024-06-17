@@ -10,6 +10,7 @@ Here’s what to do instead.
 - [Instead of ABA](#instead-of-aba)
 - [Resources](#resources)
 - [Don’t take away your child’s voice; take away their suffering.](#dont-take-away-your-childs-voice-take-away-their-suffering)
+- [Signatories](#signatories)
 
 ## Back Off
 
@@ -126,5 +127,14 @@ Next, use these tools instead:
 >  
 > [Why caregivers discontinue applied behavior analysis (ABA) and choose communication-based autism interventions | Emerald Insight](https://www.emerald.com/insight/content/doi/10.1108/AIA-02-2019-0004/full/html)
 
-Version: 0.1  
+## Signatories
+
+The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
+
+- [Stimpunks Foundation](https://stimpunks.org/)
+- [Autistic Realms](https://www.autisticrealms.com)
+
+[Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
+
+Version: 0.5  
 License: “[Alternative to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)

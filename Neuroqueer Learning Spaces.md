@@ -10,6 +10,13 @@ We need to deconstruct, dismantle and un-learn as part of the neuroqueering proc
 > 
 > [Walker, Nick. Neuroqueer Heresies: Notes on the Neurodiversity Paradigm, Autistic Empowerment, and Postnormal Possibilities (pp. 17-18). Autonomous Press.](https://neuroqueer.com/neuroqueer-heresies/)
 
+## Table of Contents
+
+- [Definitions](#definitions)
+- [Considerations](#definitions)
+- [Embodiment and Radical Inclusivity](#embodiment-and-radical-inclusivity)
+- [Signatories](#signatories)
+
 ## Definitions
 
 **neuronormativity** = a set of norms, standards, expectations and ideals that centre a particular way of functioning as the right way to function.
@@ -55,5 +62,14 @@ We are exploring the idea of an embodied education. We are exploring how learnin
 
 Learn more in our manifesto: [Neuroqueer Learning Spaces Manifesto](https://stimpunks.org/projects/neuroqueer-learning-spaces/manifesto/)
 
-Version: 1.0  
+## Signatories
+
+The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/).
+
+- [Stimpunks Foundation](https://stimpunks.org/)
+- [Autistic Realms](https://www.autisticrealms.com)
+
+[Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)
+
+Version: 1.2  
 License: [Neuroqueer Learning Spaces Why Sheet](https://stimpunks.org/why/neuroqueer-learning-spaces/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
