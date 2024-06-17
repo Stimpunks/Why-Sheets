@@ -45,5 +45,5 @@ The following individuals, organizations, and communities endorse this [Why Shee
 This why sheet is free to download, modify, and share.
 
 Version: 1.0  
-License: [“Positive Greetings at the Door Why Sheet”](https://stimpunks.org/why/positive-greetings-at-the-door/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+License: [“Positive Greetings at the Door Why Sheet”](https://stimpunks.org/why/positive-greetings-at-the-door/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Positive%20Greetings%20at%20the%20Door.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Positive%20Greetings%20at%20the%20Door.md)

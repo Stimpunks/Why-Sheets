@@ -78,7 +78,7 @@ The following individuals, organizations, and communities endorse this [Why Shee
 This why sheet is free to download, modify, and share.
 
 Version: 0.9  
-License: [“Queer and Neurodivergent Liberation are Entwined Why Sheet”](https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+License: [“Queer and Neurodivergent Liberation are Entwined Why Sheet”](https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Queer%20and%20Neurodivergent%20Liberation%20are%20Entwined.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Queer%20and%20Neurodivergent%20Liberation%20are%20Entwined.md)
 
 ## References

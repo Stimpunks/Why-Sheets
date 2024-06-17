@@ -62,5 +62,5 @@ The following individuals, organizations, and communities endorse this [Why Shee
 This why sheet is free to download, modify, and share.
 
 Version: 1.0  
-License: [Hoodie Why Sheet](https://stimpunks.org/why/hoodie/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)
+License: [Hoodie Why Sheet](https://stimpunks.org/why/hoodie/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Hoodie.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Hoodie.md)
