@@ -28,7 +28,7 @@ Here’s what to do instead.
 
 > Pretty much everything an autistic child does, says, doesn’t do or doesn’t say is pathologised and made into a way to invent a ‘therapy’ for it.
 > 
-> **It’s actually \_hell\_ to experience.**
+> **It’s actually _hell_ to experience.**
 > 
 > We should **stop doing this and start learning about autism**.
 > 
