@@ -205,6 +205,6 @@ Version: 1.3
 License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md)
 
-[Download US Letter PDF](https://stimpunks.org/wp-content/uploads/2024/06/Behaviorism-US-Letter.pdf)
-[Download A4 PDF](https://stimpunks.org/wp-content/uploads/2024/06/Behaviorism-A4.pdf)
-[Download docx](https://stimpunks.org/wp-content/uploads/2024/06/Behaviorism.docx)
+- [Download US Letter PDF](https://stimpunks.org/wp-content/uploads/2024/06/Behaviorism-US-Letter.pdf)
+- [Download A4 PDF](https://stimpunks.org/wp-content/uploads/2024/06/Behaviorism-A4.pdf)
+- [Download docx](https://stimpunks.org/wp-content/uploads/2024/06/Behaviorism.docx)
