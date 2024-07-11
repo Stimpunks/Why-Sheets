@@ -1,6 +1,10 @@
 # Behaviorism
 
-[Behaviorist](https://stimpunks.org/glossary/behaviorism/) education is [ableist](https://stimpunks.org/glossary/ableism/) education.
+> Behaviorism is a dehumanizing mechanism of learning that reduces human beings to simple inputs and outputs. There is an [ever-growing body of research](https://www.humanrestorationproject.org/writing/empty-pedagogy-behaviorism-and-the-rejection-of-equity) suggesting that behaviorism is not only harmful to how we learn, but is also oppressive, ableist, and racist.
+> 
+> [More Human Than a Ladder or Pyramid: Psychology, Behaviorism, and Better Schools | Human Restoration Project | Chris McNutt](https://www.humanrestorationproject.org/writing/more-human-than-a-ladder-or-pyramid-psychology-behaviorism-and-better-schools)
+
+Behaviorism is [ableist](https://stimpunks.org/glossary/ableism/).
 
 Here's why:
 
@@ -197,6 +201,6 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 This why sheet is free to download, modify, and share.
 
-Version: 1.2  
+Version: 1.3  
 License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md)
