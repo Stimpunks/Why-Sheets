@@ -28,6 +28,7 @@ Here's why:
 - [The more our attention is fixed on the surface, the more we slight students’ underlying motives, values, and needs.](https://www.alfiekohn.org/article/behavior/)
 - [Behaviors are just the protruding tip of the proverbial iceberg. What matters more than “What?” or “How much?” is “How come?”](https://www.alfiekohn.org/article/behavior/)
 - [Behaviorists ignore, or actively dismiss, subjective experience – the perceptions, needs, values, and complex motives of the human beings who engage in behaviors.](https://www.alfiekohn.org/blogs/autism/)
+- [Behaviourism is a reduction of dimensions which creates an illusion of scientific worth by focussing only on what we can ‘know for sure’.](https://monotropism.org/dinah/dimensions-of-difference/)
 - [Ultimately behaviorism provides a simplistic lens that can’t see beyond itself.](https://neuroclastic.com/2020/10/14/behaviorism-is-dead-how-do-we-tell-the-autism-parents/)
 - [Why is the doctrine of behaviorism still being used, at all?](https://neuroclastic.com/2020/10/14/behaviorism-is-dead-how-do-we-tell-the-autism-parents/)
 - [Behaviorism is a repudiation, an almost willful dismissal, of subjective experience.](https://www.youtube.com/watch?v=7MJbqkzDTdg&embeds_referring_euri=https%3A%2F%2Fstimpunks.org%2F&source_ve_path=Mjg2NjY&feature=emb_logo)
