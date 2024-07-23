@@ -18,6 +18,8 @@ Here’s what to do instead.
 	- [Autistic SPACE: A Novel Framework for Meeting the Needs of Autistic People](#autistic-space-a-novel-framework-for-meeting-the-needs-of-autistic-people)
 	- [NEST (NEurodivergent peer Support Toolkit)](#nest-neurodivergent-peer-support-toolkit)
 	- [The Eight Dimensions of Care](#the-eight-dimensions-of-care)
+	- [Good Autism Practice](#good-autism-practice)
+	- [It’s Not Rocket Science: 10 Steps to Creating a Neurodiverse Inclusive Environment](#its-not-rocket-science-10-steps-to-creating-a-neurodiverse-inclusive-environment)
 - [Resources](#resources)
 - [Don’t take away your child’s voice; take away their suffering.](#dont-take-away-your-childs-voice-take-away-their-suffering)
 - [Signatories](#signatories)
@@ -185,6 +187,40 @@ Source: [NEST (NEurodivergent peer Support Toolkit)](https://salvesen-research.e
 
 Source: [An Experience Sensitive Approach to Care With and for Autistic Children and Young People in Clinical Services](https://journals.sagepub.com/doi/10.1177/00221678241232442)
 
+### Good Autism Practice
+
+- Understanding the Individual
+	- Principle One: Understanding the strengths, interests, and needs of each autistic child.
+	- Principle Two: Enabling the autistic child to contribute to and influence decisions.
+- Positive and Effective Relationships
+	- Principle Three: Collaboration with parents/carers and other professionals and services.
+	- Principle Four: Workforce development related to good autism practice.
+- Enabling Environments
+	- Principle Five: Leadership and management that promotes and embeds good autism practice.
+	- Principle Six: An ethos and environment that fosters social inclusion for autistic children.
+- Learning and Development
+	- Principle Seven: Targeted support and measuring the progress of autistic children.
+	- Principle Eight: Adapting the curriculum, teaching, and learning to promote wellbeing and success for autistic children.
+
+Source: [Good Autism Practice Guidance | Autism Education Trust](https://www.autismeducationtrust.org.uk/resources/good-autism-practice-guidance)
+
+### It’s Not Rocket Science: 10 Steps to Creating a Neurodiverse Inclusive Environment
+
+- **Adapt the Environment**
+	1. **The sensory environment** - Does the individual have a place to work where they feel comfortable? Are the ambient sounds, smells, and visuals tolerable? Is the lighting suitable? What about uncomfortable tactile stimuli? Has room layout been considered? Can ear defenders, computer screen filters or room dividers be used to create a more comfortable work environment? Do people working with them have information about what might be a problem – e.g. strong perfume – and do they understand why this matters?
+	2. **The timely environment** - Has appropriate time been allowed for tasks? Allowing time to reflect upon tasks and address them accordingly will maximise success. Are time scales realistic? Have they been discussed? Are there explicit procedures if tasks are finished early or require additional time? Are requests to do things quickly kept to a minimum with the option to opt out of having to respond rapidly?
+	3. **The explicit environment** - Is everything required made explicit? Are some tasks based upon implicit understanding which draw upon social norms or typical expectations? Is it clear which tasks should be prioritised over others? Avoid being patronising but checking that everything has been made explicit will reduce confusion later. Is there an explicit procedure for asking questions should they arise (e.g. a named person (a mentor) to ask in the first instance)?
+	4. **The predictable environment** - How predictable is the environment? Is it possible to maximise predictability? Uncertainty can be anxiety provoking and a predictable environment can help in reducing this and enable greater task focus. Can regular meetings be set up? Is it possible that meetings may have to be cancelled in the future? Are procedures clear for when expected events (such as meetings) are cancelled, with a rationale for any alterations? Can resources and materials be sent in advance?
+	5. **The social environment** - Are procedures clear for when expected events (such as meetings) are cancelled, with a rationale for any alterations? Can resources and materials be sent in advance?
+- **Support the Individual**
+	1. **Disclosing diagnosis** - Is the individual willing to disclose their diagnosis to colleagues, and if so, how would they like to manage this? Would people who work with the individual benefit from training, or an opportunity to ask questions? If so, can a trusted, independent person be brought in to orchestrate an open and friendly discussion? If the individual does disclose to their colleagues, are they also willing for those colleagues to share the information more widely, or is this privileged information? Using autism as an example, - if and when autism comes up in conversation, what language does the person prefer? (e.g., autistic person, Aspie, autistic, person with autism).
+	2. **Project management** - Does the person experience difficulties with planning, flexibility, sustained attention or inertia? What exacerbates these difficulties and how can they be minimised? Are there digital tools (e.g. time management apps, shared calendars) which can provide extra structure to the project? Is the individual's preferred planning system non-linear (e.g. mind maps, sketch notes) or linear (e.g. gantt chart, "to do" list) and can this be accommodated? Does the person prefer to be immersed in a specific topic or task, or to have a selection of different tasks / intermediate deadlines – and can this preference be built into the project work plan?
+	3. **Communication styles** - Does the person prefer literal, specific language? And if so, can their line manager / supervisor and colleagues be reminded to use this? Does the person prefer written communication, or face-to- face? Is Skype easier than a phone call? Should colleagues be reminded to explain why they are offering a particular comment or piece of advice, as well as offering the comment? Does their line manager / supervisor / colleagues cultivate an atmosphere that enables them to ask for help if needed?
+	4. **Well-being and work-life balance** - Is the individual sleeping and eating well? Are meetings scheduled at times that suit their personal routine? Can they work from home or have more flexible working hours and breaks? Is the person known to relevant services including disability support or HR? Are they registered with a GP? Do they require disability leave to receive treatment or therapeutic support? Do they need support or advice from external services like Access to Work?
+	5. **Trouble-shooting** - Have you talked to the individual to discuss what is working well and what isn't? Are there coping strategies that they use in other settings that could be used or adapted here? Could tasks falling within the job role or course be altered? Or could work be shared between workers so each can play to their strengths? Work together to come up with new solutions to difficulties that haven't been solved, and address new difficulties should they arise.
+
+Source: [“IT’S NOT ROCKET SCIENCE”](https://www.ndti.org.uk/resources/publication/its-not-rocket-science)
+
 ## Resources
 
 - [Neurodiversity Affirming Practice | Autism Barriers to Education](https://www.barrierstoeducation.co.uk/nd-affirming)
@@ -230,6 +266,6 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 This why sheet is free to download, modify, and share.
 
-Version: 0.9  
+Version: 1.0  
 License: “[Alternative to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md)
