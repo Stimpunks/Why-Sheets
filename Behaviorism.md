@@ -199,6 +199,23 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - [Jennifer Abbanat, Crow’s Nest Advocacy & Consulting](https://www.crowsnestadvocacy.com)
 - [Katy Elphinstone](https://www.neurofabulous.org.uk)
 - [Carrie Warren - Best life therapy](https://bestlife-therapy.co.uk)
+- Jen Summers
+- [bee austin, BEE- Neurodivergent Buzz](https://www.facebook.com/bee.neurodivergentbuzz/)
+- Dr Louise Lomas
+- [John Pendal](https://www.johnpendal.com/)
+- [Laura Hellfeld](https://laurahellfeld.co.uk)
+- Lisa Bowen
+- [Zoey Read](https://Againstrestraint.com)
+- [International Coalition Against Restraint and Seclusion (ICARS)](https://againstrestraint.com)
+- [Chris McNutt](https://www.humanrestorationproject.org)
+- [Human Restoration Project](https://www.humanrestorationproject.org)
+- [Nick Covington](https://www.humanrestorationproject.org)
+- [Neuropride Ireland](https://www.neuropride.ie)
+- [Sam Farmer](https://www.samfarmerauthor.com)
+- [Julia Lee Barclay-Morton, PhD](https://TheUnadaptedOnes.com)
+- Geoffrey Hume-Cook
+- Kara James
+- Colin Stanworth
 
 ## License
 
