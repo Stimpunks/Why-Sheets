@@ -83,6 +83,7 @@ Here's why:
 - [ABA violates autonomy by coercively modifying children’s patterns of behavior to be misaligned with their preferences, passions, and pursuits. Such superficial change is a pervasive form of interference that compromises children’s present and future autonomy.](https://muse.jhu.edu/article/753840)
 - [Pretty much everything an autistic child does, says, doesn’t do or doesn’t say is pathologised and made into a way to invent a ‘therapy’ for it. It’s actually hell to experience.](https://twitter.com/annmemmott/status/1015968112674574336?s=12)
 - [Our non-compliance is not intended to be rebellious. We simply do not comply with things that harm us. But since a great number of things that harm us are not harmful to most neurotypicals, we are viewed as untamed and in need of straightening up.](http://www.thinkingautismguide.com/2018/04/on-hans-asperger-nazis-and-autism.html?m=1)
+- [Many autistic persons who have participated in ABA anecdotally reported feelings of belittlement, expressed the loss of behavioural autonomy, recalled external pressure to “not be themselves”, and viewed reward or consequence systems as a form of control.](https://www.sciencedirect.com/science/article/abs/pii/S1750946724001338)
 
 ## Autistic adults loathe ABA.
 
@@ -144,6 +145,7 @@ For alternatives to ABA and behaviorism, visit the “[Alternatives to ABA Why S
 - [Noam Chomsky on Behaviorism](https://www.youtube.com/watch?v=OrQ0LfqxABM)
 - [The Case Against B.F. Skinner](https://chomsky.info/19711230/)
 - [Full article: How much compliance is too much compliance: Is long-term ABA therapy abuse?](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
+- [Identifying the functions of restricted and repetitive behaviours and interests in Autism: A scoping review. - ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S1750946724001338)
 
 ## Signatories
 
