@@ -261,6 +261,23 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 - [Stimpunks Foundation](https://stimpunks.org/)
 - [Autistic Realms](https://www.autisticrealms.com)
+- Jen Summers
+- [bee austin, BEE- Neurodivergent Buzz](https://www.facebook.com/bee.neurodivergentbuzz/)
+- Dr Louise Lomas
+- [Laura Hellfeld](https://laurahellfeld.co.uk)
+- Lisa Bowen
+- [Zoey Read](https://Againstrestraint.com)
+- [International Coalition Against Restraint and Seclusion (ICARS)](https://againstrestraint.com)
+- Riina Vallin
+- [Chris McNutt](https://www.humanrestorationproject.org)
+- [Human Restoration Project](https://www.humanrestorationproject.org)
+- [Nick Covington](https://www.humanrestorationproject.org)
+- [Neuropride Ireland](https://www.neuropride.ie)
+- [Sam Farmer](https://www.samfarmerauthor.com)
+- [Julia Lee Barclay-Morton, PhD](https://TheUnadaptedOnes.com)
+- Geoffrey Hume-Cook
+- [Kara James](https://www.playcreative.com.au)
+- Colin Stanworth
 
 ## License
 
