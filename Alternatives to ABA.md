@@ -20,6 +20,8 @@ Here’s what to do instead.
 	- [The Eight Dimensions of Care](#the-eight-dimensions-of-care)
 	- [Good Autism Practice](#good-autism-practice)
 	- [It’s Not Rocket Science: 10 Steps to Creating a Neurodiverse Inclusive Environment](#its-not-rocket-science-10-steps-to-creating-a-neurodiverse-inclusive-environment)
+	- [12 Core Commitments to a Culture of Care](#12-core-commitments-to-a-culture-of-care)
+	- [Seven Principles for Valuing, Prioritising and Enabling Autistic Children’s Autonomy](#seven-principles-for-valuing-prioritising-and-enabling-autistic-childrens-autonomy)
 - [Resources](#resources)
 - [Don’t take away your child’s voice; take away their suffering.](#dont-take-away-your-childs-voice-take-away-their-suffering)
 - [Signatories](#signatories)
@@ -221,6 +223,35 @@ Source: [Good Autism Practice Guidance | Autism Education Trust](https://www.aut
 
 Source: [“IT’S NOT ROCKET SCIENCE”](https://www.ndti.org.uk/resources/publication/its-not-rocket-science)
 
+### 12 Core Commitments to a Culture of Care
+
+1. **lived experience**: We value lived experience, including in paid roles, at all levels – design, delivery, governance and oversight
+2. **safety**: People on our wards feel safe and cared for
+3. **relationships**: High-quality, rights-based care starts with trusting relationships and the understanding that connecting with people is how we help everyone feel safe
+4. **staff support**: We support all staff so that they can be present alongside people in their distress.
+5. **equality**: We are inclusive and value difference; we take action to promote equity in access, treatment and outcomes
+6. **avoiding harm**: We actively seek to avoid harm and traumatisation, and acknowledge harm when it occurs
+7. **needs led**: We respect people’s own understanding of their distress
+8. **choice**: Nothing about me without me – we support the fundamental right for patients and (as appropriate) their support network to be engaged in all aspects of their care
+9. **environment**: Our inpatient spaces reflect the value we place on our people
+10. **things to do on the ward**: We have a wide range of patient requested activities every day
+11. **therapeutic support**: We offer people a range of therapy and support that gives them hope things can get better
+12. **transparency**: We have open and honest conversations with patients and each other, and name the difficult things
+
+Source: [NHS England » Culture of care standards for mental health inpatient services](https://www.england.nhs.uk/long-read/culture-of-care-standards-for-mental-health-inpatient-services/)
+
+### Seven Principles for Valuing, Prioritising and Enabling Autistic Children’s Autonomy
+
+1. Give an ‘out’ whenever possible.
+2. Don’t offer choice when there isn’t any.
+3. Praise and acknowledge assertion of need- regardless of outcome.
+4. Focus on enabling children to have control of their bodily and sensory experience.
+5. Explain your ‘no’s, don’t expect children to accept and comply ‘just because’.
+6. Share your own processes.
+7. Create spaces where children can follow their instincts and interests.
+
+Source: [“Shut your face!”; Prioritising, Valuing and Enabling Autistic Children’s Autonomy. – Play Radical](https://playradical.com/2024/02/08/shut-your-face-prioritising-valuing-and-enabling-autistic-childrens-autonomy/)
+
 ## Resources
 
 - [Neurodiversity Affirming Practice | Autism Barriers to Education](https://www.barrierstoeducation.co.uk/nd-affirming)
@@ -240,6 +271,11 @@ Source: [“IT’S NOT ROCKET SCIENCE”](https://www.ndti.org.uk/resources/publ
 - [If Not ABA Therapy, Then What?](https://thinkingautismguide.com/2017/04/if-not-aba-therapy-then-what.html)
 - [High School Anti-Behaviourism Behaviour Management Policy - Stimpunks Foundation](https://stimpunks.org/2024/01/02/high-school-anti-behaviourism-behaviour-management-policy/)
 - [Alternatives To Behaviour Therapies | Jillian Enright | neurodiversified](https://medium.com/neurodiversified/alternatives-to-behaviour-therapies-547b917a1202)
+- [An Experience Sensitive Approach to Care With and for Autistic Children and Young People in Clinical Services](https://journals.sagepub.com/doi/10.1177/00221678241232442)
+- [“IT’S NOT ROCKET SCIENCE”](https://www.ndti.org.uk/resources/publication/its-not-rocket-science)
+- [Good Autism Practice Guidance | Autism Education Trust](https://www.autismeducationtrust.org.uk/resources/good-autism-practice-guidance)
+- [NHS England » Culture of care standards for mental health inpatient services](https://www.england.nhs.uk/long-read/culture-of-care-standards-for-mental-health-inpatient-services/)
+- [“Shut your face!”; Prioritising, Valuing and Enabling Autistic Children’s Autonomy. – Play Radical](https://playradical.com/2024/02/08/shut-your-face-prioritising-valuing-and-enabling-autistic-childrens-autonomy/)
 
 ## Don’t take away your child’s voice; take away their suffering.
 
