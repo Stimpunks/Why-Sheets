@@ -36,6 +36,7 @@ Here's why:
 - [How can ABA be the gold-standard for autism when it ignores everything we know about autism?](https://neuroclastic.com/2020/10/14/behaviorism-is-dead-how-do-we-tell-the-autism-parents/)
 - [The focus on surface behavior, without seeming to understand or be concerned about the complexity, or even the simple dichotomy of volitional versus autonomic (stress response) and the use of outdated, compliance based, animal based behaviorism (which has no record of long term benefits) continues to fail our country’s students.](https://endseclusion.org/articles/the-problem-with-behaviorism/)
 - [Radical Behaviourism is broadly seen by psychology professionals as a simplistic and restrictive theory which is useful in certain situations but cannot sum up the entirety of the human experience. It doesn’t even satisfactorily answer some questions about behaviours seen in animals.](https://neuroclastic.com/is-aba-really-dog-training-for-children-a-professional-dog-trainer-weighs-in/?__twitter_impression=true&fbclid=IwAR3E6kZQHA7IJtpN279-WEhfM2FegGynTGgiKm-QLFM4DlBeseoh9egos0Q&amp)
+- [Findings did not reveal compelling evidence that ABA is an approach that improves the quality of life or wellbeing of autistic people.](https://yorkspace.library.yorku.ca/items/ec20e1ed-593c-4c71-82b8-0dc6cf4b637a)
 - [It’s been refuted so overwhelmingly.](https://www.youtube.com/watch?v=OrQ0LfqxABM)
 
 ## The primary legacy of ABA is trauma.
@@ -146,6 +147,7 @@ For alternatives to ABA and behaviorism, visit the “[Alternatives to ABA Why S
 - [The Case Against B.F. Skinner](https://chomsky.info/19711230/)
 - [Full article: How much compliance is too much compliance: Is long-term ABA therapy abuse?](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
 - [Identifying the functions of restricted and repetitive behaviours and interests in Autism: A scoping review. - ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S1750946724001338)
+- [Applied Behaviour Analysis (ABA): A Transformative Mixed Methods Analysis of Experiences and Perspectives from Autistic People, Parents, and ABA Providers](https://yorkspace.library.yorku.ca/items/ec20e1ed-593c-4c71-82b8-0dc6cf4b637a)
 
 ## Signatories
 
@@ -216,11 +218,19 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - Geoffrey Hume-Cook
 - Kara James
 - Colin Stanworth
+- Tara J. Marshall
+- [Julie M. Austen, Licensed Psychologist, Austen Psychological Services](https://www.austenpsychologicalservices.com)
+- [Kirsty McKenzie](https://www.adhd-coach.nz)
+- [bee austin](https://www.facebook.com/GRANN)
+- [Shifting the Narrative on Everything Autism Podcast](https://shiftingournarrative.podbean.com/)
+- [Bex Milgate](https://www.bexmilgatetherapy.com)
+- Emma Whittaker
+- Aaron Roldan
 
 ## License
 
 This why sheet is free to download, modify, and share.
 
-Version: 1.4  
+Version: 1.5  
 License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md)
