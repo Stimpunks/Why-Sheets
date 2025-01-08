@@ -325,6 +325,6 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 This why sheet is free to download, modify, and share.
 
-Version: 1.1  
+Version: 1.2  
 License: “[Alternatives to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md)
