@@ -216,7 +216,7 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - [Sam Farmer](https://www.samfarmerauthor.com)
 - [Julia Lee Barclay-Morton, PhD](https://TheUnadaptedOnes.com)
 - Geoffrey Hume-Cook
-- Kara James
+- [Kara James](https://www.playcreative.com.au)
 - Colin Stanworth
 - Tara J. Marshall
 - [Julie M. Austen, Licensed Psychologist, Austen Psychological Services](https://www.austenpsychologicalservices.com)
@@ -226,6 +226,12 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - [Bex Milgate](https://www.bexmilgatetherapy.com)
 - Emma Whittaker
 - Aaron Roldan
+- Diane Jaques
+- [Trisha Thompson](https://www.instagram.com/intentionalteachingsolutions/)
+- [James Rice](https://@james-rice.bsky.social)
+- [Angela Kingdon, The Autistic Culture Podcast](https://www.AutisticCulturePodcast.com)
+- [Neurodivergent Infinity Network of Educators](https://tinyurl.com/NINEsite)
+- Emily Marcus
 
 ## License
 

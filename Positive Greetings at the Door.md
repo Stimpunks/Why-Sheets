@@ -39,6 +39,31 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 - [Stimpunks Foundation](https://stimpunks.org/)
 - [Autistic Realms](https://www.autisticrealms.com)
+- Luis Robertson
+- [Neurodiverse Journeys](https://www.neurodiversejourneys.com)
+- [Katy Elphinstone](https://www.neurofabulous.org.uk)
+- Jen Summers
+- [bee austin, BEE- Neurodivergent Buzz](https://www.facebook.com/bee.neurodivergentbuzz/)
+- Dr Louise Lomas
+- [Laura Hellfeld](https://laurahellfeld.co.uk)
+- Lisa Bowen
+- [Chris McNutt](https://www.humanrestorationproject.org)
+- [Human Restoration Project](https://www.humanrestorationproject.org)
+- [Nick Covington](https://www.humanrestorationproject.org)
+- [Julia Lee Barclay-Morton, PhD](https://TheUnadaptedOnes.com)
+- Geoffrey Hume-Cook
+- [Kara James](https://www.playcreative.com.au)
+- [Julie M. Austen, Licensed Psychologist, Austen Psychological Services](https://www.austenpsychologicalservices.com)
+- [Kirsty McKenzie](https://www.adhd-coach.nz)
+- [bee austin](https://www.facebook.com/GRANN)
+- [Shifting the Narrative on Everything Autism Podcast](https://shiftingournarrative.podbean.com/)
+- [Bex Milgate](https://www.bexmilgatetherapy.com)
+- Emma Whittaker
+- Aaron Roldan
+- [Trisha Thompson](https://www.instagram.com/intentionalteachingsolutions/)
+- [Angela Kingdon, The Autistic Culture Podcast](https://www.AutisticCulturePodcast.com)
+- [Neurodivergent Infinity Network of Educators](https://tinyurl.com/NINEsite)
+- Emily Marcus
 
 ## License
 

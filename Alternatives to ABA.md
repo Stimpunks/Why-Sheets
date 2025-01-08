@@ -314,6 +314,12 @@ The following individuals, organizations, and communities endorse this [Why Shee
 - Geoffrey Hume-Cook
 - [Kara James](https://www.playcreative.com.au)
 - Colin Stanworth
+- [Trisha Thompson](https://www.instagram.com/intentionalteachingsolutions/)
+- [Yeshes.Online](https://Yeshes.Online)
+- [James Rice](https://@james-rice.bsky.social)
+- [Angela Kingdon, The Autistic Culture Podcast](https://www.AutisticCulturePodcast.com)
+- [Neurodivergent Infinity Network of Educators](https://tinyurl.com/NINEsite)
+- Emily Marcus
 
 ## License
 
