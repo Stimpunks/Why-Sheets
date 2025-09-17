@@ -22,6 +22,7 @@ Here’s what to do instead.
 	- [It’s Not Rocket Science: 10 Steps to Creating a Neurodiverse Inclusive Environment](#its-not-rocket-science-10-steps-to-creating-a-neurodiverse-inclusive-environment)
 	- [12 Core Commitments to a Culture of Care](#12-core-commitments-to-a-culture-of-care)
 	- [Seven Principles for Valuing, Prioritising and Enabling Autistic Children’s Autonomy](#seven-principles-for-valuing-prioritising-and-enabling-autistic-childrens-autonomy)
+	- [SPACE-TIME](#space-time)
 - [Resources](#resources)
 - [Don’t take away your child’s voice; take away their suffering.](#dont-take-away-your-childs-voice-take-away-their-suffering)
 - [Signatories](#signatories)
@@ -252,6 +253,37 @@ Source: [NHS England » Culture of care standards for mental health inpatient se
 
 Source: [“Shut your face!”; Prioritising, Valuing and Enabling Autistic Children’s Autonomy. – Play Radical](https://playradical.com/2024/02/08/shut-your-face-prioritising-valuing-and-enabling-autistic-childrens-autonomy/)
 
+### SPACE-TIME
+
+We took a couple of our favorite studies from above and blended them into a concept, SPACE-TIME, that resonates with the lives and experiences of our community of neurodivergent and disabled people. SPACE-TIME is a strong neuroaffirming framework to guide more humanising care. 
+
+SPACE:
+
+- Sensory
+- Predictability
+- Acceptance
+- Communication
+- Empathy 
+
+TIME:
+
+- Togetherness
+- Insiderness & Personal Journey
+- Meaning-Making & Sense of Place
+- Embodiment & Uniqueness
+
+Recent research has built strong neuroaffirming frameworks to guide more humanising care. The Autistic SPACE framework sets out five key areas — **_Sensory, Predictability, Acceptance, Communication, and Empathy_ **— as foundations for safe, inclusive practice in healthcare and education ([Doherty et al., 2023](https://pubmed.ncbi.nlm.nih.gov/37127416/); [McGoldrick et al., 2025](https://journals.sagepub.com/doi/10.1177/27546330251370655)). Alongside this, the eight dimensions of care (based on the work from[ Todres et al., 2009](https://doi.org/10.1080/17482620802646204)) from _An_ _Experience Sensitive Approach to Care With and for Autistic Children and Young People in Clinical Services _highlight the importance of **_Togetherness, Insiderness, Sense-Making,_ Uniqueness, Sense of Place, _Embodiment_, Agency **and validating our **Personal Journey’s** so Autistic people can thrive with dignity and a sense of belonging ([McGreevy et al., 2024](https://journals.sagepub.com/doi/10.1177/00221678241232442#bibr53-00221678241232442])).
+
+Being monotropic shapes how Autistic people sense, focus, and connect.
+
+With **S**ensory attunement, ** P**redictability, ** A**cceptance, ** C**ommunication, and **E**mpathy, Autistic people find grounding and flow.
+
+Through **T**ogetherness, **I**nsiderness, **M**eaning-Making, and **E**mbodiment, we can thrive, belong, and share our unique ways of being.
+
+SPACE**–**TIME helps us reimagine care and create environments where Autistic people can thrive.
+
+Source: [SPACE-TIME: A Monotropism Informed Framework for Autistic People | Autistic Realms](https://autisticrealms.com/space-time-a-monotropism-informed-framework-for-autistic-people/)
+
 ## Resources
 
 - [Neurodiversity Affirming Practice | Autism Barriers to Education](https://www.barrierstoeducation.co.uk/nd-affirming)
@@ -325,6 +357,6 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 This why sheet is free to download, modify, and share.
 
-Version: 1.2  
+Version: 1.3  
 License: “[Alternatives to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md)
