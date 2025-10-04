@@ -23,6 +23,7 @@ Here’s what to do instead.
 	- [12 Core Commitments to a Culture of Care](#12-core-commitments-to-a-culture-of-care)
 	- [Seven Principles for Valuing, Prioritising and Enabling Autistic Children’s Autonomy](#seven-principles-for-valuing-prioritising-and-enabling-autistic-childrens-autonomy)
 	- [SPACE-TIME](#space-time)
+	- [WARMTH Framework](#warmth-framework)
 - [Resources](#resources)
 - [Don’t take away your child’s voice; take away their suffering.](#dont-take-away-your-childs-voice-take-away-their-suffering)
 - [Signatories](#signatories)
@@ -272,7 +273,7 @@ TIME:
 - Meaning-Making & Sense of Place
 - Embodiment & Uniqueness
 
-Recent research has built strong neuroaffirming frameworks to guide more humanising care. The Autistic SPACE framework sets out five key areas — **_Sensory, Predictability, Acceptance, Communication, and Empathy_ **— as foundations for safe, inclusive practice in healthcare and education ([Doherty et al., 2023](https://pubmed.ncbi.nlm.nih.gov/37127416/); [McGoldrick et al., 2025](https://journals.sagepub.com/doi/10.1177/27546330251370655)). Alongside this, the eight dimensions of care (based on the work from[ Todres et al., 2009](https://doi.org/10.1080/17482620802646204)) from _An_ _Experience Sensitive Approach to Care With and for Autistic Children and Young People in Clinical Services _highlight the importance of **_Togetherness, Insiderness, Sense-Making,_ Uniqueness, Sense of Place, _Embodiment_, Agency **and validating our **Personal Journey’s** so Autistic people can thrive with dignity and a sense of belonging ([McGreevy et al., 2024](https://journals.sagepub.com/doi/10.1177/00221678241232442#bibr53-00221678241232442])).
+Recent research has built strong neuroaffirming frameworks to guide more humanising care. The Autistic SPACE framework sets out five key areas — **_Sensory, Predictability, Acceptance, Communication, and Empathy_ **— as foundations for safe, inclusive practice in healthcare and education ([Doherty et al., 2023](https://pubmed.ncbi.nlm.nih.gov/37127416/); [McGoldrick et al., 2025](https://journals.sagepub.com/doi/10.1177/27546330251370655)). Alongside this, the eight dimensions of care (based on the work from[ Todres et al., 2009](https://doi.org/10.1080/17482620802646204)) from _An Experience Sensitive Approach to Care With and for Autistic Children and Young People in Clinical Services_ highlight the importance of **Togetherness, Insiderness, Sense-Making,Uniqueness, Sense of Place, Embodiment, Agency**and validating our **Personal Journey’s** so Autistic people can thrive with dignity and a sense of belonging ([McGreevy et al., 2024](https://journals.sagepub.com/doi/10.1177/00221678241232442#bibr53-00221678241232442])).
 
 Being monotropic shapes how Autistic people sense, focus, and connect.
 
@@ -280,9 +281,24 @@ With **S**ensory attunement, ** P**redictability, ** A**cceptance, ** C**omm
 
 Through **T**ogetherness, **I**nsiderness, **M**eaning-Making, and **E**mbodiment, we can thrive, belong, and share our unique ways of being.
 
-SPACE**–**TIME helps us reimagine care and create environments where Autistic people can thrive.
+SPACE–TIME helps us reimagine care and create environments where Autistic people can thrive.
 
 Source: [SPACE-TIME: A Monotropism Informed Framework for Autistic People | Autistic Realms](https://autisticrealms.com/space-time-a-monotropism-informed-framework-for-autistic-people/)
+
+### WARMTH Framework
+
+> The WARMTH Framework focuses on 6 key areas to enable young people to feel safe, a sense of belonging and for their needs to be met; with increased engagement in learning and school attendance being a byproduct of this. The framework was developed as a result of the consultation and involvement of over 1,500 stakeholders.
+> 
+> [WARMTH Framework - Barriers to Education](https://barrierstoeducation.co.uk/warmth-framework/)
+
+> - Wellbeing First - The understanding that young people are at their best when we prioritise their wellbeing.
+> - Affirming Practice - Practice underpinned by the understanding that everyone is different and that acceptance of difference ensures equity for all. 
+> - Relational Approach - Supporting young people from a foundation of trusting relationships and addressing the underlying reasons behind observable behaviours.
+> - Mutual Understanding and Partnership - Working together in collaboration to achieve the best outcomes for young people.
+> - Timely Response - Identifying and responding to the problems that young people face at the earliest opportunity, providing the right support at the most effective time.
+> - Holistic Support - Exploring and addressing young people’s needs across all facets of their life.
+> 
+> [Holistic Support - Barriers to Education](https://barrierstoeducation.co.uk/warmth-framework/)
 
 ## Resources
 
@@ -357,6 +373,6 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 This why sheet is free to download, modify, and share.
 
-Version: 1.3  
+Version: 1.4  
 License: “[Alternatives to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md)
