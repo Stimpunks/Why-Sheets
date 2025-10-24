@@ -26,6 +26,7 @@ Here’s what to do instead.
 	- [WARMTH Framework](#warmth-framework)
 - [Resources](#resources)
 - [Don’t take away your child’s voice; take away their suffering.](#dont-take-away-your-childs-voice-take-away-their-suffering)
+- [Empathy is the most valuable tool you have.](#empathy-is-the-most-valuable-tool-you-have)
 - [Signatories](#signatories)
 
 ## Back Off
@@ -291,14 +292,14 @@ Source: [SPACE-TIME: A Monotropism Informed Framework for Autistic People | Auti
 > 
 > [WARMTH Framework - Barriers to Education](https://barrierstoeducation.co.uk/warmth-framework/)
 
-> - Wellbeing First - The understanding that young people are at their best when we prioritise their wellbeing.
-> - Affirming Practice - Practice underpinned by the understanding that everyone is different and that acceptance of difference ensures equity for all. 
-> - Relational Approach - Supporting young people from a foundation of trusting relationships and addressing the underlying reasons behind observable behaviours.
-> - Mutual Understanding and Partnership - Working together in collaboration to achieve the best outcomes for young people.
-> - Timely Response - Identifying and responding to the problems that young people face at the earliest opportunity, providing the right support at the most effective time.
-> - Holistic Support - Exploring and addressing young people’s needs across all facets of their life.
-> 
-> [Holistic Support - Barriers to Education](https://barrierstoeducation.co.uk/warmth-framework/)
+- Wellbeing First - The understanding that young people are at their best when we prioritise their wellbeing.
+- Affirming Practice - Practice underpinned by the understanding that everyone is different and that acceptance of difference ensures equity for all. 
+- Relational Approach - Supporting young people from a foundation of trusting relationships and addressing the underlying reasons behind observable behaviours.
+- Mutual Understanding and Partnership - Working together in collaboration to achieve the best outcomes for young people.
+- Timely Response - Identifying and responding to the problems that young people face at the earliest opportunity, providing the right support at the most effective time.
+- Holistic Support - Exploring and addressing young people’s needs across all facets of their life.
+
+Source: [Holistic Support - Barriers to Education](https://barrierstoeducation.co.uk/warmth-framework/)
 
 ## Resources
 
@@ -337,6 +338,16 @@ Source: [SPACE-TIME: A Monotropism Informed Framework for Autistic People | Auti
 >  
 > [Why caregivers discontinue applied behavior analysis (ABA) and choose communication-based autism interventions | Emerald Insight](https://www.emerald.com/insight/content/doi/10.1108/AIA-02-2019-0004/full/html)
 
+## Empathy is the most valuable tool you have.
+
+> Reflect deeply. Work collaboratively. Listen with curiosity and compassion
+> 
+> **Empathy is the most valuable tool you have, as professionals.**
+> 
+> **Please consider using it before you reach for anything else.**
+> 
+> [ Ann Memmott, Post | LinkedIn](https://www.linkedin.com/posts/ann-memmott-3a93127_theyre-so-unreasonable-to-ask-me-to-do-activity-7386724662732558336-xw0L/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACJSp0BTxb-BFkHrFsPEoJRWLck0kqgT0E)
+
 For more on the problems with ABA and behaviorism, visit the “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)”.
 
 ## Signatories
@@ -373,6 +384,6 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 This why sheet is free to download, modify, and share.
 
-Version: 1.4  
+Version: 1.5  
 License: “[Alternatives to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md)
