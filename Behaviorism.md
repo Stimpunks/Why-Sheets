@@ -59,6 +59,8 @@ Here's why:
 - [Any reasonable observer cannot confidently deny that ABA is negatively affecting the autistic population.](https://fortune.com/2022/05/13/autistic-community-reckoning-aba-therapy-rights-autism-insurance-private-equity-ariana-cernius/)
 - [Compliance, learned helplessness, food/reward-obsessed, magnified vulnerabilities to sexual and physical abuse, low self-esteem, decreased intrinsic motivation, robbed confidence, inhibited interpersonal skills, isolation, anxiety, suppressed autonomy, prompt dependency, adult reliance, etc., continue to be created in a marginalized population who are unable to defend themselves.](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
 - [These children are the population that was chosen to be the subjects of an experimentally intense, lifelong treatment within a therapy where most practitioners are ignorant regarding the Autistic brain—categorically, this cannot be called anything except abuse.](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
+- [Applied behavior analysis receipt was associated with 30% higher odds of experiencing a mental health hospitalization.](https://journals.sagepub.com/doi/10.1177/13623613251390604)
+- [ABA therapy was associated with a greater use of acute mental health services; autistic youth in the ABA group had an overall risk that was 30% higher for mental health hospitalizations; and a 32% greater frequency of mental health hospitalizations.](https://journals.sagepub.com/doi/10.1177/13623613251390604)
 
 ## ABA violates the fundamental tenets of bioethics.
 
@@ -148,6 +150,7 @@ For alternatives to ABA and behaviorism, visit the “[Alternatives to ABA Why S
 - [Full article: How much compliance is too much compliance: Is long-term ABA therapy abuse?](https://www.tandfonline.com/doi/full/10.1080/23311908.2019.1641258)
 - [Identifying the functions of restricted and repetitive behaviours and interests in Autism: A scoping review. - ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S1750946724001338)
 - [Applied Behaviour Analysis (ABA): A Transformative Mixed Methods Analysis of Experiences and Perspectives from Autistic People, Parents, and ABA Providers](https://yorkspace.library.yorku.ca/items/ec20e1ed-593c-4c71-82b8-0dc6cf4b637a)
+- [Mental health outcomes associated with applied behavior analysis in a US national sample of privately insured autistic youth - Nahime G Aguirre Mtanous, Jamie Koenig, Melica Nikahd, Sarah E Effertz, Sal Silinonte, J Madison Hyer, Brittany N Hand, Lauren Bishop, 2025](https://journals.sagepub.com/doi/10.1177/13623613251390604)
 
 ## Signatories
 
@@ -237,6 +240,6 @@ The following individuals, organizations, and communities endorse this [Why Shee
 
 This why sheet is free to download, modify, and share.
 
-Version: 1.6  
+Version: 1.7  
 License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md)
