@@ -40,7 +40,21 @@ This matters because:
 * Change happens through relationship, not isolation
 * Design choices either reduce harm or multiply it
 
+Cavendish Space names the truth we observe in real life: **space shapes people, and people shape space.** This concept exists so we can actually design environments that support difference rather than erase it.
+
 Cavendish Space gives us language for **what’s already happening**.
+
+---
+
+## Sensitivity: Dandelions, Tulips, and Orchids
+
+People differ in how strongly their minds are shaped by environment — and that variation matters for equitable design:
+
+* **Dandelions** tend to be resilient across many conditions.
+* **Tulips** do best in supportive contexts but can cope in moderate ones.
+* **Orchids** are deeply shaped by conditions — they *thrive* in the right environment and *struggle* in harmful ones.
+
+Cavendish Space supports all three profiles by shaping context instead of forcing people to conform to a single norm.
 
 ---
 
@@ -214,6 +228,7 @@ Through **niche construction**, **lily pads**, and places like **caves, campfire
 ## License
 
 This why sheet is free to download, modify, and share.  
-Version: 0.1  
+
+Version: 0.2  
 License: “[Cavendish Space Why Sheet](https://stimpunks.org/why/cavendish-space/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Cavendish%20Space.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Cavendish%20Space.md)
