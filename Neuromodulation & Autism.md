@@ -4,6 +4,8 @@
 
 TMS, tDCS, and other neuromodulation approaches are being marketed to Autistic people and their families. The evidence base is weak. The ethical framework is rooted in the pathology paradigm. Autistic people deserve to know.
 
+---- 
+
 ## Table of Contents
 
 1. [What neuromodulation is — and what it's being sold as](#what-neuromodulation-is--and-what-its-being-sold-as)
@@ -16,6 +18,8 @@ TMS, tDCS, and other neuromodulation approaches are being marketed to Autistic p
 8. [References](#references)
 9. [License](#license)
 
+---- 
+
 ## What neuromodulation is — and what it's being sold as.
 
 -  Neuromodulation uses magnetic or electrical fields to stimulate specific brain regions. TMS (Transcranial Magnetic Stimulation) and tDCS (Transcranial Direct Current Stimulation) are the most common non-invasive forms currently marketed for autism.
@@ -24,6 +28,8 @@ TMS, tDCS, and other neuromodulation approaches are being marketed to Autistic p
 -  The phrase "core autism symptoms" is a red flag. It signals that the treatment is targeting Autistic neurology itself, not a co-occurring condition like depression or epilepsy.
 -  TMS does have an established evidence base — for depression and OCD. Its use specifically for autism is a different and far more contested matter.
 
+---- 
+
 ## The evidence base is weak and inconsistent.
 
 -  "TMS efficacy in ASD exhibits marked heterogeneity, primarily due to the lack of robust scientific theoretical support for existing therapeutic approaches — this severely hinders the standardisation of TMS in ASD clinical practice." [(Journal of Translational Medicine, 2026)](https://link.springer.com/article/10.1186/s12967-026-07754-6)
@@ -31,11 +37,12 @@ TMS, tDCS, and other neuromodulation approaches are being marketed to Autistic p
 -  A 2014 consensus conference — funded in part by Autism Speaks and a TMS manufacturer — concluded that TMS research in autism lacked reliable biomarkers, standardised protocols, or conclusive therapeutic findings. [(Frontiers in Human Neuroscience, 2015)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4295436/)
 -  Studies have reported temporary reductions in some behaviours — but long-term outcomes remain unknown, and some families have reported significant distress when effects reversed after treatment ended.
 -  The studies that do exist use small sample sizes, inconsistent outcome measures, and rarely include the perspectives of Autistic participants themselves.
-
 	  
 > “Development of novel treatment strategies for ASD will require efforts for better clinical characterisation, identification of more homogeneous subgroups, and improved understanding of underlying pathophysiology."
 > 
 > — TMS Therapy for Autism Consensus Conference, 2014
+
+---- 
 
 ## Neuromodulation treats autism as a problem to be fixed.
 
@@ -45,6 +52,8 @@ TMS, tDCS, and other neuromodulation approaches are being marketed to Autistic p
 -  The outcome measures used in TMS research are "strongly focused on the reduction of autism symptoms" — a normalisation agenda that targets things like social behaviour and sensory responses that many Autistic people understand as core parts of who they are. [(Leadbitter et al., 2021)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8075160/)
 -  Many of these target variables — reducing sensory behaviours, imposing neurotypical social patterns — "are incompatible with a balanced view of neurodiversity." [(Leadbitter et al., 2021)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8075160/)
 -  The Autistic Self Advocacy Network is clear: "We shouldn't try to cure or get rid of autism. Autistic people should be allowed to exist." [(ASAN)](https://autisticadvocacy.org/about-asan/what-we-believe/)
+
+---- 
 
 ## Normalisation causes harm.
 
@@ -59,6 +68,8 @@ Note on co-occurring conditions:
 
 This critique applies to neuromodulation when it targets Autistic neurology itself. TMS for depression, OCD, or epilepsy in Autistic people is a different matter — and may be legitimate when it is genuinely treating those co-occurring conditions, rather than Autistic traits. Always ask clearly: what is being targeted, and why?
 
+---- 
+
 ## Consent is complicated — especially for children.
 
 -  Most neuromodulation studies in autism are conducted with children. Children cannot meaningfully consent to treatments that alter how their brain works, especially when the framing is that their neurology is the problem.
@@ -66,6 +77,8 @@ This critique applies to neuromodulation when it targets Autistic neurology itse
 -  When the goal of treatment is to reduce the very traits that define a person's sense of self, the consent framework must ask: whose goals does this serve?
 -  Parents acting in good faith may consent on behalf of their children. But "core autism symptoms" targeted by neuromodulation are often behaviours that are distressing to others — not to the Autistic person themselves.
 -  Clinicians should, to the extent possible, follow the guidance of neurodivergent individuals regarding what they are in a therapeutic space for — and why. This "may stand at odds with the idea of remediation and normalisation which sits at the heart of the medical model." [(Chapman & Botha, 2023)](https://onlinelibrary.wiley.com/doi/10.1111/dmcn.15384)
+
+---- 
 
 ## The research gap itself is a form of epistemic injustice.
 
@@ -77,6 +90,8 @@ There is currently no peer-reviewed paper that directly critiques neuromodulatio
 -  "Autism intervention researchers must respond to these debates by reframing effectiveness, developing tools to measure autistic-prioritised outcomes, and forming partnerships with autistic people." [(Leadbitter et al., 2021)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8075160/)
 -  No neuromodulation study for autism that we are aware of has used Autistic-prioritised outcome measures, or been co-designed with Autistic people.
 -  The fact that a critical neuroaffirming analysis of TMS has not been formally published does not mean the concern is invalid. It means the concern has not yet had the platform it deserves.
+
+---- 
 
 ## Questions to ask any provider offering neuromodulation.
 
@@ -106,6 +121,8 @@ Is this about reducing distress the person experiences — or distress they caus
 
 Does this treatment communicate that this person's neurology is acceptable as it is?
 
+---- 
+
 ## References
 
 1.  Leadbitter, K., Buckle, K. L., Ellis, C., & Dekker, M. (2021). Autistic self-advocacy and the neurodiversity movement: Implications for autism early intervention research and practice. _Frontiers in Psychology, 12_, 635690. [https://doi.org/10.3389/fpsyg.2021.635690](https://doi.org/10.3389/fpsyg.2021.635690)
@@ -119,6 +136,8 @@ Does this treatment communicate that this person's neurology is acceptable as it
 9.  Billington, J., Knott, F., & Craythorne, S.-L. (2025). Toward epistemic justice: Using a multimodal interpretative phenomenological analysis methodological approach in research with Autistic children. [https://doi.org/10.1177/16094069251346839](https://doi.org/10.1177/16094069251346839)
 10.  Journal of Translational Medicine. (2026). Applications and potential mechanisms of transcranial magnetic stimulation in autism spectrum disorders. [https://link.springer.com/article/10.1186/s12967-026-07754-6](https://link.springer.com/article/10.1186/s12967-026-07754-6)
 11.  Advances in Neurodevelopmental Disorders. (2023). Current status of psychopharmacological, neuromodulation, and oxytocin treatments for autism. [https://link.springer.com/article/10.1007/s41252-023-00364-z](https://link.springer.com/article/10.1007/s41252-023-00364-z)
+
+---- 
 
 ## License
 
