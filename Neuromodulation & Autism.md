@@ -126,6 +126,6 @@ This why sheet is free to download, modify, and share.
 
 Version: 0.1  
 License: “[Neuromodulation & Autism Why Sheet](https://stimpunks.org/why/neuromodulation/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
-Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/NeuroModulation%20and%20Autism.md](https://github.com/Stimpunks/Why-Sheets/blob/main/NeuroModulation%20and%20Autism.md)
+Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Neuromodulation%20%26%20Autism.md ](https://github.com/Stimpunks/Why-Sheets/blob/main/Neuromodulation%20%26%20Autism.md)
 
  This Why Sheet was developed by Helen Edgar and Ryan Boren for Stimpunks Foundation.
