@@ -10,9 +10,9 @@ TMS, tDCS, and other neuromodulation approaches are being marketed to Autistic p
 2. [The evidence base is weak and inconsistent](#the-evidence-base-is-weak-and-inconsistent)
 3. [Neuromodulation treats autism as a problem to be fixed](#neuromodulation-treats-autism-as-a-problem-to-be-fixed)
 4. [Normalisation causes harm](#normalisation-causes-harm)
-5. [Consent is complicated — especially for children](#consent)
-6. [The research gap itself is a form of epistemic injustice](#gap)
-7. [Questions to ask any provider](#questions)
+5. [Consent is complicated — especially for children](#consent-is-complicated--especially-for-children)
+6. [The research gap itself is a form of epistemic injustice](#the-research-gap-itself-is-a-form-of-epistemic-injustice)
+7. [Questions to ask any provider](#questions-to-ask-any-provider-offering-neuromodulation)
 8. [References](#references)
 9. [License](#license)
 
