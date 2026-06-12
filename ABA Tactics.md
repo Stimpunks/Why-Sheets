@@ -161,8 +161,8 @@ The full series, with research summaries, original commentary, and an affirming 
 
 ## License
 
-This why sheet is free to download, modify, and share.  
+This why sheet is free to download, modify, and share.
 
 Version: 0.1  
-License: “[ Why the Tactics of ABA Are Harmful Why Sheet](https://stimpunks.org/why/aba-tactics/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
-Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/ABA%20Tactics.md ](https://github.com/Stimpunks/Why-Sheets/blob/main/ABA%20Tactics.md)
+License: “[ABA Tactics Why Sheet](https://stimpunks.org/why/aba-tactics/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
+Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/ABA%20Tactics.md](https://github.com/Stimpunks/Why-Sheets/blob/main/ABA%20Tactics.md)
