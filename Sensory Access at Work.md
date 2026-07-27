@@ -119,7 +119,7 @@ Sensory needs rarely travel alone. These non-sensory supports matter just as muc
 
 - Bring it to a manager, HR, or an access conversation as a starting point.
 - Pick the entries that fit you; you do not need every item.
-- Pair it with the [Sensory Checklist Gallery](https://stimpunks.org/access/sensory-checklist-gallery/) to audit a specific space.
+- Pair it with the [Sensory Checklist Gallery](https://stimpunks.org/access/sensory-checklist-gallery/) and "[Create a Neurodiversity Inclusive Environment](https://stimpunks.org/design/create-a-neurodiversity-inclusive-environment/)" to audit a specific space.
 - Use [Designing Sensory-Safe Spaces](https://stimpunks.org/patterns/recipes/sensory-safe-spaces/) and [The Inclusive Power of the Dimmer Switch](https://stimpunks.org/2024/06/24/the-inclusive-power-of-the-dimmer-switch/) for practical, low-cost changes.
 - Write a personal [collaboration manual](https://stimpunks.org/2026/05/27/write-a-neurodivergent-collaboration-manual/) to say how you work best.
 
