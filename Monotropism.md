@@ -234,7 +234,7 @@ When we write "refused" or "non-compliant," could we as easily write "was in a d
 
 ## Quick Summary
 
-**Fewer things at a time, and more of the mind on each one.**
+**Fewer things at a time, and more attention on each.**
 
 Attention behaves like a tunnel. Inside it there is depth, detail, and flow. Outside it, things get missed. Moving the tunnel costs energy, and most of the distress attributed to Autistic people comes from being moved constantly, without warning, in an environment nobody designed for them.
 
@@ -271,8 +271,8 @@ Recommended in *An Introduction to the Theory of Monotropism* by Fergus Murray a
 2. Murray, F. (2019). Starting Points for Understanding Autism. [Medium](https://oolong.medium.com/starting-points-for-understanding-autism-3573817402f2). Republished by [Thinking Person’s Guide to Autism](https://thinkingautismguide.com/2019/02/starting-points-for-understanding-autism.html).
 3. Murray, F. (2018). Me and Monotropism: A unified theory of autism. *The Psychologist.* [https://thepsychologist.bps.org.uk/me-and-monotropism-unified-theory-autism](https://thepsychologist.bps.org.uk/me-and-monotropism-unified-theory-autism)
 4. Garau, V., Woods, R., Chown, N., Hallett, S., Murray, F., Wood, R., Murray, A., & Fletcher-Watson, S. (2023). The Monotropism Questionnaire. Open Science Framework. [https://osf.io/wpx5g/](https://osf.io/wpx5g/)
-5. Leatherland, J. (2018). Understanding how Autistic pupils experience secondary school. Sheffield Hallam University. [http://shura.shu.ac.uk/23231/](http://shura.shu.ac.uk/23231/)
-6. Hallett, S. (2018). Loops of concern. [https://medium.com/@sonyahallett/loops-of-concern-ff792eebad03](https://medium.com/@sonyahallett/loops-of-concern-ff792eebad03)
+5. Leatherland, J. (2018). Understanding how autistic pupils experience secondary school: autism criteria, theory and FAMe™. Doctoral thesis, Sheffield Hallam University. [http://shura.shu.ac.uk/23231/](http://shura.shu.ac.uk/23231/)
+6. Hallett, S. (2021). Loops of concern. [https://medium.com/@sonyahallett/loops-of-concern-ff792eebad03](https://medium.com/@sonyahallett/loops-of-concern-ff792eebad03)
 7. Human, E. (2015). Tendril theory. [https://erinhuman.com/2015/08/10/tendril-theory/](https://erinhuman.com/2015/08/10/tendril-theory/)
 8. Murray, F., & Edgar, H. (2026). *An Introduction to the Theory of Monotropism To Support Autistic Young People.* Autistic Realms. [https://autisticrealms.com/product/an-introduction-to-the-theory-of-monotropism/](https://autisticrealms.com/product/an-introduction-to-the-theory-of-monotropism/)
 
