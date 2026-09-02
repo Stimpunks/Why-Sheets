@@ -207,6 +207,6 @@ This why sheet is free to download, modify, and share.
 
 Version: 0.1
 License: "[Masking and Burnout Why Sheet](https://stimpunks.org/why/masking-and-burnout/)" is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
-Repository: [https://github.com/Stimpunks/Why-Sheets](https://github.com/Stimpunks/Why-Sheets)
+Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Masking%20and%20Burnout.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Masking%20and%20Burnout.md)
 
 Quoted material remains the property of its authors and sits outside the CC0 grant. Helen Edgar's guides are her work, cited with her permission.
