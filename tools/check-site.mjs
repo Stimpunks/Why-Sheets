@@ -43,6 +43,10 @@ import { launch } from './lib/chrome.mjs';
 import { serve } from './lib/serve.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+/* From the manifest, not a literal: the host moved once already (whysheet.press
+   replaced whysheets.press before launch) and a checker carrying its own copy
+   would have kept passing against the old one. */
+const HOST = JSON.parse(fs.readFileSync(path.join(REPO, 'sheets.json'), 'utf8')).press.host;
 const args = process.argv.slice(2);
 const gating = args.includes('--check');
 const skipBrowser = args.includes('--no-browser');
@@ -190,6 +194,31 @@ for (const abs of pages) {
     fail(where, 'a broadside block\'s Side A / Side B toggle survived the build — it has no script and does nothing');
   }
 
+  /* --- the Open Graph card --- */
+  /* An og:image is emitted as an absolute URL, so nothing else on this page
+     resolves it and no link check would ever notice it rotting. A broken one is
+     worse than none: the client renders an empty frame where the card should be,
+     and we would only ever find out by seeing our own link in somebody's feed. */
+  for (const m of html.matchAll(/<meta property="og:image" content="([^"]+)">/g)) {
+    const u = m[1];
+    const pre = 'https://' + HOST;
+    if (!u.startsWith(pre)) {
+      fail(where, 'og:image ' + u + ' is not on ' + HOST);
+      continue;
+    }
+    if (!fs.existsSync(path.join(REPO, u.slice(pre.length))))
+      fail(where, 'og:image ' + u + ' resolves to nothing');
+  }
+
+  /* Every page somebody could share should have a card. Two exceptions, and both
+     are the same reason in different clothes: a print.html is the document Chrome
+     prints, not a page (see the note above), and 404.html is not a destination
+     anyone links to on purpose. */
+  const shareable = !isPrintDocument && !/(^|\/)404\.html$/.test(where);
+  if (shareable && !/property="og:image"/.test(html)) {
+    fail(where, 'has no og:image — a shared link to it arrives as grey text');
+  }
+
   /* --- the prompt a page offers to copy --- */
   /* data-copy-prompt is an ATTRIBUTE, not an href, so the link loop above never
      sees it. A sheet that loses its asks section stops having a prompt generated
@@ -207,7 +236,7 @@ for (const abs of pages) {
   }
 }
 
-console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, prompts and PDFs.');
+console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, OG cards, prompts and PDFs.');
 
 /* ── 4. contrast, in a browser, in both themes ──────────────────────────── */
 

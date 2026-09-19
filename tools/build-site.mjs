@@ -37,6 +37,15 @@ import { shell } from './lib/page.mjs';
 import { splitBlock, printDocument } from './lib/broadside.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+/* The OG card for a page, or undefined if it has not been built. Returning
+   undefined rather than a hopeful path means a page never advertises an image
+   that is not there — a broken og:image is worse than none, because the client
+   renders an empty frame where the card should be. tools/build-og.mjs runs
+   before this stage in ship.mjs; check-site.mjs gates that every emitted
+   og:image resolves. */
+const og = (slug) =>
+  fs.existsSync(path.join(REPO, 'og', slug + '.png')) ? '/og/' + slug + '.png' : undefined;
 const manifest = JSON.parse(fs.readFileSync(path.join(REPO, 'sheets.json'), 'utf8'));
 const HOST = manifest.press.host;
 const checking = process.argv.includes('--check');
@@ -193,6 +202,8 @@ emit(
     host: HOST,
     title: '',
     path: '/',
+    image: og('home'),
+    imageAlt: 'The Why Sheet Press. Print the argument. Carry it into the room.',
     description:
       'Every Stimpunks Why Sheet, print-first. Tick the sheets you need and get one paginated PDF with a cover page — the folder you carry into the room.',
     scripts: ['/assets/shelf.js'],
@@ -260,6 +271,9 @@ for (const s of sheets) {
       host: HOST,
       title: s.title,
       path: '/sheets/' + s.slug + '/',
+      ogType: 'article',
+      image: og('sheets-' + s.slug),
+      imageAlt: `Why Sheet: ${s.title}. Reach for it ${s.moment.charAt(0).toLowerCase() + s.moment.slice(1)}`,
       description: s.summary,
       scripts: ['/assets/sheet.js'],
       body: `<div class="wrap wrap--narrow">
@@ -322,6 +336,8 @@ emit(
     host: HOST,
     title: 'Broadsides',
     path: '/broadsides/',
+    image: og('broadsides'),
+    imageAlt: 'Broadsides from The Why Sheet Press. The version you pin up.',
     description:
       'One physical sheet, printed both sides, made to be carried into a room and handed to someone. Nine broadsides, each compressing a Why Sheet.',
     body: `<div class="wrap">
@@ -382,6 +398,9 @@ for (const b of broadsides) {
       host: HOST,
       title: b.title + ' (broadside)',
       path: '/broadsides/' + b.slug + '/',
+      ogType: 'article',
+      image: og('broadsides-' + b.slug),
+      imageAlt: `Broadside: ${parent ? parent.title : b.slug}. One sheet, printed both sides, made to be handed to someone.`,
       stylesheets: ['/broadsides/' + b.slug + '/block.css'],
       description:
         (parent ? parent.summary + ' ' : '') +
@@ -420,6 +439,8 @@ emit(
     host: HOST,
     title: 'Your packet',
     path: '/packet/',
+    image: og('packet'),
+    imageAlt: 'Build a packet. Tick the sheets you need and get one correctly paginated PDF.',
     description:
       'Put the sheets in order, put a name and a date on the cover, and get one paginated PDF.',
     scripts: ['/assets/packet.js'],
@@ -487,6 +508,8 @@ emit(
     host: HOST,
     title: 'About',
     path: '/about/',
+    image: og('about'),
+    imageAlt: 'About The Why Sheet Press. Where the form comes from.',
     description:
       'What a Why Sheet is, where the form comes from, why it is free, and how to add your name to one.',
     body: `<div class="wrap wrap--narrow">

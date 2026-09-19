@@ -6,6 +6,30 @@ Why things are the way they are, so the same questions are not re-litigated in t
 
 ## Settled
 
+### Social cards are rendered per page, not drawn once — 2026-09-19
+
+A Why Sheet is shared at the moment somebody needs it: "here, this is the one about recess."
+A single house image makes every one of those links look identical, so the card says nothing at
+exactly the moment it is doing the most work. `tools/build-og.mjs` renders one card per page —
+30 of them — from the site's own typeface and palette, so a new sheet gets a card with no
+further work and the cards cannot drift from the site.
+
+**They are white on purpose.** Everything else in a feed is dark and shouting. This is a press:
+ink on paper, a registration bar, a measured rule. It reads as a document rather than an
+advertisement, which is what it is.
+
+**The title is fitted by measurement, and getting that right took three attempts — all the same
+mistake.** Titles run from "Hoodie" to "Queer and Neurodivergent Liberation are Entwined". The
+first version compared the title's `scrollHeight` against its declared `max-height` and passed,
+while a flex column silently squeezed the box below its content and sliced the title through the
+middle. The second removed the shrinking and asked the card whether it overflowed — using
+`scrollHeight` again, on an `overflow: visible` element, where `scrollHeight` *is* `clientHeight`
+and no overrun can ever be reported. That is the identical trap already documented in the sheet
+overflow checker. The measurement that works is the bottom of the deepest descendant against the
+card's content bottom, and it is now written down in the file so it is not rediscovered a fourth
+time. A card that overflows at the minimum type sizes throws, because the alternative is finding
+out from somebody else's timeline.
+
 ### Companion prompts are generated, gated twice, and carry their own evidence — 2026-09-19
 
 When we hand someone a Why Sheet, the next thing they need is a letter, and we have been

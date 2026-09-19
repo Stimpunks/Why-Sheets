@@ -36,6 +36,7 @@ const checkOnly = process.argv.includes('--check');
 const stages = [
   { name: 'sources', script: 'check-ulysses.mjs', args: checkOnly ? ['--check'] : ['--check'] },
   { name: 'broadsides', script: 'sync-broadsides.mjs', args: checkOnly ? ['--check'] : [], soft: true },
+  { name: 'og', script: 'build-og.mjs', args: checkOnly ? ['--check'] : [] },
   { name: 'prompts', script: 'build-prompts.mjs', args: checkOnly ? ['--check'] : [] },
   { name: 'pages', script: 'build-site.mjs', args: checkOnly ? ['--check'] : [] },
   { name: 'pdfs', script: 'build-pdfs.mjs', args: checkOnly ? ['--check'] : [] },

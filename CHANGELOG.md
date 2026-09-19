@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-09-19 — Social cards
+
+**Every page now has a card.** Share a Why Sheet into Discord, Bluesky or Slack and the link
+arrives with the sheet's title and the moment you reach for it, set in the site's own type on
+white — a document, not an advertisement. Thirty cards: the library, each of the sixteen sheets,
+each of the ten broadsides, the packet builder and the about page. Before this, every one of
+those links arrived as a line of grey text.
+
+**Rendered from the pages, so they cannot drift.** A new sheet gets a card with no further work.
+The build fails if a card no longer matches its page, if a page has no card, or if a card
+overflows at the minimum type size.
+
+**`og:image:alt` carries what each card says.** A card is the only part of a shared link that a
+blind reader would otherwise get nothing from.
+
 ## 2026-09-19 — Companion prompts
 
 **A prompt to go with the sheet.** Four Why Sheets now carry a companion prompt: plain text you

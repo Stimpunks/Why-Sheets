@@ -158,6 +158,34 @@ export async function launch({ port = 9414 } = {}) {
       });
     },
 
+    /* Back to screen. emulatePrint() above sets media:'print' and a device metric
+       override, and the browser instance is reused across jobs — so anything that
+       takes a screenshot after a PDF run would otherwise photograph the print
+       stylesheet. Resetting is the caller's job to remember; making it a named
+       method is how it gets remembered. */
+    async emulateScreen(width, height, deviceScaleFactor = 1) {
+      await S('Emulation.setEmulatedMedia', { media: 'screen' });
+      await S('Emulation.setDeviceMetricsOverride', {
+        width: Math.round(width),
+        height: Math.round(height),
+        deviceScaleFactor,
+        mobile: false,
+      });
+    },
+
+    /** @returns {Buffer} a PNG of the current viewport */
+    async screenshot({ format = 'png', quality } = {}) {
+      const res = await S('Page.captureScreenshot', {
+        format,
+        ...(quality != null ? { quality } : {}),
+        captureBeyondViewport: false,
+      });
+      if (!res.result || !res.result.data) {
+        throw new Error('captureScreenshot returned nothing: ' + JSON.stringify(res.error || res));
+      }
+      return Buffer.from(res.result.data, 'base64');
+    },
+
     async evaluate(expression) {
       const res = await S('Runtime.evaluate', { expression, returnByValue: true });
       return res.result.result.value;

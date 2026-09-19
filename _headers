@@ -74,3 +74,11 @@
   # UTF-8 explicitly: these carry em dashes and curly quotes inside quotations
   # that must reach an assistant exactly as the source wrote them.
   Content-Type: text/plain; charset=utf-8
+
+/og/*
+  # The social cards. Generated from each page's own title and moment, so a card
+  # changes only when that page does — but a crawler that cached a stale one is
+  # the whole failure this revalidation avoids, and these are fetched once per
+  # link ever shared, not once per reader.
+  Cache-Control: public, max-age=3600, must-revalidate
+  Content-Type: image/png

@@ -6,6 +6,20 @@
  * dependency and a second syntax to learn for the sake of string
  * concatenation that fits on a screen.
  *
+ * THE OG CARD IS A REAL IMAGE, GENERATED PER PAGE. og:image is not decoration
+ * here: a Why Sheet gets shared into a Discord channel or a thread at the moment
+ * somebody needs it, and without a card that link arrives as a line of grey text.
+ * tools/build-og.mjs renders one per page from this site's own typeface and
+ * palette, so a new sheet gets a card with no further work and the cards cannot
+ * drift from the site. og:image:alt carries what the card actually says, because
+ * some clients read it out and a card is the only part of a shared link that a
+ * blind reader would otherwise get nothing from.
+ *
+ * `twitter:card` is the ONE twitter: property emitted. The rest (title,
+ * description, image) fall back to the og: equivalents in every client that
+ * reads them; `summary_large_image` has no og: equivalent and is what turns a
+ * postage stamp into the full-width card.
+ *
  * NO INLINE SCRIPT AND NO INLINE STYLE ANYWHERE. The Content-Security-Policy in
  * `_headers` is `script-src 'self'` with no `unsafe-inline`, matching the
  * sibling sites. That is only true if nothing here ever emits a `<script>` with
@@ -34,8 +48,11 @@ const NAV = [
  * @param {string[]} [o.stylesheets]  extra root-absolute stylesheets, after the main one
  * @param {string} [o.bodyClass]
  * @param {string} [o.host]     canonical host
+ * @param {string} [o.image]    root-absolute path to this page's OG card
+ * @param {string} [o.imageAlt] what the card says, for people using a screen reader
+ * @param {string} [o.ogType]   'website' (default) or 'article'
  */
-export function shell({ title, description, path, body, scripts = [], stylesheets = [], bodyClass = '', host }) {
+export function shell({ title, description, path, body, scripts = [], stylesheets = [], bodyClass = '', host, image, imageAlt, ogType = 'website' }) {
   const full = title ? title + ' — The Why Sheet Press' : 'The Why Sheet Press';
   const canonical = 'https://' + host + path;
   const current = (href) => (href === path ? ' aria-current="page"' : '');
@@ -53,11 +70,22 @@ ${stylesheets.map((s) => `<link rel="stylesheet" href="${esc(s)}">`).join('\n')}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">
 <meta name="theme-color" content="#9a1750">
-<meta property="og:type" content="website">
+<meta property="og:type" content="${esc(ogType)}">
 <meta property="og:site_name" content="The Why Sheet Press">
 <meta property="og:title" content="${esc(full)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(canonical)}">
+<meta property="og:locale" content="en">
+${
+    image
+      ? `<meta property="og:image" content="${esc('https://' + host + image)}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="${esc(imageAlt || full)}">
+<meta name="twitter:card" content="summary_large_image">`
+      : ''
+  }
 ${scripts.map((s) => `<script type="module" src="${esc(s)}" defer></script>`).join('\n')}
 </head>
 <body${bodyClass ? ` class="${esc(bodyClass)}"` : ''}>
