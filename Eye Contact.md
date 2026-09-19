@@ -12,7 +12,7 @@ It serves the adult's comfort — not the child's learning.
 It should not be forced in school.
 It should not appear as a goal in IEPs or behavioral plans.
 
-—
+---
 
 ## Why Eye Contact Should Not Be Forced in School
 
