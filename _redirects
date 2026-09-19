@@ -25,3 +25,15 @@
 # where /broadsides/source/eye-contact.block.html returned 200 and the raw
 # fragment. The shadowing form forces the redirect even though the file is there.
 /broadsides/source/*   /broadsides/   301!
+
+# The press has one address. Netlify keeps serving the project's own
+# why-sheet-press.netlify.app hostname at 200 alongside the custom domain, with
+# byte-identical content — verified, the two responses hash the same. That is a
+# second address for a site whose whole point is a memorable URL printed on
+# paper, and it is the hostname that carries Netlify's platform HSTS with
+# `preload`, which `_headers` deliberately does not set.
+#
+# Star Stuff and Queering Earth already redirect theirs; Penguin Pebbling does
+# not. This matches the better-configured half, and lives here rather than in a
+# dashboard setting so it is reviewable in a diff like everything else.
+https://why-sheet-press.netlify.app/*   https://whysheet.press/:splat   301!
