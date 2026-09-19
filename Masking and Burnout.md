@@ -1,9 +1,5 @@
 # Masking and Burnout
 
-*Draft Why Sheet for https://stimpunks.org/why/masking-and-burnout/ — parent page: [Why Sheets](https://stimpunks.org/why/) (69263). Not yet published.*
-
----- 
-
 ## The Short Version
 
 Masking is the work an Autistic person does to look like they are coping.
