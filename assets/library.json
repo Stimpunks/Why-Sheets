@@ -66,6 +66,17 @@
       ]
     },
     {
+      "slug": "developmental-pace",
+      "title": "Developmental Pace",
+      "version": "0.1",
+      "pdf": "/pdf/developmental-pace.pdf",
+      "topics": [
+        "school",
+        "iep",
+        "understanding"
+      ]
+    },
+    {
       "slug": "positive-greetings-at-the-door",
       "title": "Positive Greetings at the Door",
       "version": "1.1",

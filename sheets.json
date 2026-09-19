@@ -34,7 +34,11 @@
       "broadside": "behaviorism",
       "summary": "Behaviorism measures the surface, badly — and the primary legacy of ABA is trauma.",
       "moment": "When compliance is being described as progress, and you need the evidence in one place.",
-      "topics": ["school", "aba", "ethics"]
+      "topics": [
+        "school",
+        "aba",
+        "ethics"
+      ]
     },
     {
       "slug": "alternatives-to-aba",
@@ -44,7 +48,11 @@
       "broadside": null,
       "summary": "Fourteen neurodiversity-affirming frameworks, gathered, so “what would you do instead” has an answer.",
       "moment": "When you have said no to ABA and the room asks what you want instead.",
-      "topics": ["school", "aba", "clinical"]
+      "topics": [
+        "school",
+        "aba",
+        "clinical"
+      ]
     },
     {
       "slug": "aba-tactics",
@@ -54,7 +62,11 @@
       "broadside": null,
       "summary": "The tactics one by one — compliance training, extinction, quiet hands, forced eye contact — and what each one actually does.",
       "moment": "When a programme is being described in technical language and you need to know what the words mean in a child’s day.",
-      "topics": ["school", "aba", "clinical"],
+      "topics": [
+        "school",
+        "aba",
+        "clinical"
+      ],
       "content_note": "Discusses trauma, abuse, coercion, and suicide."
     },
     {
@@ -65,7 +77,11 @@
       "broadside": "eye-contact",
       "summary": "Forced eye contact is painful, it interferes with processing, and it is not evidence of attention.",
       "moment": "In the meeting where eye contact is about to be written into a goal.",
-      "topics": ["school", "iep", "sensory"]
+      "topics": [
+        "school",
+        "iep",
+        "sensory"
+      ]
     },
     {
       "slug": "masking-and-burnout",
@@ -75,7 +91,11 @@
       "broadside": "masking-and-burnout",
       "summary": "Masking is a stress response, not a skill. Burnout is the bill. Observation does not see either one.",
       "moment": "When “but they’re fine at school” is being used to close a file.",
-      "topics": ["school", "iep", "health"]
+      "topics": [
+        "school",
+        "iep",
+        "health"
+      ]
     },
     {
       "slug": "monotropism",
@@ -85,7 +105,24 @@
       "broadside": "monotropism",
       "summary": "Autistic experience explained through attention — and what stops looking like defiance once you can see the tunnel.",
       "moment": "When transitions, “rigidity” or “obsession” are on the agenda.",
-      "topics": ["school", "understanding"]
+      "topics": [
+        "school",
+        "understanding"
+      ]
+    },
+    {
+      "slug": "developmental-pace",
+      "file": "Developmental Pace.md",
+      "title": "Developmental Pace",
+      "published": null,
+      "broadside": "developmental-pace",
+      "summary": "Pace is ordinary variation, and it is uneven within one person. School treats it as fixed, sorts by birth date, and records the gap against the child.",
+      "moment": "When “working below age-related expectations” is being used as the reason to withhold something.",
+      "topics": [
+        "school",
+        "iep",
+        "understanding"
+      ]
     },
     {
       "slug": "positive-greetings-at-the-door",
@@ -95,7 +132,10 @@
       "broadside": "positive-greetings-at-the-door",
       "summary": "A greeting policy that turns a teacher into a threshold to be performed past.",
       "moment": "When a school is adopting PGD and nobody has asked what it costs to walk through that door.",
-      "topics": ["school", "policy"]
+      "topics": [
+        "school",
+        "policy"
+      ]
     },
     {
       "slug": "hoodie",
@@ -105,7 +145,11 @@
       "broadside": null,
       "summary": "One page, already written, asking that a student wear a hoodie instead of the blazer.",
       "moment": "When you need to hand the school a reason in writing, today.",
-      "topics": ["school", "sensory", "uniform"]
+      "topics": [
+        "school",
+        "sensory",
+        "uniform"
+      ]
     },
     {
       "slug": "sensory-access-at-work",
@@ -115,7 +159,11 @@
       "broadside": "sensory-access-at-work",
       "summary": "All eight senses, the common access needs at work, and the small changes that make a workplace livable.",
       "moment": "In the accommodations conversation, when “what do you need?” needs a list rather than an apology.",
-      "topics": ["work", "sensory", "access"]
+      "topics": [
+        "work",
+        "sensory",
+        "access"
+      ]
     },
     {
       "slug": "cavendish-space",
@@ -125,7 +173,11 @@
       "broadside": "cavendish-space",
       "summary": "Caves, campfires and watering holes — vocabulary for a space that supports bodyminds instead of demanding they adapt.",
       "moment": "When a room is being designed and you want words for what it should do.",
-      "topics": ["space", "design", "school"]
+      "topics": [
+        "space",
+        "design",
+        "school"
+      ]
     },
     {
       "slug": "neuroqueer-learning-spaces",
@@ -135,7 +187,11 @@
       "broadside": null,
       "summary": "The classroom as a bastion of neuronormativity, and what it takes to hold space against that.",
       "moment": "When you are making the case for learning differently as a right, not a concession.",
-      "topics": ["school", "design", "liberation"]
+      "topics": [
+        "school",
+        "design",
+        "liberation"
+      ]
     },
     {
       "slug": "queer-and-neurodivergent-liberation-are-entwined",
@@ -145,7 +201,10 @@
       "broadside": null,
       "summary": "Why the two movements share a history, a set of enemies, and a conversion-therapy lineage.",
       "moment": "When someone asks why a neurodiversity organisation is talking about queerness.",
-      "topics": ["liberation", "history"]
+      "topics": [
+        "liberation",
+        "history"
+      ]
     },
     {
       "slug": "neuromodulation",
@@ -155,7 +214,11 @@
       "broadside": null,
       "summary": "TMS, tDCS and what is being sold alongside them. The evidence base is weak and the framing is the pathology paradigm.",
       "moment": "When a clinic or an advertisement offers a treatment and you have an appointment on Thursday.",
-      "topics": ["clinical", "health", "ethics"]
+      "topics": [
+        "clinical",
+        "health",
+        "ethics"
+      ]
     },
     {
       "slug": "boring-technology",
@@ -165,18 +228,57 @@
       "broadside": "boring-technology",
       "summary": "Tools old, plain and open enough to outlive the companies that sell them.",
       "moment": "When a service that holds someone’s access is about to be replaced by a platform.",
-      "topics": ["technology", "access"]
+      "topics": [
+        "technology",
+        "access"
+      ]
     }
   ],
   "broadsides": [
-    { "slug": "behaviorism", "title": "Behaviorism", "parent": "behaviorism" },
-    { "slug": "boring-technology", "title": "Boring Technology", "parent": "boring-technology" },
-    { "slug": "cavendish-space", "title": "Cavendish Space", "parent": "cavendish-space" },
-    { "slug": "developmental-pace", "title": "Developmental Pace", "parent": null },
-    { "slug": "eye-contact", "title": "Eye Contact", "parent": "eye-contact" },
-    { "slug": "masking-and-burnout", "title": "Masking and Burnout", "parent": "masking-and-burnout" },
-    { "slug": "monotropism", "title": "Monotropism", "parent": "monotropism" },
-    { "slug": "positive-greetings-at-the-door", "title": "Positive Greetings at the Door", "parent": "positive-greetings-at-the-door" },
-    { "slug": "sensory-access-at-work", "title": "Sensory Access at Work", "parent": "sensory-access-at-work" }
+    {
+      "slug": "behaviorism",
+      "title": "Behaviorism",
+      "parent": "behaviorism"
+    },
+    {
+      "slug": "boring-technology",
+      "title": "Boring Technology",
+      "parent": "boring-technology"
+    },
+    {
+      "slug": "cavendish-space",
+      "title": "Cavendish Space",
+      "parent": "cavendish-space"
+    },
+    {
+      "slug": "developmental-pace",
+      "title": "Developmental Pace",
+      "parent": "developmental-pace"
+    },
+    {
+      "slug": "eye-contact",
+      "title": "Eye Contact",
+      "parent": "eye-contact"
+    },
+    {
+      "slug": "masking-and-burnout",
+      "title": "Masking and Burnout",
+      "parent": "masking-and-burnout"
+    },
+    {
+      "slug": "monotropism",
+      "title": "Monotropism",
+      "parent": "monotropism"
+    },
+    {
+      "slug": "positive-greetings-at-the-door",
+      "title": "Positive Greetings at the Door",
+      "parent": "positive-greetings-at-the-door"
+    },
+    {
+      "slug": "sensory-access-at-work",
+      "title": "Sensory Access at Work",
+      "parent": "sensory-access-at-work"
+    }
   ]
 }

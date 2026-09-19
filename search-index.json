@@ -192,6 +192,33 @@
       ]
     },
     {
+      "url": "/sheets/developmental-pace/",
+      "title": "Developmental Pace",
+      "kind": "why-sheet",
+      "summary": "Pace is ordinary variation, and it is uneven within one person. School treats it as fixed, sorts by birth date, and records the gap against the child.",
+      "moment": "When “working below age-related expectations” is being used as the reason to withhold something.",
+      "topics": [
+        "school",
+        "iep",
+        "understanding"
+      ],
+      "headings": [
+        "The Short Version",
+        "Why This Sheet Exists",
+        "The Machinery Assumes a Shared Pace",
+        "The Same Age Is Not the Same Stage",
+        "Pace Is Not One Number",
+        "\"They Will Have to Cope Later\" Has to Ignore This",
+        "Bend the Clock, Not the Child",
+        "What to Measure Instead",
+        "What to Ask For in the Room",
+        "What This Sheet Is Not",
+        "The Principle",
+        "Further Reading",
+        "License"
+      ]
+    },
+    {
       "url": "/sheets/positive-greetings-at-the-door/",
       "title": "Positive Greetings at the Door",
       "kind": "why-sheet",
@@ -420,8 +447,12 @@
       "url": "/broadsides/developmental-pace/",
       "title": "Developmental Pace",
       "kind": "broadside",
-      "summary": "",
-      "topics": [],
+      "summary": "Pace is ordinary variation, and it is uneven within one person. School treats it as fixed, sorts by birth date, and records the gap against the child.",
+      "topics": [
+        "school",
+        "iep",
+        "understanding"
+      ],
       "headings": []
     },
     {
