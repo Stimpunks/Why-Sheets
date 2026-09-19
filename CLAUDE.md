@@ -40,6 +40,13 @@ highlights, the bookmark archive, the site mirror. That cannot move: it is built
 `raw/` that is too large to commit and lives complete on exactly one machine. Research in the
 garden, write the `.md` into this checkout, run `ship` here.
 
+**The end-to-end workflow is written down once, in the Knowledge System's `CLAUDE.md`**, under
+*Publishing a Why Sheet*. It spans both repositories — research and broadside there, sheet and
+press here, publication there — so neither file owns it and only one of them should carry it.
+Two things from it matter here even if you never read the rest: a `letter: "school"` sheet needs
+a **What to Ask For in the Room** section or the prompt generator refuses it, and `published:` in
+`sheets.json` is set **after** the page exists on stimpunks.org, never in anticipation.
+
 **None of that is an access boundary.** Both repositories sit on the same disk and a session in
 either can read and write the other. It is a *context* boundary: this file is what a session
 working on the press is given, so anything the press genuinely needs has to be written down here
