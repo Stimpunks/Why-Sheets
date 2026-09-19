@@ -1,0 +1,46 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://whysheet.press/",
+      "describedby": [
+        {
+          "href": "https://whysheet.press/llms.txt",
+          "type": "text/markdown"
+        }
+      ],
+      "sitemap": [
+        {
+          "href": "https://whysheet.press/sitemap.xml",
+          "type": "application/xml"
+        }
+      ],
+      "alternate": [
+        {
+          "href": "https://whysheet.press/search-index.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://whysheet.press/assets/library.json",
+          "type": "application/json"
+        }
+      ],
+      "license": [
+        {
+          "href": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ],
+      "privacy-policy": [
+        {
+          "href": "https://whysheet.press/privacy/",
+          "type": "text/html"
+        }
+      ],
+      "author": [
+        {
+          "href": "https://stimpunks.org/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

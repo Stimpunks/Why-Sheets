@@ -38,6 +38,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { launch } from './lib/chrome.mjs';
 import { serve } from './lib/serve.mjs';
@@ -138,7 +139,22 @@ for (const abs of pages) {
    * which is the whole reason this class of error only ever appears in
    * production. */
   const DATA_BLOCK = /\btype=["']application\/ld\+json["']/i;
+  /* Speculation rules ARE executed-ish as far as CSP is concerned — script-src
+     governs them, which is why _headers carries 'inline-speculation-rules'. So
+     the exemption here is conditional on that keyword actually being in the
+     policy: drop the keyword and this check starts failing again, which is the
+     correct behaviour rather than a permanently blind spot. */
+  const SPECULATION = /\btype=["']speculationrules["']/i;
+  const cspAllowsSpeculation = fs
+    .readFileSync(path.join(REPO, '_headers'), 'utf8')
+    .includes("'inline-speculation-rules'");
   for (const m of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
+    if (SPECULATION.test(m[1])) {
+      if (!cspAllowsSpeculation) {
+        fail(where, "inline speculation rules but the CSP lacks 'inline-speculation-rules'");
+      }
+      continue;
+    }
     if (m[2].trim() && !/\bsrc=/.test(m[1]) && !DATA_BLOCK.test(m[1])) {
       fail(where, "inline <script> body — blocked by script-src 'self'");
     }
@@ -290,6 +306,70 @@ for (const abs of pages) {
   /* --- 5. the PDFs the page offers --- */
   for (const m of html.matchAll(/href="(\/pdf\/[^"]+\.pdf)"/g)) {
     if (!fs.existsSync(path.join(REPO, m[1]))) fail(where, 'offers ' + m[1] + ', which does not exist');
+  }
+}
+
+/* --- the agent skill's digest, and every link in the catalogue --- */
+{
+  const skillIdx = path.join(REPO, '.well-known', 'agent-skills', 'index.json');
+  if (fs.existsSync(skillIdx)) {
+    const idx = JSON.parse(fs.readFileSync(skillIdx, 'utf8'));
+    if (!/\/0\.2\.0\//.test(idx.$schema || '')) {
+      fail('.well-known/agent-skills/index.json',
+        'no 0.2.0 $schema — clients fall back to 0.1.0 parsing and may ignore the entries');
+    }
+    for (const skill of idx.skills || []) {
+      /* A DRIFTED DIGEST IS WORSE THAN NO DIGEST: the RFC says a compliant
+         client refuses an artefact it cannot verify, so a stale hash silently
+         turns the skill off rather than serving an old one. It is generated
+         from the bytes in the same build, so this only fires if that breaks. */
+      const rel_ = skill.url.replace('https://' + HOST + '/', '');
+      const file = path.join(REPO, rel_);
+      if (!fs.existsSync(file)) {
+        fail('.well-known/agent-skills/index.json', 'names ' + skill.url + ', which does not exist');
+        continue;
+      }
+      const got = 'sha256:' + crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+      if (got !== skill.digest) {
+        fail('.well-known/agent-skills/index.json',
+          'digest for ' + skill.name + ' does not match the file it names');
+      }
+      const body = fs.readFileSync(file, 'utf8');
+      if (!/^---\r?\n[\s\S]*?\bname:\s*\S/.test(body) || !/\bdescription:\s*\S/.test(body)) {
+        fail(rel_, 'SKILL.md frontmatter needs both name and description');
+      }
+    }
+  }
+
+  const cat = path.join(REPO, '.well-known', 'api-catalog');
+  if (fs.existsSync(cat)) {
+    const linkset = JSON.parse(fs.readFileSync(cat, 'utf8')).linkset || [];
+    /* RFC 8288: an extension relation type must be a URI. A bare token that
+       IANA has not registered makes the document invalid, and RFC 9727's named
+       failure mode is a strict client skipping all of it. */
+    const IANA = new Set([
+      'describedby', 'sitemap', 'alternate', 'license', 'author',
+      'privacy-policy', 'terms-of-service', 'service-desc', 'service-doc', 'status',
+    ]);
+    for (const entry of linkset) {
+      for (const [relName, links] of Object.entries(entry)) {
+        if (relName === 'anchor') continue;
+        if (!IANA.has(relName) && !/^https?:\/\//.test(relName)) {
+          fail('.well-known/api-catalog',
+            'relation "' + relName + '" is neither IANA-registered nor a URI');
+        }
+        for (const l of links) {
+          /* Every URL it points at must 200 from this origin — the spec's own
+             verification step, done against the build rather than the network. */
+          if (!l.href.startsWith('https://' + HOST + '/')) continue;
+          const f = l.href.replace('https://' + HOST + '/', '');
+          const onDisk = path.join(REPO, f.endsWith('/') ? f + 'index.html' : f);
+          if (!fs.existsSync(onDisk)) {
+            fail('.well-known/api-catalog', 'points at ' + l.href + ', which does not exist');
+          }
+        }
+      }
+    }
   }
 }
 

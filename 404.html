@@ -6,6 +6,10 @@
 <title>Not found — The Why Sheet Press</title>
 <meta name="description" content="That page is not here.">
 <link rel="canonical" href="https://whysheet.press/404.html">
+<!-- The one face that sets everything above the fold. Preloading only this one
+     is deliberate: preload everything and the browser stops prioritising, which
+     is the opposite of the point. The italic and the mono face load normally. -->
+<link rel="preload" href="/fonts/atkinson-hyperlegible-next-roman-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/press.css">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -28,6 +32,17 @@
 
 
 
+<!-- Speculation rules. Prerender a sheet on hover-with-intent, because the
+     shelf is a list of sixteen and a reader opens one; prefetch anything else
+     same-origin only on pointerdown. PDFs, prompts and .md sources are excluded
+     from the prefetch: those are downloads, and speculatively pulling a 300 kB
+     PDF because a cursor crossed the button is somebody's data allowance.
+     Chromium-only today. Other browsers ignore the block entirely — no
+     regression, just no upside.
+     This IS governed by script-src, unlike the JSON-LD data block above, which
+     is why _headers carries 'inline-speculation-rules' — a keyword that permits
+     exactly this and nothing else executable. -->
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/sheets/*/"},"eagerness":"moderate"}],"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/pdf/*"}},{"not":{"href_matches":"/prompts/*"}},{"not":{"href_matches":"/sheets/*.md"}}]},"eagerness":"conservative"}]}</script>
 
 </head>
 <body>

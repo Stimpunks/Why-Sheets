@@ -67,6 +67,10 @@ export function shell({ title, description, path, body, scripts = [], stylesheet
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${esc(canonical)}">
+<!-- The one face that sets everything above the fold. Preloading only this one
+     is deliberate: preload everything and the browser stops prioritising, which
+     is the opposite of the point. The italic and the mono face load normally. -->
+<link rel="preload" href="/fonts/atkinson-hyperlegible-next-roman-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/press.css">
 ${stylesheets.map((s) => `<link rel="stylesheet" href="${esc(s)}">`).join('\n')}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -111,6 +115,17 @@ ${
         `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`
       : ''
   }
+<!-- Speculation rules. Prerender a sheet on hover-with-intent, because the
+     shelf is a list of sixteen and a reader opens one; prefetch anything else
+     same-origin only on pointerdown. PDFs, prompts and .md sources are excluded
+     from the prefetch: those are downloads, and speculatively pulling a 300 kB
+     PDF because a cursor crossed the button is somebody's data allowance.
+     Chromium-only today. Other browsers ignore the block entirely — no
+     regression, just no upside.
+     This IS governed by script-src, unlike the JSON-LD data block above, which
+     is why _headers carries 'inline-speculation-rules' — a keyword that permits
+     exactly this and nothing else executable. -->
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/sheets/*/"},"eagerness":"moderate"}],"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/pdf/*"}},{"not":{"href_matches":"/prompts/*"}},{"not":{"href_matches":"/sheets/*.md"}}]},"eagerness":"conservative"}]}</script>
 ${scripts.map((s) => `<script type="module" src="${esc(s)}" defer></script>`).join('\n')}
 </head>
 <body${bodyClass ? ` class="${esc(bodyClass)}"` : ''}>

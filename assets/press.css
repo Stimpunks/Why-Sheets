@@ -227,6 +227,12 @@ img { max-width: 100%; height: auto; }
 }
 .skip-link:focus { top: 0; }
 
+/* Reserve the scrollbar's width whether or not the page needs one. Without it
+   a short page (a broadside, the privacy page) has no scrollbar and a long one
+   does, so every navigation between them shifts the whole layout sideways by
+   15px. It is the cheapest layout-shift fix there is. */
+html { scrollbar-gutter: stable; }
+
 /* ── forced colours ─────────────────────────────────────────────────────── */
 
 /* Windows High Contrast and its relatives replace the whole palette with the

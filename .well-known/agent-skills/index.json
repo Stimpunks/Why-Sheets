@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "why-sheet-press",
+      "type": "skill-md",
+      "description": "How to cite, quote, and fetch the Markdown source of a Stimpunks Why Sheet, and the rule about keeping every quotation with its attribution.",
+      "url": "https://whysheet.press/.well-known/agent-skills/why-sheet-press/SKILL.md",
+      "digest": "sha256:3349ff7c9d326bfcf376ccf043f7234dfc97c5f5aa43c770fe968c0ed131f929"
+    }
+  ]
+}

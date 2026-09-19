@@ -22,7 +22,7 @@
   # front page, because an agent can arrive at any URL and a header reaches one
   # that never parses HTML. Everything here is CC0 and the licence relation says
   # so without anybody having to find the footer.
-  Link: </llms.txt>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml", <https://creativecommons.org/publicdomain/zero/1.0/>; rel="license"
+  Link: </llms.txt>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml", <https://creativecommons.org/publicdomain/zero/1.0/>; rel="license", </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json"
 
   # Every one of these is a capability this site does not use and will not.
   # An empty allowlist turns it off outright — so a page somebody is reading
@@ -42,13 +42,19 @@
   # which is hoisted into a rule — see tools/lib/broadside.mjs. The easy version
   # of that decision is an exception here that then covers everything forever.
   #
+  # `'inline-speculation-rules'` permits the <script type="speculationrules">
+  # block in <head> and NOTHING else — it is not a door held open for other
+  # inline script the way 'unsafe-inline' would be. Speculation rules are
+  # governed by script-src; the JSON-LD block is not, because a data block is
+  # never executed.
+  #
   # `connect-src 'self'` is load-bearing and not decoration: the packet builder
   # fetches the sheets' own PDFs to join them. Without it the page loads, the
   # button works, and every fetch fails.
   #
   # `object-src 'none'` and `base-uri 'none'`: nothing embeds a plugin, and
   # nothing should be able to repoint every relative URL on the page.
-  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; manifest-src 'self'
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'inline-speculation-rules'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; manifest-src 'self'
 
 /assets/*
   # Fingerprinted by content, not by name, so they still revalidate — but these
@@ -121,3 +127,26 @@
 /favicon.ico
   Content-Type: image/x-icon
   Cache-Control: public, max-age=3600, must-revalidate
+
+/.well-known/api-catalog
+  # RFC 9727 requires the Linkset media type. Netlify would otherwise serve a
+  # file with no extension as application/octet-stream, and a client that
+  # type-checks strictly would skip it — which is the whole failure this file
+  # exists to avoid.
+  Content-Type: application/linkset+json; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate
+  Access-Control-Allow-Origin: *
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate
+  # CORS open so a browser-based agent can fetch it, which the discovery RFC
+  # asks for explicitly.
+  Access-Control-Allow-Origin: *
+
+/.well-known/agent-skills/*/SKILL.md
+  # text/markdown, not text/html: an agent fetching this directly needs to know
+  # what it got.
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate
+  Access-Control-Allow-Origin: *

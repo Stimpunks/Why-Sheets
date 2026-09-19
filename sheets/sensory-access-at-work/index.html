@@ -6,6 +6,10 @@
 <title>Sensory Access at Work — The Why Sheet Press</title>
 <meta name="description" content="All eight senses, the common access needs at work, and the small changes that make a workplace livable.">
 <link rel="canonical" href="https://whysheet.press/sheets/sensory-access-at-work/">
+<!-- The one face that sets everything above the fold. Preloading only this one
+     is deliberate: preload everything and the browser stops prioritising, which
+     is the opposite of the point. The italic and the mono face load normally. -->
+<link rel="preload" href="/fonts/atkinson-hyperlegible-next-roman-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/press.css">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -33,6 +37,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="text/markdown" href="https://whysheet.press/sheets/sensory-access-at-work.md" title="Sensory Access at Work — Markdown source">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sensory Access at Work","description":"All eight senses, the common access needs at work, and the small changes that make a workplace livable.","url":"https://whysheet.press/sheets/sensory-access-at-work/","inLanguage":"en","isAccessibleForFree":true,"license":"https://creativecommons.org/publicdomain/zero/1.0/","publisher":{"@type":"Organization","name":"Stimpunks Foundation","url":"https://stimpunks.org/"},"dateModified":"2026-07-27","sameAs":["https://stimpunks.org/why/sensory-access-at-work/"],"encoding":[{"@type":"MediaObject","contentUrl":"https://whysheet.press/pdf/sensory-access-at-work.pdf","encodingFormat":"application/pdf"},{"@type":"MediaObject","contentUrl":"https://whysheet.press/sheets/sensory-access-at-work.md","encodingFormat":"text/markdown"}]}</script>
+<!-- Speculation rules. Prerender a sheet on hover-with-intent, because the
+     shelf is a list of sixteen and a reader opens one; prefetch anything else
+     same-origin only on pointerdown. PDFs, prompts and .md sources are excluded
+     from the prefetch: those are downloads, and speculatively pulling a 300 kB
+     PDF because a cursor crossed the button is somebody's data allowance.
+     Chromium-only today. Other browsers ignore the block entirely — no
+     regression, just no upside.
+     This IS governed by script-src, unlike the JSON-LD data block above, which
+     is why _headers carries 'inline-speculation-rules' — a keyword that permits
+     exactly this and nothing else executable. -->
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/sheets/*/"},"eagerness":"moderate"}],"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/pdf/*"}},{"not":{"href_matches":"/prompts/*"}},{"not":{"href_matches":"/sheets/*.md"}}]},"eagerness":"conservative"}]}</script>
 <script type="module" src="/assets/sheet.js" defer></script>
 </head>
 <body>

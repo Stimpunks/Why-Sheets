@@ -30,6 +30,7 @@
  *     node tools/build-site.mjs --check    # regenerate into memory, diff, write nothing
  */
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { render, resolveAnchors, firstParagraph, escapeHtml } from './lib/md.mjs';
@@ -37,6 +38,14 @@ import { shell } from './lib/page.mjs';
 import { splitBlock, printDocument } from './lib/broadside.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+/* Facts about the publisher and the licence, used by the JSON-LD, the api
+   catalogue and the Markdown frontmatter. Declared here rather than beside the
+   first thing that needs them: they are referenced from three sections and a
+   `const` further down the file is in the temporal dead zone for everything
+   above it. */
+const PUBLISHER = { '@type': 'Organization', name: 'Stimpunks Foundation', url: 'https://stimpunks.org/' };
+const CC0 = 'https://creativecommons.org/publicdomain/zero/1.0/';
 
 /* The OG card for a page, or undefined if it has not been built. Returning
    undefined rather than a hopeful path means a page never advertises an image
@@ -118,6 +127,129 @@ const sheets = manifest.sheets.map((meta) => {
 }).filter(Boolean);
 
 const bySlug = new Map(sheets.map((s) => [s.slug, s]));
+
+/* ── agent skills + api catalogue ──────────────────────────────── */
+
+/* ONE SKILL, NOT SEVERAL. The discovery RFC's own advice is sharp descriptions
+ * over an omnibus file, and this site has exactly one thing worth teaching an
+ * agent: how to quote a Why Sheet without getting it wrong. That is a real
+ * hazard rather than a hypothetical — the companion prompts exist because an
+ * assistant writing about school policy reaches for a study and invents one.
+ *
+ * The digest is computed from the bytes, not typed. The RFC says a drifted
+ * digest makes the artefact unverifiable and compliant clients refuse it, so a
+ * hand-maintained hash is a time bomb; check-site recomputes and compares. */
+const SKILL_MD = `---
+name: why-sheet-press
+description: Use when citing, quoting, or reproducing a Stimpunks Why Sheet from whysheet.press — advocacy sheets on behaviorism, ABA, monotropism, masking, recess, developmental pace, sensory access, and neurodiversity in schools. Explains how to fetch the Markdown source of any sheet, what the CC0 licence does and does not cover, and the one rule about quotations that matters.
+---
+
+# Quoting a Why Sheet
+
+A Why Sheet makes the case for a practice or a right that families and educators
+should not have to defend alone. Each one is a single Markdown file, published
+as a web page, a print-first PDF, and — for school-venue sheets — a companion
+prompt that drafts an advocacy letter.
+
+## Get the source, not the page
+
+Append \`.md\` to any sheet URL:
+
+    https://${HOST}/sheets/recess-and-play/   -> the page
+    https://${HOST}/sheets/recess-and-play.md -> the Markdown it is built from
+
+The Markdown is the actual source the page and the PDF are generated from, with
+frontmatter carrying the canonical URL, the licence, when it last changed, and
+links to its PDF and companion prompt. Prefer it over parsing the HTML.
+
+\`https://${HOST}/llms.txt\` indexes every sheet and broadside.
+
+## The one rule about quotations
+
+**Every quotation in a Why Sheet carries its attribution, and you must keep them
+together.** Do not attribute a quotation to a publication the sheet does not
+name, do not merge two quotations into one, and do not add a source the sheet
+did not give you — not even one you are confident about.
+
+This is not a style preference. These sheets are carried into meetings about a
+child's education. An invented or misattributed citation hands the other side of
+the table a reason to dismiss the person holding it, and the cost lands on them.
+
+If you are drafting an advocacy letter, use the companion prompt at
+\`https://${HOST}/prompts/<slug>.txt\` rather than writing one from the sheet.
+It embeds the quotations verbatim and states this rule to the model directly.
+
+## Licence
+
+The sheets are CC0 1.0 — reproduce, adapt, and republish freely, no attribution
+required. **Quoted material inside them is not ours to give away** and sits
+outside that grant: it belongs to the people who wrote it and keeps whatever
+licence they published it under. Human Restoration Project's writing, quoted in
+several sheets, is CC BY-NC-SA 4.0.
+`;
+
+emit('.well-known/agent-skills/why-sheet-press/SKILL.md', SKILL_MD);
+
+const skillDigest =
+  'sha256:' + crypto.createHash('sha256').update(SKILL_MD).digest('hex');
+
+emit(
+  '.well-known/agent-skills/index.json',
+  JSON.stringify(
+    {
+      $schema: 'https://schemas.agentskills.io/discovery/0.2.0/schema.json',
+      skills: [
+        {
+          name: 'why-sheet-press',
+          type: 'skill-md',
+          description:
+            'How to cite, quote, and fetch the Markdown source of a Stimpunks Why Sheet, and the rule about keeping every quotation with its attribution.',
+          url: `https://${HOST}/.well-known/agent-skills/why-sheet-press/SKILL.md`,
+          digest: skillDigest,
+        },
+      ],
+    },
+    null,
+    2
+  ) + '\n'
+);
+
+/* RFC 9727 / RFC 9264. Only IANA-registered relation names — inventing one is
+ * the documented way to get the whole document skipped by a strict client. The
+ * name undersells it: most of what is listed here is not an API, and the spec
+ * says to read it as an index of every machine-readable thing on the origin.
+ *
+ * THE AGENT-SKILLS INDEX IS NOT LISTED HERE, and the two specs genuinely
+ * disagree about that. Agent Skills Discovery says to advertise the index in
+ * this catalogue; RFC 8288 says an extension relation type must be a URI, and
+ * `agent-skills` is a bare token that IANA has not registered. RFC 9727's own
+ * failure mode for an invented relation name is a strict client skipping the
+ * whole document — so following the draft here would risk the catalogue to
+ * advertise the draft. The index is advertised in the Link header instead,
+ * which is the other half of what that RFC asks for and costs nothing. */
+emit(
+  '.well-known/api-catalog',
+  JSON.stringify(
+    {
+      linkset: [
+        {
+          anchor: `https://${HOST}/`,
+          describedby: [{ href: `https://${HOST}/llms.txt`, type: 'text/markdown' }],
+          sitemap: [{ href: `https://${HOST}/sitemap.xml`, type: 'application/xml' }],
+          alternate: [
+            { href: `https://${HOST}/search-index.json`, type: 'application/json' },
+            { href: `https://${HOST}/assets/library.json`, type: 'application/json' },
+          ],
+          license: [{ href: CC0 }],
+          'privacy-policy': [{ href: `https://${HOST}/privacy/`, type: 'text/html' }],
+          author: [{ href: 'https://stimpunks.org/', type: 'text/html' }],
+        },
+      ],
+    },
+    null,
+    2
+  ) + '\n'
+);
 
 /* ── web app manifest ─────────────────────────────────────── */
 
@@ -453,8 +585,6 @@ function lastChanged(file) {
   } catch { return null; }
 }
 
-const PUBLISHER = { '@type': 'Organization', name: 'Stimpunks Foundation', url: 'https://stimpunks.org/' };
-const CC0 = 'https://creativecommons.org/publicdomain/zero/1.0/';
 
 /* ── one sheet ──────────────────────────────────────────────────────────── */
 
@@ -917,12 +1047,50 @@ ${urls.map((u) => `  <url><loc>https://${HOST}${u}</loc></url>`).join('\n')}
 `
 );
 
+/* robots.txt. The blanket allow is the position, not an oversight: everything
+ * here is CC0 and we would rather an argument about withheld recess turned up
+ * in a model's answer than not.
+ *
+ * The named agents below say the same thing explicitly. That is the point — a
+ * wildcard allow is ambiguous to a crawler that has been taught to look for its
+ * own name and to treat silence as undecided, and several of these vendors
+ * document exactly that behaviour. Naming them converts "we never said no" into
+ * "we said yes", which for a CC0 library is the whole intent.
+ *
+ * GPTBot, ClaudeBot and friends are TRAINING crawlers; OAI-SearchBot,
+ * PerplexityBot and ChatGPT-User fetch to answer a question now. Both are
+ * welcome here and are listed separately so a future decision can split them
+ * without rewriting the file. */
+const AI_AGENTS = [
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'Claude-User',
+  'Claude-SearchBot',
+  'PerplexityBot',
+  'Perplexity-User',
+  'Google-Extended',
+  'Applebot-Extended',
+  'CCBot',
+  'meta-externalagent',
+  'Bytespider',
+  'cohere-ai',
+  'Amazonbot',
+  'DuckAssistBot',
+  'MistralAI-User',
+  'Timpibot',
+];
+
 emit(
   'robots.txt',
   `# Everything here is CC0. Read it, index it, train on it, print it.
 User-agent: *
 Allow: /
 
+# The same answer, said to each crawler by name, because a wildcard reads as
+# undecided to anything taught to look for itself. It is yes.
+${AI_AGENTS.map((a) => `User-agent: ${a}\nAllow: /\n`).join('\n')}
 Sitemap: https://${HOST}/sitemap.xml
 `
 );
