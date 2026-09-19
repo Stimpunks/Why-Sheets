@@ -128,8 +128,15 @@ for (const abs of pages) {
    * still ships JSON-LD inline.
    *
    * The exemption is by exact type, not by "has a type attribute", because
-   * type="module" and type="text/javascript" both execute. Verified against the
-   * live CSP rather than asserted from the spec — see the deploy check. */
+   * type="module" and type="text/javascript" both execute.
+   *
+   * VERIFIED AGAINST THE LIVE CSP, not taken from a reading of the spec: with
+   * the real header served by Netlify, /sheets/hoodie/ reports zero console
+   * errors, the JSON-LD parses out of the DOM, and the page's own module script
+   * still runs — so the policy is active and accepted the data block. Checking
+   * locally could not have shown this: the preview server sends no CSP at all,
+   * which is the whole reason this class of error only ever appears in
+   * production. */
   const DATA_BLOCK = /\btype=["']application\/ld\+json["']/i;
   for (const m of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
     if (m[2].trim() && !/\bsrc=/.test(m[1]) && !DATA_BLOCK.test(m[1])) {
