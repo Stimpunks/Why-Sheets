@@ -134,6 +134,23 @@ Deleted, along with the horizontal rule it left stranded under the title. Nothin
 
 ----
 
+### Deployment: Netlify, GitHub App, no build step — 2026-09-19
+
+Live at **https://whysheet.press** (Netlify project `why-sheet-press`, Stimpunks team). Continuous deployment from `Stimpunks/Why-Sheets`, branch `main`, publish `.`, empty build command — the same shape as Penguin Pebbling, Star Stuff, Queering Earth and Monotropic Map.
+
+**The GitHub connection was made through the dashboard, deliberately.** An API shortcut was tried first: `updateSite` accepted a `repo` object and returned it in `build_settings`, which looked like success. The next build failed with `Host key verification failed` — it had written a field, not an authorization. A deploy key plus a webhook would have worked and was rejected for a different reason: every other Netlify site in the estate uses the GitHub App, and a bespoke wiring here would be the one site configured differently, with no deploy status on PRs and a setup nobody remembers in six months.
+
+**The first deploy paid for itself immediately**, finding two faults that are invisible locally because the preview sends no CSP and serves no redirects:
+
+- **All nine broadside blocks `@import` Google Fonts.** On the site, `style-src 'self'` blocked it, so Space Mono never loaded. Worse and quieter: `print.html` carries the same import and headless Chrome has no CSP, so the nine broadside PDFs were being laid out with fonts fetched over the network. On a fixed-height sheet that is not cosmetic — it is where the page breaks fall. Space Mono is now vendored, the import is stripped at build time, and the reprinted PDFs are byte-for-byte the same shape: 2 pages each, 122 printed sides.
+- **`/broadsides/source/*` returned 200, not 301.** Netlify serves an existing static file *before* applying a redirect, so the rule never fired and anyone hitting that path got a raw unstyled fragment. It needs the shadowing `301!`.
+
+`sync-broadsides` should have caught the first and did not: it matched `src=` and `href=` attributes only, so it passed all nine clean while every one imported from another origin in CSS. It checks `@import` and `url()` now.
+
+**Still to confirm once the custom domain is attached:** HSTS is served as Netlify's `max-age=31536000; includeSubDomains; preload`, not the `max-age=63072000` without `preload` that `_headers` declares. The likely cause is that `*.netlify.app` is preloaded platform-wide and the platform header wins on that hostname — unverifiable until a custom domain exists. If the platform value still wins there, the comment in `_headers` explaining the two-year no-preload choice is describing something that is not happening, and should be corrected rather than left as decoration.
+
+----
+
 ## Open
 
 ### *Developmental Pace* overflows by 0.6 mm on A4
