@@ -124,7 +124,7 @@ The evidence on modelling is unusually clear:
 
 > The results of the review indicated that AAC modeling intervention packages led to meaningful linguistic gains across four areas including (a) pragmatics, marked by increases in communication turns; (b) semantics, marked by receptive and expressive vocabulary increases; (c) syntax, marked by multi-symbol turn increases; and (d) morphology, marked by increases in target morphology structures.
 >
-> — Samuel C. Sennott, Janice C. Light, David McNaughton, [AAC Modeling Intervention Research Review](https://journals.sagepub.com/doi/abs/10.1177/1540796916638822), *Research and Practice for Persons with Severe Disabilities*, 2016 — quoted from the published abstract via our [AAC glossary entry](https://stimpunks.org/glossary/alternative-and-augmentative-communication/). The publisher blocks automated access, so we have not opened the paper itself
+> — Samuel C. Sennott, Janice C. Light, David McNaughton, [AAC Modeling Intervention Research Review](https://journals.sagepub.com/doi/abs/10.1177/1540796916638822), *Research and Practice for Persons with Severe Disabilities*, 2016, pp. 1–15
 
 **So "we tried AAC and it didn't work" is usually a description of the adults.** Ask what modelling happened, by whom, how often, and for how long, before accepting that a system was tried.
 
@@ -179,6 +179,7 @@ Communication is the thing you provide first, so that everything else — consen
 - [Presume competence](https://stimpunks.org/philosophy/presume-competence-never-assume-that-the-ability-to-speak-equals-intelligence/) — ours
 - [Access to Communication Services and Supports](https://www.asha.org/policy/TR2002-00233/) — the NJC technical report, and the primary source for most of this sheet
 - [Communication Bill of Rights, 3rd Edition](https://www.asha.org/njc/communication-bill-of-rights/) — National Joint Committee, 2024
+- Samuel C. Sennott, Janice C. Light & David McNaughton, [AAC Modeling Intervention Research Review](https://journals.sagepub.com/doi/abs/10.1177/1540796916638822), *Research and Practice for Persons with Severe Disabilities*, 2016 — the systematic review on modelling, read in full
 - [Self-Determination](https://autisticadvocacy.org/self-determination/) — Autistic Self Advocacy Network
 - [Behaviorism](https://stimpunks.org/why/behaviorism/) — why a model that watches only compliance cannot hear a child who has no channel
 - [Eye Contact](https://stimpunks.org/why/eye-contact/) — the same demand to perform a channel that costs more than it carries

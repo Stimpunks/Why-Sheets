@@ -157,9 +157,7 @@ increases; and (d) morphology, marked by increases in target morphology
 structures."
   — Samuel C. Sennott, Janice C. Light, David McNaughton, AAC Modeling
   Intervention Research Review, Research and Practice for Persons with Severe
-  Disabilities, 2016 — quoted from the published abstract via our AAC glossary
-  entry. The publisher blocks automated access, so we have not opened the
-  paper itself
+  Disabilities, 2016, pp. 1–15
 
 "Communication comes in many forms—speech, vocalisations, words, sentences,
 phrases, AAC devices, body language, facial expressions, pointing, signing,
@@ -197,4 +195,5 @@ ASKS — CHOOSE AT MOST THREE, AND REWORD THEM FOR THIS FAMILY
 ═══════════════════════════════════════════════════════════════════════════════
 
 Source: AAC Is Not a Last Resort Why Sheet — https://whysheet.press/sheets/aac/
+Also published at https://stimpunks.org/why/aac/
 This prompt is CC0. Quoted material remains the property of its authors.
