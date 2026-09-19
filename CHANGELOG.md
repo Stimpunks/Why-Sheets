@@ -12,11 +12,17 @@ and a date, contents list with real page numbers, everything numbered straight
 through. Assembled in your own browser; nothing is uploaded and nothing is
 recorded.
 
-**One source of truth.** There were three answers to *how many Why Sheets are
-there?* — fourteen here, twelve published on stimpunks.org, nine named in the
-list on `/why/`. The site, the PDFs and the packet are now all generated from the
-Markdown, and `tools/check-drift.mjs` prints every count side by side whether
-they agree or not.
+**One source of truth.** The site, the PDFs and the packet are all generated
+from the Markdown, and `tools/check-drift.mjs` prints every count side by side
+whether they agree or not.
+
+**And the first thing it caught was itself.** It reported three sheets as
+published but missing from the list on `/why/`. All three were already there.
+That list is generated from the page's child pages at request time, so it cannot
+drift — and the local site mirror had not re-fetched the page in six weeks,
+because a page whose *rendered* output depends on other content never reports
+itself as modified. The scrape is gone; the staleness signal that would have
+caught it is in its place.
 
 **126 non-breaking spaces repaired.** Nine of the fourteen sheets had been
 quietly damaged by Ulysses, twenty-four of the spaces sitting inside an emphasis

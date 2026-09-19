@@ -8,7 +8,7 @@ Why things are the way they are, so the same questions are not re-litigated in t
 
 ### The repository is the source of truth, and `sheets.json` is what makes that enforceable — 2026-09-19
 
-Before the press there were three live answers to *how many Why Sheets are there?*: 14 files here, 12 published pages on stimpunks.org, 9 named in the list on `/why/`. None was wrong on its own. Two sheets genuinely had no page yet, and three published sheets had simply never been added to the list. The failure was that nothing read all three.
+Before the press there were three apparent answers to *how many Why Sheets are there?*: 14 files here, 12 published pages on stimpunks.org, 9 named in the list on `/why/`. Two sheets genuinely had no page yet. **The nine turned out to be an artefact** — a stale mirror of a page that generates its list at request time; see the entry below. Finding that out is what the tool is for.
 
 The site, the PDFs and the packet are now all generated from the Markdown, and `tools/check-drift.mjs` prints every count side by side whether they agree or not.
 
@@ -103,13 +103,20 @@ A broadside's colours are chosen and measured against white, and its own small p
 
 ----
 
+### The /why/ list cannot drift, and the first version of the checker did not know that — 2026-09-19
+
+`check-drift.mjs` originally scraped the anchors out of the mirrored `/why/` page and reported three sheets — Boring Technology, Masking and Burnout, Monotropism — as published but unlinked, recommending a hand edit to the live site.
+
+All three were already there. Two things were true at once, and each alone would have been enough:
+
+1. **The list is not written by anyone.** The page's stored content is a single self-closing block, `<!-- wp:yoast-seo/subpages /-->`, which renders the page's published children at request time. There is no markup to add a link to, and a published child *is* listed. The set cannot drift.
+2. **The mirror cannot see that it changed.** The site mirror syncs incrementally on `modified_after`. `/why/`'s own stored content has not changed since 2026-06-17, so it has never been re-fetched — while its rendered output changed three times as those children were published in late August. The rest of the mirror was one day old; that one file was six weeks old, and nothing said so.
+
+The scrape is gone. What replaced it is the signal that would have caught it: if a sheet was published after the parent page was last modified, the mirrored parent predates it and must not be read as evidence of anything.
+
+**The general form is worth carrying elsewhere: `modified` tracks a page's own content, not what its blocks render.** Any page on stimpunks.org built out of subpages blocks, tables of contents, query loops or synced patterns is mirrored once and then frozen, while the live page moves. `audit-page` and `garden-spider` both read that mirror.
+
 ## Open
-
-### The three published-but-unlisted sheets on stimpunks.org
-
-`boring-technology`, `masking-and-burnout` and `monotropism` are published and nothing on [/why/](https://stimpunks.org/why/) links to them. A reader who does not already know the URL cannot find them.
-
-This is a **stimpunks.org edit, not a repository one**, and it is Ryan's to make. `check-drift.mjs` reports it as a note rather than a failure for exactly that reason.
 
 ### `Masking and Burnout.md` still says "Not yet published"
 

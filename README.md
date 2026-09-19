@@ -33,9 +33,9 @@ Every PDF is **190 × 259 mm** — the intersection of A4 and US Letter — so i
 
 ## The repository is the source of truth
 
-That was not true before the press existed. There were three answers to *how many Why Sheets are there?*, all live at once: **14** files here, **12** pages published on stimpunks.org, **9** named in the list on [/why/](https://stimpunks.org/why/). None of them was wrong on its own. The failure was that nothing read all three, so nothing could notice.
+That was not true before the press existed. There were three apparent answers to *how many Why Sheets are there?*: **14** files here, **12** pages published on stimpunks.org, and **9** in the list on [/why/](https://stimpunks.org/why/).
 
-Now `tools/check-drift.mjs` does, and it prints all the numbers side by side whether they agree or not.
+`tools/check-drift.mjs` now prints every count side by side whether they agree or not — and the first thing it did was catch itself. The nine were an artefact: that list is generated from child pages at request time, and the local site mirror had not re-fetched the page in six weeks because its *stored* content had not changed. A count read out of a stale snapshot is worse than no count, because it arrives formatted as an answer. The check that produced it is gone; what replaced it is the staleness signal that would have caught it.
 
 ----
 

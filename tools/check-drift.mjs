@@ -9,14 +9,18 @@
  *     12  pages published at stimpunks.org/why/<slug>/
  *      9  named in the "Our Why Sheets" list on stimpunks.org/why/
  *
- * None of those numbers was wrong on its own. Two sheets genuinely had no page
- * yet, and three published sheets had simply never been added to the list. The
- * failure was that nothing anywhere could notice, because nothing read all
- * three. A library with three catalogues has no catalogue.
+ * Two sheets genuinely had no page yet. THE THIRD NUMBER WAS AN ARTEFACT — see
+ * the note above section 3 — and finding that out is what this tool is for: the
+ * nine came from a mirrored copy of a page that renders its list dynamically and
+ * had not been re-fetched in six weeks. A library with three catalogues has no
+ * catalogue, and a catalogue read out of a stale snapshot is worse than none,
+ * because it is formatted like an answer.
  *
  * WHAT IT COMPARES, and the one thing it deliberately does not do
- * Four sources: this repository's files, `sheets.json`, the local mirror of
- * stimpunks.org, and the list on the /why/ page inside that mirror.
+ * Three sources: this repository's files, `sheets.json`, and the local mirror of
+ * stimpunks.org. It no longer reads the list on the /why/ page — that list is
+ * generated, not written, and the mirrored copy of a generated list is a
+ * snapshot of a moment. Section 3 says why at length.
  *
  * IT READS THE MIRROR, NEVER THE LIVE SITE. Checking links against
  * stimpunks.org by fetching them does not work: a burst of requests trips its
@@ -132,31 +136,76 @@ if (mirrorOk) {
   }
 }
 
-/* ── 3. the list on /why/ against what is actually published ────────────── */
+/* ── 3. the /why/ list — which is NOT a list ────────────────────────────── */
 
-const whyPage = path.join(pagesDir, 'why.md');
-if (mirrorOk && fs.existsSync(whyPage)) {
-  const text = fs.readFileSync(whyPage, 'utf8');
-  const listed = new Set(
-    [...text.matchAll(/https:\/\/stimpunks\.org\/why\/([a-z0-9-]+)\//g)].map((m) => m[1])
-  );
+/* THIS CHECK WAS WRONG, AND THE WAY IT WAS WRONG IS WORTH KEEPING.
+ *
+ * It used to scrape the anchors out of the mirrored /why/ page and compare them
+ * against the published sheets. On 2026-09-19 it reported three sheets —
+ * Boring Technology, Masking and Burnout, Monotropism — as published but not
+ * linked from the parent page, and recommended a hand edit to add them.
+ *
+ * All three were already there. Two things were true at once:
+ *
+ *   1. THE LIST IS NOT WRITTEN BY ANYONE. The page's stored content at that
+ *      point is a single self-closing block, `<!-- wp:yoast-seo/subpages /-->`,
+ *      which renders the page's published children at request time. There is no
+ *      markup to add a link to, and a sheet cannot be "missing" from it: being
+ *      a published child IS being listed. The set cannot drift, by construction.
+ *
+ *   2. THE MIRROR CANNOT SEE THAT IT CHANGED. The site mirror syncs
+ *      incrementally on `modified_after`, and /why/'s own stored content has not
+ *      changed since 2026-06-17 — so it has never been re-fetched, while its
+ *      rendered output changed three times as those children were published in
+ *      late August. The rest of the mirror was one day old. That one file was
+ *      six weeks old, and nothing said so, because `modified` tracks a page's
+ *      own content and not what its blocks render.
+ *
+ * So the scrape is gone. What is left is the staleness signal that would have
+ * caught it: if any sheet was published after the parent page was last modified,
+ * the mirrored copy of that parent predates it and must not be read as evidence
+ * of anything. That is reported as a fact about the mirror, not as drift in the
+ * library.
+ */
 
-  const unlisted = [...published.keys()].filter((s) => !listed.has(s)).sort();
-  const ghosts = [...listed].filter((s) => !published.has(s)).sort();
+if (mirrorOk && fs.existsSync(path.join(pagesDir, 'why.md'))) {
+  const parent = fs.readFileSync(path.join(pagesDir, 'why.md'), 'utf8');
+  const parentModified = ((/^modified:\s*"?([^"\n]+)"?/m.exec(parent) || [])[1] || '').trim();
 
-  if (unlisted.length) {
-    note('warn', 'PUBLISHED BUT NOT LISTED on stimpunks.org/why/  (' + unlisted.length + ')\n' +
-      unlisted.map((s) => '        ' + s).join('\n') + '\n' +
-      '      These pages exist and nothing on the parent page links to them. A reader who does not\n' +
-      '      already know the URL cannot find them. This is a stimpunks.org edit, not a repository one.');
+  const newer = manifest.sheets
+    .filter((s) => s.published)
+    .map((s) => {
+      const file = path.join(pagesDir, 'why__' + s.slug + '.md');
+      if (!fs.existsSync(file)) return null;
+      const d = ((/^date:\s*"?([^"\n]+)"?/m.exec(fs.readFileSync(file, 'utf8')) || [])[1] || '').trim();
+      return d && parentModified && d > parentModified ? { slug: s.slug, date: d.slice(0, 10) } : null;
+    })
+    .filter(Boolean);
+
+  if (newer.length) {
+    note('warn',
+      'THE MIRRORED /why/ PAGE PREDATES ' + newer.length + ' OF ITS OWN CHILDREN\n' +
+      '      /why/ was last modified ' + parentModified.slice(0, 10) + '; these were published after:\n' +
+      newer.map((n) => '        ' + n.slug + '  (' + n.date + ')').join('\n') + '\n' +
+      '      Its list of sheets is rendered from its children at request time, so the mirrored\n' +
+      '      copy shows the list as it stood in ' + parentModified.slice(0, 10) + ' and will never be\n' +
+      '      refreshed: the sync is incremental on `modified`, and a page whose RENDERED output\n' +
+      '      depends on other content never reports itself as modified.\n' +
+      '      Do not read that page out of the mirror. Nothing is wrong with the library.');
   }
-  if (ghosts.length) {
-    note('error', 'LISTED BUT NOT PUBLISHED on stimpunks.org/why/  (' + ghosts.length + ')\n' +
-      ghosts.map((s) => '        ' + s).join('\n') + '\n' +
-      '      Each of these 404s — or worse, 301s to whatever else owns the slug, which looks like it worked.');
+
+  /* A real failure, and the only one possible here: a sheet claimed as published
+     whose URL is not under /why/ would not be a child, so the block would not
+     render it however long anyone waited. */
+  for (const s of manifest.sheets) {
+    if (s.published && !/^https:\/\/stimpunks\.org\/why\/[a-z0-9-]+\/$/.test(s.published)) {
+      note('error', 'NOT A CHILD OF /why/  ' + s.slug + '\n' +
+        '      ' + s.published + ' is not under /why/, so the parent page\'s subpages block\n' +
+        '      will never list it, whatever else is true.');
+    }
   }
 } else if (mirrorOk) {
-  note('warn', 'The mirror has no pages/why.md, so the list on the parent page is unchecked.');
+  note('warn', 'The mirror has no pages/why.md, so the parent page is unchecked.');
 }
 
 /* ── 4. the press against itself ────────────────────────────────────────── */
