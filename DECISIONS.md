@@ -122,11 +122,19 @@ The mirror was re-pulled in full on 2026-09-19: 1,571 records, 0 added, 0 delete
 
 **The general form is worth carrying elsewhere: `modified` tracks a page's own content, not what its blocks render.** Any page on stimpunks.org built out of subpages blocks, tables of contents, query loops or synced patterns is mirrored once and then frozen, while the live page moves. `audit-page` and `garden-spider` both read that mirror.
 
+### The one production note in the library is gone — 2026-09-19
+
+`Masking and Burnout.md` opened with a line naming its target URL, its WordPress parent page and that page's post ID, and declaring itself *"Not yet published."* The page had been live since 2 September.
+
+It was the only sheet of the fourteen carrying anything like it; every other one opens with its argument. And it was not an internal note in practice — it printed, as the first line of the sheet's body, so the PDF a family carried into a meeting began by calling itself a draft and quoting `69263`.
+
+Deleted, along with the horizontal rule it left stranded under the title. Nothing was lost: the canonical URL is in the sheet's own License block, in `sheets.json`, and on its page on the press. The sheet dropped from eight printed pages to seven.
+
+**The general rule this settles: a Why Sheet contains no production scaffolding.** Anything about where a sheet is published, or whether, belongs in `sheets.json`, which is exactly why that file exists.
+
+----
+
 ## Open
-
-### `Masking and Burnout.md` still says "Not yet published"
-
-Its own header calls itself a draft for a page that has been live for some time. A one-line fix in the sheet, but it is Ryan's prose.
 
 ### *Developmental Pace* overflows by 0.6 mm on A4
 
