@@ -65,3 +65,12 @@
   # should not be handed a stale one at an appointment. Revalidate.
   Cache-Control: public, max-age=0, must-revalidate
   Content-Disposition: inline
+
+/prompts/*
+  # A prompt is regenerated whenever its sheet changes, and a stale one would
+  # carry quotations the sheet no longer makes. Revalidate like the pages.
+  Cache-Control: public, max-age=0, must-revalidate
+  # Served as plain text so a browser shows it rather than downloading it, and
+  # UTF-8 explicitly: these carry em dashes and curly quotes inside quotations
+  # that must reach an assistant exactly as the source wrote them.
+  Content-Type: text/plain; charset=utf-8

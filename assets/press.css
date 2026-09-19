@@ -454,6 +454,22 @@ main { padding: 2.4rem 0 4rem; }
 .sheet-body h2 { border-bottom: 1px solid var(--rule); padding-bottom: 0.25em; }
 .sheet-body > ul li::marker { color: var(--spot); }
 
+/* The companion-prompt block. Distinct from .source-note — that one is
+   provenance for people checking our work, this one is a tool for people with a
+   meeting on Tuesday. Screen only: it is marked data-print="hide" because a
+   printed page cannot carry a paste buffer, and the sheet's own URL is already
+   in the printed footer for anyone who wants to come back for it. */
+.prompt-note {
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--spot);
+  background: var(--spot-wash);
+}
+.prompt-note h2 { margin-top: 0; font-size: 1.15rem; }
+.prompt-note .actions { margin: 1rem 0 0.5rem; }
+.prompt-note .note { margin-bottom: 0; font-size: 0.9rem; color: var(--ink-faint); }
+
 .source-note {
   margin-top: 3rem;
   padding: 1rem 1.2rem;

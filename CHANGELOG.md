@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026-09-19 — Companion prompts
+
+**A prompt to go with the sheet.** Four Why Sheets now carry a companion prompt: plain text you
+copy into whatever AI assistant you already use, which asks you what happened — your child's
+name, their year, what was said, how the evening went — and then drafts the letter. Eye Contact,
+Masking and Burnout, Developmental Pace, and Recess and Play. Nothing you type reaches us.
+
+**Each one carries its sheet's quotations inside it, word for word, and forbids the assistant
+from adding any source it was not given.** That is the whole design. An assistant writing about
+school policy will reach for a study, and an invented or misattributed citation hands a school a
+free reason to dismiss you — in a room where you are already outnumbered. The generator refuses
+to put a quotation into a prompt without its attribution attached.
+
+**Generated from the sheets, so they cannot drift.** `tools/build-prompts.mjs` reads the
+argument, the quotations and the asks out of the Markdown. `--check` fails the build if any
+prompt no longer matches its sheet.
+
+**And it only builds the ones it can build honestly.** A sheet with no "What to Ask For in the
+Room" section is skipped rather than shipped without asks, because the alternative is an
+assistant inventing what to demand of a school. Six school sheets are in that state and are
+named on every build.
+
 ## 2026-09-19 — The Why Sheet Press
 
 The first release. Fourteen Why Sheets and nine broadsides, published as a

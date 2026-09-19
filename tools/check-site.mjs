@@ -190,13 +190,24 @@ for (const abs of pages) {
     fail(where, 'a broadside block\'s Side A / Side B toggle survived the build — it has no script and does nothing');
   }
 
+  /* --- the prompt a page offers to copy --- */
+  /* data-copy-prompt is an ATTRIBUTE, not an href, so the link loop above never
+     sees it. A sheet that loses its asks section stops having a prompt generated
+     while its page goes on offering a button that fetches a 404 — and the button
+     fails silently into "Could not copy", which reads as a broken site rather
+     than a missing file. Check the target like any other link. */
+  for (const m of html.matchAll(/data-copy-prompt="([^"]+)"/g)) {
+    if (!fs.existsSync(path.join(REPO, m[1])))
+      fail(where, 'offers to copy ' + m[1] + ', which does not exist');
+  }
+
   /* --- 5. the PDFs the page offers --- */
   for (const m of html.matchAll(/href="(\/pdf\/[^"]+\.pdf)"/g)) {
     if (!fs.existsSync(path.join(REPO, m[1]))) fail(where, 'offers ' + m[1] + ', which does not exist');
   }
 }
 
-console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids and PDFs.');
+console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, prompts and PDFs.');
 
 /* ── 4. contrast, in a browser, in both themes ──────────────────────────── */
 

@@ -235,6 +235,13 @@ ${sheets.map(cardFor).join('\n')}
 
 /* ── one sheet ──────────────────────────────────────────────────────────── */
 
+/* Which sheets have a companion advocacy prompt. build-prompts.mjs decides that —
+   it needs a venue and a set of asks — and runs before this stage in ship.mjs. The
+   directory is read rather than the rule re-implemented, so the two cannot disagree. */
+const PROMPTS = fs.existsSync(path.join(REPO, 'prompts'))
+  ? new Set(fs.readdirSync(path.join(REPO, 'prompts')).filter((f) => f.endsWith('.txt')).map((f) => f.replace(/\.txt$/, '')))
+  : new Set();
+
 for (const s of sheets) {
   const bs = s.broadside ? broadsides.find((b) => b.slug === s.broadside) : null;
   const repoUrl =
@@ -272,7 +279,29 @@ ${s.content_note ? `    <p class="note"><strong>Content note.</strong> ${escapeH
 ${s.html}
   </div>
 
-  <div class="source-note">
+${
+    PROMPTS.has(s.slug)
+      ? `  <section class="prompt-note" data-print="hide">
+    <h2>Write the letter</h2>
+    <p>When we hand someone a Why Sheet, the next thing they usually need is a letter — and
+      we have been drafting those by hand. If you already use an AI assistant, this prompt
+      gets you a first draft about <em>your</em> child. Paste it in; it will ask you what
+      happened before it writes anything.</p>
+    <p>It carries this sheet's quotations inside it, word for word, and tells the assistant
+      to add no source it was not given. That is deliberate: an assistant writing about
+      school policy will reach for a study, and an invented or misattributed one hands the
+      school a reason to dismiss you. Read the draft before you send it. It is a draft.</p>
+    <div class="actions">
+      <button type="button" class="button" data-copy-prompt="/prompts/${s.slug}.txt">Copy the prompt</button>
+      <a class="button button--quiet" href="/prompts/${s.slug}.txt" download>Download it instead</a>
+    </div>
+    <p class="note">Nothing you type into your assistant reaches us. We never see your
+      child's name, your school, or your letter.</p>
+  </section>
+
+`
+      : ''
+  }  <div class="source-note">
     <p><strong>Where this sheet comes from.</strong> It is written and revised as Markdown in
       the open: <a href="${escapeHtml(repoUrl)}" rel="noopener">${escapeHtml(s.file)}</a>.
       That file is the source this page and its PDF are both generated from, so the three cannot
@@ -626,6 +655,16 @@ ${sheets
 One sheet, two sides, sized for A4 and US Letter alike.
 
 ${broadsides.map((b) => `- [${b.title}](https://${HOST}/broadsides/${b.slug}/)`).join('\n')}
+
+## Companion prompts
+
+Plain-text prompts a family pastes into their own AI assistant to draft an advocacy letter about
+their own child. Each one interviews the reader first, then writes. Each embeds its sheet's
+quotations verbatim with attribution and instructs the assistant to add no source it was not
+given — because an invented or misattributed citation hands a school a reason to dismiss the
+letter. Nothing is sent to us. CC0, like the sheets.
+
+${[...PROMPTS].sort().map((slug) => { const sh = sheets.find((x) => x.slug === slug); return `- [${sh.title}](https://${HOST}/prompts/${slug}.txt): a school letter from the ${sh.title} Why Sheet`; }).join('\n')}
 
 ## Optional
 

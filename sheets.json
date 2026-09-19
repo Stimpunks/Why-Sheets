@@ -15,6 +15,14 @@
     "/why/neuromodulation/. A generator that derives slugs from filenames gets that one",
     "wrong and links a printed packet at a 404. Declare, do not guess.",
     "",
+    "`letter` names the VENUE a companion advocacy prompt would be written for, or null",
+    "when the sheet has no decision-maker at the other end. Cavendish Space and Boring",
+    "Technology argue a position; there is nobody to write to about them, and a letter",
+    "prompt on those would be furniture. The venue is a fact about the SHEET. Which",
+    "venues can actually be built is a fact about tools/build-prompts.mjs, which today",
+    "has a school template only. A sheet declaring a venue with no template is reported",
+    "on every build and skipped — a visible backlog, not a silent gap.",
+    "",
     "`published` is the canonical stimpunks.org URL, or null for a sheet that exists here",
     "and has not been published there. Both states are legitimate; only an undeclared one",
     "is drift. tools/check-drift.mjs compares this file against the repository and against",
@@ -28,6 +36,7 @@
   "sheets": [
     {
       "slug": "behaviorism",
+      "letter": "school",
       "file": "Behaviorism.md",
       "title": "Behaviorism",
       "published": "https://stimpunks.org/why/behaviorism/",
@@ -42,6 +51,7 @@
     },
     {
       "slug": "alternatives-to-aba",
+      "letter": "school",
       "file": "Alternatives to ABA.md",
       "title": "Alternatives to ABA",
       "published": "https://stimpunks.org/why/alternatives-to-aba/",
@@ -56,6 +66,7 @@
     },
     {
       "slug": "aba-tactics",
+      "letter": "school",
       "file": "ABA Tactics.md",
       "title": "ABA Tactics",
       "published": "https://stimpunks.org/why/aba-tactics/",
@@ -71,6 +82,7 @@
     },
     {
       "slug": "eye-contact",
+      "letter": "school",
       "file": "Eye Contact.md",
       "title": "Eye Contact",
       "published": "https://stimpunks.org/why/eye-contact/",
@@ -85,6 +97,7 @@
     },
     {
       "slug": "masking-and-burnout",
+      "letter": "school",
       "file": "Masking and Burnout.md",
       "title": "Masking and Burnout",
       "published": "https://stimpunks.org/why/masking-and-burnout/",
@@ -99,6 +112,7 @@
     },
     {
       "slug": "monotropism",
+      "letter": "school",
       "file": "Monotropism.md",
       "title": "Monotropism",
       "published": "https://stimpunks.org/why/monotropism/",
@@ -112,6 +126,7 @@
     },
     {
       "slug": "developmental-pace",
+      "letter": "school",
       "file": "Developmental Pace.md",
       "title": "Developmental Pace",
       "published": "https://stimpunks.org/why/developmental-pace/",
@@ -126,6 +141,7 @@
     },
     {
       "slug": "recess-and-play",
+      "letter": "school",
       "file": "Recess and Play.md",
       "title": "Recess and Play",
       "published": "https://stimpunks.org/why/recess-and-play/",
@@ -140,6 +156,7 @@
     },
     {
       "slug": "positive-greetings-at-the-door",
+      "letter": "school",
       "file": "Positive Greetings at the Door.md",
       "title": "Positive Greetings at the Door",
       "published": "https://stimpunks.org/why/positive-greetings-at-the-door/",
@@ -153,6 +170,7 @@
     },
     {
       "slug": "hoodie",
+      "letter": "school",
       "file": "Hoodie.md",
       "title": "Hoodie",
       "published": "https://stimpunks.org/why/hoodie/",
@@ -167,6 +185,7 @@
     },
     {
       "slug": "sensory-access-at-work",
+      "letter": "work",
       "file": "Sensory Access at Work.md",
       "title": "Sensory Access at Work",
       "published": "https://stimpunks.org/why/sensory-access-at-work/",
@@ -181,6 +200,7 @@
     },
     {
       "slug": "cavendish-space",
+      "letter": null,
       "file": "Cavendish Space.md",
       "title": "Cavendish Space",
       "published": "https://stimpunks.org/why/cavendish-space/",
@@ -195,6 +215,7 @@
     },
     {
       "slug": "neuroqueer-learning-spaces",
+      "letter": null,
       "file": "Neuroqueer Learning Spaces.md",
       "title": "Neuroqueer Learning Spaces",
       "published": "https://stimpunks.org/why/neuroqueer-learning-spaces/",
@@ -209,6 +230,7 @@
     },
     {
       "slug": "queer-and-neurodivergent-liberation-are-entwined",
+      "letter": null,
       "file": "Queer and Neurodivergent Liberation are Entwined.md",
       "title": "Queer and Neurodivergent Liberation are Entwined",
       "published": "https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/",
@@ -222,6 +244,7 @@
     },
     {
       "slug": "neuromodulation",
+      "letter": "clinical",
       "file": "Neuromodulation & Autism.md",
       "title": "Neuromodulation & Autism",
       "published": "https://stimpunks.org/why/neuromodulation/",
@@ -236,6 +259,7 @@
     },
     {
       "slug": "boring-technology",
+      "letter": null,
       "file": "Boring Technology.md",
       "title": "Boring Technology",
       "published": "https://stimpunks.org/why/boring-technology/",
@@ -251,51 +275,61 @@
   "broadsides": [
     {
       "slug": "behaviorism",
+      "letter": "school",
       "title": "Behaviorism",
       "parent": "behaviorism"
     },
     {
       "slug": "boring-technology",
+      "letter": null,
       "title": "Boring Technology",
       "parent": "boring-technology"
     },
     {
       "slug": "cavendish-space",
+      "letter": null,
       "title": "Cavendish Space",
       "parent": "cavendish-space"
     },
     {
       "slug": "developmental-pace",
+      "letter": "school",
       "title": "Developmental Pace",
       "parent": "developmental-pace"
     },
     {
       "slug": "eye-contact",
+      "letter": "school",
       "title": "Eye Contact",
       "parent": "eye-contact"
     },
     {
       "slug": "masking-and-burnout",
+      "letter": "school",
       "title": "Masking and Burnout",
       "parent": "masking-and-burnout"
     },
     {
       "slug": "monotropism",
+      "letter": "school",
       "title": "Monotropism",
       "parent": "monotropism"
     },
     {
       "slug": "positive-greetings-at-the-door",
+      "letter": "school",
       "title": "Positive Greetings at the Door",
       "parent": "positive-greetings-at-the-door"
     },
     {
       "slug": "sensory-access-at-work",
+      "letter": "work",
       "title": "Sensory Access at Work",
       "parent": "sensory-access-at-work"
     },
     {
       "slug": "recess-and-play",
+      "letter": "school",
       "title": "Recess and Play",
       "parent": "recess-and-play"
     }

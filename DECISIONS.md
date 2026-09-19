@@ -6,6 +6,33 @@ Why things are the way they are, so the same questions are not re-litigated in t
 
 ## Settled
 
+### Companion prompts are generated, gated twice, and carry their own evidence — 2026-09-19
+
+When we hand someone a Why Sheet, the next thing they need is a letter, and we have been
+drafting those by hand. `tools/build-prompts.mjs` turns a sheet into a prompt a family pastes
+into their own AI assistant, which interviews them and drafts the letter about their own child.
+No keys, no hosting, and no family's data reaching us — which matters more than the convenience,
+because the alternative is holding a Disabled child's name and school on our servers.
+
+**The quotations are embedded verbatim and the model is forbidden to add a source.** A chatbot
+writing about school policy will reach for a study. An invented or misattributed one hands the
+school a free reason to dismiss the parent, and the cost lands on the family. Building the
+Recess and Play sheet — with verification tooling and deliberate care — a Pellegrini quotation
+was nearly shipped under the wrong publication. So the defence is structural rather than an
+instruction to be careful: `lib/sheetdoc.mjs` throws on a quotation with no attribution, so an
+uncited quote cannot reach a prompt even by accident.
+
+**Generated, not written.** Every part already exists in the sheet. Sixteen hand-written prompts
+are sixteen artifacts that go stale the first time a sheet is edited, with nothing to say so.
+
+**Two gates, both refusing rather than degrading.** `letter` in `sheets.json` names the venue or
+null where there is nobody to write to; only venues with a template here are built, and the rest
+are reported every run. And a sheet with no asks section is skipped, not generated without asks —
+without them the model invents the demands, which is the citation failure one level up, and a
+parent asking a school for the wrong thing is a real cost. Ten sheets name a school venue; four
+have asks today. The other six want a "What to Ask For in the Room" section written into them,
+which they should have for their own sake.
+
 ### The repository is the source of truth, and `sheets.json` is what makes that enforceable — 2026-09-19
 
 Before the press there were three apparent answers to *how many Why Sheets are there?*: 14 files here, 12 published pages on stimpunks.org, 9 named in the list on `/why/`. Two sheets genuinely had no page yet. **The nine turned out to be an artefact** — a stale mirror of a page that generates its list at request time; see the entry below. Finding that out is what the tool is for.

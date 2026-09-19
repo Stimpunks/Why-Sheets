@@ -41,6 +41,19 @@ One sheet, two sides, sized for A4 and US Letter alike.
 - [Sensory Access at Work](https://whysheet.press/broadsides/sensory-access-at-work/)
 - [Recess and Play](https://whysheet.press/broadsides/recess-and-play/)
 
+## Companion prompts
+
+Plain-text prompts a family pastes into their own AI assistant to draft an advocacy letter about
+their own child. Each one interviews the reader first, then writes. Each embeds its sheet's
+quotations verbatim with attribution and instructs the assistant to add no source it was not
+given — because an invented or misattributed citation hands a school a reason to dismiss the
+letter. Nothing is sent to us. CC0, like the sheets.
+
+- [Developmental Pace](https://whysheet.press/prompts/developmental-pace.txt): a school letter from the Developmental Pace Why Sheet
+- [Eye Contact](https://whysheet.press/prompts/eye-contact.txt): a school letter from the Eye Contact Why Sheet
+- [Masking and Burnout](https://whysheet.press/prompts/masking-and-burnout.txt): a school letter from the Masking and Burnout Why Sheet
+- [Recess and Play](https://whysheet.press/prompts/recess-and-play.txt): a school letter from the Recess and Play Why Sheet
+
 ## Optional
 
 - [About the press](https://whysheet.press/about/): where the form comes from, and the licence in plain words
