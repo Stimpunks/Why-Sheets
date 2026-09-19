@@ -20,13 +20,13 @@ A child has something to say and no way to say it.
 
 Somebody in the room says: *let's see how speech develops first.* It sounds careful. It sounds like not rushing. What it actually does is decide that a child will spend another year — another three years — unable to ask, refuse, object, joke, or say what hurts.
 
-We named this in our own pattern language, in the list of what happens when one channel is the only channel that counts:
+We named this in our own pattern language, among the things that happen when one channel is the only channel that counts. People may
 
-> - be denied AAC on the grounds that they might have spoken eventually
-> - have behavior read as defiance when it was the only channel still open
-> - stop attempting communication at all, which is then recorded as a lack of communicative intent
+> be denied AAC on the grounds that they might have spoken eventually
 >
 > — [Pattern 30 — Communication Bandwidth](https://stimpunks.org/patterns/library/communication-bandwidth/), Stimpunks Foundation
+
+— or have behaviour read as defiance when it was the only channel still open, or stop attempting communication at all, which is then recorded as a lack of communicative intent.
 
 And the line under it:
 
@@ -50,7 +50,7 @@ The American Speech-Language-Hearing Association's National Joint Committee addr
 
 ----
 
-## "Prove You're Ready First" Is the Thing They Warn Against
+## Prerequisites Are the Error, Not the Safeguard
 
 The myth usually arrives dressed as prudence: the child isn't ready, hasn't shown intent, hasn't met the prerequisites, isn't a candidate yet.
 

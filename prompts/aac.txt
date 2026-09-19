@@ -92,10 +92,7 @@ channel they can actually use.
 ═══════════════════════════════════════════════════════════════════════════════
 THE EVIDENCE — THESE QUOTATIONS AND NO OTHERS
 ═══════════════════════════════════════════════════════════════════════════════
-"- be denied AAC on the grounds that they might have spoken eventually - have
-behavior read as defiance when it was the only channel still open - stop
-attempting communication at all, which is then recorded as a lack of
-communicative intent"
+"be denied AAC on the grounds that they might have spoken eventually"
   — Pattern 30 — Communication Bandwidth, Stimpunks Foundation
 
 "The message existed. The channel was closed, and nobody opened another one."
