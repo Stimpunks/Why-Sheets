@@ -1,0 +1,22 @@
+# Redirects for whysheets.press.
+#
+# Kept deliberately short. Netlify's Pretty URLs already serve /about/ and
+# /packet/ from their index.html, so rules for those would be dead weight.
+
+# The shapes people will guess, because stimpunks.org spells it /why/ and every
+# sheet's own licence block names a GitHub file. Somebody typing a slug they saw
+# on paper should land on the sheet, not on a 404.
+/why/*           /sheets/:splat    301
+/sheet/*         /sheets/:splat    301
+/broadside/*     /broadsides/:splat 301
+
+# The packet has been called a few things in drafts; keep them all working.
+/build           /packet/          301
+/packets/*       /packet/          301
+
+# The mirrored WordPress blocks in broadsides/source/ are source, not pages: each
+# is a bare fragment carrying an inline <style> and an inline <script>, which our
+# Content-Security-Policy blocks. A reader who found one would get it unstyled and
+# inert. They stay in the repository — readable on GitHub, which is where source
+# belongs — and anyone who asks for one here gets the broadside itself.
+/broadsides/source/*   /broadsides/   301

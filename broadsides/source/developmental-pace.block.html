@@ -1,0 +1,534 @@
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     STIMPUNKS BROADSIDE — DEVELOPMENTAL PACE
+     Paste this whole file into a Custom HTML block in the WordPress block editor.
+     Target page: https://stimpunks.org/library/broadsides/developmental-pace/
+
+     It also opens directly in a browser as a local preview — a bare fragment is
+     wrapped in html/body automatically, and nothing here styles html or body, so
+     what you see locally is what WordPress will render.
+
+     ── WHY THIS IS NOT JUST THE STAR STUFF HTML ────────────────────────────────
+     Four things break when a Star Stuff broadside is pasted into WordPress. All
+     four are handled here, and all four will come back if someone "tidies" this.
+
+     1. NO `*` RESET AND NO `body` RULES. A Custom HTML block's <style> applies to
+        the whole document. `* { margin:0; padding:0 }` from inside a block wrecks
+        the theme's spacing on that page. Every rule below is scoped under
+        `.sb-root`, and the reset is applied to `.sb-root *` only.
+
+     2. EVERY CLASS IS NAMESPACED `sb-`. Bare `.sheet`, `.title`, `.quote`, `.foot`
+        collide with theme and plugin CSS with near-certainty.
+
+     3. NO `@page` AT PAGE LEVEL. `@page` is document-global — declared here it
+        would change print margins for the whole WordPress page. It exists only
+        inside the print iframe's own document, written by the script below.
+
+     4. PRINT GOES THROUGH AN IFRAME, NOT `window.print()`. Calling window.print()
+        on a WordPress page prints the header, nav, sidebar, footer and cookie
+        banner with the sheet somewhere inside. Instead the script clones both
+        sides into a hidden same-origin iframe containing only the broadside and
+        this stylesheet, and prints that. The iframe is a separate document, so
+        `@page` applies to it alone, theme CSS cannot reach in, and only the sheet
+        comes out of the printer.
+
+     THE ON-PAGE VERSION IS REAL DOM, DELIBERATELY. It would have been easier to
+     put the whole sheet in an iframe and dodge every CSS problem at once. Don't:
+     iframe content is not indexed by WordPress search or Google and sits outside
+     the page's reading order. Real DOM on the page, iframe only at print time.
+
+     ── THE SHEET ───────────────────────────────────────────────────────────────
+     190 × 259 mm — the intersection of A4 and US Letter, so one file prints
+     uncropped in either country. 9 mm page margins, not 10: at 10 mm the Letter
+     box is 259.4 mm against a 259 mm sheet, and that 0.4 mm of slack lets
+     sub-pixel rounding tip it onto a third page.
+
+     Ink on white in BOTH media. Browsers leave "Background graphics" off by
+     default, so a light-on-dark design reaches paper blank. The registration bar
+     at the top is a border, not a background, for the same reason.
+
+     ── PALETTE: SOLARIZED, DARKENED FOR PAPER ──────────────────────────────────
+     Ink is Solarized base03 (#002b36, 15.0:1 on white). Spots are Solarized
+     blue and orange, darkened for paper (7.5:1 and 6.9:1) — an
+     unused PAIR. Hues repeat long before pairs do; the pair is what tells
+     sheets apart face-down in a stack. Full ink table at Color & Palette →
+     Paper mapping.
+
+     ── WHY THIS SHEET IS SHAPED THE WAY IT IS ──────────────────────────────────
+
+     IT REFUSES AN INSTRUMENT, NOT A PRACTICE. The other sheets name a harmful
+     practice (eye contact, behaviorism, door greetings) or hand over vocabulary
+     (Cavendish Space). This one takes apart a MEASURING DEVICE — the age-graded
+     curriculum and the A-to-E grade that reports distance from it — and hands
+     over a different purpose for measurement. So side A is the ruler and side B
+     is what to measure instead. Read the shape that way before editing it.
+
+     THIS IS NOT THE STAR STUFF BGUTI SHEET AND MUST NOT DRIFT INTO IT.
+     starstuff.earth already ships `better-get-used-to-it-broadside` (Stimpunks ×
+     More Realms) as the companion to Zine No. 34. That sheet refuses a DOCTRINE —
+     "the real world won't wait" — and carries the Greenland shark and the social
+     model. This one refuses an INSTRUMENT, in a different room: the meeting where
+     a child is about to be told they are behind. Nothing here was copied from it,
+     and nothing may be: that sheet is CC BY-SA 4.0 and part-authored by Helen
+     Edgar, this one is CC0, so a paste would be a licence breach and a
+     misattribution at once. Written fresh, from the primaries.
+
+     THE GREENLAND SHARK IS DELIBERATELY OFF THIS SHEET. Zine No. 34 makes it work
+     by putting the conservation alarm BEFORE any application to people, so the
+     cost of slowness lands before its consolations. A broadside has no room for
+     that ordering, and without it the shark becomes exactly the slow-is-beautiful
+     poster the zine says outright it is most at risk of becoming. Same discipline
+     as keeping Kupferstein (2018) off the Behaviorism sheet — if a sheet cannot
+     hold a thing honestly, it does not carry it. Don't reintroduce it.
+
+     THE PARENT IS THE GLOSSARY ENTRY, WRITTEN AFTER THIS SHEET AND BECAUSE OF IT.
+     Rule one wants a single at-length parent to point back at, and for the first
+     day of this sheet's life there was not one — the argument sat spread across
+     Slow Pedagogy, Multiage and Crip Time, and both feet pointed at all three.
+     `stimpunks.org/glossary/developmental-pace` was published 2026-08-17 to close
+     that gap, and the feet and the sources block now point at it instead. It
+     carries the Masters quotations in full, Helen Edgar on the EYFS principle
+     already stating that children develop at different rates, and the
+     spiky-profile argument this sheet had no room for. Retarget only if it moves.
+
+     MASTERS IS NEW TO STIMPUNKS.ORG, AND THAT IS FLAGGED RATHER THAN HIDDEN.
+     Both Masters quotations are verbatim, attributed and page-numbered, and the
+     sheet asserts nothing of his beyond them. A broadside is not the right place
+     for a claim to enter the corpus first; noted here so the next editor knows
+     the sourcing arrived with the sheet and not before it.
+
+     THE REFUSALS ARE LOAD-BEARING. IF YOU NEED ROOM, TAKE IT FROM ANYWHERE BUT
+     THE REFUSALS. Two of them stop the whole sheet inverting: `not slower is
+     better` and `not a reason to withhold or delay support`. Without those, a
+     sheet arguing against age-graded expectations reads as an argument for lower
+     ones — the opposite of what it is for, and the single most likely way for
+     this subject to be misread across a room.
+
+     SIDE B RUNS TIGHT — ABOUT 6px OF SLACK ON US LETTER. It came in 60px over
+     when `Not a separate track` was lengthened, and the room was taken from the
+     sources block and from the refusals' TOP MARGIN, never from a refusal. A
+     fixed-height sheet that overruns is clipped rather than paginated, so the
+     page count can read 2/2 while the last line is cut off — always read
+     check-sheets' overflow line, not just its page counts.
+
+     `INDIVIDUAL ASSESSMENT` WENT THROUGH TWO WORSE LABELS, BOTH INSTRUCTIVE.
+     It started as `One purpose, for everyone` — which, on a sheet arguing against
+     one-size-fits-all, invites UNIFORMITY as the first reading, the exact
+     opposite of the point, and needs unpacking a broadside cannot afford. The fix
+     attempt, `Not a separate track`, was clearer but led with a NEGATION inside a
+     column headed "What to measure instead", where every other bullet is a
+     positive noun phrase answering that heading. Both caught by Ryan, 2026-08-17.
+     The rule that falls out: in this column, name the thing to measure, not the
+     thing it isn't — the refusals have their own block on this sheet and do not
+     need help from the left-hand column.
+
+     THE NUMBERED PANELS ARE AN INSTRUMENT, NOT A FIGURE. They sit under one rule
+     with mono tick numbers so the face reads as a scale. It carries NO
+     measurement, and must never be given one. It would be easy to add "learners
+     in one grade span N years of development" — do not, unless you have read a
+     primary that says so and can cite the page.
+
+     VERBATIM QUOTATIONS KEEP THEIR AUTHORS' CAPITALISATION. Kafer writes
+     "disabled bodies and minds" in lower case. House style is Disabled; a
+     quotation is not house style. Do not correct it.
+
+     Licence: CC0 1.0 for this sheet's own text, matching the Why Sheets. The
+     quoted passages (Masters, Kafer) remain their authors' and are used with
+     attribution — they are not inside the CC0 grant. Written fresh for this
+     project.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+
+<style id="sb-css-developmental-pace">
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital,wght@0,400;0,700&display=swap');
+
+/* Scoped reset. Never `*` on its own — this block's CSS is document-wide. */
+.sb-root, .sb-root * { box-sizing: border-box; }
+.sb-root p, .sb-root h1, .sb-root h2, .sb-root ul, .sb-root li, .sb-root figure { margin: 0; padding: 0; }
+.sb-root ul { list-style: none; }
+
+.sb-root {
+  --sb-sheet:  #ffffff;
+  --sb-ink:    #002b36;   /* Solarized base03 · 15.0:1 on white */
+  --sb-ink-2:  #073642;   /* base02 · 13.0:1 — secondary prose   */
+  --sb-ink-3:  #586e75;   /* base01 ·  5.4:1 — small print only  */
+  --sb-spot:   #175a7d;   /* Solarized blue, darkened ·     7.5:1 */
+  --sb-spot-2: #9c3a11;   /* Solarized orange, darkened · 6.9:1 */
+  --sb-rule:   #d8d2c4;
+
+  font-family: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* ── Controls (screen only; removed from the print document) ── */
+.sb-controls { display: flex; gap: 0.6rem; margin-bottom: 1.1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+.sb-ctrl-label { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sb-ink-3); }
+.sb-btn {
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  background: #fff; color: var(--sb-ink-2);
+  border: 1px solid var(--sb-ink-3); border-radius: 2px;
+  padding: 0.5rem 1rem; cursor: pointer; line-height: 1.2;
+}
+.sb-btn:hover { border-color: var(--sb-ink); color: var(--sb-ink); }
+.sb-btn:focus-visible { outline: 3px solid var(--sb-spot); outline-offset: 2px; }
+.sb-btn.is-active { background: var(--sb-ink); color: #fff; border-color: var(--sb-ink); }
+.sb-ctrl-sep { width: 1px; height: 18px; background: var(--sb-rule); }
+
+/* ── The sheet ── */
+.sb-sheet {
+  width: 190mm; max-width: 100%; min-height: 259mm;
+  background: var(--sb-sheet); color: var(--sb-ink);
+  padding: 11mm 12mm 9mm;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--sb-rule);
+  border-top: 3mm solid var(--sb-spot);
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+.sb-sheet[hidden] { display: none; }
+.sb-sheet--b { border-top-color: var(--sb-spot-2); }
+
+/* ── Masthead ── */
+.sb-mast { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; padding-bottom: 3mm; border-bottom: 0.6mm solid var(--sb-ink); }
+.sb-mast-org { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sb-ink-2); line-height: 1.9; }
+.sb-mast-org strong { display: block; font-size: 7pt; letter-spacing: 0.2em; color: var(--sb-ink); }
+.sb-mast-side { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.9; white-space: nowrap; }
+.sb-sheet--b .sb-mast-side { color: var(--sb-spot-2); }
+
+/* ── Face ── */
+.sb-title { font-weight: 800; font-size: 34pt; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; margin-top: 5mm; color: var(--sb-ink); }
+.sb-title em { font-style: normal; color: var(--sb-spot); }
+.sb-standfirst { font-style: italic; font-weight: 300; font-size: 11pt; line-height: 1.42; color: var(--sb-ink-2); margin-top: 4mm; max-width: 158mm; }
+.sb-rule { height: 0.8mm; background: var(--sb-ink); margin-top: 5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-claim { margin-top: 5mm; text-align: center; }
+.sb-claim-line { font-weight: 800; font-size: 33pt; line-height: 1.06; letter-spacing: -0.02em; text-transform: uppercase; color: var(--sb-ink); }
+.sb-claim-line em { font-style: normal; color: var(--sb-spot); }
+.sb-claim-sub { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-2); margin-top: 3mm; line-height: 1.8; }
+
+/* The three panels sit under a single rule with mono tick numbers, so the face
+   reads as a scale. It is an INSTRUMENT, not a figure: no measurement here. */
+.sb-panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin-top: 5mm; padding-top: 3.5mm; border-top: 0.5mm solid var(--sb-ink); }
+.sb-panel { border-left: 0.8mm solid var(--sb-spot); padding-left: 3.5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-panel:nth-child(3) { border-left-color: var(--sb-spot-2); }
+.sb-panel-num { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7pt; font-weight: 700; letter-spacing: 0.24em; color: var(--sb-ink-3); line-height: 1.4; }
+.sb-panel-name { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-spot); margin-bottom: 2.2mm; line-height: 1.5; }
+.sb-panel:nth-child(3) .sb-panel-name { color: var(--sb-spot-2); }
+.sb-panel p { font-size: 9.6pt; line-height: 1.44; color: var(--sb-ink-2); }
+.sb-panel strong { color: var(--sb-ink); }
+
+/* Rule three, printed on the sheet: the moment someone reaches for it. On the
+   face deliberately — a reader across a room should learn why it is on the wall
+   before they read the argument. */
+.sb-moments { margin-top: 7mm; padding-top: 3.5mm; border-top: 0.5mm solid var(--sb-ink); }
+.sb-moments ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0 9mm; margin-top: 1mm; }
+.sb-moments li { font-size: 9.8pt; line-height: 1.4; color: var(--sb-ink-2); margin-bottom: 2.4mm; padding-left: 5mm; position: relative; }
+.sb-moments li::before { content: '·'; position: absolute; left: 1mm; color: var(--sb-spot-2); font-weight: 700; font-size: 13pt; line-height: 1.05; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-moments strong { color: var(--sb-ink); }
+
+.sb-quote { margin-top: 5mm; padding-left: 4mm; border-left: 0.8mm solid var(--sb-spot); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-quote p { font-style: italic; font-weight: 500; font-size: 12pt; line-height: 1.34; color: var(--sb-ink); }
+.sb-quote cite { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.8pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); margin-top: 2.2mm; line-height: 1.7; }
+.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); }
+
+/* ── Reverse ── */
+.sb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 9mm; margin-top: 5mm; }
+.sb-colhead { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot-2); padding-bottom: 2.2mm; margin-bottom: 3.5mm; border-bottom: 0.4mm solid var(--sb-rule); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-do li { font-size: 9.8pt; line-height: 1.4; color: var(--sb-ink-2); margin-bottom: 2.4mm; padding-left: 5mm; position: relative; }
+.sb-do li::before { content: '→'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-do strong { color: var(--sb-ink); }
+
+.sb-note { font-size: 9.6pt; line-height: 1.42; color: var(--sb-ink-2); margin-bottom: 3mm; }
+.sb-note strong { color: var(--sb-ink); }
+.sb-note cite { font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.6pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); }
+
+/* The refusals. Load-bearing — see the header. Do not trim these for room. */
+.sb-refusals-note { margin-top: 3mm; }
+.sb-refuse { display: grid; grid-template-columns: 1fr 1fr; gap: 0 9mm; }
+.sb-refuse li { font-size: 9.4pt; line-height: 1.38; color: var(--sb-ink-2); margin-bottom: 2.2mm; padding-left: 5mm; position: relative; }
+.sb-refuse li::before { content: '✗'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-refuse strong { color: var(--sb-ink); }
+
+.sb-sources { margin-top: 3.5mm; font-family: 'Space Mono', ui-monospace, monospace; font-size: 6.8pt; line-height: 1.58; color: var(--sb-ink-2); }
+.sb-sources em { font-style: italic; }
+
+/* ── Foot ── */
+.sb-foot { margin-top: auto; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; }
+.sb-foot-left { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); line-height: 1.95; }
+.sb-foot-right { font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.5; }
+.sb-sheet--b .sb-foot-right { color: var(--sb-spot-2); }
+
+.sb-hint { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); text-align: center; margin-top: 1rem; }
+
+/* If someone prints the WORDPRESS PAGE rather than using the Print button, the
+   controls come with it — and `.sb-btn.is-active` is white text on a dark
+   background, so the background drops out (browsers omit background graphics)
+   and it prints as white-on-white. Caught by running the contrast gate against
+   the published URL. These are screen furniture; they never belong on paper.
+   Scoped to our own classes: this must not try to hide the theme's chrome. */
+@media print {
+  .sb-controls, .sb-hint { display: none !important; }
+}
+
+/* Breakpoint sits BELOW the narrowest printed page box — A4 at 9 mm margins is
+   192 mm ≈ 726 px. Print media queries resolve against the page box, not the
+   screen, so a breakpoint above that reflows on paper and silently clips. */
+@media (max-width: 700px) {
+  .sb-sheet { width: 100%; min-height: 0; padding: 8mm 6mm; }
+  .sb-panels, .sb-cols, .sb-refuse, .sb-moments ul { grid-template-columns: 1fr; }
+  .sb-title { font-size: 26pt; }
+  .sb-claim-line { font-size: 22pt; }
+  .sb-foot { flex-direction: column; align-items: flex-start; gap: 3mm; }
+  .sb-foot-right { text-align: left; }
+}
+</style>
+
+<div class="sb-root" id="sb-developmental-pace" data-sb-style="sb-css-developmental-pace" data-sb-doc-title="Developmental Pace — a Stimpunks Broadside">
+
+  <div class="sb-controls" role="group" aria-label="Broadside controls">
+    <span class="sb-ctrl-label" aria-hidden="true">Side</span>
+    <button type="button" class="sb-btn is-active" data-sb-side="a" aria-pressed="true">A — The Ruler</button>
+    <button type="button" class="sb-btn" data-sb-side="b" aria-pressed="false">B — What To Measure Instead</button>
+    <span class="sb-ctrl-sep" aria-hidden="true"></span>
+    <button type="button" class="sb-btn" data-sb-print>Print &#8599;</button>
+  </div>
+
+  <!-- SIDE A -->
+  <article class="sb-sheet sb-sheet--a" aria-label="Developmental Pace broadside, side A">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        for the meeting where a child is about to be told they are behind
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side A of B</div>
+    </div>
+
+    <h2 class="sb-title">Developmental <em>Pace</em></h2>
+
+    <p class="sb-standfirst">Children reach the same learning at different times, and the spread inside any one classroom is wide. School is built as though it were not: one birth-date cohort, one body of content taught at one time, one set of expectations &mdash; and then a mark for the distance between the child and the timetable.</p>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-claim">
+      <p class="sb-claim-line">The same age is not<br><em>the same stage.</em></p>
+      <p class="sb-claim-sub">a grade is a birth date &middot; it is being asked to report a stage</p>
+    </div>
+
+    <div class="sb-panels">
+
+      <div class="sb-panel">
+        <div class="sb-panel-num">01</div>
+        <div class="sb-panel-name">Grouped by birth date</div>
+        <p>A grade is a cohort of children born inside the same twelve months. They are then taught the same body of content at the same time, and assessed on how much of it they can demonstrate. <strong>Nothing in that sequence ever asked where they were.</strong></p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-num">02</div>
+        <div class="sb-panel-name">Readiness assumed, not established</div>
+        <p>The machinery assumes everyone in the grade is about equally ready for that content. <strong>That assumption is not a finding.</strong> It has been examined against the research, and the evidence does not support it.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-num">03</div>
+        <div class="sb-panel-name">The gap recorded against the child</div>
+        <p>A-to-E grades report distance from a grade expectation. A learner earlier in the sequence is marked down for being where they are &mdash; <strong>which is information about the ruler, not about the learner.</strong></p>
+      </div>
+
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;The curriculum assumption that all students in a grade are about equally ready for the same learning is not supported by evidence.&rdquo;</p>
+      <cite>Geoff Masters &middot; The Children We Leave Behind &middot; Routledge, 2026 &middot; p. 194</cite>
+    </div>
+
+    <div class="sb-moments">
+      <div class="sb-colhead">Where you will meet this</div>
+      <ul>
+        <li>The report card that says <strong>below grade level</strong> and stops there.</li>
+        <li>The letter proposing <strong>retention</strong>, or holding a child back a year.</li>
+        <li>The plan or IEP goal about to be pinned to a <strong>year-level benchmark</strong>.</li>
+        <li>The meeting where <strong>&ldquo;behind&rdquo;</strong> is said as though it described the child.</li>
+      </ul>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        the full argument, with every source:<br>
+        stimpunks.org/glossary/developmental-pace<br>
+        free to print, copy, change and share &middot; CC0 1.0
+      </div>
+      <div class="sb-foot-right">See<br>reverse</div>
+    </div>
+
+  </article>
+
+  <!-- SIDE B -->
+  <article class="sb-sheet sb-sheet--b" hidden aria-label="Developmental Pace broadside, side B">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        what to measure instead, and what to ask for in the room
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side B of B</div>
+    </div>
+
+    <div class="sb-cols">
+
+      <div>
+        <div class="sb-colhead">What to measure instead</div>
+        <p class="sb-note">Masters puts the fix as a change of <em>purpose</em>, not of rigour: assessments &ldquo;designed to establish and understand the stages that individuals have reached in an area of learning to support their further learning and monitor their growth over time.&rdquo; <cite>&mdash; p. 153</cite></p>
+        <ul class="sb-do">
+          <li><strong>The stage, not the gap.</strong> Find where the learner has actually reached in a sequence of learning, and teach from there. That is a different question from how far they are from a benchmark, and it has a different answer.</li>
+          <li><strong>Levels not tied to age or grade</strong>, through which every learner advances at their own pace &mdash; with no requirement that a whole cohort be taught the same thing at once.</li>
+          <li><strong>Growth over time</strong>, each learner measured against their own earlier work rather than against the people born the same year.</li>
+          <li><strong>Individual assessment.</strong> Teaching from where a learner is isn't a concession for the children who need it most &mdash; it is what assessment is <em>for</em>, for everyone.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sb-colhead">What to ask for in the room</div>
+        <ul class="sb-do">
+          <li><strong>&ldquo;What can they do now, and what comes next?&rdquo;</strong> Ask it before anyone reaches for a grade level. If nobody present can answer it, that is itself the finding.</li>
+          <li><strong>Ask what the mark is being used for.</strong> A grade reporting distance from a year-level expectation cannot also tell you what to teach on Monday. Those are two different instruments.</li>
+          <li><strong>Ask to see growth against their own earlier work</strong> &mdash; dated, specific, and put in front of you.</li>
+          <li><strong>Ask that support not wait for a missed benchmark.</strong> Needing longer is not a finding a child has to earn by failing first.</li>
+          <li><strong>Ask about mixed-age and flexible grouping.</strong> Children learn at their own rate; sorting them by year of manufacture is a scheduling convenience, not a pedagogy.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sb-refusals-note">
+      <div class="sb-colhead">What this sheet is not</div>
+      <ul class="sb-refuse">
+        <li>not <strong>slower is better</strong>. Pace is not a virtue and speed is not a vice. A pace is survivable or it isn't, and the environment decides.</li>
+        <li>not <strong>a reason to withhold or delay support</strong>. &ldquo;They'll get there&rdquo; is how a child waits years for help that was available on day one.</li>
+        <li>not <strong>lower expectations</strong>. Presume competence, then teach from where they actually are. Those are the same move, not opposite ones.</li>
+        <li>not <strong>an argument against assessment</strong> &mdash; an argument about what assessment is for, and who it is answerable to.</li>
+        <li>not <strong>a claim that age tells you nothing</strong>. It tells you a birth date. It is being asked to report a stage, and it cannot.</li>
+      </ul>
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;Rather than bend disabled bodies and minds to meet the clock, crip time bends the clock to meet disabled bodies and minds.&rdquo;</p>
+      <cite>Alison Kafer &middot; Feminist, Queer, Crip &middot; Indiana University Press, 2013</cite>
+    </div>
+
+    <div class="sb-sources">
+      <strong>Geoff Masters</strong>, <em>The Children We Leave Behind: How School Could Be Done Differently</em> (Routledge, 2026) &mdash; both quotations verbatim, pp. 194 and 153. <strong>Alison Kafer</strong>, <em>Feminist, Queer, Crip</em> (2013), on crip time as flexibility rather than merely extra time. <strong>Alfie Kohn</strong>, <em>Getting Hit on the Head Lessons</em> (Education Week, 2005), names <em>BGUTI</em> and observes that the defence almost by definition ignores developmental differences. <strong>Ira Socol</strong>, <em>The Multiage Magic</em>, and the ACEI, on mixed-age grouping and learning at one's own rate. <strong>Alison Clark</strong>, <em>Slow Knowledge and the Unhurried Child</em>, on slow pedagogy and on following an emergent rather than inbuilt timetable. All of it in full at <em>stimpunks.org/glossary/developmental-pace</em>. Quoted passages remain their authors'; this sheet's own text is CC0.
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        stimpunks.org/glossary/developmental-pace<br>
+        free to print, copy, change and share &mdash; no permission needed<br>
+        CC0 1.0 &middot; no rights reserved on our own words
+      </div>
+      <div class="sb-foot-right">Stimpunks<br>Foundation</div>
+    </div>
+
+  </article>
+
+  <p class="sb-hint">One sheet &middot; print double-sided &middot; bring it to the meeting &middot; share freely</p>
+</div>
+
+<script>
+/* Scoped to each .sb-root, so two broadsides can sit on one page without
+   colliding. No global function names, no inline onclick handlers — some
+   security plugins strip inline JS, and a global showSide() would be clobbered
+   by the second instance on the page. */
+(function () {
+  var roots = document.querySelectorAll('.sb-root:not([data-sb-ready])');
+
+  Array.prototype.forEach.call(roots, function (root) {
+    root.setAttribute('data-sb-ready', '1');
+
+    var sheetA = root.querySelector('.sb-sheet--a');
+    var sheetB = root.querySelector('.sb-sheet--b');
+    var sideBtns = root.querySelectorAll('[data-sb-side]');
+
+    function show(side) {
+      sheetA.hidden = (side !== 'a');
+      sheetB.hidden = (side !== 'b');
+      Array.prototype.forEach.call(sideBtns, function (b) {
+        var on = b.getAttribute('data-sb-side') === side;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    Array.prototype.forEach.call(sideBtns, function (b) {
+      b.addEventListener('click', function () { show(b.getAttribute('data-sb-side')); });
+    });
+
+    /* PRINT. Both sides are cloned into a hidden same-origin iframe holding only
+       the sheet markup and this block's stylesheet. That iframe is its own
+       document, so @page applies to it alone, the theme's CSS cannot reach in,
+       and the printer gets the broadside instead of the whole web page. */
+    var printBtn = root.querySelector('[data-sb-print]');
+    if (!printBtn) return;
+
+    printBtn.addEventListener('click', function () {
+      var styleEl = document.getElementById(root.getAttribute('data-sb-style'));
+      var css = styleEl ? styleEl.textContent : '';
+
+      var a = sheetA.cloneNode(true);
+      var b = sheetB.cloneNode(true);
+      a.removeAttribute('hidden');
+      b.removeAttribute('hidden');
+
+      var frame = document.createElement('iframe');
+      frame.setAttribute('aria-hidden', 'true');
+      frame.setAttribute('tabindex', '-1');
+      frame.title = 'Print preview';
+      frame.style.cssText = 'position:fixed;right:0;bottom:0;width:1px;height:1px;opacity:0;border:0;';
+      document.body.appendChild(frame);
+
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      doc.open();
+      doc.write(
+        '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">' +
+        '<title>' + (root.getAttribute('data-sb-doc-title') || 'Broadside') + '</title>' +
+        '<style>' +
+          /* Safe here: this is an isolated document, not the WordPress page. */
+          '*{box-sizing:border-box;margin:0;padding:0}' +
+          'html,body{background:#fff}' +
+          '@page{size:auto;margin:9mm}' +
+          css +
+          /* The sheet is laid out for paper, not for a viewport. */
+          '.sb-root{display:block;max-width:none}' +
+          '.sb-controls,.sb-hint{display:none}' +
+          '.sb-sheet{width:100%;min-height:0;height:259mm;padding:0;border:0;border-top:3mm solid var(--sb-spot)}' +
+          '.sb-sheet--b{border-top-color:var(--sb-spot-2)}' +
+          '.sb-sheet--a{page-break-after:always;break-after:page}' +
+          '.sb-mast{padding-top:6mm}' +
+          '.sb-panel,.sb-do li,.sb-refuse li,.sb-moments li{page-break-inside:avoid;break-inside:avoid}' +
+        '</style></head><body><div class="sb-root"></div></body></html>'
+      );
+      doc.close();
+
+      var host = doc.querySelector('.sb-root');
+      host.appendChild(doc.importNode(a, true));
+      host.appendChild(doc.importNode(b, true));
+
+      /* Wait for the webfonts inside the iframe before printing, or the sheet
+         prints in a fallback face at the wrong metrics. Time-boxed, because a
+         font request that never resolves must not block the print dialog. */
+      var printed = false;
+      function go() {
+        if (printed) return;
+        printed = true;
+        try { frame.contentWindow.focus(); frame.contentWindow.print(); } catch (e) {}
+        setTimeout(function () { frame.remove(); }, 1000);
+      }
+      if (doc.fonts && doc.fonts.ready) { doc.fonts.ready.then(go); }
+      setTimeout(go, 1500);
+    });
+  });
+})();
+</script>

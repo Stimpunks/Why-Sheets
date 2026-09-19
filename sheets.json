@@ -1,0 +1,182 @@
+{
+  "$comment": [
+    "THE MANIFEST. This file is the source of truth for what a Why Sheet IS — its slug,",
+    "where it is published, what it is for, and when someone reaches for it.",
+    "",
+    "WHY IT IS A SEPARATE FILE AND NOT FRONTMATTER IN THE SHEETS.",
+    "This repository is a Ulysses external folder (.Ulysses-Group.plist sits beside these",
+    "sheets). Ulysses renders and rewrites the Markdown files it opens: YAML frontmatter",
+    "would show up as body text in the editor, and Ulysses adds backslash escapes and",
+    "non-breaking spaces on save. Metadata that lives inside a sheet is metadata that an",
+    "editor can damage without anyone noticing. So the sheets stay plain prose, and",
+    "everything a generator needs to know about them lives here.",
+    "",
+    "SLUGS CANNOT BE COMPUTED FROM FILENAMES. 'Neuromodulation & Autism.md' publishes at",
+    "/why/neuromodulation/. A generator that derives slugs from filenames gets that one",
+    "wrong and links a printed packet at a 404. Declare, do not guess.",
+    "",
+    "`published` is the canonical stimpunks.org URL, or null for a sheet that exists here",
+    "and has not been published there. Both states are legitimate; only an undeclared one",
+    "is drift. tools/check-drift.mjs compares this file against the repository and against",
+    "the stimpunks.org mirror and reports every disagreement."
+  ],
+  "press": {
+    "name": "The Why Sheet Press",
+    "host": "whysheets.press",
+    "tagline": "Print the argument. Carry it into the room."
+  },
+  "sheets": [
+    {
+      "slug": "behaviorism",
+      "file": "Behaviorism.md",
+      "title": "Behaviorism",
+      "published": "https://stimpunks.org/why/behaviorism/",
+      "broadside": "behaviorism",
+      "summary": "Behaviorism measures the surface, badly — and the primary legacy of ABA is trauma.",
+      "moment": "When compliance is being described as progress, and you need the evidence in one place.",
+      "topics": ["school", "aba", "ethics"]
+    },
+    {
+      "slug": "alternatives-to-aba",
+      "file": "Alternatives to ABA.md",
+      "title": "Alternatives to ABA",
+      "published": "https://stimpunks.org/why/alternatives-to-aba/",
+      "broadside": null,
+      "summary": "Fourteen neurodiversity-affirming frameworks, gathered, so “what would you do instead” has an answer.",
+      "moment": "When you have said no to ABA and the room asks what you want instead.",
+      "topics": ["school", "aba", "clinical"]
+    },
+    {
+      "slug": "aba-tactics",
+      "file": "ABA Tactics.md",
+      "title": "ABA Tactics",
+      "published": null,
+      "broadside": null,
+      "summary": "The tactics one by one — compliance training, extinction, quiet hands, forced eye contact — and what each one actually does.",
+      "moment": "When a programme is being described in technical language and you need to know what the words mean in a child’s day.",
+      "topics": ["school", "aba", "clinical"],
+      "content_note": "Discusses trauma, abuse, coercion, and suicide."
+    },
+    {
+      "slug": "eye-contact",
+      "file": "Eye Contact.md",
+      "title": "Eye Contact",
+      "published": "https://stimpunks.org/why/eye-contact/",
+      "broadside": "eye-contact",
+      "summary": "Forced eye contact is painful, it interferes with processing, and it is not evidence of attention.",
+      "moment": "In the meeting where eye contact is about to be written into a goal.",
+      "topics": ["school", "iep", "sensory"]
+    },
+    {
+      "slug": "masking-and-burnout",
+      "file": "Masking and Burnout.md",
+      "title": "Masking and Burnout",
+      "published": "https://stimpunks.org/why/masking-and-burnout/",
+      "broadside": "masking-and-burnout",
+      "summary": "Masking is a stress response, not a skill. Burnout is the bill. Observation does not see either one.",
+      "moment": "When “but they’re fine at school” is being used to close a file.",
+      "topics": ["school", "iep", "health"]
+    },
+    {
+      "slug": "monotropism",
+      "file": "Monotropism.md",
+      "title": "Monotropism",
+      "published": "https://stimpunks.org/why/monotropism/",
+      "broadside": "monotropism",
+      "summary": "Autistic experience explained through attention — and what stops looking like defiance once you can see the tunnel.",
+      "moment": "When transitions, “rigidity” or “obsession” are on the agenda.",
+      "topics": ["school", "understanding"]
+    },
+    {
+      "slug": "positive-greetings-at-the-door",
+      "file": "Positive Greetings at the Door.md",
+      "title": "Positive Greetings at the Door",
+      "published": "https://stimpunks.org/why/positive-greetings-at-the-door/",
+      "broadside": "positive-greetings-at-the-door",
+      "summary": "A greeting policy that turns a teacher into a threshold to be performed past.",
+      "moment": "When a school is adopting PGD and nobody has asked what it costs to walk through that door.",
+      "topics": ["school", "policy"]
+    },
+    {
+      "slug": "hoodie",
+      "file": "Hoodie.md",
+      "title": "Hoodie",
+      "published": "https://stimpunks.org/why/hoodie/",
+      "broadside": null,
+      "summary": "One page, already written, asking that a student wear a hoodie instead of the blazer.",
+      "moment": "When you need to hand the school a reason in writing, today.",
+      "topics": ["school", "sensory", "uniform"]
+    },
+    {
+      "slug": "sensory-access-at-work",
+      "file": "Sensory Access at Work.md",
+      "title": "Sensory Access at Work",
+      "published": null,
+      "broadside": "sensory-access-at-work",
+      "summary": "All eight senses, the common access needs at work, and the small changes that make a workplace livable.",
+      "moment": "In the accommodations conversation, when “what do you need?” needs a list rather than an apology.",
+      "topics": ["work", "sensory", "access"]
+    },
+    {
+      "slug": "cavendish-space",
+      "file": "Cavendish Space.md",
+      "title": "Cavendish Space",
+      "published": "https://stimpunks.org/why/cavendish-space/",
+      "broadside": "cavendish-space",
+      "summary": "Caves, campfires and watering holes — vocabulary for a space that supports bodyminds instead of demanding they adapt.",
+      "moment": "When a room is being designed and you want words for what it should do.",
+      "topics": ["space", "design", "school"]
+    },
+    {
+      "slug": "neuroqueer-learning-spaces",
+      "file": "Neuroqueer Learning Spaces.md",
+      "title": "Neuroqueer Learning Spaces",
+      "published": "https://stimpunks.org/why/neuroqueer-learning-spaces/",
+      "broadside": null,
+      "summary": "The classroom as a bastion of neuronormativity, and what it takes to hold space against that.",
+      "moment": "When you are making the case for learning differently as a right, not a concession.",
+      "topics": ["school", "design", "liberation"]
+    },
+    {
+      "slug": "queer-and-neurodivergent-liberation-are-entwined",
+      "file": "Queer and Neurodivergent Liberation are Entwined.md",
+      "title": "Queer and Neurodivergent Liberation are Entwined",
+      "published": "https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/",
+      "broadside": null,
+      "summary": "Why the two movements share a history, a set of enemies, and a conversion-therapy lineage.",
+      "moment": "When someone asks why a neurodiversity organisation is talking about queerness.",
+      "topics": ["liberation", "history"]
+    },
+    {
+      "slug": "neuromodulation",
+      "file": "Neuromodulation & Autism.md",
+      "title": "Neuromodulation & Autism",
+      "published": "https://stimpunks.org/why/neuromodulation/",
+      "broadside": null,
+      "summary": "TMS, tDCS and what is being sold alongside them. The evidence base is weak and the framing is the pathology paradigm.",
+      "moment": "When a clinic or an advertisement offers a treatment and you have an appointment on Thursday.",
+      "topics": ["clinical", "health", "ethics"]
+    },
+    {
+      "slug": "boring-technology",
+      "file": "Boring Technology.md",
+      "title": "Boring Technology",
+      "published": "https://stimpunks.org/why/boring-technology/",
+      "broadside": "boring-technology",
+      "summary": "Tools old, plain and open enough to outlive the companies that sell them.",
+      "moment": "When a service that holds someone’s access is about to be replaced by a platform.",
+      "topics": ["technology", "access"]
+    }
+  ],
+  "broadsides": [
+    { "slug": "behaviorism", "title": "Behaviorism", "parent": "behaviorism" },
+    { "slug": "boring-technology", "title": "Boring Technology", "parent": "boring-technology" },
+    { "slug": "cavendish-space", "title": "Cavendish Space", "parent": "cavendish-space" },
+    { "slug": "developmental-pace", "title": "Developmental Pace", "parent": null },
+    { "slug": "eye-contact", "title": "Eye Contact", "parent": "eye-contact" },
+    { "slug": "masking-and-burnout", "title": "Masking and Burnout", "parent": "masking-and-burnout" },
+    { "slug": "monotropism", "title": "Monotropism", "parent": "monotropism" },
+    { "slug": "positive-greetings-at-the-door", "title": "Positive Greetings at the Door", "parent": "positive-greetings-at-the-door" },
+    { "slug": "sensory-access-at-work", "title": "Sensory Access at Work", "parent": "sensory-access-at-work" }
+  ]
+}

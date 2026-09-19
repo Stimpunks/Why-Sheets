@@ -254,5 +254,5 @@ It is **designing environments that respect how diverse minds work**.
 This why sheet is free to download, modify, and share.  
 
 Version: 0.1  
-License: “[Eye Contact Why Sheet](https://stimpunks.org/why/eye-contact/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
-Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Eye%20Contact.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Eye%20Contact.md)
+License: “[Eye Contact Why Sheet](https://stimpunks.org/why/eye-contact/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
+Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Eye%20Contact.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Eye%20Contact.md)

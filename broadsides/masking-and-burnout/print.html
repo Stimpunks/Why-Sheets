@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Masking and Burnout</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital,wght@0,400;0,700&display=swap');
+
+/* Scoped reset. Never `*` on its own — this block's CSS is document-wide. */
+.sb-root, .sb-root * { box-sizing: border-box; }
+.sb-root p, .sb-root h1, .sb-root h2, .sb-root ul, .sb-root li, .sb-root figure { margin: 0; padding: 0; }
+.sb-root ul { list-style: none; }
+
+.sb-root {
+  --sb-sheet:  #ffffff;
+  --sb-ink:    #002b36;   /* Solarized base03 · 15.0:1 on white */
+  --sb-ink-2:  #073642;   /* base02 · 13.0:1 — secondary prose   */
+  --sb-ink-3:  #586e75;   /* base01 ·  5.4:1 — small print only  */
+  --sb-spot:   #175a7d;   /* Solarized blue, darkened ·     7.5:1 */
+  --sb-spot-2: #0d5f59;   /* Solarized cyan, darkened · 7.5:1 */
+  --sb-rule:   #d8d2c4;
+
+  font-family: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* ── Controls (screen only; removed from the print document) ── */
+.sb-controls { display: flex; gap: 0.6rem; margin-bottom: 1.1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+.sb-ctrl-label { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sb-ink-3); }
+.sb-btn {
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  background: #fff; color: var(--sb-ink-2);
+  border: 1px solid var(--sb-ink-3); border-radius: 2px;
+  padding: 0.5rem 1rem; cursor: pointer; line-height: 1.2;
+}
+.sb-btn:hover { border-color: var(--sb-ink); color: var(--sb-ink); }
+.sb-btn:focus-visible { outline: 3px solid var(--sb-spot); outline-offset: 2px; }
+.sb-btn.is-active { background: var(--sb-ink); color: #fff; border-color: var(--sb-ink); }
+.sb-ctrl-sep { width: 1px; height: 18px; background: var(--sb-rule); }
+
+/* ── The sheet ── */
+.sb-sheet {
+  width: 190mm; max-width: 100%; min-height: 259mm;
+  background: var(--sb-sheet); color: var(--sb-ink);
+  padding: 11mm 12mm 9mm;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--sb-rule);
+  border-top: 3mm solid var(--sb-spot);
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+.sb-sheet[hidden] { display: none; }
+.sb-sheet--b { border-top-color: var(--sb-spot-2); }
+
+/* ── Masthead ── */
+.sb-mast { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; padding-bottom: 3mm; border-bottom: 0.6mm solid var(--sb-ink); }
+.sb-mast-org { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sb-ink-2); line-height: 1.9; }
+.sb-mast-org strong { display: block; font-size: 7pt; letter-spacing: 0.2em; color: var(--sb-ink); }
+.sb-mast-side { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.9; white-space: nowrap; }
+.sb-sheet--b .sb-mast-side { color: var(--sb-spot-2); }
+
+/* ── Face ── */
+.sb-title { font-weight: 800; font-size: 34pt; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; margin-top: 5mm; color: var(--sb-ink); }
+.sb-title em { font-style: normal; color: var(--sb-spot); }
+.sb-standfirst { font-style: italic; font-weight: 300; font-size: 11.5pt; line-height: 1.44; color: var(--sb-ink-2); margin-top: 4mm; max-width: 158mm; }
+.sb-rule { height: 0.8mm; background: var(--sb-ink); margin-top: 5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-claim { margin-top: 5mm; text-align: center; }
+.sb-claim-line { font-weight: 800; font-size: 33pt; line-height: 1.06; letter-spacing: -0.02em; text-transform: uppercase; color: var(--sb-ink); }
+.sb-claim-line em { font-style: normal; color: var(--sb-spot); }
+.sb-claim-sub { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-2); margin-top: 3mm; line-height: 1.8; }
+
+.sb-panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin-top: 5mm; }
+.sb-panel { border-left: 0.8mm solid var(--sb-spot); padding-left: 3.5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-panel:nth-child(3) { border-left-color: var(--sb-spot-2); }
+.sb-panel-name { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-spot); margin-bottom: 2.2mm; line-height: 1.5; }
+.sb-panel:nth-child(3) .sb-panel-name { color: var(--sb-spot-2); }
+.sb-panel p { font-size: 10pt; line-height: 1.45; color: var(--sb-ink-2); }
+
+.sb-quote { margin-top: 5mm; padding-left: 4mm; border-left: 0.8mm solid var(--sb-spot); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-quote p { font-style: italic; font-weight: 500; font-size: 12.5pt; line-height: 1.34; color: var(--sb-ink); }
+.sb-quote cite { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.8pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); margin-top: 2.2mm; line-height: 1.7; }
+.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); }
+
+/* ── Reverse ── */
+.sb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 9mm; margin-top: 5mm; }
+.sb-colhead { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot-2); padding-bottom: 2.2mm; margin-bottom: 3.5mm; border-bottom: 0.4mm solid var(--sb-rule); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-do li { font-size: 10.5pt; line-height: 1.42; color: var(--sb-ink-2); margin-bottom: 2.6mm; padding-left: 5mm; position: relative; }
+.sb-do li::before { content: '→'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-do strong { color: var(--sb-ink); }
+
+.sb-look li { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8.4pt; line-height: 1.5; color: var(--sb-ink-2); margin-bottom: 1.6mm; padding-left: 5mm; position: relative; }
+.sb-look li::before { content: '✓'; position: absolute; left: 0; color: var(--sb-spot); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-note { font-size: 10pt; line-height: 1.42; color: var(--sb-ink-2); margin-top: 3mm; }
+.sb-note strong { color: var(--sb-ink); }
+
+.sb-principle { margin-top: 4mm; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); }
+.sb-principle p { font-size: 10.5pt; line-height: 1.45; color: var(--sb-ink-2); margin-top: 2mm; }
+.sb-principle strong { color: var(--sb-ink); }
+
+.sb-refusals-note { margin-top: 3.5mm; }
+
+.sb-sources { margin-top: 3.5mm; font-family: 'Space Mono', ui-monospace, monospace; font-size: 7pt; line-height: 1.6; color: var(--sb-ink-2); }
+.sb-sources em { font-style: italic; }
+
+/* ── Foot ── */
+.sb-foot { margin-top: auto; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; }
+.sb-foot-left { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); line-height: 1.95; }
+.sb-foot-right { font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.5; }
+.sb-sheet--b .sb-foot-right { color: var(--sb-spot-2); }
+
+.sb-hint { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); text-align: center; margin-top: 1rem; }
+
+/* If someone prints the WORDPRESS PAGE rather than using the Print button, the
+   controls come with it — and `.sb-btn.is-active` is white text on a dark
+   background, so the background drops out (browsers omit background graphics)
+   and it prints as white-on-white. Caught by running the contrast gate against
+   the published URL. These are screen furniture; they never belong on paper.
+   Scoped to our own classes: this must not try to hide the theme's chrome. */
+@media print {
+  .sb-controls, .sb-hint { display: none !important; }
+}
+
+/* Breakpoint sits BELOW the narrowest printed page box — A4 at 9 mm margins is
+   192 mm ≈ 726 px. Print media queries resolve against the page box, not the
+   screen, so a breakpoint above that reflows on paper and silently clips. */
+@media (max-width: 700px) {
+  .sb-sheet { width: 100%; min-height: 0; padding: 8mm 6mm; }
+  .sb-panels, .sb-cols { grid-template-columns: 1fr; }
+  .sb-title { font-size: 26pt; }
+  .sb-claim-line { font-size: 22pt; }
+  .sb-foot { flex-direction: column; align-items: flex-start; gap: 3mm; }
+  .sb-foot-right { text-align: left; }
+}
+
+/* ---- print document, as the block's own script builds it, less its @page ---- */
+*{box-sizing:border-box;margin:0;padding:0}html,body{background:#fff}.sb-root{display:block;max-width:none}.sb-controls,.sb-hint{display:none}.sb-sheet{width:100%;min-height:0;height:259mm;padding:0;border:0;border-top:3mm solid var(--sb-spot)}.sb-sheet--b{border-top-color:var(--sb-spot-2)}.sb-sheet--a{page-break-after:always;break-after:page}.sb-mast{padding-top:6mm}.sb-panel,.sb-do li,.sb-look li{page-break-inside:avoid;break-inside:avoid}
+
+/* ---- the page, pinned ----
+   The block prints with @page { size: auto; margin: 9mm }, which is right for a
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   THE COLUMN IS 194 mm, AND THAT NUMBER WAS MEASURED, NOT CHOSEN. Each sheet is
+   a fixed 259 mm tall with overflow clipped, so a column narrower than the
+   composition needs does not look wrong — it loses the bottom of side B. The
+   nine sheets were rendered under emulated print media at widths from 188 mm
+   up, and the tallest side of any of them came out:
+
+       188 mm -> 269.1 mm   overflows by 10.1
+       190 mm -> 265.4 mm   overflows by  6.4
+       192 mm -> 259.6 mm   overflows by  0.6      <- this is the A4 case
+       194 mm -> 256.6 mm   fits, with 2.4 mm spare
+       198 mm -> 256.6 mm   fits                   <- this is the US Letter case
+
+   Two things follow. The press uses 194 mm, the narrowest width at which all
+   nine clear. And DEVELOPMENTAL PACE IS ALREADY 0.6 mm OVER ON A4 as published —
+   a real finding about the upstream sheet, not about this build, and one for
+   that repository to fix at the source.
+
+   The page is therefore 208 x 277 mm with margins of 9 mm top, 7 mm sides and
+   bottom: 208 fits inside A4's 210 and Letter's 216, and 277 inside A4's 297 and
+   Letter's 279. Content box 194 x 261 mm — the same 261 mm height these sheets
+   already get on US Letter, which is the tightest case known to print correctly.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 7mm 7mm; }
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   208 x 277 mm IS THE LARGEST PAGE THAT FITS BOTH PAPERS: under A4's 210 x 297
+   and under Letter's 216 x 279. With the 9 mm margin the block already expects,
+   the content box is exactly 190 x 259 mm — the dimensions the broadsides were
+   designed to, so nothing reflows and the composition is the one that was
+   checked upstream.
+
+   The conservative 190 x 259 PAGE was tried first, and it is the wrong shape for
+   this object: it makes the content box 172 x 241, and Sensory Access at Work —
+   the fullest of the nine — spilled onto a third side. That is the page the Why
+   Sheets use, where the type reflows freely and a narrower column is merely a
+   narrower column. A broadside is a fixed composition; it needs its own page.
+
+   THE BOTTOM MARGIN IS 7 mm, NOT 9, AND THAT 2 mm IS THE WHOLE MARGIN OF ERROR.
+   A sheet is exactly 259 mm tall, so a 259 mm content box leaves nothing: with a
+   symmetric 9 mm margin, Developmental Pace and Masking and Burnout both tipped
+   onto a third side while the other seven held. 7 mm makes the content box
+   190 x 261 — which is precisely the box these sheets get on US Letter with the
+   9 mm margin they were designed against, and the tightest case that is known to
+   print correctly. The page still fits inside both papers.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 9mm 7mm; }
+</style>
+</head>
+<body>
+<div class="sb-root" id="sb-masking-and-burnout" data-sb-style="sb-css-masking-and-burnout" data-sb-doc-title="Masking and Burnout — a Stimpunks Broadside">
+
+    <!-- SIDE A -->
+  <article class="sb-sheet sb-sheet--a" aria-label="Masking and Burnout broadside, side A">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        for the meeting where good grades mean no help
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side A of B</div>
+    </div>
+
+    <h2 class="sb-title">Masking <em>&amp; Burnout</em></h2>
+
+    <p class="sb-standfirst">Masking is the work an Autistic person does to look like they are coping &mdash; holding still, forcing eye contact, scripting the conversation, swallowing the overload. It runs at the stress level of a job interview, for hours, every day. Autistic burnout is what arrives when it has run too long: <em>chronic exhaustion, loss of skills, and a collapsing tolerance for noise, light and people.</em></p>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-claim">
+      <p class="sb-claim-line">Grades measure output.<br><em>Access is about cost.</em></p>
+      <p class="sb-claim-sub">the classroom sees the best hours &middot; the family gets the bill</p>
+    </div>
+
+    <div class="sb-panels">
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">1 &middot; The mask</div>
+        <p>Suppressing yourself to avoid consequences is not politeness and it is not maturity. It is threat management, and it spends the same energy the child needs in order to learn. It is also built to be invisible. Someone observing a well-masked child is watching the mask work.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">2 &middot; The debt</div>
+        <p>The cost comes due after school. Meltdown, shutdown, sleep, tears, no words left. That is the school day arriving late. Home is not a second opinion about the same child &mdash; it is the two thirds of their day that nobody at school observes.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">3 &middot; The collapse</div>
+        <p>Eventually there is nothing left to spend. Skills go. Sensory tolerance goes. School access goes, sometimes for months. Then the file is read back &mdash; good grades, no concerns &mdash; and the record of coping becomes the reason no help arrived.</p>
+      </div>
+
+    </div>
+
+    <p class="sb-note"><strong>A child who meets every expectation at school and cannot get off the couch at home is not fine.</strong> The collapse is data. So is the parent reporting it.</p>
+
+    <div class="sb-quote">
+      <p>&ldquo;A state of pervasive exhaustion, loss of function, increase in autistic traits, and withdrawal from life that results from continuously expending more resources than one has coping with activities and environments ill-suited to one&rsquo;s abilities and needs.&rdquo;</p>
+      <cite>Dora Raymaker &middot; defining autistic burnout &middot; Autism in Adulthood, 2020</cite>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        the full why sheet, with every source:<br>
+        stimpunks.org/why/masking-and-burnout<br>
+        free to print, copy, change and share &middot; CC0 1.0
+      </div>
+      <div class="sb-foot-right">See<br>reverse</div>
+    </div>
+
+  </article>
+
+  <!-- SIDE B -->
+  <article class="sb-sheet sb-sheet--b" aria-label="Masking and Burnout broadside, side B">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        what to say, what to ask, and what the law already requires
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side B of B</div>
+    </div>
+
+    <div class="sb-cols">
+
+      <div>
+        <div class="sb-colhead">Say this in the room</div>
+        <ul class="sb-do">
+          <li><strong>&ldquo;At grade level&rdquo; does not answer the question.</strong> Grade level is the output. We are asking what it costs to produce.</li>
+          <li><strong>The current plan did not prevent the loss of school access.</strong> Give the dates. A plan that has already failed once is evidence it is not sufficient.</li>
+          <li><strong>Observation cannot rule out need.</strong> A sweet, cooperative, engaged child and a child in serious distress are not alternatives.</li>
+          <li><strong>Educational performance is not only academic.</strong> Attendance, mental health, communication, self-care and being able to enter the building all count.</li>
+          <li><strong>Prior burnout is history, not a worry.</strong> Ask what happened, when it happened, and how long recovery took.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sb-colhead">Ask this in the room</div>
+        <ul class="sb-look">
+          <li>what data does this refusal rest on, in writing?</li>
+          <li>who observed, when, and for how long?</li>
+          <li>what did you ask about the hours after school?</li>
+          <li>how is this consistent with 34 CFR 300.111(c)(1)?</li>
+          <li>what would have to happen before you evaluate?</li>
+          <li>may we have the refusal, our procedural safeguards, and the meeting record?</li>
+        </ul>
+        <p class="sb-note">Put the burnout history in writing, with dates. <strong>&ldquo;Could not get off the couch for six weeks&rdquo; beats &ldquo;struggled&rdquo;.</strong></p>
+      </div>
+
+    </div>
+
+    <div class="sb-refusals-note">
+      <div class="sb-colhead">United States &middot; the IDEA regulations already say this</div>
+      <p class="sb-note"><strong>Child find covers children who are passing.</strong> Schools must identify and evaluate children &ldquo;who are suspected of being a child with a disability &hellip; and in need of special education, <strong>even though they are advancing from grade to grade</strong>.&rdquo; &mdash; 34 CFR 300.111(c)(1)</p>
+      <p class="sb-note"><strong>So does the right to a free appropriate public education.</strong> FAPE is owed to any child who needs it &ldquo;even though the child has not failed or been retained in a course or grade, and <strong>is advancing from grade to grade</strong>.&rdquo; &mdash; 34 CFR 300.101(c)(1)</p>
+      <p class="sb-note">Passing is not a lawful basis for declining to evaluate. The regulations name that exact situation and say the duty stands. <em>US federal law, not legal advice.</em></p>
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;If you try and push for just one more day of school, then it is likely at some point, their capacity for being able to manage will burst.&rdquo;</p>
+      <cite>Helen Edgar &middot; Supporting pupils through Autistic Burnout &middot; Autistic Realms</cite>
+    </div>
+
+    <div class="sb-principle">
+      <p>Support is owed when the cost is discovered &mdash; not when the child can no longer pay it. <strong>Do not make a child prove need by breaking.</strong></p>
+    </div>
+
+    <div class="sb-sources">
+      Adapted from the <em>Masking and Burnout</em> Why Sheet at stimpunks.org/why/masking-and-burnout, which carries the full detail and every source. Burnout is defined here from <strong>Raymaker et al. (2020)</strong>, <em>Autism in Adulthood</em>, and <strong>Arnold, Higgins et al. (2023)</strong>, &lsquo;Confirming the nature of autistic burnout&rsquo;, <em>Autism</em> 27(7). Camouflaging is linked to poorer mental health by <strong>Hull et al. (2019)</strong> and <strong>Cage &amp; Troxell-Whitman (2019)</strong>. The school-facing material draws on <strong>Helen Edgar</strong>, &lsquo;Supporting pupils through Autistic Burnout&rsquo; (Autistic Realms), quoted and used with her permission &mdash; her words remain hers and sit outside the CC0 grant below.
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        stimpunks.org/why/masking-and-burnout &middot; stimpunks.org/library/broadsides<br>
+        free to print, copy, change and share &mdash; no permission needed<br>
+        CC0 1.0 &middot; no rights reserved
+      </div>
+      <div class="sb-foot-right">Stimpunks<br>Foundation</div>
+    </div>
+
+  </article>
+
+  <p class="sb-hint">One sheet &middot; print double-sided &middot; bring it to the meeting &middot; share freely</p>
+</div>
+
+</body>
+</html>

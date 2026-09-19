@@ -1,6 +1,6 @@
 # Behaviorism
 
-> Behaviorism is a dehumanizing mechanism of learning that reduces human beings to simple inputs and outputs. There is an [ever-growing body of research](https://www.humanrestorationproject.org/writing/empty-pedagogy-behaviorism-and-the-rejection-of-equity) suggesting that behaviorism is not only harmful to how we learn, but is also oppressive, ableist, and racist.
+> Behaviorism is a dehumanizing mechanism of learning that reduces human beings to simple inputs and outputs. There is an [ever-growing body of research](https://www.humanrestorationproject.org/writing/empty-pedagogy-behaviorism-and-the-rejection-of-equity) suggesting that behaviorism is not only harmful to how we learn, but is also oppressive, ableist, and racist.
 > 
 > [More Human Than a Ladder or Pyramid: Psychology, Behaviorism, and Better Schools | Human Restoration Project | Chris McNutt](https://www.humanrestorationproject.org/writing/more-human-than-a-ladder-or-pyramid-psychology-behaviorism-and-better-schools)
 
@@ -77,7 +77,7 @@ Here's why:
 
 - [Behaviorist education is ableist education.](https://stimpunks.org/glossary/behaviorism/)
 - [We are in a sort of remediation industrial complex, where there’s all sorts of services and treatments and interventions to make the square peg fit the round hole. Parents are relentlessly told that that’s their job.](https://longreads.com/2019/12/17/normal-sucks-author-jonathan-mooney-on-how-schools-fail-kids-with-learning-differences/)
-- [This is a top-down, power over, authoritarian approach that is not in alignment with the rest of the goals of the educational system that is designed to teach children to think and learn.](https://endseclusion.org/research/the-problem-with-behaviorism/)
+- [This is a top-down, power over, authoritarian approach that is not in alignment with the rest of the goals of the educational system that is designed to teach children to think and learn.](https://endseclusion.org/research/the-problem-with-behaviorism/)
 - [The most restrictive virtual straitjacket that educators face is behaviorism.](https://www.alfiekohn.org/article/behavior/)
 
 ## ABA violates autonomy.
@@ -241,5 +241,5 @@ The following individuals, organizations, and communities endorse this [Why Shee
 This why sheet is free to download, modify, and share.
 
 Version: 1.7  
-License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
+License: “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Behaviorism.md)

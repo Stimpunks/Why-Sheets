@@ -45,9 +45,9 @@ Here’s what to do instead.
 
 > Pretty much everything an autistic child does, says, doesn’t do or doesn’t say is pathologised and made into a way to invent a ‘therapy’ for it.
 > 
-> **It’s actually \_hell\_ to experience.**
+> **It’s actually *hell* to experience.**
 > 
-> We should **stop doing this and start learning about autism**.
+> We should **stop doing this and start learning about autism**.
 > 
 > [Ann Memmott PGC](https://twitter.com/annmemmott/status/1015968112674574336?s=12)
 
@@ -57,7 +57,7 @@ Here’s what to do instead.
 > 
 > [High School Anti-Behaviourism Behaviour Management Policy](https://docs.google.com/document/d/1iVi_RY1HUyW92iYAhgshL_YYXFbsKOH14Ua4Zc4T2s0/edit)
 
-First, reject rewards, punishments, [behaviourism](https://stimpunks.org/glossary/behaviorism/), and restrictive practices.
+First, reject rewards, punishments, [behaviourism](https://stimpunks.org/glossary/behaviorism/), and restrictive practices.
 
 Next, use these tools instead:
 
@@ -87,9 +87,9 @@ Source: [The 5 As of Neurodiversity Affirming Practice](https://www.barrierstoed
 
 - **Safety**: Prioritising the physical, psychological and emotional safety of young people.
 - **Trustworthiness**: Explaining what we do and why, doing what we say we will do, expectations being clear and not overpromising.
-- **Choice**: Young people are supported to be shared decision makers and we actively listen to the needs and wishes of young people. 
-- **Collaboration**: The value of young people’s experience is recognised through actively working alongside them and actively involving young people in the delivery of services. 
-- **Empowerment**: We share power as much as we can, to give young people the strongest possible voice. 
+- **Choice**: Young people are supported to be shared decision makers and we actively listen to the needs and wishes of young people. 
+- **Collaboration**: The value of young people’s experience is recognised through actively working alongside them and actively involving young people in the delivery of services. 
+- **Empowerment**: We share power as much as we can, to give young people the strongest possible voice. 
 - **Cultural consideration**: We actively aim to move past cultural stereotypes and biases based on, for example, gender, sexual orientation, age, religion, disability, geography, race or ethnicity.
 
 Source: [The 6 Key Principles of Trauma-Informed Practice](https://www.gov.uk/government/publications/working-definition-of-trauma-informed-practice/working-definition-of-trauma-informed-practice)
@@ -265,7 +265,7 @@ SPACE:
 - Predictability
 - Acceptance
 - Communication
-- Empathy 
+- Empathy 
 
 TIME:
 
@@ -274,13 +274,13 @@ TIME:
 - Meaning-Making & Sense of Place
 - Embodiment & Uniqueness
 
-Recent research has built strong neuroaffirming frameworks to guide more humanising care. The Autistic SPACE framework sets out five key areas — **_Sensory, Predictability, Acceptance, Communication, and Empathy_ **— as foundations for safe, inclusive practice in healthcare and education ([Doherty et al., 2023](https://pubmed.ncbi.nlm.nih.gov/37127416/); [McGoldrick et al., 2025](https://journals.sagepub.com/doi/10.1177/27546330251370655)). Alongside this, the eight dimensions of care (based on the work from[ Todres et al., 2009](https://doi.org/10.1080/17482620802646204)) from _An Experience Sensitive Approach to Care With and for Autistic Children and Young People in Clinical Services_ highlight the importance of **Togetherness, Insiderness, Sense-Making,Uniqueness, Sense of Place, Embodiment, Agency**and validating our **Personal Journey’s** so Autistic people can thrive with dignity and a sense of belonging ([McGreevy et al., 2024](https://journals.sagepub.com/doi/10.1177/00221678241232442#bibr53-00221678241232442])).
+Recent research has built strong neuroaffirming frameworks to guide more humanising care. The Autistic SPACE framework sets out five key areas — **_Sensory, Predictability, Acceptance, Communication, and Empathy_**— as foundations for safe, inclusive practice in healthcare and education ([Doherty et al., 2023](https://pubmed.ncbi.nlm.nih.gov/37127416/); [McGoldrick et al., 2025](https://journals.sagepub.com/doi/10.1177/27546330251370655)). Alongside this, the eight dimensions of care (based on the work from[ Todres et al., 2009](https://doi.org/10.1080/17482620802646204)) from _An Experience Sensitive Approach to Care With and for Autistic Children and Young People in Clinical Services_ highlight the importance of **Togetherness, Insiderness, Sense-Making,Uniqueness, Sense of Place, Embodiment, Agency**and validating our **Personal Journey’s** so Autistic people can thrive with dignity and a sense of belonging ([McGreevy et al., 2024](https://journals.sagepub.com/doi/10.1177/00221678241232442#bibr53-00221678241232442])).
 
 Being monotropic shapes how Autistic people sense, focus, and connect.
 
-With **S**ensory attunement, ** P**redictability, ** A**cceptance, ** C**ommunication, and **E**mpathy, Autistic people find grounding and flow.
+With **S**ensory attunement, **P**redictability, **A**cceptance, **C**ommunication, and **E**mpathy, Autistic people find grounding and flow.
 
-Through **T**ogetherness, **I**nsiderness, **M**eaning-Making, and **E**mbodiment, we can thrive, belong, and share our unique ways of being.
+Through **T**ogetherness, **I**nsiderness, **M**eaning-Making, and **E**mbodiment, we can thrive, belong, and share our unique ways of being.
 
 SPACE–TIME helps us reimagine care and create environments where Autistic people can thrive.
 
@@ -346,7 +346,7 @@ Source: [Holistic Support - Barriers to Education](https://barrierstoeducation.c
 > 
 > **Please consider using it before you reach for anything else.**
 > 
-> [ Ann Memmott, Post | LinkedIn](https://www.linkedin.com/posts/ann-memmott-3a93127_theyre-so-unreasonable-to-ask-me-to-do-activity-7386724662732558336-xw0L/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACJSp0BTxb-BFkHrFsPEoJRWLck0kqgT0E)
+> [ Ann Memmott, Post | LinkedIn](https://www.linkedin.com/posts/ann-memmott-3a93127_theyre-so-unreasonable-to-ask-me-to-do-activity-7386724662732558336-xw0L/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACJSp0BTxb-BFkHrFsPEoJRWLck0kqgT0E)
 
 For more on the problems with ABA and behaviorism, visit the “[Behaviorism Why Sheet](https://stimpunks.org/why/behaviorism/)”.
 
@@ -385,5 +385,5 @@ The following individuals, organizations, and communities endorse this [Why Shee
 This why sheet is free to download, modify, and share.
 
 Version: 1.5  
-License: “[Alternatives to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
+License: “[Alternatives to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Alternatives%20to%20ABA.md)

@@ -1,0 +1,24 @@
+# Netlify configuration for whysheets.press.
+#
+# THERE IS NO BUILD STEP, on purpose and in line with the sibling Stimpunks
+# sites. The generators in tools/ are run locally and their output — the pages,
+# the per-broadside stylesheets, and the 23 PDFs — is committed. Three reasons,
+# in order of how much they cost when ignored:
+#
+#   1. A PDF is printed by real Chrome at a real page size and then MEASURED.
+#      Doing that in a deploy container means either shipping a headless browser
+#      into the build or trusting a layout nobody looked at. The sheets exist to
+#      be printed; the paper is the product, and it gets checked before it ships.
+#   2. Generated output in the repository is reviewable in a diff. A change to
+#      the stylesheet that repaginates nine sheets shows up as nine changed PDFs
+#      in the pull request, which is exactly where somebody should see it.
+#   3. A deploy cannot fail on a toolchain. Netlify copies files.
+[build]
+  publish = "."
+  command = ""
+
+[build.processing]
+  # Nothing here wants minifying or rewriting. The HTML is generated, the CSS is
+  # hand-written and commented for the next person, and the PDFs must arrive
+  # byte-identical to the ones that were measured.
+  skip_processing = true

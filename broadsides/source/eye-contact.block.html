@@ -1,0 +1,425 @@
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     STIMPUNKS BROADSIDE — EYE CONTACT
+     Paste this whole file into a Custom HTML block in the WordPress block editor.
+     Target page: https://stimpunks.org/library/broadsides/eye-contact/
+
+     It also opens directly in a browser as a local preview — a bare fragment is
+     wrapped in html/body automatically, and nothing here styles html or body, so
+     what you see locally is what WordPress will render.
+
+     ── WHY THIS IS NOT JUST THE STAR STUFF HTML ────────────────────────────────
+     Four things break when a Star Stuff broadside is pasted into WordPress. All
+     four are handled here, and all four will come back if someone "tidies" this.
+
+     1. NO `*` RESET AND NO `body` RULES. A Custom HTML block's <style> applies to
+        the whole document. `* { margin:0; padding:0 }` from inside a block wrecks
+        the theme's spacing on that page. Every rule below is scoped under
+        `.sb-root`, and the reset is applied to `.sb-root *` only.
+
+     2. EVERY CLASS IS NAMESPACED `sb-`. Bare `.sheet`, `.title`, `.quote`, `.foot`
+        collide with theme and plugin CSS with near-certainty.
+
+     3. NO `@page` AT PAGE LEVEL. `@page` is document-global — declared here it
+        would change print margins for the whole WordPress page. It exists only
+        inside the print iframe's own document, written by the script below.
+
+     4. PRINT GOES THROUGH AN IFRAME, NOT `window.print()`. Calling window.print()
+        on a WordPress page prints the header, nav, sidebar, footer and cookie
+        banner with the sheet somewhere inside. Instead the script clones both
+        sides into a hidden same-origin iframe containing only the broadside and
+        this stylesheet, and prints that. The iframe is a separate document, so
+        `@page` applies to it alone, theme CSS cannot reach in, and only the sheet
+        comes out of the printer.
+
+     THE ON-PAGE VERSION IS REAL DOM, DELIBERATELY. It would have been easier to
+     put the whole sheet in an iframe and dodge every CSS problem at once. Don't:
+     iframe content is not indexed by WordPress search or Google and sits outside
+     the page's reading order. Real DOM on the page, iframe only at print time.
+
+     ── THE SHEET ───────────────────────────────────────────────────────────────
+     190 × 259 mm — the intersection of A4 and US Letter, so one file prints
+     uncropped in either country. 9 mm page margins, not 10: at 10 mm the Letter
+     box is 259.4 mm against a 259 mm sheet, and that 0.4 mm of slack lets
+     sub-pixel rounding tip it onto a third page.
+
+     Ink on white in BOTH media. Browsers leave "Background graphics" off by
+     default, so a light-on-dark design reaches paper blank. The registration bar
+     at the top is a border, not a background, for the same reason.
+
+     ── PALETTE: SOLARIZED, DARKENED FOR PAPER ──────────────────────────────────
+     Ink is Solarized base03 (#002b36, 15.0:1 on white) rather than black — the
+     house palette, used as ink. Measured on the way in: five of the eight
+     Solarized accents FAIL WCAG AA as body ink on white as they ship — yellow
+     3.2:1, blue 3.7:1, cyan 3.2:1, green 3.2:1, violet 4.4:1. So the two spot
+     inks are house hues darkened until they clear, exactly as the screen accents
+     can't be trusted on paper anywhere else either.
+
+     Licence: CC0 1.0, matching the Why Sheets. Content adapted from the Eye
+     Contact Why Sheet (CC0). Written fresh for this project.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+
+<style id="sb-css-eye-contact">
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital,wght@0,400;0,700&display=swap');
+
+/* Scoped reset. Never `*` on its own — this block's CSS is document-wide. */
+.sb-root, .sb-root * { box-sizing: border-box; }
+.sb-root p, .sb-root h1, .sb-root h2, .sb-root ul, .sb-root li, .sb-root figure { margin: 0; padding: 0; }
+.sb-root ul { list-style: none; }
+
+.sb-root {
+  --sb-sheet:  #ffffff;
+  --sb-ink:    #002b36;   /* Solarized base03 · 15.0:1 on white */
+  --sb-ink-2:  #073642;   /* base02 · 13.0:1 — secondary prose   */
+  --sb-ink-3:  #586e75;   /* base01 ·  5.4:1 — small print only  */
+  --sb-spot:   #175a7d;   /* Solarized blue, darkened ·  7.5:1   */
+  --sb-spot-2: #96215c;   /* Solarized magenta, darkened · 7.9:1 */
+  --sb-rule:   #d8d2c4;
+
+  font-family: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* ── Controls (screen only; removed from the print document) ── */
+.sb-controls { display: flex; gap: 0.6rem; margin-bottom: 1.1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+.sb-ctrl-label { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sb-ink-3); }
+.sb-btn {
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  background: #fff; color: var(--sb-ink-2);
+  border: 1px solid var(--sb-ink-3); border-radius: 2px;
+  padding: 0.5rem 1rem; cursor: pointer; line-height: 1.2;
+}
+.sb-btn:hover { border-color: var(--sb-ink); color: var(--sb-ink); }
+.sb-btn:focus-visible { outline: 3px solid var(--sb-spot); outline-offset: 2px; }
+.sb-btn.is-active { background: var(--sb-ink); color: #fff; border-color: var(--sb-ink); }
+.sb-ctrl-sep { width: 1px; height: 18px; background: var(--sb-rule); }
+
+/* ── The sheet ── */
+.sb-sheet {
+  width: 190mm; max-width: 100%; min-height: 259mm;
+  background: var(--sb-sheet); color: var(--sb-ink);
+  padding: 11mm 12mm 9mm;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--sb-rule);
+  border-top: 3mm solid var(--sb-spot);
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+.sb-sheet[hidden] { display: none; }
+.sb-sheet--b { border-top-color: var(--sb-spot-2); }
+
+/* ── Masthead ── */
+.sb-mast { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; padding-bottom: 3mm; border-bottom: 0.6mm solid var(--sb-ink); }
+.sb-mast-org { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sb-ink-2); line-height: 1.9; }
+.sb-mast-org strong { display: block; font-size: 7pt; letter-spacing: 0.2em; color: var(--sb-ink); }
+.sb-mast-side { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.9; white-space: nowrap; }
+.sb-sheet--b .sb-mast-side { color: var(--sb-spot-2); }
+
+/* ── Face ── */
+.sb-title { font-weight: 800; font-size: 34pt; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; margin-top: 5mm; color: var(--sb-ink); }
+.sb-title em { font-style: normal; color: var(--sb-spot); }
+.sb-standfirst { font-style: italic; font-weight: 300; font-size: 11.5pt; line-height: 1.44; color: var(--sb-ink-2); margin-top: 4mm; max-width: 158mm; }
+.sb-rule { height: 0.8mm; background: var(--sb-ink); margin-top: 5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-claim { margin-top: 5mm; text-align: center; }
+.sb-claim-line { font-weight: 800; font-size: 33pt; line-height: 1.06; letter-spacing: -0.02em; text-transform: uppercase; color: var(--sb-ink); }
+.sb-claim-line em { font-style: normal; color: var(--sb-spot); }
+.sb-claim-sub { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-2); margin-top: 3mm; line-height: 1.8; }
+
+.sb-panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin-top: 5mm; }
+.sb-panel { border-left: 0.8mm solid var(--sb-spot); padding-left: 3.5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-panel:nth-child(3) { border-left-color: var(--sb-spot-2); }
+.sb-panel-name { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-spot); margin-bottom: 2.2mm; line-height: 1.5; }
+.sb-panel:nth-child(3) .sb-panel-name { color: var(--sb-spot-2); }
+.sb-panel p { font-size: 10pt; line-height: 1.45; color: var(--sb-ink-2); }
+
+.sb-quote { margin-top: 5mm; padding-left: 4mm; border-left: 0.8mm solid var(--sb-spot); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-quote p { font-style: italic; font-weight: 500; font-size: 12.5pt; line-height: 1.34; color: var(--sb-ink); }
+.sb-quote cite { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.8pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); margin-top: 2.2mm; line-height: 1.7; }
+.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); }
+
+/* ── Reverse ── */
+.sb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 9mm; margin-top: 5mm; }
+.sb-colhead { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot-2); padding-bottom: 2.2mm; margin-bottom: 3.5mm; border-bottom: 0.4mm solid var(--sb-rule); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-do li { font-size: 10.5pt; line-height: 1.42; color: var(--sb-ink-2); margin-bottom: 2.6mm; padding-left: 5mm; position: relative; }
+.sb-do li::before { content: '→'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-do strong { color: var(--sb-ink); }
+
+.sb-look li { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8.4pt; line-height: 1.5; color: var(--sb-ink-2); margin-bottom: 1.6mm; padding-left: 5mm; position: relative; }
+.sb-look li::before { content: '✓'; position: absolute; left: 0; color: var(--sb-spot); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-note { font-size: 10pt; line-height: 1.42; color: var(--sb-ink-2); margin-top: 3mm; }
+.sb-note strong { color: var(--sb-ink); }
+
+.sb-principle { margin-top: 4mm; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); }
+.sb-principle p { font-size: 10.5pt; line-height: 1.45; color: var(--sb-ink-2); margin-top: 2mm; }
+.sb-principle strong { color: var(--sb-ink); }
+
+.sb-sources { margin-top: 3.5mm; font-family: 'Space Mono', ui-monospace, monospace; font-size: 7pt; line-height: 1.6; color: var(--sb-ink-2); }
+.sb-sources em { font-style: italic; }
+
+/* ── Foot ── */
+.sb-foot { margin-top: auto; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; }
+.sb-foot-left { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); line-height: 1.95; }
+.sb-foot-right { font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.5; }
+.sb-sheet--b .sb-foot-right { color: var(--sb-spot-2); }
+
+.sb-hint { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); text-align: center; margin-top: 1rem; }
+
+/* If someone prints the WORDPRESS PAGE rather than using the Print button, the
+   controls come with it — and `.sb-btn.is-active` is white text on a dark
+   background, so the background drops out (browsers omit background graphics)
+   and it prints as white-on-white. Caught by running the contrast gate against
+   the published URL. These are screen furniture; they never belong on paper.
+   Scoped to our own classes: this must not try to hide the theme's chrome. */
+@media print {
+  .sb-controls, .sb-hint { display: none !important; }
+}
+
+/* Breakpoint sits BELOW the narrowest printed page box — A4 at 9 mm margins is
+   192 mm ≈ 726 px. Print media queries resolve against the page box, not the
+   screen, so a breakpoint above that reflows on paper and silently clips. */
+@media (max-width: 700px) {
+  .sb-sheet { width: 100%; min-height: 0; padding: 8mm 6mm; }
+  .sb-panels, .sb-cols { grid-template-columns: 1fr; }
+  .sb-title { font-size: 26pt; }
+  .sb-claim-line { font-size: 22pt; }
+  .sb-foot { flex-direction: column; align-items: flex-start; gap: 3mm; }
+  .sb-foot-right { text-align: left; }
+}
+</style>
+
+<div class="sb-root" id="sb-eye-contact" data-sb-style="sb-css-eye-contact" data-sb-doc-title="Eye Contact — a Stimpunks Broadside">
+
+  <div class="sb-controls" role="group" aria-label="Broadside controls">
+    <span class="sb-ctrl-label" aria-hidden="true">Side</span>
+    <button type="button" class="sb-btn is-active" data-sb-side="a" aria-pressed="true">A — The Short Version</button>
+    <button type="button" class="sb-btn" data-sb-side="b" aria-pressed="false">B — What To Do Instead</button>
+    <span class="sb-ctrl-sep" aria-hidden="true"></span>
+    <button type="button" class="sb-btn" data-sb-print>Print ↗</button>
+  </div>
+
+  <!-- ════ SIDE A ════ -->
+  <article class="sb-sheet sb-sheet--a" aria-label="Eye Contact broadside, side A">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        for the meeting where it is written into a goal
+      </div>
+      <div class="sb-mast-side">Broadside · Open edition<br>Side A of B</div>
+    </div>
+
+    <h2 class="sb-title">Eye <em>Contact</em></h2>
+
+    <p class="sb-standfirst">Eye contact is treated in schools as a sign of attention, respect, and honesty. It is not reliable evidence of any of the three. In some places it is written into IEP goals and behaviour plans, and children are made to perform it.</p>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-claim">
+      <p class="sb-claim-line">Looking away is<br><em>how we listen.</em></p>
+      <p class="sb-claim-sub">a child looking away is not being rude · they are working</p>
+    </div>
+
+    <div class="sb-panels">
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">It can hurt</div>
+        <p>Brain imaging shows eye contact overactivating a region that produces arousal and distress in Autistic people. A child who looks away is protecting themselves from pain, not showing disrespect — and demanding it anyway asks a child to hurt themselves so that an adult is more comfortable.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">Looking away is a tool</div>
+        <p>Many of us can look or listen, not both at once. Gaze aversion cuts the incoming sensory load so the brain can process language and meaning. Even non-Autistic adults answer hard questions better when they look away — and children taught to use it deliberately perform better.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">The goal is not for the child</div>
+        <p>An eye contact goal trains a child to perform someone else's norm for someone else's comfort. It builds no communication, no learning, no self-advocacy. What it builds is masking — and masking is linked to burnout, anxiety, depression and loss of identity.</p>
+      </div>
+
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;Eye contact — who's it for? It's not for the Autistic child. It's for the recipient. It's for their own validation.&rdquo;</p>
+      <cite>Thinking Person's Guide to Autism</cite>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        the full why sheet, with every source:<br>
+        stimpunks.org/why/eye-contact<br>
+        free to print, copy, change and share · CC0 1.0
+      </div>
+      <div class="sb-foot-right">See<br>reverse</div>
+    </div>
+
+  </article>
+
+  <!-- ════ SIDE B ════ -->
+  <article class="sb-sheet sb-sheet--b" hidden aria-label="Eye Contact broadside, side B">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        change the expectation, not the child
+      </div>
+      <div class="sb-mast-side">Broadside · Open edition<br>Side B of B</div>
+    </div>
+
+    <div class="sb-cols">
+
+      <div>
+        <div class="sb-colhead">What to do instead</div>
+        <ul class="sb-do">
+          <li><strong>Do not prompt &ldquo;look at me&rdquo;</strong> as a precursor to instruction.</li>
+          <li><strong>Do not put eye contact in IEP goals</strong>, behaviour plans, or compliance rubrics. Put communication, learning and self-determination there instead.</li>
+          <li><strong>Do not read gaze aversion</strong> as rudeness, defiance, or inattention.</li>
+          <li>If a student makes eye contact, welcome it. <strong>If they don't, welcome that too.</strong></li>
+          <li>Allow looking away, movement and stimming while listening. Reduce sensory load. Give processing time.</li>
+          <li><strong>Presume competence.</strong> The child who is not looking at you is very likely paying close attention.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sb-colhead">Look for these instead</div>
+        <ul class="sb-look">
+          <li>responding to questions</li>
+          <li>participating in discussion</li>
+          <li>demonstrating understanding</li>
+          <li>asking questions</li>
+          <li>completing work</li>
+        </ul>
+        <p class="sb-note">A student may be <strong>fully engaged while looking away</strong>. Measure learning and participation — not gaze direction.</p>
+        <p class="sb-note">Eye contact norms also vary across cultures. In many, avoiding the gaze of an authority figure is the respectful thing to do. Teaching one style as the correct one enforces a narrow norm and calls it a skill.</p>
+
+        <div class="sb-quote">
+          <p>&ldquo;We can either look like we're paying attention, or we can actually pay attention, in our way, using our tools.&rdquo;</p>
+          <cite>Ryan Boren · Stimpunks Foundation</cite>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sb-principle">
+      <div class="sb-colhead">The principle</div>
+      <p>Students should not be required to perform behaviours that interfere with their ability to learn. For many Neurodivergent students, <strong>looking away is a tool for thinking.</strong></p>
+      <p>Supporting that difference is not lowering expectations. It is designing environments that respect how diverse minds work.</p>
+    </div>
+
+    <div class="sb-sources">
+      Adapted from the <em>Eye Contact</em> Why Sheet at stimpunks.org/why/eye-contact, which carries the full sources. Key reading: Nouchine Hadjikhani (Harvard Medical School) on overstimulation rather than indifference; &ldquo;Should We Insist on Eye Contact…&rdquo; (Indiana Institute on Disability and Community); Judy Endow, &ldquo;Autism and Eye Contact&rdquo;; &ldquo;Eye Contact: For The Recipient's Validation Only&rdquo; (Thinking Person's Guide to Autism); Doherty-Sneddon et al. on gaze aversion and teaching (<em>British Journal of Developmental Psychology</em>). Related: Monotropism, Deep Attention, Sensory Load, Processing Time, Masking Pressure — stimpunks.org/patterns.
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        stimpunks.org/why/eye-contact · stimpunks.org/library/broadsides<br>
+        free to print, copy, change and share — no permission needed<br>
+        CC0 1.0 · no rights reserved
+      </div>
+      <div class="sb-foot-right">Stimpunks<br>Foundation</div>
+    </div>
+
+  </article>
+
+  <p class="sb-hint">One sheet · print double-sided · take it to the meeting · share freely</p>
+</div>
+
+<script>
+/* Scoped to each .sb-root, so two broadsides can sit on one page without
+   colliding. No global function names, no inline onclick handlers — some
+   security plugins strip inline JS, and a global showSide() would be clobbered
+   by the second instance on the page. */
+(function () {
+  var roots = document.querySelectorAll('.sb-root:not([data-sb-ready])');
+
+  Array.prototype.forEach.call(roots, function (root) {
+    root.setAttribute('data-sb-ready', '1');
+
+    var sheetA = root.querySelector('.sb-sheet--a');
+    var sheetB = root.querySelector('.sb-sheet--b');
+    var sideBtns = root.querySelectorAll('[data-sb-side]');
+
+    function show(side) {
+      sheetA.hidden = (side !== 'a');
+      sheetB.hidden = (side !== 'b');
+      Array.prototype.forEach.call(sideBtns, function (b) {
+        var on = b.getAttribute('data-sb-side') === side;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    Array.prototype.forEach.call(sideBtns, function (b) {
+      b.addEventListener('click', function () { show(b.getAttribute('data-sb-side')); });
+    });
+
+    /* PRINT. Both sides are cloned into a hidden same-origin iframe holding only
+       the sheet markup and this block's stylesheet. That iframe is its own
+       document, so @page applies to it alone, the theme's CSS cannot reach in,
+       and the printer gets the broadside instead of the whole web page. */
+    var printBtn = root.querySelector('[data-sb-print]');
+    if (!printBtn) return;
+
+    printBtn.addEventListener('click', function () {
+      var styleEl = document.getElementById(root.getAttribute('data-sb-style'));
+      var css = styleEl ? styleEl.textContent : '';
+
+      var a = sheetA.cloneNode(true);
+      var b = sheetB.cloneNode(true);
+      a.removeAttribute('hidden');
+      b.removeAttribute('hidden');
+
+      var frame = document.createElement('iframe');
+      frame.setAttribute('aria-hidden', 'true');
+      frame.setAttribute('tabindex', '-1');
+      frame.title = 'Print preview';
+      frame.style.cssText = 'position:fixed;right:0;bottom:0;width:1px;height:1px;opacity:0;border:0;';
+      document.body.appendChild(frame);
+
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      doc.open();
+      doc.write(
+        '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">' +
+        '<title>' + (root.getAttribute('data-sb-doc-title') || 'Broadside') + '</title>' +
+        '<style>' +
+          /* Safe here: this is an isolated document, not the WordPress page. */
+          '*{box-sizing:border-box;margin:0;padding:0}' +
+          'html,body{background:#fff}' +
+          '@page{size:auto;margin:9mm}' +
+          css +
+          /* The sheet is laid out for paper, not for a viewport. */
+          '.sb-root{display:block;max-width:none}' +
+          '.sb-controls,.sb-hint{display:none}' +
+          '.sb-sheet{width:100%;min-height:0;height:259mm;padding:0;border:0;border-top:3mm solid var(--sb-spot)}' +
+          '.sb-sheet--b{border-top-color:var(--sb-spot-2)}' +
+          '.sb-sheet--a{page-break-after:always;break-after:page}' +
+          '.sb-mast{padding-top:6mm}' +
+          '.sb-panel,.sb-do li,.sb-look li{page-break-inside:avoid;break-inside:avoid}' +
+        '</style></head><body><div class="sb-root"></div></body></html>'
+      );
+      doc.close();
+
+      var host = doc.querySelector('.sb-root');
+      host.appendChild(doc.importNode(a, true));
+      host.appendChild(doc.importNode(b, true));
+
+      /* Wait for the webfonts inside the iframe before printing, or the sheet
+         prints in a fallback face at the wrong metrics. Time-boxed, because a
+         font request that never resolves must not block the print dialog. */
+      var printed = false;
+      function go() {
+        if (printed) return;
+        printed = true;
+        try { frame.contentWindow.focus(); frame.contentWindow.print(); } catch (e) {}
+        setTimeout(function () { frame.remove(); }, 1000);
+      }
+      if (doc.fonts && doc.fonts.ready) { doc.fonts.ready.then(go); }
+      setTimeout(go, 1500);
+    });
+  });
+})();
+</script>

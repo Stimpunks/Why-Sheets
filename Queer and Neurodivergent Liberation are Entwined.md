@@ -12,7 +12,7 @@
 ## Double Rainbows
 
 - People who do not identify with the sex they were assigned at birth are three to six times as likely to be autistic as cisgender people are.[^1]
-- Autistic people are more likely than neurotypical people to be gender diverse, several studies show, and gender-diverse people are more likely to have autism than are cisgender people.[^2]
+- Autistic people are more likely than neurotypical people to be gender diverse, several studies show, and gender-diverse people are more likely to have autism than are cisgender people.[^2]
 - Children on the autism spectrum are more than seven times more likely to show signs of gender variance.[^3]
 - People who feel significant distress because their gender identity differs from their birth sex have higher-than-expected rates of autism.[^4]
 - People with autism appear to have higher rates of gender dysphoria than the general population.[^5]
@@ -40,14 +40,14 @@
 - The only government-funded therapy for autistic children is called Applied Behaviour Analysis, an approach developed in tandem with discredited anti-LGBTQ2S+ practises.[^21]
 - ABA also acts as a form of queer conversion because “autistic genders and sexualities are inherently pathologized as abnormal.”[^22]
 - Plenty of autistic people are LGBTQ and experience a double portion of discrimination. The desire to eliminate the traits that make autistic people unique is rooted in the same impulse to suppress people from affirming their gender identity or sexuality.[^23]
-- ABA and its conversion therapy kin are with us still, all too alive and well.[^24]
+- ABA and its conversion therapy kin are with us still, all too alive and well.[^24]
 - I don’t need a cure for me.[^25]
 - Conversion therapy is wrong. Conversion therapy does not work.[^26]
 
 ## Our Liberation is Entwined
 
 - LGBTQI+ people with an Autistic diagnosis have two separate rainbows — and two separate coming out stories.[^27]
-- Protecting queer kids protects also neurodivergent kids—and vice versa. The fight is for inclusion and acceptance—for all operating systems, for all of our different ways of being human.[^28]
+- Protecting queer kids protects also neurodivergent kids—and vice versa. The fight is for inclusion and acceptance—for all operating systems, for all of our different ways of being human.[^28]
 - Members of the neurodiversity movement adopt a position of diversity that encompasses a kaleidoscope of identities that intersects with the LGBTQIA+ kaleidoscope by recognising neurodivergent traits as natural variations of cognition, motivations, and patterns of behaviour within the human species.[^29]
 - “Queer,” in any case, does not designate a class of already objectified pathologies or perversions; rather, it describes a horizon of possibility whose precise extent and heterogeneous scope cannot in principle be delimited in advance.[^30]
 - Queer and neurodivergent liberation are entwined.[^31]
@@ -78,7 +78,7 @@ The following individuals, organizations, and communities endorse this [Why Shee
 This why sheet is free to download, modify, and share.
 
 Version: 0.9  
-License: [“Queer and Neurodivergent Liberation are Entwined Why Sheet”](https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
+License: [“Queer and Neurodivergent Liberation are Entwined Why Sheet”](https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/) is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
 Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Queer%20and%20Neurodivergent%20Liberation%20are%20Entwined.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Queer%20and%20Neurodivergent%20Liberation%20are%20Entwined.md)
 
 ## References

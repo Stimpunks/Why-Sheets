@@ -2,7 +2,7 @@
 
 ## What This Is
 
-**Cavendish Space** is a psychologically and sensory safe environment where people can focus, rest, collaborate on their own terms, and shape their surroundings together. It includes different kinds of spaces — **caves** for quiet reflection, **campfires** for small-group learning, and **watering holes** for social exchange — and is designed to support human bodies and minds rather than demand adaptation to the environment.
+**Cavendish Space** is a psychologically and sensory safe environment where people can focus, rest, collaborate on their own terms, and shape their surroundings together. It includes different kinds of spaces — **caves** for quiet reflection, **campfires** for small-group learning, and **watering holes** for social exchange — and is designed to support human bodies and minds rather than demand adaptation to the environment.
 
 [Cavendish Space](https://stimpunks.org/glossary/cavendish-space/) is how we describe **lived context** — the way people, environments, systems, and supports continuously shape one another.
 
@@ -230,5 +230,5 @@ Through **niche construction**, **lily pads**, and places like **caves, campfire
 This why sheet is free to download, modify, and share.  
 
 Version: 0.2  
-License: “[Cavendish Space Why Sheet](https://stimpunks.org/why/cavendish-space/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
-Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Cavendish%20Space.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Cavendish%20Space.md)
+License: “[Cavendish Space Why Sheet](https://stimpunks.org/why/cavendish-space/)” is marked with [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1)  
+Repository: [https://github.com/Stimpunks/Why-Sheets/blob/main/Cavendish%20Space.md](https://github.com/Stimpunks/Why-Sheets/blob/main/Cavendish%20Space.md)

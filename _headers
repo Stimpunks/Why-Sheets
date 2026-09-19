@@ -1,0 +1,67 @@
+# Netlify response headers for whysheets.press.
+#
+# Kept in the repository rather than only in the dashboard, so the deploy setup
+# is reviewable in a diff like everything else here.
+
+/*
+  # Documents revalidate every time. The pages are small, and a reader who comes
+  # back to a sheet should get the sheet as it is now — these get corrected.
+  Cache-Control: public, max-age=0, must-revalidate
+
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Netlify's "Force HTTPS" setting sends HSTS on its own, but only a one-year
+  # max-age with no includeSubDomains. This overrides it with the two-year policy
+  # RFC 6797 and OWASP ask for. No `preload`: the preload list's own operator now
+  # advises against it, browsers auto-upgrade HTTP navigations anyway, and getting
+  # off the list takes months.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+
+  # Three IANA-registered relations, on every response rather than only on the
+  # front page, because an agent can arrive at any URL and a header reaches one
+  # that never parses HTML. Everything here is CC0 and the licence relation says
+  # so without anybody having to find the footer.
+  Link: </llms.txt>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="sitemap"; type="application/xml", <https://creativecommons.org/publicdomain/zero/1.0/>; rel="license"
+
+  # Every one of these is a capability this site does not use and will not.
+  # An empty allowlist turns it off outright — so a page somebody is reading
+  # about their own child's school is not asking where they are, and says so in
+  # the response rather than asking to be taken on trust.
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), usb=(), xr-spatial-tracking=()
+
+  X-Frame-Options: DENY
+
+  # No inline script, no inline style, no external origin of any kind. The whole
+  # site is local HTML, local CSS, local ES modules, local fonts and local PDFs.
+  #
+  # `style-src 'self'` with no 'unsafe-inline' is why the broadside blocks are
+  # taken apart at build time: each one arrives from WordPress as a self-contained
+  # <style> plus an inline <script>, and both are re-emitted as files rather than
+  # loosening this. One block also carried a single inline `style=` attribute,
+  # which is hoisted into a rule — see tools/lib/broadside.mjs. The easy version
+  # of that decision is an exception here that then covers everything forever.
+  #
+  # `connect-src 'self'` is load-bearing and not decoration: the packet builder
+  # fetches the sheets' own PDFs to join them. Without it the page loads, the
+  # button works, and every fetch fails.
+  #
+  # `object-src 'none'` and `base-uri 'none'`: nothing embeds a plugin, and
+  # nothing should be able to repoint every relative URL on the page.
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; manifest-src 'self'
+
+/assets/*
+  # Fingerprinted by content, not by name, so they still revalidate — but these
+  # change far less often than the pages do.
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/fonts/*
+  # The one thing here that is genuinely immutable: a released version of an
+  # open font. A year is safe and saves every reader a round trip.
+  Cache-Control: public, max-age=31536000, immutable
+
+/pdf/*
+  # A PDF changes when its sheet is revised, which is the whole reason somebody
+  # should not be handed a stale one at an appointment. Revalidate.
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Disposition: inline

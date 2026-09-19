@@ -1,0 +1,486 @@
+{
+  "generated": "from sheets.json and the Markdown sources",
+  "records": [
+    {
+      "url": "/sheets/behaviorism/",
+      "title": "Behaviorism",
+      "kind": "why-sheet",
+      "summary": "Behaviorism measures the surface, badly — and the primary legacy of ABA is trauma.",
+      "moment": "When compliance is being described as progress, and you need the evidence in one place.",
+      "topics": [
+        "school",
+        "aba",
+        "ethics"
+      ],
+      "headings": [
+        "Table of Contents",
+        "Behaviorism measures the surface, badly.",
+        "The primary legacy of ABA is trauma.",
+        "ABA violates the fundamental tenets of bioethics.",
+        "Behaviorist education is ableist education.",
+        "ABA violates autonomy.",
+        "Autistic adults loathe ABA.",
+        "ABA is badly out of date.",
+        "I would never treat a dog that way.",
+        "References",
+        "Signatories",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/alternatives-to-aba/",
+      "title": "Alternatives to ABA",
+      "kind": "why-sheet",
+      "summary": "Fourteen neurodiversity-affirming frameworks, gathered, so “what would you do instead” has an answer.",
+      "moment": "When you have said no to ABA and the room asks what you want instead.",
+      "topics": [
+        "school",
+        "aba",
+        "clinical"
+      ],
+      "headings": [
+        "Table of Contents",
+        "Back Off",
+        "Instead of ABA",
+        "The Basics of Neurodiversity Affirming Practice",
+        "The 5 As of Neurodiversity Affirming Practice",
+        "The 6 Key Principles of Trauma-Informed Practice",
+        "The NEST Approach for Supporting Young People in Distress",
+        "Understanding Motivation and Behaviour through Self-Determination Theory",
+        "Key Principles When Supporting Autistic People",
+        "Top 5 Neurodivergent-Informed Strategies",
+        "Autistic SPACE: A Novel Framework for Meeting the Needs of Autistic People",
+        "NEST (NEurodivergent peer Support Toolkit)",
+        "The Eight Dimensions of Care",
+        "Good Autism Practice",
+        "It’s Not Rocket Science: 10 Steps to Creating a Neurodiverse Inclusive Environment",
+        "12 Core Commitments to a Culture of Care",
+        "Seven Principles for Valuing, Prioritising and Enabling Autistic Children’s Autonomy",
+        "SPACE-TIME",
+        "WARMTH Framework",
+        "Resources",
+        "Don’t take away your child’s voice; take away their suffering.",
+        "Empathy is the most valuable tool you have.",
+        "Signatories",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/aba-tactics/",
+      "title": "ABA Tactics",
+      "kind": "why-sheet",
+      "summary": "The tactics one by one — compliance training, extinction, quiet hands, forced eye contact — and what each one actually does.",
+      "moment": "When a programme is being described in technical language and you need to know what the words mean in a child’s day.",
+      "topics": [
+        "school",
+        "aba",
+        "clinical"
+      ],
+      "headings": [
+        "Why the Tactics of ABA Are Harmful",
+        "The logic underneath every tactic",
+        "The tactics, one by one",
+        "Compliance training (instructional control)",
+        "Discrete Trial Training (DTT) and massed trials",
+        "Reinforcement and token economies",
+        "Extinction and \"planned ignoring\"",
+        "Prompting, prompt fading, and hand-over-hand",
+        "\"Quiet hands\" and the suppression of stimming",
+        "Forced and taught eye contact",
+        "Aversives and punishment procedures",
+        "The all-day, every-day dosage",
+        "What the tactics add up to",
+        "What we do instead",
+        "References & further reading",
+        "NDConnect — *Against PBS & ABA* series",
+        "Related Stimpunks resources",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/eye-contact/",
+      "title": "Eye Contact",
+      "kind": "why-sheet",
+      "summary": "Forced eye contact is painful, it interferes with processing, and it is not evidence of attention.",
+      "moment": "In the meeting where eye contact is about to be written into a goal.",
+      "topics": [
+        "school",
+        "iep",
+        "sensory"
+      ],
+      "headings": [
+        "The Short Version",
+        "Why Eye Contact Should Not Be Forced in School",
+        "Eye Contact Can Be Physically Painful",
+        "Gaze Aversion Is a Processing Tool — Not a Behavior Problem",
+        "Eye Contact Goals in IEPs Are Not About the Child",
+        "The \"Look at Me\" Demand Causes Real Harm",
+        "The Myth That Eye Contact Signals Attention Is Not Supported by Evidence",
+        "Eye Contact Can Cause Sensory Overload",
+        "Eye Contact Can Interfere With Processing Time",
+        "Forced Eye Contact Encourages Masking",
+        "Communication Styles Are Culturally Diverse",
+        "What to Do Instead",
+        "Better Design for Neurodivergent Classrooms",
+        "The Principle",
+        "Further Reading",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/masking-and-burnout/",
+      "title": "Masking and Burnout",
+      "kind": "why-sheet",
+      "summary": "Masking is a stress response, not a skill. Burnout is the bill. Observation does not see either one.",
+      "moment": "When “but they’re fine at school” is being used to close a file.",
+      "topics": [
+        "school",
+        "iep",
+        "health"
+      ],
+      "headings": [
+        "The Short Version",
+        "Why This Sheet Exists",
+        "Masking Is a Stress Response, Not a Skill",
+        "Burnout Is the Bill for Masking",
+        "Observation Does Not See Masking",
+        "The Cost Is Paid Somewhere Else",
+        "Attendance and Grades Are Late Indicators",
+        "Grade-Level Performance Does Not End the Duty to Evaluate (US)",
+        "What to Do Instead",
+        "The Principle",
+        "Further Reading",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/monotropism/",
+      "title": "Monotropism",
+      "kind": "why-sheet",
+      "summary": "Autistic experience explained through attention — and what stops looking like defiance once you can see the tunnel.",
+      "moment": "When transitions, “rigidity” or “obsession” are on the agenda.",
+      "topics": [
+        "school",
+        "understanding"
+      ],
+      "headings": [
+        "Monotropism is a theory of Autism developed by Autistic people.",
+        "Table of Contents",
+        "What This Is",
+        "Where It Comes From",
+        "Six Starting Points",
+        "1. Coping with multiple channels is hard",
+        "2. Filtering is tricky and error-prone",
+        "3. Changing tracks is destabilising",
+        "4. Things are experienced intensely",
+        "5. Attention loops back to interests and concerns",
+        "6. What drops out of awareness tends to stay dropped",
+        "Reframing The Words",
+        "What Helps At Home",
+        "What Helps At School",
+        "What This Does",
+        "What This Does Not Do",
+        "Who This Is For",
+        "How To Use This",
+        "Questions To Ask In The Room",
+        "Quick Summary",
+        "Further Reading",
+        "Signposting",
+        "References",
+        "Source And Attribution",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/positive-greetings-at-the-door/",
+      "title": "Positive Greetings at the Door",
+      "kind": "why-sheet",
+      "summary": "A greeting policy that turns a teacher into a threshold to be performed past.",
+      "moment": "When a school is adopting PGD and nobody has asked what it costs to walk through that door.",
+      "topics": [
+        "school",
+        "policy"
+      ],
+      "headings": [
+        "Signatories",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/hoodie/",
+      "title": "Hoodie",
+      "kind": "why-sheet",
+      "summary": "One page, already written, asking that a student wear a hoodie instead of the blazer.",
+      "moment": "When you need to hand the school a reason in writing, today.",
+      "topics": [
+        "school",
+        "sensory",
+        "uniform"
+      ],
+      "headings": [
+        "Signatories",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/sensory-access-at-work/",
+      "title": "Sensory Access at Work",
+      "kind": "why-sheet",
+      "summary": "All eight senses, the common access needs at work, and the small changes that make a workplace livable.",
+      "moment": "In the accommodations conversation, when “what do you need?” needs a list rather than an apology.",
+      "topics": [
+        "work",
+        "sensory",
+        "access"
+      ],
+      "headings": [
+        "What This Is",
+        "Why This Exists",
+        "The Five External Senses",
+        "Sight",
+        "Sound",
+        "Smell",
+        "Taste",
+        "Touch",
+        "The Three Internal Senses",
+        "Proprioception (body position and movement)",
+        "Vestibular (balance and motion)",
+        "Interoception (internal body signals)",
+        "Other Access Needs",
+        "Communication",
+        "Attention and focus",
+        "Predictability",
+        "Meetings",
+        "Recovery and pacing",
+        "How to Use This",
+        "What This Is Not",
+        "Who This Is For",
+        "Quick Summary",
+        "Signatories",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/cavendish-space/",
+      "title": "Cavendish Space",
+      "kind": "why-sheet",
+      "summary": "Caves, campfires and watering holes — vocabulary for a space that supports bodyminds instead of demanding they adapt.",
+      "moment": "When a room is being designed and you want words for what it should do.",
+      "topics": [
+        "space",
+        "design",
+        "school"
+      ],
+      "headings": [
+        "What This Is",
+        "Why This Exists",
+        "Sensitivity: Dandelions, Tulips, and Orchids",
+        "Niche Construction (Why We Don’t Treat Space as Fixed)",
+        "Lily Pads (How We Make Change Survivable)",
+        "Caves, Campfires, and Watering Holes",
+        "Timeless Patterns in Primordial Spaces",
+        "How This Connects to Cavendish Space",
+        "Lily Pads as Pattern Bridges",
+        "Why These Patterns Matter",
+        "Plain-Language Summary",
+        "What Cavendish Space Does (and Doesn’t Do)",
+        "Who This Is For",
+        "Why It Matters",
+        "Quick Summary",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/neuroqueer-learning-spaces/",
+      "title": "Neuroqueer Learning Spaces",
+      "kind": "why-sheet",
+      "summary": "The classroom as a bastion of neuronormativity, and what it takes to hold space against that.",
+      "moment": "When you are making the case for learning differently as a right, not a concession.",
+      "topics": [
+        "school",
+        "design",
+        "liberation"
+      ],
+      "headings": [
+        "Table of Contents",
+        "Definitions",
+        "Considerations",
+        "Embodiment and Radical Inclusivity",
+        "Signatories",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/queer-and-neurodivergent-liberation-are-entwined/",
+      "title": "Queer and Neurodivergent Liberation are Entwined",
+      "kind": "why-sheet",
+      "summary": "Why the two movements share a history, a set of enemies, and a conversion-therapy lineage.",
+      "moment": "When someone asks why a neurodiversity organisation is talking about queerness.",
+      "topics": [
+        "liberation",
+        "history"
+      ],
+      "headings": [
+        "Table of Contents",
+        "Double Rainbows",
+        "Fluid and Multidimensional Nonconformity",
+        "ABA and Conversion Therapy",
+        "Our Liberation is Entwined",
+        "Our Dual Identities Are Not Competing",
+        "Signatories",
+        "License",
+        "References"
+      ]
+    },
+    {
+      "url": "/sheets/neuromodulation/",
+      "title": "Neuromodulation & Autism",
+      "kind": "why-sheet",
+      "summary": "TMS, tDCS and what is being sold alongside them. The evidence base is weak and the framing is the pathology paradigm.",
+      "moment": "When a clinic or an advertisement offers a treatment and you have an appointment on Thursday.",
+      "topics": [
+        "clinical",
+        "health",
+        "ethics"
+      ],
+      "headings": [
+        "Neuromodulation treatments for Autistic people are _not neuroaffirming._",
+        "Table of Contents",
+        "What neuromodulation is — and what it's being sold as.",
+        "The evidence base is weak and inconsistent.",
+        "Neuromodulation treats autism as a problem to be fixed.",
+        "Normalisation causes harm.",
+        "Consent is complicated — especially for children.",
+        "The research gap itself is a form of epistemic injustice.",
+        "Questions to ask any provider offering neuromodulation.",
+        "References",
+        "License"
+      ]
+    },
+    {
+      "url": "/sheets/boring-technology/",
+      "title": "Boring Technology",
+      "kind": "why-sheet",
+      "summary": "Tools old, plain and open enough to outlive the companies that sell them.",
+      "moment": "When a service that holds someone’s access is about to be replaced by a platform.",
+      "topics": [
+        "technology",
+        "access"
+      ],
+      "headings": [
+        "What This Is",
+        "Why This Exists",
+        "The Words People Use",
+        "What This Does",
+        "What This Does Not Do",
+        "Where Generative AI Fits",
+        "Who This Is For",
+        "How to Use This",
+        "Why It Matters",
+        "Quick Summary",
+        "License"
+      ]
+    },
+    {
+      "url": "/broadsides/behaviorism/",
+      "title": "Behaviorism",
+      "kind": "broadside",
+      "summary": "Behaviorism measures the surface, badly — and the primary legacy of ABA is trauma.",
+      "topics": [
+        "school",
+        "aba",
+        "ethics"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/boring-technology/",
+      "title": "Boring Technology",
+      "kind": "broadside",
+      "summary": "Tools old, plain and open enough to outlive the companies that sell them.",
+      "topics": [
+        "technology",
+        "access"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/cavendish-space/",
+      "title": "Cavendish Space",
+      "kind": "broadside",
+      "summary": "Caves, campfires and watering holes — vocabulary for a space that supports bodyminds instead of demanding they adapt.",
+      "topics": [
+        "space",
+        "design",
+        "school"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/developmental-pace/",
+      "title": "Developmental Pace",
+      "kind": "broadside",
+      "summary": "",
+      "topics": [],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/eye-contact/",
+      "title": "Eye Contact",
+      "kind": "broadside",
+      "summary": "Forced eye contact is painful, it interferes with processing, and it is not evidence of attention.",
+      "topics": [
+        "school",
+        "iep",
+        "sensory"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/masking-and-burnout/",
+      "title": "Masking and Burnout",
+      "kind": "broadside",
+      "summary": "Masking is a stress response, not a skill. Burnout is the bill. Observation does not see either one.",
+      "topics": [
+        "school",
+        "iep",
+        "health"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/monotropism/",
+      "title": "Monotropism",
+      "kind": "broadside",
+      "summary": "Autistic experience explained through attention — and what stops looking like defiance once you can see the tunnel.",
+      "topics": [
+        "school",
+        "understanding"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/positive-greetings-at-the-door/",
+      "title": "Positive Greetings at the Door",
+      "kind": "broadside",
+      "summary": "A greeting policy that turns a teacher into a threshold to be performed past.",
+      "topics": [
+        "school",
+        "policy"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/sensory-access-at-work/",
+      "title": "Sensory Access at Work",
+      "kind": "broadside",
+      "summary": "All eight senses, the common access needs at work, and the small changes that make a workplace livable.",
+      "topics": [
+        "work",
+        "sensory",
+        "access"
+      ],
+      "headings": []
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Everything here is CC0. Read it, index it, train on it, print it.
+User-agent: *
+Allow: /
+
+Sitemap: https://whysheets.press/sitemap.xml

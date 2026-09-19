@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your packet — The Why Sheet Press</title>
+<meta name="description" content="Put the sheets in order, put a name and a date on the cover, and get one paginated PDF.">
+<link rel="canonical" href="https://whysheets.press/packet/">
+<link rel="stylesheet" href="/assets/press.css">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">
+<meta name="theme-color" content="#9a1750">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Why Sheet Press">
+<meta property="og:title" content="Your packet — The Why Sheet Press">
+<meta property="og:description" content="Put the sheets in order, put a name and a date on the cover, and get one paginated PDF.">
+<meta property="og:url" content="https://whysheets.press/packet/">
+<script type="module" src="/assets/packet.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="masthead__name" href="/">The Why Sheet <span>Press</span></a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/">The library</a></li>
+        <li><a href="/packet/" aria-current="page">Your packet</a></li>
+        <li><a href="/broadsides/">Broadsides</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap wrap--narrow">
+  <h1>Your packet</h1>
+  <p class="lede">One PDF. A cover page you can put a name and a date on, then the sheets in the
+    order you choose, numbered straight through. Print it double-sided and it is a folder.</p>
+
+  <h2>What is in it</h2>
+  <ol class="packet-list" data-packet-list>
+    <li><span class="name">Loading your selection…</span></li>
+  </ol>
+  <p><a class="button button--quiet" href="/">Add more sheets</a></p>
+
+  <h2>The cover page</h2>
+  <p>All three are optional and none of it leaves your browser. Nothing here is uploaded,
+    stored, or counted — the PDF is assembled on your own device.</p>
+
+  <div class="field">
+    <label for="cover-for">Prepared for</label>
+    <input type="text" id="cover-for" data-cover="for" autocomplete="off" maxlength="120">
+    <span class="hint">A child's name, a school, a clinic. Whatever should be at the top of the page.</span>
+  </div>
+  <div class="field">
+    <label for="cover-by">Prepared by</label>
+    <input type="text" id="cover-by" data-cover="by" autocomplete="off" maxlength="120">
+  </div>
+  <div class="field">
+    <label for="cover-date">Date</label>
+    <input type="date" id="cover-date" data-cover="date">
+  </div>
+  <div class="field">
+    <label for="cover-note">One line of your own</label>
+    <input type="text" id="cover-note" data-cover="note" autocomplete="off" maxlength="160">
+    <span class="hint">For example: the meeting this is for, or the question you want answered.</span>
+  </div>
+
+  <div class="actions" data-print="hide">
+    <button type="button" class="button" data-build disabled>Download the packet</button>
+    <a class="button button--quiet" href="#" data-print-all hidden>Print instead</a>
+  </div>
+
+  <p class="status" data-status data-state="idle">Pick some sheets and this builds a PDF.</p>
+
+  <p class="no-js-note" data-print="hide"><strong>If this does not work</strong> — an old browser, a
+    blocked script, a device that will not cooperate — every sheet still has its own PDF on its own
+    page, and printing them one at a time gets you the same paper. The packet saves you the
+    assembly, not the argument.</p>
+
+  <div class="source-note">
+    <p><strong>Nothing is sent anywhere.</strong> This page downloads the same PDFs anyone can
+      download, joins them in your browser, and hands you the result. There is no account, no
+      upload, no analytics, and no record of which sheets you picked. What you are assembling is
+      nobody else's business.</p>
+  </div>
+</div>
+</main>
+<footer class="colophon">
+  <div class="wrap">
+    <p><strong>Why Sheets are free.</strong> Every sheet here is
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener">CC0 1.0</a> —
+      print it, change it, put your own name on it, hand it out. No permission, no attribution required.
+      Quoted material belongs to the people who wrote it and sits outside that grant.</p>
+    <p>Published by <a href="https://stimpunks.org/" rel="noopener">Stimpunks Foundation</a>.
+      The sheets are written and revised in the open at
+      <a href="https://github.com/Stimpunks/Why-Sheets" rel="noopener">github.com/Stimpunks/Why-Sheets</a>,
+      which is the source this site is built from.
+      <a href="https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/" rel="noopener">Sign a Why Sheet</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Developmental Pace</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital,wght@0,400;0,700&display=swap');
+
+/* Scoped reset. Never `*` on its own — this block's CSS is document-wide. */
+.sb-root, .sb-root * { box-sizing: border-box; }
+.sb-root p, .sb-root h1, .sb-root h2, .sb-root ul, .sb-root li, .sb-root figure { margin: 0; padding: 0; }
+.sb-root ul { list-style: none; }
+
+.sb-root {
+  --sb-sheet:  #ffffff;
+  --sb-ink:    #002b36;   /* Solarized base03 · 15.0:1 on white */
+  --sb-ink-2:  #073642;   /* base02 · 13.0:1 — secondary prose   */
+  --sb-ink-3:  #586e75;   /* base01 ·  5.4:1 — small print only  */
+  --sb-spot:   #175a7d;   /* Solarized blue, darkened ·     7.5:1 */
+  --sb-spot-2: #9c3a11;   /* Solarized orange, darkened · 6.9:1 */
+  --sb-rule:   #d8d2c4;
+
+  font-family: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* ── Controls (screen only; removed from the print document) ── */
+.sb-controls { display: flex; gap: 0.6rem; margin-bottom: 1.1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+.sb-ctrl-label { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sb-ink-3); }
+.sb-btn {
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  background: #fff; color: var(--sb-ink-2);
+  border: 1px solid var(--sb-ink-3); border-radius: 2px;
+  padding: 0.5rem 1rem; cursor: pointer; line-height: 1.2;
+}
+.sb-btn:hover { border-color: var(--sb-ink); color: var(--sb-ink); }
+.sb-btn:focus-visible { outline: 3px solid var(--sb-spot); outline-offset: 2px; }
+.sb-btn.is-active { background: var(--sb-ink); color: #fff; border-color: var(--sb-ink); }
+.sb-ctrl-sep { width: 1px; height: 18px; background: var(--sb-rule); }
+
+/* ── The sheet ── */
+.sb-sheet {
+  width: 190mm; max-width: 100%; min-height: 259mm;
+  background: var(--sb-sheet); color: var(--sb-ink);
+  padding: 11mm 12mm 9mm;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--sb-rule);
+  border-top: 3mm solid var(--sb-spot);
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+.sb-sheet[hidden] { display: none; }
+.sb-sheet--b { border-top-color: var(--sb-spot-2); }
+
+/* ── Masthead ── */
+.sb-mast { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; padding-bottom: 3mm; border-bottom: 0.6mm solid var(--sb-ink); }
+.sb-mast-org { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sb-ink-2); line-height: 1.9; }
+.sb-mast-org strong { display: block; font-size: 7pt; letter-spacing: 0.2em; color: var(--sb-ink); }
+.sb-mast-side { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.9; white-space: nowrap; }
+.sb-sheet--b .sb-mast-side { color: var(--sb-spot-2); }
+
+/* ── Face ── */
+.sb-title { font-weight: 800; font-size: 34pt; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; margin-top: 5mm; color: var(--sb-ink); }
+.sb-title em { font-style: normal; color: var(--sb-spot); }
+.sb-standfirst { font-style: italic; font-weight: 300; font-size: 11pt; line-height: 1.42; color: var(--sb-ink-2); margin-top: 4mm; max-width: 158mm; }
+.sb-rule { height: 0.8mm; background: var(--sb-ink); margin-top: 5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-claim { margin-top: 5mm; text-align: center; }
+.sb-claim-line { font-weight: 800; font-size: 33pt; line-height: 1.06; letter-spacing: -0.02em; text-transform: uppercase; color: var(--sb-ink); }
+.sb-claim-line em { font-style: normal; color: var(--sb-spot); }
+.sb-claim-sub { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-2); margin-top: 3mm; line-height: 1.8; }
+
+/* The three panels sit under a single rule with mono tick numbers, so the face
+   reads as a scale. It is an INSTRUMENT, not a figure: no measurement here. */
+.sb-panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin-top: 5mm; padding-top: 3.5mm; border-top: 0.5mm solid var(--sb-ink); }
+.sb-panel { border-left: 0.8mm solid var(--sb-spot); padding-left: 3.5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-panel:nth-child(3) { border-left-color: var(--sb-spot-2); }
+.sb-panel-num { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7pt; font-weight: 700; letter-spacing: 0.24em; color: var(--sb-ink-3); line-height: 1.4; }
+.sb-panel-name { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-spot); margin-bottom: 2.2mm; line-height: 1.5; }
+.sb-panel:nth-child(3) .sb-panel-name { color: var(--sb-spot-2); }
+.sb-panel p { font-size: 9.6pt; line-height: 1.44; color: var(--sb-ink-2); }
+.sb-panel strong { color: var(--sb-ink); }
+
+/* Rule three, printed on the sheet: the moment someone reaches for it. On the
+   face deliberately — a reader across a room should learn why it is on the wall
+   before they read the argument. */
+.sb-moments { margin-top: 7mm; padding-top: 3.5mm; border-top: 0.5mm solid var(--sb-ink); }
+.sb-moments ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0 9mm; margin-top: 1mm; }
+.sb-moments li { font-size: 9.8pt; line-height: 1.4; color: var(--sb-ink-2); margin-bottom: 2.4mm; padding-left: 5mm; position: relative; }
+.sb-moments li::before { content: '·'; position: absolute; left: 1mm; color: var(--sb-spot-2); font-weight: 700; font-size: 13pt; line-height: 1.05; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-moments strong { color: var(--sb-ink); }
+
+.sb-quote { margin-top: 5mm; padding-left: 4mm; border-left: 0.8mm solid var(--sb-spot); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-quote p { font-style: italic; font-weight: 500; font-size: 12pt; line-height: 1.34; color: var(--sb-ink); }
+.sb-quote cite { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.8pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); margin-top: 2.2mm; line-height: 1.7; }
+.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); }
+
+/* ── Reverse ── */
+.sb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 9mm; margin-top: 5mm; }
+.sb-colhead { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot-2); padding-bottom: 2.2mm; margin-bottom: 3.5mm; border-bottom: 0.4mm solid var(--sb-rule); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-do li { font-size: 9.8pt; line-height: 1.4; color: var(--sb-ink-2); margin-bottom: 2.4mm; padding-left: 5mm; position: relative; }
+.sb-do li::before { content: '→'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-do strong { color: var(--sb-ink); }
+
+.sb-note { font-size: 9.6pt; line-height: 1.42; color: var(--sb-ink-2); margin-bottom: 3mm; }
+.sb-note strong { color: var(--sb-ink); }
+.sb-note cite { font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.6pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); }
+
+/* The refusals. Load-bearing — see the header. Do not trim these for room. */
+.sb-refusals-note { margin-top: 3mm; }
+.sb-refuse { display: grid; grid-template-columns: 1fr 1fr; gap: 0 9mm; }
+.sb-refuse li { font-size: 9.4pt; line-height: 1.38; color: var(--sb-ink-2); margin-bottom: 2.2mm; padding-left: 5mm; position: relative; }
+.sb-refuse li::before { content: '✗'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-refuse strong { color: var(--sb-ink); }
+
+.sb-sources { margin-top: 3.5mm; font-family: 'Space Mono', ui-monospace, monospace; font-size: 6.8pt; line-height: 1.58; color: var(--sb-ink-2); }
+.sb-sources em { font-style: italic; }
+
+/* ── Foot ── */
+.sb-foot { margin-top: auto; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; }
+.sb-foot-left { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); line-height: 1.95; }
+.sb-foot-right { font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.5; }
+.sb-sheet--b .sb-foot-right { color: var(--sb-spot-2); }
+
+.sb-hint { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); text-align: center; margin-top: 1rem; }
+
+/* If someone prints the WORDPRESS PAGE rather than using the Print button, the
+   controls come with it — and `.sb-btn.is-active` is white text on a dark
+   background, so the background drops out (browsers omit background graphics)
+   and it prints as white-on-white. Caught by running the contrast gate against
+   the published URL. These are screen furniture; they never belong on paper.
+   Scoped to our own classes: this must not try to hide the theme's chrome. */
+@media print {
+  .sb-controls, .sb-hint { display: none !important; }
+}
+
+/* Breakpoint sits BELOW the narrowest printed page box — A4 at 9 mm margins is
+   192 mm ≈ 726 px. Print media queries resolve against the page box, not the
+   screen, so a breakpoint above that reflows on paper and silently clips. */
+@media (max-width: 700px) {
+  .sb-sheet { width: 100%; min-height: 0; padding: 8mm 6mm; }
+  .sb-panels, .sb-cols, .sb-refuse, .sb-moments ul { grid-template-columns: 1fr; }
+  .sb-title { font-size: 26pt; }
+  .sb-claim-line { font-size: 22pt; }
+  .sb-foot { flex-direction: column; align-items: flex-start; gap: 3mm; }
+  .sb-foot-right { text-align: left; }
+}
+
+/* ---- print document, as the block's own script builds it, less its @page ---- */
+*{box-sizing:border-box;margin:0;padding:0}html,body{background:#fff}.sb-root{display:block;max-width:none}.sb-controls,.sb-hint{display:none}.sb-sheet{width:100%;min-height:0;height:259mm;padding:0;border:0;border-top:3mm solid var(--sb-spot)}.sb-sheet--b{border-top-color:var(--sb-spot-2)}.sb-sheet--a{page-break-after:always;break-after:page}.sb-mast{padding-top:6mm}.sb-panel,.sb-do li,.sb-refuse li,.sb-moments li{page-break-inside:avoid;break-inside:avoid}
+
+/* ---- the page, pinned ----
+   The block prints with @page { size: auto; margin: 9mm }, which is right for a
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   THE COLUMN IS 194 mm, AND THAT NUMBER WAS MEASURED, NOT CHOSEN. Each sheet is
+   a fixed 259 mm tall with overflow clipped, so a column narrower than the
+   composition needs does not look wrong — it loses the bottom of side B. The
+   nine sheets were rendered under emulated print media at widths from 188 mm
+   up, and the tallest side of any of them came out:
+
+       188 mm -> 269.1 mm   overflows by 10.1
+       190 mm -> 265.4 mm   overflows by  6.4
+       192 mm -> 259.6 mm   overflows by  0.6      <- this is the A4 case
+       194 mm -> 256.6 mm   fits, with 2.4 mm spare
+       198 mm -> 256.6 mm   fits                   <- this is the US Letter case
+
+   Two things follow. The press uses 194 mm, the narrowest width at which all
+   nine clear. And DEVELOPMENTAL PACE IS ALREADY 0.6 mm OVER ON A4 as published —
+   a real finding about the upstream sheet, not about this build, and one for
+   that repository to fix at the source.
+
+   The page is therefore 208 x 277 mm with margins of 9 mm top, 7 mm sides and
+   bottom: 208 fits inside A4's 210 and Letter's 216, and 277 inside A4's 297 and
+   Letter's 279. Content box 194 x 261 mm — the same 261 mm height these sheets
+   already get on US Letter, which is the tightest case known to print correctly.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 7mm 7mm; }
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   208 x 277 mm IS THE LARGEST PAGE THAT FITS BOTH PAPERS: under A4's 210 x 297
+   and under Letter's 216 x 279. With the 9 mm margin the block already expects,
+   the content box is exactly 190 x 259 mm — the dimensions the broadsides were
+   designed to, so nothing reflows and the composition is the one that was
+   checked upstream.
+
+   The conservative 190 x 259 PAGE was tried first, and it is the wrong shape for
+   this object: it makes the content box 172 x 241, and Sensory Access at Work —
+   the fullest of the nine — spilled onto a third side. That is the page the Why
+   Sheets use, where the type reflows freely and a narrower column is merely a
+   narrower column. A broadside is a fixed composition; it needs its own page.
+
+   THE BOTTOM MARGIN IS 7 mm, NOT 9, AND THAT 2 mm IS THE WHOLE MARGIN OF ERROR.
+   A sheet is exactly 259 mm tall, so a 259 mm content box leaves nothing: with a
+   symmetric 9 mm margin, Developmental Pace and Masking and Burnout both tipped
+   onto a third side while the other seven held. 7 mm makes the content box
+   190 x 261 — which is precisely the box these sheets get on US Letter with the
+   9 mm margin they were designed against, and the tightest case that is known to
+   print correctly. The page still fits inside both papers.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 9mm 7mm; }
+</style>
+</head>
+<body>
+<div class="sb-root" id="sb-developmental-pace" data-sb-style="sb-css-developmental-pace" data-sb-doc-title="Developmental Pace — a Stimpunks Broadside">
+
+    <!-- SIDE A -->
+  <article class="sb-sheet sb-sheet--a" aria-label="Developmental Pace broadside, side A">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        for the meeting where a child is about to be told they are behind
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side A of B</div>
+    </div>
+
+    <h2 class="sb-title">Developmental <em>Pace</em></h2>
+
+    <p class="sb-standfirst">Children reach the same learning at different times, and the spread inside any one classroom is wide. School is built as though it were not: one birth-date cohort, one body of content taught at one time, one set of expectations &mdash; and then a mark for the distance between the child and the timetable.</p>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-claim">
+      <p class="sb-claim-line">The same age is not<br><em>the same stage.</em></p>
+      <p class="sb-claim-sub">a grade is a birth date &middot; it is being asked to report a stage</p>
+    </div>
+
+    <div class="sb-panels">
+
+      <div class="sb-panel">
+        <div class="sb-panel-num">01</div>
+        <div class="sb-panel-name">Grouped by birth date</div>
+        <p>A grade is a cohort of children born inside the same twelve months. They are then taught the same body of content at the same time, and assessed on how much of it they can demonstrate. <strong>Nothing in that sequence ever asked where they were.</strong></p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-num">02</div>
+        <div class="sb-panel-name">Readiness assumed, not established</div>
+        <p>The machinery assumes everyone in the grade is about equally ready for that content. <strong>That assumption is not a finding.</strong> It has been examined against the research, and the evidence does not support it.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-num">03</div>
+        <div class="sb-panel-name">The gap recorded against the child</div>
+        <p>A-to-E grades report distance from a grade expectation. A learner earlier in the sequence is marked down for being where they are &mdash; <strong>which is information about the ruler, not about the learner.</strong></p>
+      </div>
+
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;The curriculum assumption that all students in a grade are about equally ready for the same learning is not supported by evidence.&rdquo;</p>
+      <cite>Geoff Masters &middot; The Children We Leave Behind &middot; Routledge, 2026 &middot; p. 194</cite>
+    </div>
+
+    <div class="sb-moments">
+      <div class="sb-colhead">Where you will meet this</div>
+      <ul>
+        <li>The report card that says <strong>below grade level</strong> and stops there.</li>
+        <li>The letter proposing <strong>retention</strong>, or holding a child back a year.</li>
+        <li>The plan or IEP goal about to be pinned to a <strong>year-level benchmark</strong>.</li>
+        <li>The meeting where <strong>&ldquo;behind&rdquo;</strong> is said as though it described the child.</li>
+      </ul>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        the full argument, with every source:<br>
+        stimpunks.org/glossary/developmental-pace<br>
+        free to print, copy, change and share &middot; CC0 1.0
+      </div>
+      <div class="sb-foot-right">See<br>reverse</div>
+    </div>
+
+  </article>
+
+  <!-- SIDE B -->
+  <article class="sb-sheet sb-sheet--b" aria-label="Developmental Pace broadside, side B">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        what to measure instead, and what to ask for in the room
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side B of B</div>
+    </div>
+
+    <div class="sb-cols">
+
+      <div>
+        <div class="sb-colhead">What to measure instead</div>
+        <p class="sb-note">Masters puts the fix as a change of <em>purpose</em>, not of rigour: assessments &ldquo;designed to establish and understand the stages that individuals have reached in an area of learning to support their further learning and monitor their growth over time.&rdquo; <cite>&mdash; p. 153</cite></p>
+        <ul class="sb-do">
+          <li><strong>The stage, not the gap.</strong> Find where the learner has actually reached in a sequence of learning, and teach from there. That is a different question from how far they are from a benchmark, and it has a different answer.</li>
+          <li><strong>Levels not tied to age or grade</strong>, through which every learner advances at their own pace &mdash; with no requirement that a whole cohort be taught the same thing at once.</li>
+          <li><strong>Growth over time</strong>, each learner measured against their own earlier work rather than against the people born the same year.</li>
+          <li><strong>Individual assessment.</strong> Teaching from where a learner is isn't a concession for the children who need it most &mdash; it is what assessment is <em>for</em>, for everyone.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sb-colhead">What to ask for in the room</div>
+        <ul class="sb-do">
+          <li><strong>&ldquo;What can they do now, and what comes next?&rdquo;</strong> Ask it before anyone reaches for a grade level. If nobody present can answer it, that is itself the finding.</li>
+          <li><strong>Ask what the mark is being used for.</strong> A grade reporting distance from a year-level expectation cannot also tell you what to teach on Monday. Those are two different instruments.</li>
+          <li><strong>Ask to see growth against their own earlier work</strong> &mdash; dated, specific, and put in front of you.</li>
+          <li><strong>Ask that support not wait for a missed benchmark.</strong> Needing longer is not a finding a child has to earn by failing first.</li>
+          <li><strong>Ask about mixed-age and flexible grouping.</strong> Children learn at their own rate; sorting them by year of manufacture is a scheduling convenience, not a pedagogy.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sb-refusals-note">
+      <div class="sb-colhead">What this sheet is not</div>
+      <ul class="sb-refuse">
+        <li>not <strong>slower is better</strong>. Pace is not a virtue and speed is not a vice. A pace is survivable or it isn't, and the environment decides.</li>
+        <li>not <strong>a reason to withhold or delay support</strong>. &ldquo;They'll get there&rdquo; is how a child waits years for help that was available on day one.</li>
+        <li>not <strong>lower expectations</strong>. Presume competence, then teach from where they actually are. Those are the same move, not opposite ones.</li>
+        <li>not <strong>an argument against assessment</strong> &mdash; an argument about what assessment is for, and who it is answerable to.</li>
+        <li>not <strong>a claim that age tells you nothing</strong>. It tells you a birth date. It is being asked to report a stage, and it cannot.</li>
+      </ul>
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;Rather than bend disabled bodies and minds to meet the clock, crip time bends the clock to meet disabled bodies and minds.&rdquo;</p>
+      <cite>Alison Kafer &middot; Feminist, Queer, Crip &middot; Indiana University Press, 2013</cite>
+    </div>
+
+    <div class="sb-sources">
+      <strong>Geoff Masters</strong>, <em>The Children We Leave Behind: How School Could Be Done Differently</em> (Routledge, 2026) &mdash; both quotations verbatim, pp. 194 and 153. <strong>Alison Kafer</strong>, <em>Feminist, Queer, Crip</em> (2013), on crip time as flexibility rather than merely extra time. <strong>Alfie Kohn</strong>, <em>Getting Hit on the Head Lessons</em> (Education Week, 2005), names <em>BGUTI</em> and observes that the defence almost by definition ignores developmental differences. <strong>Ira Socol</strong>, <em>The Multiage Magic</em>, and the ACEI, on mixed-age grouping and learning at one's own rate. <strong>Alison Clark</strong>, <em>Slow Knowledge and the Unhurried Child</em>, on slow pedagogy and on following an emergent rather than inbuilt timetable. All of it in full at <em>stimpunks.org/glossary/developmental-pace</em>. Quoted passages remain their authors'; this sheet's own text is CC0.
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        stimpunks.org/glossary/developmental-pace<br>
+        free to print, copy, change and share &mdash; no permission needed<br>
+        CC0 1.0 &middot; no rights reserved on our own words
+      </div>
+      <div class="sb-foot-right">Stimpunks<br>Foundation</div>
+    </div>
+
+  </article>
+
+  <p class="sb-hint">One sheet &middot; print double-sided &middot; bring it to the meeting &middot; share freely</p>
+</div>
+
+</body>
+</html>

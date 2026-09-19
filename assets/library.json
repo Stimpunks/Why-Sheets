@@ -1,0 +1,201 @@
+{
+  "sheets": [
+    {
+      "slug": "behaviorism",
+      "title": "Behaviorism",
+      "version": "1.7",
+      "pdf": "/pdf/behaviorism.pdf",
+      "topics": [
+        "school",
+        "aba",
+        "ethics"
+      ]
+    },
+    {
+      "slug": "alternatives-to-aba",
+      "title": "Alternatives to ABA",
+      "version": "1.5",
+      "pdf": "/pdf/alternatives-to-aba.pdf",
+      "topics": [
+        "school",
+        "aba",
+        "clinical"
+      ]
+    },
+    {
+      "slug": "aba-tactics",
+      "title": "ABA Tactics",
+      "version": "0.1",
+      "pdf": "/pdf/aba-tactics.pdf",
+      "topics": [
+        "school",
+        "aba",
+        "clinical"
+      ]
+    },
+    {
+      "slug": "eye-contact",
+      "title": "Eye Contact",
+      "version": "0.1",
+      "pdf": "/pdf/eye-contact.pdf",
+      "topics": [
+        "school",
+        "iep",
+        "sensory"
+      ]
+    },
+    {
+      "slug": "masking-and-burnout",
+      "title": "Masking and Burnout",
+      "version": "0.1",
+      "pdf": "/pdf/masking-and-burnout.pdf",
+      "topics": [
+        "school",
+        "iep",
+        "health"
+      ]
+    },
+    {
+      "slug": "monotropism",
+      "title": "Monotropism",
+      "version": "0.1",
+      "pdf": "/pdf/monotropism.pdf",
+      "topics": [
+        "school",
+        "understanding"
+      ]
+    },
+    {
+      "slug": "positive-greetings-at-the-door",
+      "title": "Positive Greetings at the Door",
+      "version": "1.1",
+      "pdf": "/pdf/positive-greetings-at-the-door.pdf",
+      "topics": [
+        "school",
+        "policy"
+      ]
+    },
+    {
+      "slug": "hoodie",
+      "title": "Hoodie",
+      "version": "1.1",
+      "pdf": "/pdf/hoodie.pdf",
+      "topics": [
+        "school",
+        "sensory",
+        "uniform"
+      ]
+    },
+    {
+      "slug": "sensory-access-at-work",
+      "title": "Sensory Access at Work",
+      "version": "0.1",
+      "pdf": "/pdf/sensory-access-at-work.pdf",
+      "topics": [
+        "work",
+        "sensory",
+        "access"
+      ]
+    },
+    {
+      "slug": "cavendish-space",
+      "title": "Cavendish Space",
+      "version": "0.2",
+      "pdf": "/pdf/cavendish-space.pdf",
+      "topics": [
+        "space",
+        "design",
+        "school"
+      ]
+    },
+    {
+      "slug": "neuroqueer-learning-spaces",
+      "title": "Neuroqueer Learning Spaces",
+      "version": "1.2",
+      "pdf": "/pdf/neuroqueer-learning-spaces.pdf",
+      "topics": [
+        "school",
+        "design",
+        "liberation"
+      ]
+    },
+    {
+      "slug": "queer-and-neurodivergent-liberation-are-entwined",
+      "title": "Queer and Neurodivergent Liberation are Entwined",
+      "version": "0.9",
+      "pdf": "/pdf/queer-and-neurodivergent-liberation-are-entwined.pdf",
+      "topics": [
+        "liberation",
+        "history"
+      ]
+    },
+    {
+      "slug": "neuromodulation",
+      "title": "Neuromodulation & Autism",
+      "version": "0.1",
+      "pdf": "/pdf/neuromodulation.pdf",
+      "topics": [
+        "clinical",
+        "health",
+        "ethics"
+      ]
+    },
+    {
+      "slug": "boring-technology",
+      "title": "Boring Technology",
+      "version": "0.1",
+      "pdf": "/pdf/boring-technology.pdf",
+      "topics": [
+        "technology",
+        "access"
+      ]
+    }
+  ],
+  "broadsides": [
+    {
+      "slug": "behaviorism",
+      "title": "Behaviorism",
+      "pdf": "/pdf/broadside-behaviorism.pdf"
+    },
+    {
+      "slug": "boring-technology",
+      "title": "Boring Technology",
+      "pdf": "/pdf/broadside-boring-technology.pdf"
+    },
+    {
+      "slug": "cavendish-space",
+      "title": "Cavendish Space",
+      "pdf": "/pdf/broadside-cavendish-space.pdf"
+    },
+    {
+      "slug": "developmental-pace",
+      "title": "Developmental Pace",
+      "pdf": "/pdf/broadside-developmental-pace.pdf"
+    },
+    {
+      "slug": "eye-contact",
+      "title": "Eye Contact",
+      "pdf": "/pdf/broadside-eye-contact.pdf"
+    },
+    {
+      "slug": "masking-and-burnout",
+      "title": "Masking and Burnout",
+      "pdf": "/pdf/broadside-masking-and-burnout.pdf"
+    },
+    {
+      "slug": "monotropism",
+      "title": "Monotropism",
+      "pdf": "/pdf/broadside-monotropism.pdf"
+    },
+    {
+      "slug": "positive-greetings-at-the-door",
+      "title": "Positive Greetings at the Door",
+      "pdf": "/pdf/broadside-positive-greetings-at-the-door.pdf"
+    },
+    {
+      "slug": "sensory-access-at-work",
+      "title": "Sensory Access at Work",
+      "pdf": "/pdf/broadside-sensory-access-at-work.pdf"
+    }
+  ]
+}

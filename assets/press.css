@@ -1,0 +1,650 @@
+/* The Why Sheet Press — one stylesheet, screen and paper.
+ *
+ * PAPER IS THE PRIMARY MEDIUM HERE, not a degraded copy of the screen. A Why
+ * Sheet exists to be printed and carried into a meeting. So the print rules
+ * below are not an afterthought at the bottom of the file — the type scale, the
+ * measure, and the colour model are all chosen so that the paper version is the
+ * good one and the screen follows.
+ *
+ * THREE RULES CARRIED OVER FROM THE BROADSIDES, each paid for once already:
+ *
+ *   1. 190 x 259 mm is the page. It is the intersection of A4 (210x297) and US
+ *      Letter (216x279). A sheet sized to either one is a different physical
+ *      object depending on the reader's country; sized to the intersection it
+ *      prints correctly on both, anywhere, with no "fit to page" scaling.
+ *   2. INK ON WHITE IN BOTH MEDIA. Browsers print with background graphics OFF
+ *      by default, so a light-on-dark design reaches paper as blank space with
+ *      invisible text. Nothing here relies on a printed background: rules are
+ *      borders, emphasis is weight, and the dark theme is a screen theme only.
+ *   3. THE RESPONSIVE BREAKPOINT STAYS BELOW 726px. Print media queries resolve
+ *      against the page box, not the screen. A4 at 190mm content is about 718px
+ *      at 96dpi, so a breakpoint above that fires on paper and silently reflows
+ *      a layout nobody has looked at.
+ */
+
+/* ── fonts ──────────────────────────────────────────────────────────────────
+   Atkinson Hyperlegible Next, the same family Penguin Pebbling and Star Stuff
+   carry, under the SIL Open Font Licence (fonts/AtkinsonHyperlegibleNext-OFL.txt).
+   It was drawn to keep letterforms distinguishable from one another, which is
+   the whole job on a sheet somebody is reading under fluorescent light in a
+   room where they are outnumbered. One family, two faces: a press needs a
+   working text face more than it needs a display face. */
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url(/fonts/atkinson-hyperlegible-next-roman-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url(/fonts/atkinson-hyperlegible-next-roman-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  font-style: italic;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url(/fonts/atkinson-hyperlegible-next-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  font-style: italic;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url(/fonts/atkinson-hyperlegible-next-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ── tokens ─────────────────────────────────────────────────────────────────
+   Every pairing used for text has been measured against WCAG AA (4.5:1 for body,
+   3:1 for large text and UI borders) by tools/check-contrast.mjs, which runs in
+   both themes and fails the build rather than reporting. Ink is near-black
+   rather than #000: pure black on pure white is harsh at length, and these are
+   long documents. */
+:root {
+  color-scheme: light dark;
+
+  --ink:        #15161a;
+  --ink-soft:   #44464f;
+  --ink-faint:  #63666f;
+  --paper:      #ffffff;
+  --paper-warm: #f7f6f3;
+  --rule:       #d4d2cc;
+  --rule-firm:  #9a978f;
+
+  /* One accent, used for links, the registration bar and selection state.
+     Measured 6.24:1 on --paper. */
+  --spot:       #9a1750;
+  --spot-deep:  #6d1039;
+  --spot-wash:  #fbeef3;
+
+  --focus:      #0b57d0;
+
+  --measure:    34rem;   /* ~66 characters at the body size */
+  --gutter:     clamp(1rem, 4vw, 2.5rem);
+  --step:       0.6rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ink:        #eceae5;
+    --ink-soft:   #c0bdb6;
+    --ink-faint:  #9b978f;
+    --paper:      #16171a;
+    --paper-warm: #1e1f23;
+    --rule:       #33353a;
+    --rule-firm:  #575a61;
+    --spot:       #ff9ec4;
+    --spot-deep:  #ffc2d8;
+    --spot-wash:  #2a1b23;
+    --focus:      #9cc4ff;
+  }
+}
+:root[data-theme='dark'] {
+  --ink:        #eceae5;
+  --ink-soft:   #c0bdb6;
+  --ink-faint:  #9b978f;
+  --paper:      #16171a;
+  --paper-warm: #1e1f23;
+  --rule:       #33353a;
+  --rule-firm:  #575a61;
+  --spot:       #ff9ec4;
+  --spot-deep:  #ffc2d8;
+  --spot-wash:  #2a1b23;
+  --focus:      #9cc4ff;
+}
+
+/* ── base ───────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-synthesis-weight: none;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.22;
+  font-weight: 700;
+  margin: 2.2em 0 0.55em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(1.85rem, 1.3rem + 2.4vw, 2.7rem); margin-top: 0; letter-spacing: -0.015em; }
+h2 { font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.6rem); }
+h3 { font-size: 1.12rem; }
+h4 { font-size: 1rem; color: var(--ink-soft); }
+
+p, ul, ol, table, blockquote, pre { margin: 0 0 1.05em; }
+li { margin-bottom: 0.35em; }
+ul, ol { padding-left: 1.4em; }
+
+a {
+  color: var(--spot);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+a:hover { color: var(--spot-deep); }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.2em 0;
+}
+
+blockquote {
+  margin: 1.5em 0;
+  padding: 0 0 0 1.1em;
+  border-left: 3px solid var(--spot);
+  color: var(--ink);
+}
+blockquote p { margin-bottom: 0.55em; }
+blockquote footer {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-style: normal;
+}
+blockquote cite { font-style: normal; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.97rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.45em 0.7em;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+th { border-bottom: 2px solid var(--rule-firm); }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+}
+
+img { max-width: 100%; height: auto; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0; top: -4rem;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.7em 1.1em;
+  border: 2px solid var(--spot);
+  z-index: 50;
+}
+.skip-link:focus { top: 0; }
+
+/* ── frame ──────────────────────────────────────────────────────────────── */
+
+.wrap {
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.wrap--narrow { max-width: calc(var(--measure) + 2 * var(--gutter)); }
+
+.masthead {
+  border-top: 6px solid var(--spot);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.masthead__name {
+  font-weight: 800;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.masthead__name span { color: var(--spot); }
+.masthead nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+.masthead nav a { color: var(--ink-soft); text-decoration: none; }
+.masthead nav a:hover,
+.masthead nav a[aria-current='page'] { color: var(--spot); text-decoration: underline; }
+
+main { padding: 2.4rem 0 4rem; }
+
+.colophon {
+  border-top: 1px solid var(--rule);
+  padding: 1.8rem 0 3rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.colophon p { margin-bottom: 0.6em; }
+.colophon a { color: var(--ink-soft); }
+
+/* ── the library ────────────────────────────────────────────────────────── */
+
+.lede {
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+  line-height: 1.45;
+  max-width: 38rem;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.8rem 0 0.4rem;
+  padding: 0;
+  border: 0;
+}
+.filters legend { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); padding: 0; }
+.chip {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.28em 0.8em;
+  border: 1px solid var(--rule-firm);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.chip[aria-pressed='true'] {
+  background: var(--spot);
+  border-color: var(--spot);
+  color: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .chip[aria-pressed='true'] { color: #16171a; }
+}
+:root[data-theme='dark'] .chip[aria-pressed='true'] { color: #16171a; }
+
+.shelf {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border-block: 1px solid var(--rule);
+}
+.card {
+  background: var(--paper);
+  padding: 1.25rem var(--step) 1.35rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 1rem;
+  align-items: start;
+}
+.card[hidden] { display: none; }
+.card__pick { margin: 0.35rem 0 0; }
+.card__pick input {
+  width: 1.35rem;
+  height: 1.35rem;
+  accent-color: var(--spot);
+  cursor: pointer;
+}
+.card__title { margin: 0; font-size: 1.22rem; }
+.card__title a { color: var(--ink); text-decoration: none; }
+.card__title a:hover { color: var(--spot); text-decoration: underline; }
+.card__summary { margin: 0.35rem 0 0; grid-column: 2; color: var(--ink-soft); }
+.card__moment {
+  margin: 0.6rem 0 0;
+  grid-column: 2;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--spot);
+  font-size: 0.97rem;
+}
+.card__meta {
+  grid-column: 2;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+  list-style: none;
+  padding: 0;
+}
+.card__meta li { margin: 0; }
+.tag {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.1em 0.45em;
+}
+.note {
+  grid-column: 2;
+  margin: 0.7rem 0 0;
+  padding: 0.55rem 0.8rem;
+  background: var(--spot-wash);
+  border-left: 3px solid var(--spot);
+  font-size: 0.92rem;
+}
+
+/* The tray. Fixed to the bottom of the viewport once anything is picked; it is
+   the only thing on the site that moves, and it moves because the whole point
+   is that you can keep reading while your packet accumulates. */
+.tray {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  background: var(--paper);
+  border-top: 3px solid var(--spot);
+  box-shadow: 0 -8px 24px -18px rgb(0 0 0 / 0.5);
+}
+.tray[hidden] { display: none; }
+.tray__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+}
+.tray__count { margin: 0; font-weight: 700; }
+.tray__count span { color: var(--spot); }
+.tray__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+.button {
+  font: inherit;
+  font-weight: 700;
+  padding: 0.55em 1.15em;
+  border-radius: 4px;
+  border: 2px solid var(--spot);
+  background: var(--spot);
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.button:hover { background: var(--spot-deep); border-color: var(--spot-deep); color: #fff; }
+.button--quiet { background: transparent; color: var(--spot); }
+.button--quiet:hover { background: var(--spot-wash); color: var(--spot-deep); }
+.button[disabled] { opacity: 0.5; cursor: not-allowed; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .button { color: #16171a; }
+  :root:not([data-theme='light']) .button:hover { color: #16171a; }
+  :root:not([data-theme='light']) .button--quiet { color: var(--spot); }
+}
+:root[data-theme='dark'] .button { color: #16171a; }
+:root[data-theme='dark'] .button--quiet { color: var(--spot); }
+
+/* ── a sheet ────────────────────────────────────────────────────────────── */
+
+.sheet-head { border-bottom: 1px solid var(--rule); padding-bottom: 1.4rem; margin-bottom: 1.8rem; }
+.sheet-head .lede { margin-top: 0.7rem; }
+.kicker {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin: 0 0 0.5rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.3rem 0 0;
+}
+
+.sheet-body { max-width: var(--measure); }
+.sheet-body h2 { border-bottom: 1px solid var(--rule); padding-bottom: 0.25em; }
+.sheet-body > ul li::marker { color: var(--spot); }
+
+.source-note {
+  margin-top: 3rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--rule-firm);
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+
+/* ── broadsides ─────────────────────────────────────────────────────────── */
+
+/* A broadside arrives as a self-contained block: its own namespaced stylesheet
+   travels with it and nothing here should reach inside. These rules only give
+   the block somewhere to sit. */
+/* THE STAGE IS PAPER, IN BOTH THEMES, and that is a deliberate exception to the
+   dark theme rather than an oversight. A broadside is a designed physical object:
+   its colours are chosen and measured against white, and its own small print
+   (`.sb-hint`, `.sb-ctrl-label`) sits OUTSIDE the white sheet, drawn straight
+   onto whatever is behind it. On a dark ground that text measured 3.06:1 —
+   below AA — while the sheet beside it still rendered as designed. Showing the
+   block on anything but paper misrepresents the object and breaks its contrast
+   at the same time.
+   It is a warm off-white rather than #fff, and inset with a visible border, so
+   that in a dark room it reads as a sheet of paper on a page rather than a
+   rectangle of light. */
+.broadside-stage {
+  margin: 2rem 0;
+  padding: 1.75rem 1.5rem;
+  background: #faf9f6;
+  color: #15161a;
+  border: 1px solid var(--rule-firm);
+  overflow-x: auto;
+}
+
+/* ── packet ─────────────────────────────────────────────────────────────── */
+
+.packet-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+  border: 1px solid var(--rule);
+}
+.packet-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  margin: 0;
+}
+.packet-list li:last-child { border-bottom: 0; }
+.packet-list .grip { color: var(--ink-faint); font-size: 0.85rem; min-width: 2.2rem; }
+.packet-list .name { flex: 1 1 auto; font-weight: 600; }
+.packet-list .pages { color: var(--ink-faint); font-size: 0.88rem; }
+.packet-list .move { display: flex; gap: 0.25rem; }
+.icon-button {
+  font: inherit;
+  line-height: 1;
+  padding: 0.3em 0.55em;
+  border: 1px solid var(--rule-firm);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.icon-button:hover { border-color: var(--spot); color: var(--spot); }
+
+.field { margin: 0 0 1.1rem; max-width: 30rem; }
+.field label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+.field input[type='text'],
+.field input[type='date'] {
+  font: inherit;
+  width: 100%;
+  padding: 0.5em 0.65em;
+  border: 1px solid var(--rule-firm);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.field .hint { display: block; font-size: 0.88rem; color: var(--ink-faint); margin-top: 0.3rem; }
+
+.status {
+  margin: 1.2rem 0 0;
+  padding: 0.7rem 1rem;
+  border-left: 4px solid var(--rule-firm);
+  background: var(--paper-warm);
+  font-size: 0.95rem;
+}
+.status[data-state='working'] { border-left-color: var(--spot); }
+.status[data-state='error'] { border-left-color: #b3261e; }
+
+.no-js-note {
+  margin: 1.4rem 0;
+  padding: 0.8rem 1rem;
+  border: 1px dashed var(--rule-firm);
+  font-size: 0.94rem;
+}
+
+/* ── responsive. Stays under 726px: see the header note. ────────────────── */
+
+@media (max-width: 640px) {
+  .card { grid-template-columns: 1fr; }
+  .card__pick { grid-column: 1; }
+  .card__summary,
+  .card__moment,
+  .card__meta,
+  .note { grid-column: 1; }
+  .masthead__inner { padding-bottom: 0.7rem; }
+}
+
+/* ── print ──────────────────────────────────────────────────────────────── */
+
+@page {
+  size: 190mm 259mm;
+  margin: 15mm 16mm 17mm;
+}
+
+@media print {
+  :root {
+    --ink: #000;
+    --ink-soft: #000;
+    --ink-faint: #333;
+    --paper: #fff;
+    --paper-warm: #fff;
+    --rule: #b7b7b7;
+    --rule-firm: #767676;
+    --spot: #000;
+    --spot-deep: #000;
+    --spot-wash: #fff;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 10.5pt;
+    line-height: 1.42;
+  }
+
+  /* Everything that is navigation, state, or an invitation to click is not part
+     of the document somebody is carrying. */
+  .masthead,
+  .colophon,
+  .tray,
+  .filters,
+  .actions,
+  .card__pick,
+  .skip-link,
+  .no-js-note,
+  .status,
+  [data-print='hide'] { display: none !important; }
+
+  .wrap, .wrap--narrow { max-width: none; padding: 0; }
+  main { padding: 0; }
+  .sheet-body { max-width: none; }
+
+  h1 { font-size: 20pt; margin-bottom: 0.3em; }
+  h2 { font-size: 13pt; margin-top: 1.5em; }
+  h3 { font-size: 11pt; margin-top: 1.2em; }
+
+  /* Never strand a heading at the foot of a page, and never break a quotation
+     or a table row across two. Both are how a printed argument loses its
+     footing mid-sentence. */
+  h1, h2, h3, h4 { break-after: avoid-page; page-break-after: avoid; }
+  blockquote, tr, li, figure { break-inside: avoid; page-break-inside: avoid; }
+  p { orphans: 3; widows: 3; }
+
+  blockquote { border-left: 2pt solid #000; padding-left: 3mm; }
+
+  hr { border-top: 0.5pt solid #999; margin: 5mm 0; }
+
+  /* Print the destination of a link, because paper cannot be clicked and a
+     citation somebody cannot follow is not a citation. In-page anchors and
+     mailto links are skipped: the first is meaningless on paper, the second is
+     already written out. */
+  .sheet-body a[data-print-url]::after {
+    content: ' (' attr(data-print-url) ')';
+    font-size: 8pt;
+    color: #333;
+    word-break: break-all;
+  }
+  .sheet-body a { color: #000; text-decoration: underline; }
+
+  .source-note { border: 0.5pt solid #999; border-left: 2pt solid #000; }
+}
+
+/* The count beside a filter chip. It is there so the chip says what it will
+   leave you with before you press it — a filter that turns out to select two
+   cards is a wasted tap on a phone. */
+.chip__n {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.65;
+  font-size: 0.85em;
+}

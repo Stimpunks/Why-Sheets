@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "why-sheet-press",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["tools/lib/serve.mjs"],
+      "port": 8788
+    }
+  ]
+}

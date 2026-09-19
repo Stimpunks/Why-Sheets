@@ -1,28 +1,101 @@
-# Why-Sheets
+# Why Sheets
 
-> Chomsky uses the term concision to discuss the way mainstream media outlets respond to [power](https://stimpunks.org/glossary/power/). Having concision means that **ideas which align with forces of power in our society need no explanation and those that do not align with those forces of power need significant explanation.** This allows the narrative of the “state religion” to be told across the media, because it’s quick and easy since it needs no explanation. However, opposing viewpoints which need explanation take too long for a standard news segment or, in the current era, TikTok, and therefore do not get heard.
-> 
-> [Think Traditional Education “Works”? Prove it](https://andrewfaulstich.substack.com/p/think-traditional-education-works)
+**Free, editable, open-licensed sheets that make the case for you.**
+Fourteen of them, published as a print-first library at **[whysheets.press](https://whysheets.press/)**.
 
-> Now, the kinds of things that I would say on Nightline, you can’t say in one sentence, because they depart from standard religion. **If you want to repeat the religion you can get away with it between two commercials. If you wanna say something that questions the religion, you’re expected to give evidence, and that you can’t do between two commercials**, so therefore you lack concision so therefore you can’t talk. I think that’s a terrific technique of propaganda. To impose concision is a way of virtually guaranteeing that the party line gets repeated over and over again and that nothing else is heard.
-> 
-> Noam Chomsky, [Noam Chomsky – Conversations with History – YouTube](https://www.youtube.com/watch?v=8ghoXQxdk6s&list=LL&index=92&t=2669s)
+Families navigating schools, hospitals and systems are constantly asked to justify what should be obvious. The answers exist — in research, in law, in lived experience — but finding them, organising them and presenting them concisely in a meeting is exhausting work, and it lands on the people with the least left over. Why Sheets do that work in advance.
 
-“[Concision](https://stimpunks.org/glossary/concision/)” puts advocates at a disadvantage. We have to define all our terms. [Thinking differently often requires speaking differently](https://stimpunks.org/language/), so we end up sounding like we’re “from Neptune” (to reference Chomsky’s anecdote). That’s one reason we have the [Stimpunks glossary](https://stimpunks.org/glossary/). Each entry starts with a concise definition but then piles on the context.
-For our [Neuroqueering Learning Spaces project](https://stimpunks.org/projects/neuroqueer-learning-spaces/), we’re creating [Why Sheets](https://stimpunks.org/glossary/why-sheets/) as suggested by [Alfie Kohn](https://www.alfiekohn.org/).
+----
+
+## What is here
+
+| | |
+|---|---|
+| `*.md` at the root | **The fourteen Why Sheets.** These are the source. Everything else is derived from them. |
+| `sheets.json` | The manifest: slug, published URL, what each sheet is for, and when somebody reaches for it. |
+| `broadsides/source/` | Nine broadsides, mirrored read-only from the Stimpunks Knowledge System. |
+| `tools/` | The generators and the gates. Zero dependencies, Node 22+. |
+| everything else | Generated, and committed — the site as Netlify publishes it. |
+
+----
+
+## The press
+
+[whysheets.press](https://whysheets.press/) is the whole library, print-first.
+
+You tick the sheets you need for Thursday's meeting. It gives you back **one correctly paginated PDF**, with a cover page you can put a name and a date on, numbered straight through, citations intact. It is the difference between *"here are nine pages you could each print separately"* and *"here is the folder you carry into the room."*
+
+The sheets already do the argument. The press does the logistics, which is the part that eats an evening at eleven o'clock the night before.
+
+Every PDF is **190 × 259 mm** — the intersection of A4 and US Letter — so it prints at actual size in either country with no scaling. Broadsides are **208 × 277 mm**, the largest page that still fits both, because they are fixed compositions rather than reflowing text. Nothing is uploaded: the packet is assembled in your own browser, and there is no account, no analytics and no record of which sheets anybody put together.
+
+----
+
+## The repository is the source of truth
+
+That was not true before the press existed. There were three answers to *how many Why Sheets are there?*, all live at once: **14** files here, **12** pages published on stimpunks.org, **9** named in the list on [/why/](https://stimpunks.org/why/). None of them was wrong on its own. The failure was that nothing read all three, so nothing could notice.
+
+Now `tools/check-drift.mjs` does, and it prints all the numbers side by side whether they agree or not.
+
+----
+
+## Working on a sheet
+
+Edit the Markdown. Then:
+
+```bash
+node tools/ship.mjs
+```
+
+That runs every stage in the one order that works — check the sources, mirror the broadsides, build the pages, print the PDFs, check the site, check for drift — and stops at the first failure rather than building on top of it.
+
+Deploying is a push. Netlify publishes this repository as it stands; there is no build step in the cloud, which is why the generated pages and all 23 PDFs are committed and reviewable in a diff.
+
+**If you edit a sheet in Ulysses, run `node tools/check-ulysses.mjs` before you commit.** Ulysses rewrites Markdown when it saves: it adds backslash escapes and non-breaking spaces in front of emphasis openers, and a non-breaking space after `**` means the bold never opens at all — it publishes as literal asterisks. There were 126 of them in nine of these sheets when the press was built.
+
+----
+
+## The licence, plainly
+
+Every sheet is **[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)**. Print it. Change it. Delete the parts that do not apply to you. Put your own name on it. Hand it to a hundred people. You do not need permission and you do not need to credit us.
+
+Two things sit outside that, and both matter:
+
+- **Quoted material belongs to whoever wrote it.** These sheets are built out of other people's sourced words. Those are quoted, not given away.
+- **Signatories endorsed the sheet they signed.** If you change one substantially, take the signature list off — it is no longer the document they put their name to.
+
+Build tooling in `tools/` is CC0 like the rest. The one vendored dependency is not ours; see [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
+
+[Add your signature to a Why Sheet](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/), or open an issue or a pull request. These are developed in public on purpose: the people these sheets serve should have real power over what they say.
+
+----
+
+## Where the form comes from
+
+The Why Sheet is not our invention. It is [Alfie Kohn's](https://www.alfiekohn.org/blogs/why/).
 
 > I imagined a set of handouts, each consisting of a single (double-sided) sheet that responded to a common question. The idea was to lay out the case briskly, making liberal use of bullet points and offering a short bibliography at the end for anyone who wanted more information.
-> One of these “Why Sheets,” for example, might explain a teacher’s decision to create a curriculum based on kids’ questions. Or for setting aside time each day for a class meeting. It might defend helping students to understand mathematical principles rather than just memorizing facts and algorithms. Or it might lay out the case for avoiding worksheets, or tests, or homework, or traditional bribe-and-threat classroom management strategies.
-> 
-> [The Why Axis – Alfie Kohn](https://www.alfiekohn.org/blogs/why/)
+>
+> — [The Why Axis](https://www.alfiekohn.org/blogs/why/)
 
-> In short, any practice that’s constructive yet still controversial would be fair game for one of these punchy handouts.
-> 
-> [The Why Axis – Alfie Kohn](https://www.alfiekohn.org/blogs/why/)
+> In short, any practice that's constructive yet still controversial would be fair game for one of these punchy handouts.
+>
+> — [The Why Axis](https://www.alfiekohn.org/blogs/why/)
 
-Why Sheets feel like a good balance of concision and explanation.
+And the reason the form is needed at all is what Chomsky called **concision**: ideas that align with power need no explanation, and ideas that do not need a great deal.
 
-Students and families battling [behaviorism](https://stimpunks.org/why/behaviorism/) and [school induced-anxiety](https://stimpunks.org/glossary/school-induced-anxiety/) and systemic exclusion need whatever resources we can give them.
+> Having concision means that **ideas which align with forces of power in our society need no explanation and those that do not align with those forces of power need significant explanation.**
+>
+> — [Think Traditional Education "Works"? Prove it](https://andrewfaulstich.substack.com/p/think-traditional-education-works)
 
-To that end, we started a repository for Why Sheets.
-Contributions welcome. These are licensed under [Creative Commons CC0](https://creativecommons.org/public-domain/cc0/) so students and families can do what they want with the sheets.
+> Now, the kinds of things that I would say on Nightline, you can't say in one sentence, because they depart from standard religion. **If you want to repeat the religion you can get away with it between two commercials. If you wanna say something that questions the religion, you're expected to give evidence, and that you can't do between two commercials**, so therefore you lack concision so therefore you can't talk. I think that's a terrific technique of propaganda.
+>
+> — Noam Chomsky, [Conversations with History](https://www.youtube.com/watch?v=8ghoXQxdk6s)
+
+[Concision](https://stimpunks.org/glossary/concision/) puts advocates at a disadvantage. We have to define all our terms. [Thinking differently often requires speaking differently](https://stimpunks.org/language/), so we end up sounding like we are from somewhere else.
+
+Students and families battling [behaviorism](https://stimpunks.org/why/behaviorism/), [school-induced anxiety](https://stimpunks.org/glossary/school-induced-anxiety/) and systemic exclusion need whatever resources we can give them.
+
+----
+
+Published by [Stimpunks Foundation](https://stimpunks.org/).

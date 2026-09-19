@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Behaviorism</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Space+Mono:ital,wght@0,400;0,700&display=swap');
+
+/* Scoped reset. Never `*` on its own — this block's CSS is document-wide. */
+.sb-root, .sb-root * { box-sizing: border-box; }
+.sb-root p, .sb-root h1, .sb-root h2, .sb-root ul, .sb-root li, .sb-root figure { margin: 0; padding: 0; }
+.sb-root ul { list-style: none; }
+
+.sb-root {
+  --sb-sheet:  #ffffff;
+  --sb-ink:    #002b36;   /* Solarized base03 · 15.0:1 on white */
+  --sb-ink-2:  #073642;   /* base02 · 13.0:1 — secondary prose   */
+  --sb-ink-3:  #586e75;   /* base01 ·  5.4:1 — small print only  */
+  --sb-spot:   #9c3a11;   /* Solarized orange, darkened · 6.9:1  */
+  --sb-spot-2: #4c50a0;   /* Solarized violet, darkened ·  7.1:1 */
+  --sb-rule:   #d8d2c4;
+
+  font-family: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* ── Controls (screen only; removed from the print document) ── */
+.sb-controls { display: flex; gap: 0.6rem; margin-bottom: 1.1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+.sb-ctrl-label { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sb-ink-3); }
+.sb-btn {
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  background: #fff; color: var(--sb-ink-2);
+  border: 1px solid var(--sb-ink-3); border-radius: 2px;
+  padding: 0.5rem 1rem; cursor: pointer; line-height: 1.2;
+}
+.sb-btn:hover { border-color: var(--sb-ink); color: var(--sb-ink); }
+.sb-btn:focus-visible { outline: 3px solid var(--sb-spot); outline-offset: 2px; }
+.sb-btn.is-active { background: var(--sb-ink); color: #fff; border-color: var(--sb-ink); }
+.sb-ctrl-sep { width: 1px; height: 18px; background: var(--sb-rule); }
+
+/* ── The sheet ── */
+.sb-sheet {
+  width: 190mm; max-width: 100%; min-height: 259mm;
+  background: var(--sb-sheet); color: var(--sb-ink);
+  padding: 11mm 12mm 9mm;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--sb-rule);
+  border-top: 3mm solid var(--sb-spot);
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+.sb-sheet[hidden] { display: none; }
+.sb-sheet--b { border-top-color: var(--sb-spot-2); }
+
+/* ── Masthead ── */
+.sb-mast { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; padding-bottom: 3mm; border-bottom: 0.6mm solid var(--sb-ink); }
+.sb-mast-org { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sb-ink-2); line-height: 1.9; }
+.sb-mast-org strong { display: block; font-size: 7pt; letter-spacing: 0.2em; color: var(--sb-ink); }
+.sb-mast-side { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.9; white-space: nowrap; }
+.sb-sheet--b .sb-mast-side { color: var(--sb-spot-2); }
+
+/* ── Face ── */
+.sb-title { font-weight: 800; font-size: 34pt; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; margin-top: 5mm; color: var(--sb-ink); }
+.sb-title em { font-style: normal; color: var(--sb-spot); }
+.sb-standfirst { font-style: italic; font-weight: 300; font-size: 11.5pt; line-height: 1.44; color: var(--sb-ink-2); margin-top: 4mm; max-width: 158mm; }
+.sb-rule { height: 0.8mm; background: var(--sb-ink); margin-top: 5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-claim { margin-top: 5mm; text-align: center; }
+.sb-claim-line { font-weight: 800; font-size: 33pt; line-height: 1.06; letter-spacing: -0.02em; text-transform: uppercase; color: var(--sb-ink); }
+.sb-claim-line em { font-style: normal; color: var(--sb-spot); }
+.sb-claim-sub { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-2); margin-top: 3mm; line-height: 1.8; }
+
+.sb-panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin-top: 5mm; }
+.sb-panel { border-left: 0.8mm solid var(--sb-spot); padding-left: 3.5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-panel:nth-child(3) { border-left-color: var(--sb-spot-2); }
+.sb-panel-name { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-spot); margin-bottom: 2.2mm; line-height: 1.5; }
+.sb-panel:nth-child(3) .sb-panel-name { color: var(--sb-spot-2); }
+.sb-panel p { font-size: 10pt; line-height: 1.45; color: var(--sb-ink-2); }
+
+.sb-quote { margin-top: 5mm; padding-left: 4mm; border-left: 0.8mm solid var(--sb-spot); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-quote p { font-style: italic; font-weight: 500; font-size: 12.5pt; line-height: 1.34; color: var(--sb-ink); }
+.sb-quote cite { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.8pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); margin-top: 2.2mm; line-height: 1.7; }
+.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); }
+
+/* ── Reverse ── */
+.sb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 9mm; margin-top: 5mm; }
+.sb-colhead { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot-2); padding-bottom: 2.2mm; margin-bottom: 3.5mm; border-bottom: 0.4mm solid var(--sb-rule); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-do li { font-size: 10.5pt; line-height: 1.42; color: var(--sb-ink-2); margin-bottom: 2.6mm; padding-left: 5mm; position: relative; }
+.sb-do li::before { content: '→'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-do strong { color: var(--sb-ink); }
+
+.sb-look li { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8.4pt; line-height: 1.5; color: var(--sb-ink-2); margin-bottom: 1.6mm; padding-left: 5mm; position: relative; }
+.sb-look li::before { content: '✓'; position: absolute; left: 0; color: var(--sb-spot); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-note { font-size: 10pt; line-height: 1.42; color: var(--sb-ink-2); margin-top: 3mm; }
+.sb-note strong { color: var(--sb-ink); }
+
+.sb-principle { margin-top: 4mm; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); }
+.sb-principle p { font-size: 10.5pt; line-height: 1.45; color: var(--sb-ink-2); margin-top: 2mm; }
+.sb-principle strong { color: var(--sb-ink); }
+
+.sb-sources { margin-top: 3.5mm; font-family: 'Space Mono', ui-monospace, monospace; font-size: 7pt; line-height: 1.6; color: var(--sb-ink-2); }
+.sb-sources em { font-style: italic; }
+
+/* ── Foot ── */
+.sb-foot { margin-top: auto; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; }
+.sb-foot-left { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); line-height: 1.95; }
+.sb-foot-right { font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.5; }
+.sb-sheet--b .sb-foot-right { color: var(--sb-spot-2); }
+
+.sb-hint { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); text-align: center; margin-top: 1rem; }
+
+/* If someone prints the WORDPRESS PAGE rather than using the Print button, the
+   controls come with it — and `.sb-btn.is-active` is white text on a dark
+   background, so the background drops out (browsers omit background graphics)
+   and it prints as white-on-white. Caught by running the contrast gate against
+   the published URL. These are screen furniture; they never belong on paper.
+   Scoped to our own classes: this must not try to hide the theme's chrome. */
+@media print {
+  .sb-controls, .sb-hint { display: none !important; }
+}
+
+/* Breakpoint sits BELOW the narrowest printed page box — A4 at 9 mm margins is
+   192 mm ≈ 726 px. Print media queries resolve against the page box, not the
+   screen, so a breakpoint above that reflows on paper and silently clips. */
+@media (max-width: 700px) {
+  .sb-sheet { width: 100%; min-height: 0; padding: 8mm 6mm; }
+  .sb-panels, .sb-cols { grid-template-columns: 1fr; }
+  .sb-title { font-size: 26pt; }
+  .sb-claim-line { font-size: 22pt; }
+  .sb-foot { flex-direction: column; align-items: flex-start; gap: 3mm; }
+  .sb-foot-right { text-align: left; }
+}
+
+/* hoisted from inline style attributes */
+.sb-inline-behaviorism-0{margin-top:4mm;}
+
+/* ---- print document, as the block's own script builds it, less its @page ---- */
+*{box-sizing:border-box;margin:0;padding:0}html,body{background:#fff}.sb-root{display:block;max-width:none}.sb-controls,.sb-hint{display:none}.sb-sheet{width:100%;min-height:0;height:259mm;padding:0;border:0;border-top:3mm solid var(--sb-spot)}.sb-sheet--b{border-top-color:var(--sb-spot-2)}.sb-sheet--a{page-break-after:always;break-after:page}.sb-mast{padding-top:6mm}.sb-panel,.sb-do li,.sb-look li{page-break-inside:avoid;break-inside:avoid}
+
+/* ---- the page, pinned ----
+   The block prints with @page { size: auto; margin: 9mm }, which is right for a
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   THE COLUMN IS 194 mm, AND THAT NUMBER WAS MEASURED, NOT CHOSEN. Each sheet is
+   a fixed 259 mm tall with overflow clipped, so a column narrower than the
+   composition needs does not look wrong — it loses the bottom of side B. The
+   nine sheets were rendered under emulated print media at widths from 188 mm
+   up, and the tallest side of any of them came out:
+
+       188 mm -> 269.1 mm   overflows by 10.1
+       190 mm -> 265.4 mm   overflows by  6.4
+       192 mm -> 259.6 mm   overflows by  0.6      <- this is the A4 case
+       194 mm -> 256.6 mm   fits, with 2.4 mm spare
+       198 mm -> 256.6 mm   fits                   <- this is the US Letter case
+
+   Two things follow. The press uses 194 mm, the narrowest width at which all
+   nine clear. And DEVELOPMENTAL PACE IS ALREADY 0.6 mm OVER ON A4 as published —
+   a real finding about the upstream sheet, not about this build, and one for
+   that repository to fix at the source.
+
+   The page is therefore 208 x 277 mm with margins of 9 mm top, 7 mm sides and
+   bottom: 208 fits inside A4's 210 and Letter's 216, and 277 inside A4's 297 and
+   Letter's 279. Content box 194 x 261 mm — the same 261 mm height these sheets
+   already get on US Letter, which is the tightest case known to print correctly.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 7mm 7mm; }
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   208 x 277 mm IS THE LARGEST PAGE THAT FITS BOTH PAPERS: under A4's 210 x 297
+   and under Letter's 216 x 279. With the 9 mm margin the block already expects,
+   the content box is exactly 190 x 259 mm — the dimensions the broadsides were
+   designed to, so nothing reflows and the composition is the one that was
+   checked upstream.
+
+   The conservative 190 x 259 PAGE was tried first, and it is the wrong shape for
+   this object: it makes the content box 172 x 241, and Sensory Access at Work —
+   the fullest of the nine — spilled onto a third side. That is the page the Why
+   Sheets use, where the type reflows freely and a narrower column is merely a
+   narrower column. A broadside is a fixed composition; it needs its own page.
+
+   THE BOTTOM MARGIN IS 7 mm, NOT 9, AND THAT 2 mm IS THE WHOLE MARGIN OF ERROR.
+   A sheet is exactly 259 mm tall, so a 259 mm content box leaves nothing: with a
+   symmetric 9 mm margin, Developmental Pace and Masking and Burnout both tipped
+   onto a third side while the other seven held. 7 mm makes the content box
+   190 x 261 — which is precisely the box these sheets get on US Letter with the
+   9 mm margin they were designed against, and the tightest case that is known to
+   print correctly. The page still fits inside both papers.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 9mm 7mm; }
+</style>
+</head>
+<body>
+<div class="sb-root" id="sb-behaviorism" data-sb-style="sb-css-behaviorism" data-sb-doc-title="Behaviorism — a Stimpunks Broadside">
+
+    <!-- SIDE A -->
+  <article class="sb-sheet sb-sheet--a" aria-label="Behaviorism broadside, side A">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        for the meeting where the behaviour is called the problem
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side A of B</div>
+    </div>
+
+    <h2 class="sb-title">Behavior<em>ism</em></h2>
+
+    <p class="sb-standfirst">A theory of learning that attends only to what can be observed and counted. Thoughts, trauma, anxiety, health, sensory pain, motive &mdash; none of those can be measured from outside, so none of them are in the model. It is still the default setting of most schools.</p>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-claim">
+      <p class="sb-claim-line">It measures the surface,<br><em>badly.</em></p>
+      <p class="sb-claim-sub">behaviorism is ableist &middot; here is why</p>
+    </div>
+
+    <div class="sb-panels">
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">What it cannot see</div>
+        <p>Behaviours are the protruding tip of the iceberg, and what matters more than <em>what</em> or <em>how much</em> is <em>how come</em>. A model that counts only what it can see has nowhere to put a reason &mdash; so distress is filed as non-compliance, and a stress response is treated as a choice.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">What it costs</div>
+        <p>A 2025 national study matched <strong>17,120</strong> privately insured Autistic young people who received ABA against those who did not: <strong>30% higher odds</strong> of a mental health hospitalisation, and a <strong>32% higher rate</strong> of them. The authors found no dose&ndash;response relationship and call for further work.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">Who is saying so</div>
+        <p>Autistic adults, overwhelmingly &mdash; and most loudly those who went through it as children. Meanwhile Autistic people have been kept off the committees and boards that develop, direct and assess this work. The people it is done to are not in the room where it is judged.</p>
+      </div>
+
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;The most restrictive virtual straitjacket that educators face is behaviorism.&rdquo;</p>
+      <cite>Alfie Kohn &middot; It's Not About Behavior</cite>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        the full why sheet, with every source:<br>
+        stimpunks.org/why/behaviorism<br>
+        free to print, copy, change and share &middot; CC0 1.0
+      </div>
+      <div class="sb-foot-right">See<br>reverse</div>
+    </div>
+
+  </article>
+
+  <!-- SIDE B -->
+  <article class="sb-sheet sb-sheet--b" aria-label="Behaviorism broadside, side B">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        it is not a teaching method, it is a compliance method
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side B of B</div>
+    </div>
+
+    <div class="sb-cols">
+
+      <div>
+        <div class="sb-colhead">What it does to people</div>
+        <ul class="sb-do">
+          <li><strong>It violates autonomy.</strong> It coercively closes off paths of identity formation, and modifies a child's behaviour to be misaligned with their own preferences, passions and pursuits.</li>
+          <li><strong>Bioethics has been asked about this.</strong> A 2020 review found ABA manifests systematic violations of the fundamental tenets of bioethics &mdash; justice, nonmaleficence, and above all autonomy.</li>
+          <li><strong>It punishes the stress response.</strong> Non-compliance is not rebellion. We decline what harms us; because much of what harms us does not harm most people, declining reads as defiance.</li>
+          <li><strong>It holds happiness hostage.</strong> Taking away a source of joy to motivate a child is not teaching. It is leverage.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sb-colhead">The dog test</div>
+        <p class="sb-note">Professional dog trainers moved away from these methods because they harm animals emotionally and psychologically. A good trainer will not extinguish a behaviour that supports the animal's wellbeing &mdash; they understand a dog needs to chew and dig and bark.</p>
+        <p class="sb-note"><strong>Autistic children need to rock, and flap, and repeat, and go quiet in a corner when it is too much.</strong> If the method is not good enough for a dog, it is not good enough for a child.</p>
+
+        <div class="sb-colhead sb-inline-behaviorism-0">Ask this instead</div>
+        <ul class="sb-look">
+          <li>not &ldquo;how do we reduce this behaviour&rdquo;</li>
+          <li>but &ldquo;what is it telling us&rdquo;</li>
+          <li>and &ldquo;what does this person need&rdquo;</li>
+          <li>and &ldquo;what would we change about the room&rdquo;</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sb-principle">
+      <div class="sb-colhead">The principle</div>
+      <p>A child who is struggling is telling you something. <strong>A method that can only see the telling, and never the thing being told, is not measuring learning. It is measuring how well the room is being obeyed.</strong></p>
+      <p>Attend less to a student's behaviours and more to the student.</p>
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;When I was a little girl, I was autistic. And when you're autistic, it's not abuse. It's therapy.&rdquo;</p>
+      <cite>Julia Bascom &middot; Quiet Hands &middot; Just Stimming, 2011</cite>
+    </div>
+
+    <div class="sb-sources">
+      Adapted from the <em>Behaviorism</em> Why Sheet at stimpunks.org/why/behaviorism, which carries the full sources and the signatories. Key reading: <strong>Alfie Kohn</strong>, &ldquo;It's Not About Behavior&rdquo; and &ldquo;Autism and Behaviorism&rdquo;; <strong>Julia Bascom</strong>, &ldquo;Quiet Hands&rdquo; (Just Stimming, 2011); <strong>Michelle Dawson</strong>, &ldquo;The Misbehaviour of Behaviourists&rdquo;; &ldquo;Ethical Concerns with Applied Behavior Analysis&rdquo; (2020); <strong>Aguirre Mtanous, Koenig, Nikahd, Effertz, Silinonte, Hyer, Hand &amp; Bishop</strong>, &ldquo;Mental health outcomes associated with applied behavior analysis in a US national sample of privately insured autistic youth,&rdquo; <em>Autism</em> (2025) &mdash; source of the 17,120 matched sample, OR 1.30 and IRR 1.32, both <em>p</em>&thinsp;&lt;&thinsp;0.001, and of the no-dose&ndash;response finding stated alongside them. For what to do instead, see the <em>Alternatives to ABA</em> Why Sheet.
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        stimpunks.org/why/behaviorism &middot; stimpunks.org/library/broadsides<br>
+        free to print, copy, change and share &mdash; no permission needed<br>
+        CC0 1.0 &middot; no rights reserved
+      </div>
+      <div class="sb-foot-right">Stimpunks<br>Foundation</div>
+    </div>
+
+  </article>
+
+  <p class="sb-hint">One sheet &middot; print double-sided &middot; take it to the meeting &middot; share freely</p>
+</div>
+
+</body>
+</html>
