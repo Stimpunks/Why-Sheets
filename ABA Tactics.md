@@ -4,8 +4,6 @@
 
 **Content note:** This sheet discusses trauma, abuse, coercion, and suicide.
 
-**Disclaimer**: This is an early draft that needs iteration and review. Reference with caution as we work on this sheet.
-
 ---- 
 
 ## Why the Tactics of ABA Are Harmful
