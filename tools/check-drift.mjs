@@ -241,6 +241,34 @@ if (mirrorOk && fs.existsSync(path.join(pagesDir, 'why.md'))) {
   note('warn', 'The mirror has no pages/why.md, so the parent page is unchecked.');
 }
 
+/* ── 3b. links into /why/ that nothing is published at ──────────────────── */
+
+/* A SHEET MAY NOT LINK TO AN UNPUBLISHED /why/ PAGE, and on this site that is
+ * worse than an ordinary dead link. WordPress core's
+ * redirect_guess_404_permalink() takes a wrong path carrying a known slug and
+ * 301s it to whatever else owns that slug — so the link does not 404, it
+ * delivers the reader somewhere else entirely and looks like it worked.
+ *
+ * Caught on the Recess and Play sheet, which pointed at
+ * /why/developmental-pace/ while that sheet was published only on the press.
+ * The fix is never to drop the link: point it at whysheet.press, where the
+ * sheet does exist, and move it back if and when the page is published. */
+const unpublished = new Set(manifest.sheets.filter((s) => !s.published).map((s) => s.slug));
+
+for (const s of manifest.sheets) {
+  const file = path.join(REPO, s.file);
+  if (!fs.existsSync(file)) continue;
+  const text = fs.readFileSync(file, 'utf8');
+  for (const m of text.matchAll(/https:\/\/stimpunks\.org\/why\/([a-z0-9-]+)\//g)) {
+    if (unpublished.has(m[1])) {
+      note('error', 'LINK TO AN UNPUBLISHED /why/ PAGE  ' + s.file + '\n' +
+        '      points at /why/' + m[1] + '/ , and that sheet is declared published: null.\n' +
+        '      On stimpunks.org this does not 404 — core guesses the slug and 301s the reader\n' +
+        '      to whatever else owns it. Point at whysheet.press/sheets/' + m[1] + '/ instead.');
+    }
+  }
+}
+
 /* ── 4. the press against itself ────────────────────────────────────────── */
 
 for (const s of manifest.sheets) {
