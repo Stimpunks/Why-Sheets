@@ -125,6 +125,20 @@
       ]
     },
     {
+      "slug": "recess-and-play",
+      "file": "Recess and Play.md",
+      "title": "Recess and Play",
+      "published": null,
+      "broadside": "recess-and-play",
+      "summary": "Recess is regulation, not a privilege. Withholding it takes movement from the child who just showed you they need it — and who loses it is not random.",
+      "moment": "When recess is about to be withheld for behaviour or for unfinished work.",
+      "topics": [
+        "school",
+        "iep",
+        "policy"
+      ]
+    },
+    {
       "slug": "positive-greetings-at-the-door",
       "file": "Positive Greetings at the Door.md",
       "title": "Positive Greetings at the Door",
@@ -279,6 +293,11 @@
       "slug": "sensory-access-at-work",
       "title": "Sensory Access at Work",
       "parent": "sensory-access-at-work"
+    },
+    {
+      "slug": "recess-and-play",
+      "title": "Recess and Play",
+      "parent": "recess-and-play"
     }
   ]
 }

@@ -169,6 +169,20 @@
       "bytes": 333989,
       "title": "Developmental Pace",
       "kind": "sheet"
+    },
+    "recess-and-play": {
+      "hash": "0c04241a9ca2db28",
+      "pages": 8,
+      "bytes": 336128,
+      "title": "Recess and Play",
+      "kind": "sheet"
+    },
+    "broadside-recess-and-play": {
+      "hash": "50ed658ed41aa003",
+      "pages": 2,
+      "bytes": 177819,
+      "title": "Recess and Play",
+      "kind": "broadside"
     }
   }
 }

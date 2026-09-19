@@ -219,6 +219,33 @@
       ]
     },
     {
+      "url": "/sheets/recess-and-play/",
+      "title": "Recess and Play",
+      "kind": "why-sheet",
+      "summary": "Recess is regulation, not a privilege. Withholding it takes movement from the child who just showed you they need it — and who loses it is not random.",
+      "moment": "When recess is about to be withheld for behaviour or for unfinished work.",
+      "topics": [
+        "school",
+        "iep",
+        "policy"
+      ],
+      "headings": [
+        "The Short Version",
+        "Why This Sheet Exists",
+        "Recess Is Not a Privilege",
+        "Withholding It Punishes the Child Who Needed It Most",
+        "The Research Does Not Support Cutting It",
+        "Who Loses Recess Is Not Random",
+        "Play Is Learning, Not a Break From It",
+        "Neurodivergent Play Counts as Play",
+        "What to Ask For in the Room",
+        "What This Sheet Is Not",
+        "The Principle",
+        "Further Reading",
+        "License"
+      ]
+    },
+    {
       "url": "/sheets/positive-greetings-at-the-door/",
       "title": "Positive Greetings at the Door",
       "kind": "why-sheet",
@@ -510,6 +537,18 @@
         "work",
         "sensory",
         "access"
+      ],
+      "headings": []
+    },
+    {
+      "url": "/broadsides/recess-and-play/",
+      "title": "Recess and Play",
+      "kind": "broadside",
+      "summary": "Recess is regulation, not a privilege. Withholding it takes movement from the child who just showed you they need it — and who loses it is not random.",
+      "topics": [
+        "school",
+        "iep",
+        "policy"
       ],
       "headings": []
     }

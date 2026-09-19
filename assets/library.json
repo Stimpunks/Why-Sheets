@@ -77,6 +77,17 @@
       ]
     },
     {
+      "slug": "recess-and-play",
+      "title": "Recess and Play",
+      "version": "0.1",
+      "pdf": "/pdf/recess-and-play.pdf",
+      "topics": [
+        "school",
+        "iep",
+        "policy"
+      ]
+    },
+    {
       "slug": "positive-greetings-at-the-door",
       "title": "Positive Greetings at the Door",
       "version": "1.1",
@@ -207,6 +218,11 @@
       "slug": "sensory-access-at-work",
       "title": "Sensory Access at Work",
       "pdf": "/pdf/broadside-sensory-access-at-work.pdf"
+    },
+    {
+      "slug": "recess-and-play",
+      "title": "Recess and Play",
+      "pdf": "/pdf/broadside-recess-and-play.pdf"
     }
   ]
 }
