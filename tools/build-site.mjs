@@ -119,6 +119,37 @@ const sheets = manifest.sheets.map((meta) => {
 
 const bySlug = new Map(sheets.map((s) => [s.slug, s]));
 
+/* ── /.well-known/security.txt (RFC 9116) ──────────────────── */
+
+/* EXPIRES IS GENERATED, NOT TYPED, AND IT IS CHECKED. RFC 9116 makes the field
+ * mandatory and a lapsed file invalid, and the spec's own advice is to treat it
+ * like a certificate. A hand-typed date in a static file is a date nobody looks
+ * at again, so it is computed a year out at build time and check-site.mjs fails
+ * when the file is within 30 days of lapsing. That turns "remember to update
+ * this" into something the build says out loud.
+ *
+ * Contact is the address published across stimpunks.org and actually monitored.
+ * An unmonitored address here is worse than no file at all. */
+const SECURITY_TXT_DAYS = 365;
+const securityExpires = new Date(Date.now() + SECURITY_TXT_DAYS * 864e5)
+  .toISOString()
+  .replace(/\.\d+Z$/, 'Z');
+
+emit(
+  '.well-known/security.txt',
+  `Contact: mailto:stimpunks@stimpunks.org
+Expires: ${securityExpires}
+Preferred-Languages: en
+Canonical: https://${HOST}/.well-known/security.txt
+Policy: https://${HOST}/privacy/
+
+# This is a static site. No accounts, no database, no forms that submit, no
+# cookies, no server-side code — so the interesting surface is small: the
+# headers, the redirects, and the client-side packet builder. Tell us anyway.
+# We would rather hear it.
+`
+);
+
 /* ── privacy ────────────────────────────────────────────────────────────── */
 
 /* WHY THIS PAGE EXISTS AND WHY IT IS NOT A LINK TO stimpunks.org.
@@ -374,6 +405,22 @@ ${sheets.map(cardFor).join('\n')}
   })
 );
 
+
+/* When a sheet last actually changed, from git rather than from the clock. A
+   build timestamp would say every sheet changed today, every day — worse than
+   no date, because it tells an agent the corpus is churning when it is not. */
+import { execFileSync } from 'node:child_process';
+function lastChanged(file) {
+  try {
+    return execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
+      cwd: REPO, encoding: 'utf8',
+    }).trim() || null;
+  } catch { return null; }
+}
+
+const PUBLISHER = { '@type': 'Organization', name: 'Stimpunks Foundation', url: 'https://stimpunks.org/' };
+const CC0 = 'https://creativecommons.org/publicdomain/zero/1.0/';
+
 /* ── one sheet ──────────────────────────────────────────────────────────── */
 
 /* Which sheets have a companion advocacy prompt. build-prompts.mjs decides that —
@@ -395,6 +442,49 @@ for (const s of sheets) {
        It is finished enough to print and use; it has not been through the site's publishing
        pass. Nothing about that changes the licence.</p>`;
 
+  /* THE MARKDOWN SOURCE, AT /sheets/<slug>.md.
+   *
+   * This site can do this honestly where most cannot: the sheet IS Markdown, so
+   * the .md endpoint is the real source rather than HTML converted back into
+   * something Markdown-shaped. One file now feeds the page, the PDF, the
+   * companion prompt and the agent-facing source, and they cannot disagree
+   * because there is nothing to keep in sync.
+   *
+   * NO X-Markdown-Tokens HEADER. The spec suggests one and says, correctly, not
+   * to invent the number. There is no tokeniser here and this repository has no
+   * dependencies to add one, so it is omitted rather than filled with an
+   * estimate dressed as a count. Content-Length already sizes the body.
+   *
+   * NO CONTENT NEGOTIATION, deliberately. Serving Markdown from the canonical
+   * URL on `Accept: text/markdown` needs an edge function, and this site has no
+   * build step and no server by design. The spec calls the suffix the minimum
+   * and negotiation the layer above; that layer costs the thing which makes all
+   * the rest of this cheap. */
+  const mdPath = '/sheets/' + s.slug + '.md';
+  const changed = lastChanged(s.file);
+  emit(
+    'sheets/' + s.slug + '.md',
+    [
+      '---',
+      'title: ' + JSON.stringify(s.title),
+      'url: ' + JSON.stringify('https://' + HOST + '/sheets/' + s.slug + '/'),
+      s.published ? 'published_at: ' + JSON.stringify(s.published) : null,
+      'summary: ' + JSON.stringify(s.summary),
+      'reach_for_it: ' + JSON.stringify(s.moment),
+      'topics: [' + s.topics.join(', ') + ']',
+      changed ? 'updated: ' + JSON.stringify(changed) : null,
+      'licence: "CC0 1.0"',
+      'licence_url: ' + JSON.stringify(CC0),
+      'source: ' + JSON.stringify(repoUrl),
+      'pdf: ' + JSON.stringify('https://' + HOST + '/pdf/' + s.slug + '.pdf'),
+      PROMPTS.has(s.slug) ? 'companion_prompt: ' + JSON.stringify('https://' + HOST + '/prompts/' + s.slug + '.txt') : null,
+      '---',
+      '',
+      fs.readFileSync(path.join(REPO, s.file), 'utf8').trim(),
+      '',
+    ].filter((l) => l !== null).join('\n')
+  );
+
   emit(
     'sheets/' + s.slug + '/index.html',
     shell({
@@ -405,6 +495,24 @@ for (const s of sheets) {
       image: og('sheets-' + s.slug),
       imageAlt: `Why Sheet: ${s.title}. Reach for it ${s.moment.charAt(0).toLowerCase() + s.moment.slice(1)}`,
       description: s.summary,
+      markdown: mdPath,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: s.title,
+        description: s.summary,
+        url: 'https://' + HOST + '/sheets/' + s.slug + '/',
+        inLanguage: 'en',
+        isAccessibleForFree: true,
+        license: CC0,
+        publisher: PUBLISHER,
+        ...(changed ? { dateModified: changed.slice(0, 10) } : {}),
+        ...(s.published ? { sameAs: [s.published] } : {}),
+        encoding: [
+          { '@type': 'MediaObject', contentUrl: 'https://' + HOST + '/pdf/' + s.slug + '.pdf', encodingFormat: 'application/pdf' },
+          { '@type': 'MediaObject', contentUrl: 'https://' + HOST + mdPath, encodingFormat: 'text/markdown' },
+        ],
+      },
       scripts: ['/assets/sheet.js'],
       body: `<div class="wrap wrap--narrow">
   <header class="sheet-head">
@@ -792,7 +900,14 @@ emit(
 > navigating schools, hospitals and systems. Published by Stimpunks Foundation.
 
 Every sheet is generated from Markdown in <https://github.com/Stimpunks/Why-Sheets>, which is the
-source of truth. Each sheet page links its own source file. Everything is CC0 1.0 except quoted
+source of truth.
+
+**The Markdown source of any sheet is served directly.** Append .md to a sheet's URL —
+<https://whysheet.press/sheets/hoodie.md> — and you get the file the page and the PDF are both
+built from, with frontmatter carrying the canonical URL, the licence, when it last changed, and
+links to its PDF and companion prompt. Each page also declares it with a
+link rel="alternate" type="text/markdown" element. There is no content negotiation on the
+canonical URL: this site has no server. Each sheet page links its own source file. Everything is CC0 1.0 except quoted
 material, which belongs to the people who wrote it.
 
 ## Why Sheets

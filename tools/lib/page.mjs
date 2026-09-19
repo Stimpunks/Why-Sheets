@@ -51,8 +51,10 @@ const NAV = [
  * @param {string} [o.image]    root-absolute path to this page's OG card
  * @param {string} [o.imageAlt] what the card says, for people using a screen reader
  * @param {string} [o.ogType]   'website' (default) or 'article'
+ * @param {string} [o.markdown] root-absolute path to this page's Markdown source
+ * @param {object} [o.jsonLd]   schema.org graph for this page, emitted as JSON-LD
  */
-export function shell({ title, description, path, body, scripts = [], stylesheets = [], bodyClass = '', host, image, imageAlt, ogType = 'website' }) {
+export function shell({ title, description, path, body, scripts = [], stylesheets = [], bodyClass = '', host, image, imageAlt, ogType = 'website', markdown, jsonLd }) {
   const full = title ? title + ' — The Why Sheet Press' : 'The Why Sheet Press';
   const canonical = 'https://' + host + path;
   const current = (href) => (href === path ? ' aria-current="page"' : '');
@@ -84,6 +86,21 @@ ${
 <meta property="og:image:height" content="1260">
 <meta property="og:image:alt" content="${esc(imageAlt || full)}">
 <meta name="twitter:card" content="summary_large_image">`
+      : ''
+  }
+${
+    markdown
+      ? `<link rel="alternate" type="text/markdown" href="${esc('https://' + host + markdown)}" title="${esc(title || 'The Why Sheet Press')} — Markdown source">`
+      : ''
+  }
+${
+    jsonLd
+      ? /* JSON-LD is the one <script> on this site with a body, and it does not
+           need a CSP exception: `script-src` governs EXECUTABLE script, and a
+           type="application/ld+json" block is data the parser never runs. The
+           payload is JSON.stringify'd, and `<` is escaped so a string in the
+           data can never close the element early. */
+        `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`
       : ''
   }
 ${scripts.map((s) => `<script type="module" src="${esc(s)}" defer></script>`).join('\n')}

@@ -4,7 +4,14 @@
 > navigating schools, hospitals and systems. Published by Stimpunks Foundation.
 
 Every sheet is generated from Markdown in <https://github.com/Stimpunks/Why-Sheets>, which is the
-source of truth. Each sheet page links its own source file. Everything is CC0 1.0 except quoted
+source of truth.
+
+**The Markdown source of any sheet is served directly.** Append .md to a sheet's URL —
+<https://whysheet.press/sheets/hoodie.md> — and you get the file the page and the PDF are both
+built from, with frontmatter carrying the canonical URL, the licence, when it last changed, and
+links to its PDF and companion prompt. Each page also declares it with a
+link rel="alternate" type="text/markdown" element. There is no content negotiation on the
+canonical URL: this site has no server. Each sheet page links its own source file. Everything is CC0 1.0 except quoted
 material, which belongs to the people who wrote it.
 
 ## Why Sheets

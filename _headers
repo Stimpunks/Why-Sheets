@@ -92,3 +92,17 @@
   # "index, follow" and a search engine that finds it indexes a bare fragment as
   # if it were a page of the site. Thin content gets an explicit policy.
   X-Robots-Tag: noindex, nofollow
+
+/sheets/*.md
+  # The Markdown source of each sheet. text/markdown explicitly, and charset
+  # explicitly: without it a browser downloads the file instead of showing it,
+  # and an agent may misclassify it. These are generated from the same file as
+  # the page in the same build, so they revalidate on the same terms.
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+/.well-known/security.txt
+  # RFC 9116 requires text/plain. The Expires field inside is checked by
+  # tools/check-site.mjs, which fails the build 30 days before it lapses.
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate

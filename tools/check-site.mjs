@@ -118,9 +118,21 @@ for (const abs of pages) {
   const isPrintDocument = /(^|\/)print\.html$/.test(where);
 
   /* --- CSP shape --- */
-  /* A <script> with a body, as opposed to one that only carries a src. */
+  /* A <script> with a body, as opposed to one that only carries a src.
+   *
+   * DATA BLOCKS ARE EXEMPT, AND ONLY DATA BLOCKS. `script-src` governs script
+   * the browser EXECUTES. A <script> whose type is not a JavaScript MIME type —
+   * application/ld+json here — is a data block: the HTML parser stores its text
+   * and never runs it, so no inline-script check applies and a strict CSP with
+   * no 'unsafe-inline' does not block it. That is why every site with a real CSP
+   * still ships JSON-LD inline.
+   *
+   * The exemption is by exact type, not by "has a type attribute", because
+   * type="module" and type="text/javascript" both execute. Verified against the
+   * live CSP rather than asserted from the spec — see the deploy check. */
+  const DATA_BLOCK = /\btype=["']application\/ld\+json["']/i;
   for (const m of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
-    if (m[2].trim() && !/\bsrc=/.test(m[1])) {
+    if (m[2].trim() && !/\bsrc=/.test(m[1]) && !DATA_BLOCK.test(m[1])) {
       fail(where, "inline <script> body — blocked by script-src 'self'");
     }
   }
@@ -194,6 +206,30 @@ for (const abs of pages) {
     fail(where, 'a broadside block\'s Side A / Side B toggle survived the build — it has no script and does nothing');
   }
 
+  /* --- the Markdown alternate resolves --- */
+  /* A rel="alternate" is not an href the link loop checks, and it is an absolute
+     URL besides, so nothing else here would notice it rotting. */
+  for (const m of html.matchAll(/<link rel="alternate" type="text\/markdown" href="([^"]+)"/g)) {
+    const pre = 'https://' + HOST;
+    if (!m[1].startsWith(pre) || !fs.existsSync(path.join(REPO, m[1].slice(pre.length)))) {
+      fail(where, 'markdown alternate ' + m[1] + ' resolves to nothing');
+    }
+  }
+
+  /* --- JSON-LD is valid JSON --- */
+  /* Structured data that does not parse is worse than none: a consumer that
+     chokes on it may discard the page's metadata entirely. It is generated, so
+     this only fires if the generator breaks — which is exactly when nobody is
+     looking at the <head> of a sheet. */
+  for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    try {
+      const data = JSON.parse(m[1].replace(/\\u003c/g, '<'));
+      if (!data['@context'] || !data['@type']) fail(where, 'JSON-LD has no @context or @type');
+    } catch {
+      fail(where, 'JSON-LD does not parse as JSON');
+    }
+  }
+
   /* --- every table names itself --- */
   /* A screen reader announces a table by its <caption>. Without one it says
      "table" and the listener has to read cells to work out what they are looking
@@ -250,6 +286,46 @@ for (const abs of pages) {
   }
 }
 
+/* --- every sheet serves its Markdown source --- */
+{
+  const manifest = JSON.parse(fs.readFileSync(path.join(REPO, 'sheets.json'), 'utf8'));
+  for (const sheet of manifest.sheets) {
+    if (!fs.existsSync(path.join(REPO, 'sheets', sheet.slug + '.md'))) {
+      fail('sheets/' + sheet.slug + '.md', 'no Markdown source endpoint for this sheet');
+    }
+  }
+}
+
+/* --- security.txt has not quietly lapsed --- */
+/* RFC 9116 makes Expires mandatory and a lapsed file INVALID — a researcher's
+   tooling will discard it, which is the opposite of the point. The date is
+   generated a year out at build time, so this only fires when nothing has been
+   rebuilt for eleven months; that is precisely the case a calendar reminder
+   never catches, because by then nobody is thinking about this file. */
+{
+  const f = path.join(REPO, '.well-known', 'security.txt');
+  if (!fs.existsSync(f)) {
+    fail('.well-known/security.txt', 'missing');
+  } else {
+    const txt = fs.readFileSync(f, 'utf8');
+    const m = /^Expires:\s*(\S+)/m.exec(txt);
+    if (!m) {
+      fail('.well-known/security.txt', 'no Expires field — RFC 9116 makes the file invalid without one');
+    } else {
+      const days = (Date.parse(m[1]) - Date.now()) / 864e5;
+      if (!Number.isFinite(days)) {
+        fail('.well-known/security.txt', 'Expires is not a parseable timestamp: ' + m[1]);
+      } else if (days < 30) {
+        fail('.well-known/security.txt',
+          'Expires is ' + Math.round(days) + ' days away — rebuild to renew it before it lapses');
+      }
+    }
+    if (!/^Contact:\s*\S/m.test(txt)) {
+      fail('.well-known/security.txt', 'no Contact field — RFC 9116 requires at least one');
+    }
+  }
+}
+
 /* --- the print documents are told not to be indexed --- */
 /* A print.html is a bare fragment with no landmarks and no navigation, served
    publicly because the PDF build fetches it over HTTP. robots.txt allows
@@ -270,7 +346,7 @@ for (const abs of pages) {
   }
 }
 
-console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, tables, OG cards, prompts and PDFs.');
+console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, tables, JSON-LD, Markdown sources, OG cards, prompts and PDFs.');
 
 /* ── 4. contrast, in a browser, in both themes ──────────────────────────── */
 

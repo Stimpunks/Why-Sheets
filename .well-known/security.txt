@@ -1,0 +1,10 @@
+Contact: mailto:stimpunks@stimpunks.org
+Expires: 2027-09-19T16:18:09Z
+Preferred-Languages: en
+Canonical: https://whysheet.press/.well-known/security.txt
+Policy: https://whysheet.press/privacy/
+
+# This is a static site. No accounts, no database, no forms that submit, no
+# cookies, no server-side code — so the interesting surface is small: the
+# headers, the redirects, and the client-side packet builder. Tell us anyway.
+# We would rather hear it.
