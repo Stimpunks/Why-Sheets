@@ -177,6 +177,42 @@ export function asks(src) {
   return null;
 }
 
+/* A CATALOGUE SHEET'S MENU: every `### Heading` with its bullets.
+ *
+ * Most sheets make one argument and end with a fixed list of asks. Sensory
+ * Access at Work does not — it is a reference covering eight senses, each with
+ * its own list of concrete adjustments, and its own instructions say "pick the
+ * entries that fit you; you do not need every item". There is no single asks
+ * list to extract because the whole sheet is the list.
+ *
+ * So a workplace prompt is built from this instead: the model gets the full
+ * vocabulary of adjustments, grouped as the sheet groups them, and the
+ * interview does the picking. Asking a sheet like this for a
+ * "What to Ask For in the Room" section would mean writing one that duplicates
+ * eight sections of the sheet badly.
+ *
+ * Returns [] for a sheet with no `###` subsections, which is most of them.
+ */
+export function menu(src) {
+  const out = [];
+  let cur = null;
+  for (const ln of src.split('\n')) {
+    const h = /^###\s+(.+?)\s*$/.exec(ln);
+    if (h) {
+      cur = { heading: plain(h[1]), items: [] };
+      out.push(cur);
+      continue;
+    }
+    if (/^##\s/.test(ln)) {
+      cur = null;
+      continue;
+    }
+    const b = /^-\s+(.+)$/.exec(ln.trim());
+    if (b && cur) cur.items.push(plain(b[1]));
+  }
+  return out.filter((g) => g.items.length);
+}
+
 /* The Short Version — the sheet's own compressed argument, which is exactly what
    the letter's one argument paragraph should be built from. */
 export function shortVersion(src) {
@@ -194,6 +230,7 @@ export function parse(src, label) {
   return {
     quotes: quotes(src, label),
     asks: asks(src),
+    menu: menu(src),
     shortVersion: shortVersion(src),
   };
 }

@@ -10,6 +10,7 @@ licence: "CC0 1.0"
 licence_url: "https://creativecommons.org/publicdomain/zero/1.0/"
 source: "https://github.com/Stimpunks/Why-Sheets/blob/main/Sensory%20Access%20at%20Work.md"
 pdf: "https://whysheet.press/pdf/sensory-access-at-work.pdf"
+companion_prompt: "https://whysheet.press/prompts/sensory-access-at-work.txt"
 ---
 
 # Sensory Access at Work

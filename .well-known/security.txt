@@ -1,5 +1,5 @@
 Contact: mailto:stimpunks@stimpunks.org
-Expires: 2027-09-19T17:06:34Z
+Expires: 2027-09-19T17:16:44Z
 Preferred-Languages: en
 Canonical: https://whysheet.press/.well-known/security.txt
 Policy: https://whysheet.press/privacy/

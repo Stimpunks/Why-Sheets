@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-09-19 — Prompts for work and clinic
+
+**Every sheet that has somewhere to write now has a companion prompt** — twelve of sixteen, up
+from ten. The four without one argue a position with no decision-maker at the other end.
+
+**Sensory Access at Work** builds an accommodation request from the sheet's own menu of
+forty-five adjustments across eight senses. It asks what you want to disclose before it writes
+anything, and defaults to naming nothing: an adjustment can be asked for without naming a
+diagnosis, and naming one puts it in a file you do not control.
+
+**Neuromodulation & Autism** prepares the appointment rather than writing a letter. Six questions
+to ask out loud, shaped to your situation, each with a line on what a good answer and a
+non-answer sound like. Its first rule is that it must not give medical advice — the questions are
+what make a decision informed, and the decision stays yours.
+
 ## 2026-09-19 — Asks sections, published
 
 **All ten school sheets now say what to ask for.** Five gained a "What to Ask For in the Room"

@@ -188,11 +188,214 @@ function wrap(s, indent = 0) {
   return lines.join('\n' + pad);
 }
 
-const TEMPLATES = { school: schoolPrompt };
+/* ── the workplace venue ─────────────────────────────────────────────────── */
+
+/* BUILT FROM THE SHEET'S MENU, NOT FROM AN ASKS SECTION. Sensory Access at Work
+ * is a reference, not an argument: eight senses, each with its own list of
+ * concrete adjustments, and the sheet's own instruction is "pick the entries
+ * that fit you; you do not need every item." There is no single asks list to
+ * extract because the whole sheet is one. The interview does the picking.
+ *
+ * TWO RULES THIS VENUE NEEDS AND THE SCHOOL ONE DOES NOT.
+ *
+ * Disclosure is the worker's choice, and the prompt must not quietly make it
+ * for them. A letter that says "as an Autistic employee" outs somebody to their
+ * employer, permanently, in writing, in a file they do not control — and an
+ * adjustment can be requested without naming a diagnosis at all. So the
+ * interview asks, the default is not to name it, and the model is told that an
+ * accommodation is about the work, not about the worker's neurology.
+ *
+ * And it must not promise a legal entitlement. "They have to do this" is a
+ * claim about a jurisdiction the model does not know, made to somebody whose
+ * job may depend on it being true. */
+function workPrompt(sheet, doc) {
+  const url = `https://${HOST}/sheets/${sheet.slug}/`;
+  return `You are helping somebody ask their employer for the access they need at work.
+Work through the steps in order. Do not skip the questions.
+
+${rule('RULES YOU MUST NOT BREAK')}
+1. DISCLOSURE IS THEIRS TO CHOOSE, AND THE DEFAULT IS NOT TO. An adjustment can
+   be asked for without naming a diagnosis, and naming one puts it in writing in
+   a file the worker does not control, permanently. Ask them what they want to
+   say. If they are unsure, write the letter without naming anything and tell
+   them you have done that.
+
+2. DO NOT STATE WHAT THE LAW REQUIRES. Not the ADA, not the Equality Act, not
+   any of it, unless the worker has told you their country and is quoting text
+   they gave you. A letter that overstates an entitlement can be answered in one
+   line, and this one may be the thing their job depends on.
+
+3. ASK FOR ADJUSTMENTS FROM THE LIST BELOW. Do not invent access needs, and do
+   not add medical, diagnostic, or therapeutic claims of any kind.
+
+4. ASK FOR THREE OR FOUR THINGS, NOT FORTY-FIVE. The list below is a menu to
+   choose from, not a set of demands. A short list of specific, cheap changes is
+   answered; a long one is filed.
+
+${rule('STEP 1 — ASK THESE QUESTIONS, THEN WAIT')}
+Ask them all at once, numbered, and wait. Tell them they may skip any.
+
+  1. What is hardest about the space or the working day right now? Describe it
+     however you like — it does not have to sound clinical.
+  2. What happens as a result? What does the end of a day cost you?
+  3. Have you already found anything that helps, even partly?
+  4. Who are you writing to — your manager, HR, occupational health, or someone
+     else?
+  5. Have you raised any of this before, and what happened?
+  6. Do you want to name a diagnosis, describe the need without naming anything,
+     or say as little as possible? There is no wrong answer and the letter works
+     either way.
+  7. Is there anything you do NOT want written down?
+  8. Do you want a warm letter that opens a conversation, or a firm one that
+     creates a record?
+
+${rule('STEP 2 — WRITE THE REQUEST')}
+Length: 200-300 words.
+
+Shape:
+  - One sentence saying what you are asking for.
+  - What the current setup does to your working day, in their own words.
+  - Three or four specific adjustments, as a short list. Name the thing, not the
+    category: "a desk away from the main walkway" beats "environmental changes".
+  - A line noting which are free or near-free, if that is true of them.
+  - An offer to try something for a fixed period and review it.
+
+Voice:
+  - Plain and matter-of-fact. This is a request about the work, not a confession.
+  - Identity-first language if they choose to name it: "Autistic", capitalised.
+  - Never apologise for needing the adjustment, and do not thank them twice.
+  - No "I suffer from", no "despite my condition", no framing the worker as a
+    problem being managed.
+  - Access is created, not granted. Write as though that is obvious.
+
+${rule('STEP 3 — AFTER THE LETTER')}
+  - One line on what to do if there is no reply.
+  - A note that they can attach or link the ${sheet.title} Why Sheet: ${url}
+  - Say plainly which parts of the letter, if any, disclose something about them.
+
+${rule('THE ADJUSTMENTS — CHOOSE FROM THESE')}
+${doc.menu
+    .map((g) => `${g.heading}\n` + g.items.map((i) => '  - ' + wrap(i, 4)).join('\n'))
+    .join('\n\n')}
+
+${'═'.repeat(79)}
+
+Source: ${sheet.title} Why Sheet — ${url}${sheet.published ? `\nAlso published at ${sheet.published}` : ''}
+This prompt is CC0.
+`;
+}
+
+/* ── the clinical venue ──────────────────────────────────────────────────── */
+
+/* THIS ONE PREPARES A CONVERSATION, IT DOES NOT WRITE A LETTER. Somebody
+ * offered a treatment is usually in a room with the person offering it, not
+ * posting them something. The sheet's own asks are already phrased as questions
+ * to put to a provider, so the artefact is the list, tailored — plus a short
+ * message only if they want one.
+ *
+ * THE HARD CONSTRAINT IS MEDICAL. This sheet argues against neuromodulation for
+ * Autistic people, and it argues well. A prompt that turns that into "tell them
+ * no" would be an AI assistant giving a stranger medical instructions about a
+ * treatment it cannot see, for a person it knows nothing about, possibly a
+ * child, possibly with a co-occurring condition the treatment genuinely
+ * targets — which is the distinction the sheet's own first question draws. So
+ * the model equips them to ask, and is told in the first rule not to advise.
+ * Refusing a treatment is a decision for the person and their clinicians; the
+ * questions are what make it an informed one. */
+function clinicalPrompt(sheet, doc) {
+  const url = `https://${HOST}/sheets/${sheet.slug}/`;
+  return `You are helping somebody prepare for an appointment where a treatment is being
+offered. Work through the steps in order. Do not skip the questions.
+
+${rule('RULES YOU MUST NOT BREAK')}
+1. DO NOT GIVE MEDICAL ADVICE. Do not tell anyone to accept, refuse, start, or
+   stop a treatment. You cannot see this person, this provider, or this
+   situation. Your job is to help them ask good questions and understand the
+   answers — the decision is theirs and their clinicians'.
+
+2. USE ONLY THE QUOTATIONS PROVIDED BELOW, and add no study, statistic, or claim
+   about evidence that is not in this prompt. A confident wrong claim about what
+   research shows, made to somebody about to make a medical decision, is the
+   worst thing this prompt could produce.
+
+3. KEEP THE TWO THINGS APART. A treatment aimed at reducing distress the person
+   experiences is a different proposition from one aimed at making them appear
+   less Autistic. The sheet's first question exists to separate them. Do not let
+   them blur.
+
+4. IF THEY ARE ASKING ON SOMEONE ELSE'S BEHALF — a child, an adult they
+   support — ask early what that person themselves has been told and wants.
+
+${rule('STEP 1 — ASK THESE QUESTIONS, THEN WAIT')}
+Ask them all at once, numbered, and wait. Tell them they may skip any.
+
+  1. Who is the treatment for — you, or someone you support? If someone else,
+     how old are they and what have they been told?
+  2. What exactly is being offered, and by whom?
+  3. What reason were you given for offering it? Write down what was actually
+     said, as close to word for word as you can manage.
+  4. What is it meant to change?
+  5. Has anyone asked the person it is for what THEY want to change?
+  6. What have you already been told about evidence, risks, or alternatives?
+  7. Is there a decision deadline, and who set it?
+  8. What are you most unsure about?
+
+${rule('STEP 2 — WRITE THE QUESTIONS')}
+Give them a short numbered list — six to eight — to take into the appointment.
+Base them on the QUESTIONS section below and shape them to what they told you.
+Keep each one short enough to ask out loud.
+
+For each, add one line in plain words on what a good answer sounds like and what
+a non-answer sounds like, so they can tell the difference in the room.
+
+Then, if they want one, a short message to the provider asking for the same
+things in writing before the appointment.
+
+Voice:
+  - Plain, direct, not combative. These are reasonable questions and should read
+    as though asking them is normal, because it is.
+  - Identity-first language: "Autistic person", capitalised.
+  - Do not describe the person as suffering from, or afflicted by, their
+    neurology.
+  - Never imply the reader is foolish for considering the treatment, or for
+    declining it.
+
+${rule('STEP 3 — AFTER')}
+  - Note that they can ask for answers in writing, and that a provider who will
+    not put something in writing has told them something.
+  - A note that they can attach or link the ${sheet.title} Why Sheet: ${url}
+  - Remind them, once and without drama, that you are not a clinician and this
+    is preparation rather than advice.
+
+${rule(doc.quotes.length ? 'THE EVIDENCE — THESE QUOTATIONS AND NO OTHERS' : 'THE EVIDENCE')}${
+    doc.quotes.length
+      ? '\n' + doc.quotes.map((q) => `"${wrap(q.text)}"\n  — ${wrap(q.source, 2)}`).join('\n\n')
+      : '\nThis sheet carries no quotations. Make no claim about evidence at all.'
+  }
+
+${rule('QUESTIONS — CHOOSE AND SHAPE THESE')}
+${doc.asks.bullets.map((b) => '  - ' + wrap(b, 4)).join('\n')}
+
+${'═'.repeat(79)}
+
+Source: ${sheet.title} Why Sheet — ${url}${sheet.published ? `\nAlso published at ${sheet.published}` : ''}
+This prompt is CC0. Quoted material remains the property of its authors.
+`;
+}
+
+/* Each venue declares what it is built from, because they are not all built the
+   same way: school and clinical need an asks section, work needs the sheet's
+   menu of adjustments. A template that needed neither would still declare it,
+   so the skip reporting below can say WHICH thing is missing. */
+const TEMPLATES = {
+  school: { render: schoolPrompt, needs: 'asks' },
+  work: { render: workPrompt, needs: 'menu' },
+  clinical: { render: clinicalPrompt, needs: 'asks' },
+};
 
 const built = [];
 const stale = [];
-const skipped = { noAsks: [], noTemplate: [], noVenue: 0 };
+const skipped = { noAsks: [], noMenu: [], noTemplate: [], noVenue: 0 };
 
 for (const sheet of manifest.sheets) {
   if (!sheet.letter) {
@@ -205,11 +408,18 @@ for (const sheet of manifest.sheets) {
     continue;
   }
   const doc = parse(fs.readFileSync(path.join(ROOT, sheet.file), 'utf8'), sheet.slug);
-  if (!doc.asks) {
+  /* Ask the template what it is built from and check for THAT, so a skip says
+     which thing is missing rather than "no asks" on a sheet that was never
+     going to have any. */
+  if (tpl.needs === 'asks' && !doc.asks) {
     skipped.noAsks.push(sheet.slug);
     continue;
   }
-  const text = tpl(sheet, doc);
+  if (tpl.needs === 'menu' && !doc.menu.length) {
+    skipped.noMenu.push(sheet.slug);
+    continue;
+  }
+  const text = tpl.render(sheet, doc);
   if (/ /.test(text)) throw new Error(`${sheet.slug}: non-breaking space in prompt`);
   const out = path.join(ROOT, 'prompts', sheet.slug + '.txt');
   if (checkOnly) {
@@ -230,6 +440,11 @@ if (skipped.noAsks.length)
   console.log(
     `  skipped ${skipped.noAsks.length} with no asks section — write one into the sheet:\n` +
       skipped.noAsks.map((s) => '      ' + s).join('\n')
+  );
+if (skipped.noMenu.length)
+  console.log(
+    `  skipped ${skipped.noMenu.length} with no \u0023\u0023\u0023 sections to build a menu from:\n` +
+      skipped.noMenu.map((s) => '      ' + s).join('\n')
   );
 if (skipped.noTemplate.length)
   console.log(

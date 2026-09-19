@@ -10,6 +10,7 @@ licence: "CC0 1.0"
 licence_url: "https://creativecommons.org/publicdomain/zero/1.0/"
 source: "https://github.com/Stimpunks/Why-Sheets/blob/main/Neuromodulation%20%26%20Autism.md"
 pdf: "https://whysheet.press/pdf/neuromodulation.pdf"
+companion_prompt: "https://whysheet.press/prompts/neuromodulation.txt"
 ---
 
 # Neuromodulation & Autism

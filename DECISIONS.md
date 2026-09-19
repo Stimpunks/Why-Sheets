@@ -55,6 +55,32 @@ Excluding list items caught 1 of the 5 sheets that were genuinely behind. Includ
 mirror as it stood before those five were published**, which is the only test that means
 anything: a gate nobody has watched fire is a gate nobody knows works.
 
+### A venue template declares what it is built from — 2026-09-19
+
+The school template reads a sheet's asks section. The workplace one cannot: Sensory Access at
+Work is a reference, not an argument — eight senses, each with its own list of concrete
+adjustments, and the sheet's own instruction is *"pick the entries that fit you; you do not need
+every item."* There is no single asks list to extract because the whole sheet is one, and asking
+that sheet for a "What to Ask For in the Room" section would have meant writing one that
+duplicates eight of its sections badly.
+
+So a template declares `needs: 'asks' | 'menu'`, and the skip report names which thing is
+missing rather than reporting "no asks" on a sheet that was never going to have any.
+
+**Each venue also carries a rule the others do not, and those rules are the point of having
+separate templates at all.** Workplace: disclosure is the worker's choice and the default is not
+to name a diagnosis — a letter that says "as an Autistic employee" outs somebody permanently, in
+writing, in a file they do not control, and an adjustment can be asked for without it. Clinical:
+**do not give medical advice.** That sheet argues against neuromodulation and argues well, but a
+prompt turning that into "tell them no" would have an assistant instructing a stranger about a
+treatment it cannot see, for a person it knows nothing about, possibly a child, possibly with a
+co-occurring condition the treatment genuinely targets — which is the distinction the sheet's own
+first question draws. The model equips them to ask; the decision stays theirs.
+
+The clinical prompt also produces a different artefact. Somebody offered a treatment is usually
+in the room with the person offering it, so it prepares questions to ask out loud, with a line on
+what a good answer and a non-answer sound like, rather than a letter to post.
+
 ### Companion prompts are generated, gated twice, and carry their own evidence — 2026-09-19
 
 When we hand someone a Why Sheet, the next thing they need is a letter, and we have been
