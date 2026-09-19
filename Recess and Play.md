@@ -168,7 +168,7 @@ Walking the perimeter alone is recess. Lining things up is recess. [Stimming](ht
 
 - **Ask for it in writing that recess is never withheld.** Not "rarely", not "only when necessary". A policy with an exception is a policy that will be used.
 - **Ask what the removal is meant to achieve**, and how anyone would know whether it worked. Withheld recess is usually measured by whether the adult felt it was fair, not by whether the child's afternoon improved.
-- **Ask for unfinished work to be handled another way.** Work not finished is information about the task, the support, or the [pace](https://whysheet.press/sheets/developmental-pace/) — not a debt to be paid in break time.
+- **Ask for unfinished work to be handled another way.** Work not finished is information about the task, the support, or the [pace](https://stimpunks.org/why/developmental-pace/) — not a debt to be paid in break time.
 - **Ask what happens instead when a child is dysregulated.** If the answer involves sitting still somewhere quiet under supervision, that is the same intervention with a kinder name.
 - **Ask for the numbers.** How many minutes, for which children, how often withheld, broken down. The disparity does not show up until somebody counts.
 - **Ask that Neurodivergent play be counted as play** — including solitary, repetitive, or parallel play, and including a child who stays at the edge.
@@ -202,7 +202,7 @@ Recess is not what a child earns for being easy. It is part of what makes a chil
 - [White kids usually get the most recess in Seattle. Black kids, the least](https://www.kuow.org/stories/white-students-tend-to-get-the-most-recess-in-seattle-black-students-the-least) — KUOW
 - [Recess in Seattle: How We Won the Right to Play](https://progressive.org/public-schools-advocate/recess-seattle-won-right-play/) — Jesse Hagopian
 - [Behaviorism](https://stimpunks.org/why/behaviorism/) — why a model that watches only compliance cannot see a child who needs to move
-- [Developmental Pace](https://whysheet.press/sheets/developmental-pace/) — on unfinished work as information rather than debt
+- [Developmental Pace](https://stimpunks.org/why/developmental-pace/) — on unfinished work as information rather than debt
 
 ----
 
