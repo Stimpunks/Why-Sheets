@@ -85,8 +85,18 @@ for (const slug of wanted) {
 
   /* A block reaching out to another origin would need a CSP hole to render, and
      would leak a request to whoever is reading a sheet about their own child.
-     Find them here rather than discovering them in a console. */
-  const hits = [...content.matchAll(/(?:src|href)\s*=\s*["'](https?:\/\/[^"']+)/g)].map((m) => m[1]);
+     Find them here rather than discovering them in a console.
+     CSS COUNTS, AND THAT IS HOW THIS WAS MISSED. The first version matched only
+     `src=` and `href=` attributes, so it passed all nine blocks clean while
+     every one of them opened its stylesheet with
+     `@import url('https://fonts.googleapis.com/…')`. It took a production
+     deploy to find, because the local preview sends no CSP. Both `@import` and
+     any `url()` inside the stylesheet are checked now. */
+  const hits = [
+    ...[...content.matchAll(/(?:src|href)\s*=\s*["'](https?:\/\/[^"']+)/g)].map((m) => m[1]),
+    ...[...content.matchAll(/@import\s+url\(\s*["']?(https?:\/\/[^"')]+)/g)].map((m) => m[1]),
+    ...[...content.matchAll(/url\(\s*["']?(https?:\/\/[^"')]+)/g)].map((m) => m[1]),
+  ];
   const fetched = hits.filter((u) => !/^https?:\/\/(www\.)?(stimpunks\.org|creativecommons\.org)/.test(u));
   if (fetched.length) externals.set(slug, fetched);
 
@@ -150,7 +160,10 @@ console.log(
 
 if (externals.size) {
   console.log();
-  console.log('  EXTERNAL REQUESTS in mirrored blocks — these need a CSP decision:');
+  console.log('  EXTERNAL REQUESTS in the mirrored blocks. This is a REPORT, not a failure:');
+  console.log('  the blocks legitimately carry these for their WordPress home, and the press');
+  console.log('  strips them at build time (tools/lib/broadside.mjs) and serves local copies.');
+  console.log('  A NEW origin appearing here does need a decision — nothing strips it yet.');
   for (const [slug, urls] of externals) {
     console.log('    ' + slug);
     for (const u of [...new Set(urls)]) console.log('      ' + u);

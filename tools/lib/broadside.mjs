@@ -63,6 +63,36 @@ function removeElement(html, className) {
   }
 }
 
+
+/* Local @font-face for the two families the blocks use.
+ *
+ * WHY THIS EXISTS. Every one of the nine blocks opens its stylesheet with
+ *   @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next…&family=Space+Mono…')
+ * which is right for a WordPress page and wrong twice over here.
+ *
+ * On the SITE it is a third-party request from a page somebody is reading about
+ * their own child, and `style-src 'self'` blocks it — correctly, but the
+ * consequence is that Space Mono never arrives and every small-caps label on a
+ * broadside falls back. Found on the live deploy; the local preview sends no CSP
+ * and so could not have found it.
+ *
+ * In the PDF BUILD it is worse and quieter: print.html carries the same import,
+ * headless Chrome has no CSP, and so the nine broadside PDFs were laid out with
+ * fonts fetched from Google at build time. A slow or failed fetch would have
+ * produced sheets in fallback metrics — which is not a cosmetic difference on a
+ * fixed-height sheet, it is where the page breaks fall. The build was not
+ * hermetic and nothing said so.
+ *
+ * Both families are OFL and both are already in the estate: Atkinson from
+ * Penguin Pebbling, Space Mono from Star Stuff. See ATTRIBUTIONS.md. */
+const FONT_FACES = `
+@font-face{font-family:'Atkinson Hyperlegible Next';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/atkinson-hyperlegible-next-roman-latin.woff2) format('woff2')}
+@font-face{font-family:'Atkinson Hyperlegible Next';font-style:italic;font-weight:200 800;font-display:swap;src:url(/fonts/atkinson-hyperlegible-next-italic-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/spacemono-normal-400-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/spacemono-normal-700-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/spacemono-italic-400-latin.woff2) format('woff2')}
+`;
+
 /**
  * @param {string} html   a *.block.html file
  * @param {string} slug
@@ -123,7 +153,9 @@ export function splitBlock(html, slug) {
   markup = markup.replace(/ data-hoisted="([^"]+)"/g, (_, cls) => ' class="' + cls + '"')
     .replace(/class="([^"]*)" class="(sb-inline-[^"]+)"/g, 'class="$1 $2"');
 
-  const css = cssRaw.trim() + (hoisted.length ? '\n\n/* hoisted from inline style attributes */\n' + hoisted.join('\n') : '');
+  /* The Google Fonts import comes out and the local faces go in its place. */
+  const deImported = cssRaw.replace(/@import\s+url\([^)]*\)\s*;?/g, '').trim();
+  const css = FONT_FACES + deImported + (hoisted.length ? '\n\n/* hoisted from inline style attributes */\n' + hoisted.join('\n') : '');
   const sides = (markup.match(/class="sb-sheet /g) || []).length;
 
   return { css, printCss, markup, sides, styleId };

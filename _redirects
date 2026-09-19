@@ -19,4 +19,9 @@
 # Content-Security-Policy blocks. A reader who found one would get it unstyled and
 # inert. They stay in the repository — readable on GitHub, which is where source
 # belongs — and anyone who asks for one here gets the broadside itself.
-/broadsides/source/*   /broadsides/   301
+#
+# The `!` is load-bearing. Netlify serves an existing static file BEFORE applying
+# a redirect, so without it this rule never fires — verified on the live deploy,
+# where /broadsides/source/eye-contact.block.html returned 200 and the raw
+# fragment. The shadowing form forces the redirect even though the file is there.
+/broadsides/source/*   /broadsides/   301!
