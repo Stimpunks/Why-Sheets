@@ -119,6 +119,15 @@ For details, visit this extensively sourced [behaviorism glossary page](https://
 
 For alternatives to ABA and behaviorism, visit the “[Alternatives to ABA Why Sheet](https://stimpunks.org/why/alternatives-to-aba/)”.
 
+## What to Ask For in the Room
+
+- **Ask what the plan measures, and what it cannot see.** Behaviorism records the surface. It has no way to tell distress that stopped from distress that learned to go quiet, and it will score both as progress.
+- **Ask what happens to the cause.** If a plan changes what a child does without asking why they were doing it, the reason is still there. It surfaces later, somewhere nobody is watching, and gets recorded as a new behaviour.
+- **Ask for evidence about outcomes, not about compliance.** Compliance is the easiest thing in the room to measure and the last thing anyone actually wants. Ask what this produces years later, and who asked.
+- **Ask what the plan does with stimming.** If self-regulation appears on a list of behaviours to reduce, the plan is removing a coping mechanism — and will then measure the distress that follows.
+- **Ask who consented, and whether the child may withdraw.** A programme a child cannot refuse is not something they are participating in. [Autonomy](https://stimpunks.org/glossary/autonomy/) is not a reward for good behaviour.
+- **Ask what Autistic adults say about this intervention.** They are the people who received it and grew up. Their account is evidence, and it is the evidence most often left out of the room.
+
 ## References
 
 - [Behaviorism: Definition, History, Concepts, and Impact](https://www.verywellmind.com/behavioral-psychology-4157183)

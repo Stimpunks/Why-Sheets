@@ -30,6 +30,17 @@
 > 
 > [Ann’s Autism Blog: Autism, School, Exclusion. What’s fair?](https://annsautism.blogspot.com/2018/08/autism-school-exclusion-whats-fair.html)
 
+## What to Ask For in the Room
+
+This sheet is already the request. These are the things to ask for alongside it, so the answer holds.
+
+- **Ask for it in writing, in the plan.** A verbal agreement with one teacher lasts until that teacher is away, and then it is the child's job to re-argue it at the door.
+- **Ask that it not be revisited each term.** A sensory need is not a trial period. Re-opening it every September means a child spends every September braced for it.
+- **Ask that it apply everywhere the uniform does** — assembly, trips, photographs, exams. An adjustment with exceptions is an adjustment that fails on the days that are hardest anyway.
+- **Ask that no condition be attached.** Not "as long as behaviour is good", not "as long as grades hold". An access need is not a reward, and making it one guarantees it is withdrawn on the day it is needed most.
+- **Ask what else in the uniform is doing this.** The blazer is rarely the only item. Collars, ties, waistbands, and shoes are the usual rest of the list, and asking once is cheaper than asking four times.
+- **Ask who else needs this and has not asked.** A policy that only bends for the children whose parents can write this letter is a policy that sorts by parent, not by need.
+
 ## Signatories
 
 The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/). Want to join them? [Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)

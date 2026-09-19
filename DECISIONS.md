@@ -53,9 +53,17 @@ are sixteen artifacts that go stale the first time a sheet is edited, with nothi
 null where there is nobody to write to; only venues with a template here are built, and the rest
 are reported every run. And a sheet with no asks section is skipped, not generated without asks —
 without them the model invents the demands, which is the citation failure one level up, and a
-parent asking a school for the wrong thing is a real cost. Ten sheets name a school venue; four
-have asks today. The other six want a "What to Ask For in the Room" section written into them,
-which they should have for their own sake.
+parent asking a school for the wrong thing is a real cost.
+
+**All ten school sheets have asks now, and one of the six was never missing.** Five gained a
+"What to Ask For in the Room" section, which they wanted for their own sake — a sheet that makes
+an argument and then leaves the reader to work out what to say in the room is doing half its job.
+The sixth, Monotropism, already had "Questions To Ask In The Room", written as a bold label above
+the question it stands for rather than as a bullet list. The extractor read only bullets, found
+none, and reported the sheet as having no asks — which would have led to writing a new section
+over better prose that was already there. **A gate reporting "missing" when it means "shaped
+differently" points at the wrong repair**, and the wrong repair here was destructive. The
+extractor reads both shapes now.
 
 ### The repository is the source of truth, and `sheets.json` is what makes that enforceable — 2026-09-19
 

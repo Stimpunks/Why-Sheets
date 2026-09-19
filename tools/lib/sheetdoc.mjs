@@ -113,12 +113,39 @@ export function quotes(src, label) {
  * gate below. A heading pattern that is "probably asks" is how a sheet's wrong
  * section ends up in a parent's letter.
  */
-const ASK_HEADING = /^(what to ask for|what to do instead)/i;
+const ASK_HEADING = /^(what to ask for|what to do instead|questions to ask)/i;
 const ASK_MAX = 15;
 
 export function asks(src) {
   for (const sec of sections(src)) {
     if (!sec.heading || !ASK_HEADING.test(sec.heading)) continue;
+    /* TWO SHAPES, BOTH REAL, AND THE SECOND WAS NEARLY REWRITTEN BY MISTAKE.
+       Most sheets state asks as a bullet list. Monotropism states them as a bold
+       label followed by the question it stands for:
+
+         **Warning**
+
+         What notice does this young person get before a change?
+
+       That is a genuine asks section and a good one. Reading only bullets found
+       zero in it, which read as "this sheet has no asks" — and the remedy that
+       suggests is writing a new section over prose that was already there and
+       already better. Check for the label shape before concluding a section is
+       empty. */
+    const labelled = [];
+    let pendingLabel = null;
+    for (const ln of sec.lines) {
+      const t = ln.trim();
+      if (!t) continue;
+      const lab = /^\*\*(.+?)\*\*$/.exec(t);
+      if (lab) {
+        pendingLabel = plain(lab[1]);
+      } else if (pendingLabel && !t.startsWith('-') && !t.startsWith('#')) {
+        labelled.push(pendingLabel + ' — ' + plain(t));
+        pendingLabel = null;
+      }
+    }
+
     /* ONLY THE FIRST CONTIGUOUS BULLET RUN. A section can hold more than one list.
        Eye Contact's "What to Do Instead" states the asks, then a second list of
        engagement signals to watch for instead ("responding to questions",
@@ -135,6 +162,7 @@ export function asks(src) {
         started = true;
       } else if (started && t) break;
     }
+    if (!bullets.length && labelled.length) return { heading: sec.heading, bullets: labelled };
     if (!bullets.length) continue;
     if (bullets.length > ASK_MAX) {
       throw new Error(

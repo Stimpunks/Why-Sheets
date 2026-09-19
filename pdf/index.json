@@ -3,9 +3,9 @@
   "page": "190x259mm, the intersection of A4 and US Letter",
   "entries": {
     "hoodie": {
-      "hash": "29ed541a36503e52",
-      "pages": 4,
-      "bytes": 228771,
+      "hash": "7ffbde2f45d032b1",
+      "pages": 5,
+      "bytes": 255798,
       "title": "Hoodie",
       "kind": "sheet"
     },
@@ -17,23 +17,23 @@
       "kind": "broadside"
     },
     "behaviorism": {
-      "hash": "0aeac3fa36497856",
-      "pages": 11,
-      "bytes": 494442,
+      "hash": "d52527ea27eca558",
+      "pages": 12,
+      "bytes": 520221,
       "title": "Behaviorism",
       "kind": "sheet"
     },
     "alternatives-to-aba": {
-      "hash": "3465f75a5754d646",
-      "pages": 18,
-      "bytes": 607018,
+      "hash": "4dd3d21402f5e1cc",
+      "pages": 19,
+      "bytes": 618920,
       "title": "Alternatives to ABA",
       "kind": "sheet"
     },
     "aba-tactics": {
-      "hash": "0b44c06e365118a5",
+      "hash": "aa7287d371c873d1",
       "pages": 8,
-      "bytes": 429880,
+      "bytes": 440683,
       "title": "ABA Tactics",
       "kind": "sheet"
     },
@@ -52,16 +52,16 @@
       "kind": "sheet"
     },
     "monotropism": {
-      "hash": "943a9bff1fdad0e0",
+      "hash": "9600d5ce2fef8cd5",
       "pages": 10,
       "bytes": 405590,
       "title": "Monotropism",
       "kind": "sheet"
     },
     "positive-greetings-at-the-door": {
-      "hash": "7adc511531d7922a",
+      "hash": "5ed95d967e26480b",
       "pages": 4,
-      "bytes": 227719,
+      "bytes": 256515,
       "title": "Positive Greetings at the Door",
       "kind": "sheet"
     },

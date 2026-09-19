@@ -33,6 +33,15 @@ Also allow no response at all. Compliance is not the goal, a good start to the d
 
 [Trust](https://stimpunks.org/glossary/trust/) and [authenticity](https://stimpunks.org/glossary/very-grand-emotions/) are important to many autistic people. We’re [wired for it](https://stimpunks.org/glossary/canary/). Forcing us to perform neuronormativity and [toxic positivity](https://stimpunks.org/glossary/toxic-positivity/)destroys trust and authenticity. Such coercion is [gaslighting](https://medium.com/@sheaemmafett/10-things-i-wish-i-d-known-about-gaslighting-22234cb5e407), as it is an attempt to “[overwrite another person’s reality](https://medium.com/@sheaemmafett/10-things-i-wish-i-d-known-about-gaslighting-22234cb5e407)“. Such coercion contributes to [school-induced anxiety](https://stimpunks.org/glossary/school-induced-anxiety/).
 
+## What to Ask For in the Room
+
+- **Ask that no greeting be required.** Any greeting, including none, and nothing recorded either way. That single sentence is the whole ask, and everything below is what to do if the answer is no.
+- **Ask for the accepted modalities in writing** — spoken, nod, thumbs up, fist bump, sign of the horns, or walking straight past. A list that lives in one teacher's memory ends when that teacher is away.
+- **Ask that the greeting never be scored.** The moment it feeds a behaviour system it stops being a welcome and becomes a checkpoint, and a child who cannot pass it starts the day already behind.
+- **Ask what happens on a day a child cannot speak.** [Situational mutism](https://stimpunks.org/glossary/situational-mutism/) is not refusal, and a policy that cannot tell them apart will punish the first as the second.
+- **Ask whether there is another way in.** Arriving early, using a different door, or coming in without crossing a threshold ritual at all.
+- **Ask what problem the policy is solving**, and whether that problem exists in this classroom. PGD arrived as a [behaviourist](https://stimpunks.org/why/behaviorism/) fix for a behaviourist question. It may be answering one nobody here has.
+
 ## Signatories
 
 The following individuals, organizations, and communities endorse this [Why Sheet](https://stimpunks.org/why/). Want to join them? [Add your signature.](https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/)

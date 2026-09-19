@@ -119,6 +119,15 @@ There are worked-out alternatives to reach for instead of a behaviour plan. NDCo
 
 ---- 
 
+## What to Ask For in the Room
+
+- **Ask for the plan in plain words.** "Planned ignoring" is adults ignoring a distressed child. "Response blocking" is holding a child's hands. Ask what each technical term looks like from the child's side of the room.
+- **Ask what happens when the child escalates.** Extinction works by outlasting distress that gets worse before it stops. Ask whether that is what is being described — and whether anyone intended to tell you.
+- **Ask what is on the target list.** If [stimming](https://stimpunks.org/glossary/stimming/), [eye contact](https://stimpunks.org/why/eye-contact/), or scripting appear as behaviours to reduce, the plan is targeting regulation and communication.
+- **Ask to see the raw data, not the summary.** Ask who records it, what they are counting, and what a bad week looks like in the numbers.
+- **Ask for a stop condition.** Every plan should name the result that would end it. A plan with no such condition cannot fail — it can only continue, and be extended.
+- **Ask that the alternative be tried first.** If the environment has not been changed yet, the child has not yet been given the thing most likely to work.
+
 ## References & further reading
 
 - Chris McNutt / Human Restoration Project — [More Human Than a Ladder or Pyramid](https://www.humanrestorationproject.org/writing/more-human-than-a-ladder-or-pyramid-psychology-behaviorism-and-better-schools) and [Empty Pedagogy](https://www.humanrestorationproject.org/writing/empty-pedagogy-behaviorism-and-the-rejection-of-equity)

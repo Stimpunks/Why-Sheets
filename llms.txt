@@ -49,9 +49,15 @@ quotations verbatim with attribution and instructs the assistant to add no sourc
 given — because an invented or misattributed citation hands a school a reason to dismiss the
 letter. Nothing is sent to us. CC0, like the sheets.
 
+- [ABA Tactics](https://whysheet.press/prompts/aba-tactics.txt): a school letter from the ABA Tactics Why Sheet
+- [Alternatives to ABA](https://whysheet.press/prompts/alternatives-to-aba.txt): a school letter from the Alternatives to ABA Why Sheet
+- [Behaviorism](https://whysheet.press/prompts/behaviorism.txt): a school letter from the Behaviorism Why Sheet
 - [Developmental Pace](https://whysheet.press/prompts/developmental-pace.txt): a school letter from the Developmental Pace Why Sheet
 - [Eye Contact](https://whysheet.press/prompts/eye-contact.txt): a school letter from the Eye Contact Why Sheet
+- [Hoodie](https://whysheet.press/prompts/hoodie.txt): a school letter from the Hoodie Why Sheet
 - [Masking and Burnout](https://whysheet.press/prompts/masking-and-burnout.txt): a school letter from the Masking and Burnout Why Sheet
+- [Monotropism](https://whysheet.press/prompts/monotropism.txt): a school letter from the Monotropism Why Sheet
+- [Positive Greetings at the Door](https://whysheet.press/prompts/positive-greetings-at-the-door.txt): a school letter from the Positive Greetings at the Door Why Sheet
 - [Recess and Play](https://whysheet.press/prompts/recess-and-play.txt): a school letter from the Recess and Play Why Sheet
 
 ## Optional

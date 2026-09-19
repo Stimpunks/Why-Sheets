@@ -301,6 +301,15 @@ Source: [SPACE-TIME: A Monotropism Informed Framework for Autistic People | Auti
 
 Source: [Holistic Support - Barriers to Education](https://barrierstoeducation.co.uk/warmth-framework/)
 
+## What to Ask For in the Room
+
+- **Ask for one study showing this beats the same hours spent with someone who simply knows the child.** That is the comparison that decides whether the hours are worth anything, and it is almost never the comparison offered.
+- **Ask what happens if you do nothing.** Fewer interventions is a real option with real reasoning behind it. It is rarely presented as one, because nobody is funded to present it.
+- **Ask what the hours cost.** Forty hours a week is a full-time job for a small child. Ask what is not happening during them — play, rest, friendship, being at home and unobserved.
+- **Ask what the goal is, in plain words.** If the goal is that the child appears less Autistic, ask for that to be said out loud, and then decide whether it is a goal you hold.
+- **Ask for the alternatives by name.** There are worked-out ones — NDConnect's [framework for neurodiversity-affirming interventions](https://ndconnection.co.uk/resources/p/a-framework-for-neurodiversity-affirming-interventions-for-autistic-individuals) and their [care and support toolkit](https://ndconnection.co.uk/resources/p/toolkit-nd-affirming-care-and-support) are built as direct replacements. "What would you do instead" has an answer.
+- **Ask whether the child's own account counts as data.** If the programme is working and the child says it is unbearable, ask which of those two facts the record keeps.
+
 ## Resources
 
 - [Neurodiversity Affirming Practice | Autism Barriers to Education](https://www.barrierstoeducation.co.uk/nd-affirming)
