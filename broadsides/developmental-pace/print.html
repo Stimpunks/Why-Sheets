@@ -101,7 +101,17 @@
 .sb-quote { margin-top: 5mm; padding-left: 4mm; border-left: 0.8mm solid var(--sb-spot); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 .sb-quote p { font-style: italic; font-weight: 500; font-size: 12pt; line-height: 1.34; color: var(--sb-ink); }
 .sb-quote cite { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.8pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); margin-top: 2.2mm; line-height: 1.7; }
-.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); }
+/* Side B ran 3.55mm past the 259mm sheet at the A4 content width (192mm at 9mm
+   margins). Nothing was lost: overflow is `visible`, so the spill went into the
+   page's own slack rather than being clipped, and A4 gives 279mm of room for a
+   259mm sheet. The visible effect was the footer sitting lower than designed and
+   the two sides not matching. Measured 2026-09-19 as the bottom of the deepest
+   child against the sheet box — NOT with scrollHeight, which under
+   `overflow: visible` reported 0.6mm for a 3.55mm overrun and is why this
+   shipped past check-sheets.mjs. Four millimetres come off two gaps on side B
+   only, leaving side A's rhythm alone. */
+.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); margin-top: 2mm; }
+.sb-sheet--b .sb-sources { margin-top: 2.5mm; }
 
 /* ── Reverse ── */
 .sb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 9mm; margin-top: 5mm; }
