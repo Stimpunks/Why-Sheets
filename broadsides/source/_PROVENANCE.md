@@ -5,10 +5,10 @@ These files are **mirrored, read-only**. Edit them at the source and re-run
 sync and never reaches the published page on stimpunks.org.
 
 - **Source repository:** Stimpunks Knowledge System (private), `broadsides/`
-- **Source commit:** `26869dff8ca0eab406c1bd434348cf8d5b82ea70`
-- **Source commit date:** 2026-09-19T12:11:05-05:00
+- **Source commit:** `2937de8d7ec6e7f50300ec05ca182d626ebb06de`
+- **Source commit date:** 2026-09-19T14:00:47-05:00
 - **Mirrored:** 2026-09-19
-- **Files:** 10
+- **Files:** 11
 
 ## Licence
 

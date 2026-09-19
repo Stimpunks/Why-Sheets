@@ -185,11 +185,18 @@
       "kind": "broadside"
     },
     "aac": {
-      "hash": "dfc82ce3a2a806a8",
-      "pages": 7,
-      "bytes": 330174,
+      "hash": "95cf4a3731f0dcd8",
+      "pages": 8,
+      "bytes": 332529,
       "title": "AAC Is Not a Last Resort",
       "kind": "sheet"
+    },
+    "broadside-aac": {
+      "hash": "63cd7aab37a93e26",
+      "pages": 2,
+      "bytes": 180049,
+      "title": "AAC Is Not a Last Resort",
+      "kind": "broadside"
     }
   }
 }

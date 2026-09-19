@@ -130,13 +130,19 @@ for (const s of manifest.sheets) {
   });
 }
 
-const broadsideDirs = fs
-  .readdirSync(path.join(REPO, 'broadsides'), { withFileTypes: true })
-  .filter((d) => d.isDirectory() && d.name !== 'source')
-  .map((d) => d.name);
+/* FROM THE MANIFEST, NOT FROM THE OUTPUT DIRECTORIES. Reading
+   broadsides/<slug>/ meant reading what build-site.mjs had already written —
+   and og runs BEFORE pages in ship.mjs, so a brand-new broadside got no card
+   until somebody ran the build a second time. The manifest is the source of
+   truth for what the press publishes; the directories are its output, and an
+   output cannot tell a generator what to generate. Caught by check-site's
+   og:image gate on the first broadside added after that gate existed. */
+const broadsideSlugs = manifest.broadsides.map((b) => b.slug);
 
-for (const slug of broadsideDirs) {
-  const parent = manifest.sheets.find((s) => s.broadside === slug);
+for (const slug of broadsideSlugs) {
+  const parent =
+    manifest.sheets.find((s) => s.broadside === slug) ||
+    manifest.sheets.find((s) => s.slug === (manifest.broadsides.find((b) => b.slug === slug) || {}).parent);
   jobs.push({
     slug: 'broadsides-' + slug,
     card: {

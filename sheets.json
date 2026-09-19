@@ -40,7 +40,7 @@
       "file": "AAC Is Not a Last Resort.md",
       "title": "AAC Is Not a Last Resort",
       "published": "https://stimpunks.org/why/aac/",
-      "broadside": null,
+      "broadside": "aac",
       "summary": "A robust communication system is a right, not a reward for proving you deserve one — and AAC does not delay speech, it supports it.",
       "moment": "When a school or clinic says a child needs to develop speech before they can have a communication system.",
       "topics": [
@@ -290,63 +290,58 @@
   "broadsides": [
     {
       "slug": "behaviorism",
-      "letter": "school",
       "title": "Behaviorism",
       "parent": "behaviorism"
     },
     {
       "slug": "boring-technology",
-      "letter": null,
       "title": "Boring Technology",
       "parent": "boring-technology"
     },
     {
       "slug": "cavendish-space",
-      "letter": null,
       "title": "Cavendish Space",
       "parent": "cavendish-space"
     },
     {
       "slug": "developmental-pace",
-      "letter": "school",
       "title": "Developmental Pace",
       "parent": "developmental-pace"
     },
     {
       "slug": "eye-contact",
-      "letter": "school",
       "title": "Eye Contact",
       "parent": "eye-contact"
     },
     {
       "slug": "masking-and-burnout",
-      "letter": "school",
       "title": "Masking and Burnout",
       "parent": "masking-and-burnout"
     },
     {
       "slug": "monotropism",
-      "letter": "school",
       "title": "Monotropism",
       "parent": "monotropism"
     },
     {
       "slug": "positive-greetings-at-the-door",
-      "letter": "school",
       "title": "Positive Greetings at the Door",
       "parent": "positive-greetings-at-the-door"
     },
     {
       "slug": "sensory-access-at-work",
-      "letter": "work",
       "title": "Sensory Access at Work",
       "parent": "sensory-access-at-work"
     },
     {
       "slug": "recess-and-play",
-      "letter": "school",
       "title": "Recess and Play",
       "parent": "recess-and-play"
+    },
+    {
+      "slug": "aac",
+      "parent": "aac",
+      "title": "AAC Is Not a Last Resort"
     }
   ]
 }

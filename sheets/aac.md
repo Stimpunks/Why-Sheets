@@ -5,7 +5,7 @@ published_at: "https://stimpunks.org/why/aac/"
 summary: "A robust communication system is a right, not a reward for proving you deserve one — and AAC does not delay speech, it supports it."
 reach_for_it: "When a school or clinic says a child needs to develop speech before they can have a communication system."
 topics: [school, communication, rights]
-updated: "2026-09-19T13:08:44-05:00"
+updated: "2026-09-19T13:26:17-05:00"
 licence: "CC0 1.0"
 licence_url: "https://creativecommons.org/publicdomain/zero/1.0/"
 source: "https://github.com/Stimpunks/Why-Sheets/blob/main/AAC%20Is%20Not%20a%20Last%20Resort.md"
