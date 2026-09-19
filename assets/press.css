@@ -227,6 +227,42 @@ img { max-width: 100%; height: auto; }
 }
 .skip-link:focus { top: 0; }
 
+/* ── forced colours ─────────────────────────────────────────────────────── */
+
+/* Windows High Contrast and its relatives replace the whole palette with the
+   user's own. That is their choice and this does not fight it — every rule here
+   uses a SYSTEM colour keyword, so it repairs shape rather than reimposing our
+   ink.
+   The thing that actually breaks is state carried by colour alone. A selected
+   filter chip and an unselected one are told apart here by a crimson fill; in
+   forced colours both fills collapse to the same system colour and the shelf
+   stops showing what it is filtered by. So the selected chip gains a border it
+   keeps in every palette. Same for the two button weights, which differ only in
+   fill, and for the boxes whose edges are a faint rule nobody's high-contrast
+   palette will preserve. */
+@media (forced-colors: active) {
+  .chip { border: 1px solid ButtonText; }
+  .chip[aria-pressed='true'] {
+    border-width: 3px;
+    outline: 1px solid ButtonText;
+    outline-offset: 1px;
+  }
+
+  .button,
+  .button--quiet { border: 2px solid ButtonText; }
+
+  :focus-visible { outline: 3px solid Highlight; outline-offset: 2px; }
+
+  .source-note,
+  .prompt-note,
+  .card { border: 1px solid CanvasText; }
+
+  /* The registration bar at the top of a card is a border, not a background,
+     so it survives — but only if it is not the sole thing distinguishing the
+     block. Nothing here depends on it alone. */
+  .skip-link:focus { outline: 3px solid Highlight; }
+}
+
 /* ── frame ──────────────────────────────────────────────────────────────── */
 
 .wrap {

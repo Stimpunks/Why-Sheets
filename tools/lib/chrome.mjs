@@ -173,6 +173,21 @@ export async function launch({ port = 9414 } = {}) {
       });
     },
 
+    /* Make the page's default background transparent instead of white.
+       Chrome paints an opaque white base layer under every page, so a
+       screenshot of a transparent document still comes back opaque — which
+       silently turns an icon's rounded corners into white square ones. Pass
+       null to restore the default. */
+    async setTransparentBackground(on = true) {
+      if (on) {
+        await S('Emulation.setDefaultBackgroundColorOverride', {
+          color: { r: 0, g: 0, b: 0, a: 0 },
+        });
+      } else {
+        await S('Emulation.setDefaultBackgroundColorOverride', {});
+      }
+    },
+
     /** @returns {Buffer} a PNG of the current viewport */
     async screenshot({ format = 'png', quality } = {}) {
       const res = await S('Page.captureScreenshot', {

@@ -293,6 +293,47 @@ for (const abs of pages) {
   }
 }
 
+/* --- the icon set and the manifest --- */
+/* A <link rel="icon"> pointing at nothing is invisible: the browser silently
+   falls back to /favicon.ico, and if that is missing too the tab just shows a
+   blank page and every crawler logs a 404 forever. Nothing about a missing icon
+   announces itself, which is why it is checked rather than noticed. */
+{
+  for (const f of [
+    'favicon.svg',
+    'favicon.ico',
+    'apple-touch-icon.png',
+    'icon-192.png',
+    'icon-512.png',
+    'icon-maskable-512.png',
+    'site.webmanifest',
+  ]) {
+    if (!fs.existsSync(path.join(REPO, f))) fail(f, 'missing — run tools/build-icons.mjs');
+  }
+
+  const mf = path.join(REPO, 'site.webmanifest');
+  if (fs.existsSync(mf)) {
+    let m = null;
+    try {
+      m = JSON.parse(fs.readFileSync(mf, 'utf8'));
+    } catch {
+      fail('site.webmanifest', 'does not parse as JSON');
+    }
+    if (m) {
+      /* Every icon the manifest names has to exist, or an install silently gets
+         a generic glyph — and an install is the one surface nobody re-checks. */
+      for (const icon of m.icons || []) {
+        if (!fs.existsSync(path.join(REPO, icon.src.replace(/^\//, '')))) {
+          fail('site.webmanifest', 'names ' + icon.src + ', which does not exist');
+        }
+      }
+      if (!(m.icons || []).some((i) => /\bmaskable\b/.test(i.purpose || ''))) {
+        fail('site.webmanifest', 'no maskable icon — Android crops the "any" icon to its own shape');
+      }
+    }
+  }
+}
+
 /* --- every sheet serves its Markdown source --- */
 {
   const manifest = JSON.parse(fs.readFileSync(path.join(REPO, 'sheets.json'), 'utf8'));
@@ -353,7 +394,7 @@ for (const abs of pages) {
   }
 }
 
-console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, tables, JSON-LD, Markdown sources, OG cards, prompts and PDFs.');
+console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, tables, JSON-LD, Markdown sources, icons, OG cards, prompts and PDFs.');
 
 /* ── 4. contrast, in a browser, in both themes ──────────────────────────── */
 

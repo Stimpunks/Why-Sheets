@@ -119,6 +119,41 @@ const sheets = manifest.sheets.map((meta) => {
 
 const bySlug = new Map(sheets.map((s) => [s.slug, s]));
 
+/* ── web app manifest ─────────────────────────────────────── */
+
+/* Here for the icons before anything else: a maskable icon has nowhere to be
+ * declared except a manifest. Installing the site is a side effect, and a
+ * welcome one — somebody who keeps a sheet for a meeting on Tuesday may well
+ * want it on a home screen.
+ *
+ * display is "minimal-ui", not "standalone". This is a site you print from and
+ * follow links out of, to stimpunks.org and to sources. Hiding the browser's
+ * own controls would take the back button and the address bar away from a
+ * reader who needs both. */
+emit(
+  'site.webmanifest',
+  JSON.stringify(
+    {
+      name: 'The Why Sheet Press',
+      short_name: 'Why Sheets',
+      description: manifest.press.tagline,
+      start_url: '/',
+      scope: '/',
+      display: 'minimal-ui',
+      background_color: '#ffffff',
+      theme_color: '#9a1750',
+      lang: 'en',
+      icons: [
+        { src: '/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: '/icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+      ],
+    },
+    null,
+    2
+  ) + '\n'
+);
+
 /* ── /.well-known/security.txt (RFC 9116) ──────────────────── */
 
 /* EXPIRES IS GENERATED, NOT TYPED, AND IT IS CHECKED. RFC 9116 makes the field

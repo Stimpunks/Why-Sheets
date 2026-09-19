@@ -9,8 +9,16 @@
 <link rel="stylesheet" href="/assets/press.css">
 <link rel="stylesheet" href="/broadsides/behaviorism/block.css">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">
 <meta name="theme-color" content="#9a1750">
+<!-- Declared in the markup as well as in CSS. The stylesheet sets the same
+     property on :root, but that only applies once the CSS has parsed, and a
+     dark-mode reader gets a white flash before then. This tag sits in the first
+     bytes of head and tells the browser before it paints. -->
+<meta name="color-scheme" content="light dark">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Why Sheet Press">
 <meta property="og:title" content="Behaviorism (broadside) — The Why Sheet Press">
