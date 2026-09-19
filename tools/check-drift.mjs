@@ -46,6 +46,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -172,26 +173,58 @@ if (mirrorOk && fs.existsSync(path.join(pagesDir, 'why.md'))) {
   const parent = fs.readFileSync(path.join(pagesDir, 'why.md'), 'utf8');
   const parentModified = ((/^modified:\s*"?([^"\n]+)"?/m.exec(parent) || [])[1] || '').trim();
 
+  /* THE QUESTION IS WHEN THE MIRROR FILE WAS LAST REFRESHED, NOT WHEN THE PAGE
+   * WAS LAST EDITED, and the first version of this asked the wrong one.
+   *
+   * It compared the page's own `modified:` against its children's `date:`. That
+   * condition is true and STAYS true however fresh the mirror is, because a page
+   * whose rendering depends on other content never reports itself as modified —
+   * which is the entire defect. So the warning could never clear. It went on
+   * firing after a full re-pull had already fixed the file.
+   *
+   * The honest signal is the mirror file's own last commit. It survives a fresh
+   * clone, unlike mtime, and it answers the real question: was this copy written
+   * before or after the thing it is supposed to contain was published. */
+  const lastCommitted = (rel) => {
+    try {
+      return execFileSync('git', ['-C', MIRROR, 'log', '-1', '--format=%cI', '--', rel], {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }).trim();
+    } catch {
+      return '';
+    }
+  };
+
+  const parentFetched = lastCommitted(path.join('pages', 'why.md'));
+
   const newer = manifest.sheets
     .filter((s) => s.published)
     .map((s) => {
       const file = path.join(pagesDir, 'why__' + s.slug + '.md');
       if (!fs.existsSync(file)) return null;
       const d = ((/^date:\s*"?([^"\n]+)"?/m.exec(fs.readFileSync(file, 'utf8')) || [])[1] || '').trim();
-      return d && parentModified && d > parentModified ? { slug: s.slug, date: d.slice(0, 10) } : null;
+      return d && parentFetched && d > parentFetched ? { slug: s.slug, date: d.slice(0, 10) } : null;
     })
     .filter(Boolean);
 
-  if (newer.length) {
+  if (!parentFetched) {
     note('warn',
-      'THE MIRRORED /why/ PAGE PREDATES ' + newer.length + ' OF ITS OWN CHILDREN\n' +
-      '      /why/ was last modified ' + parentModified.slice(0, 10) + '; these were published after:\n' +
+      'CANNOT DATE THE MIRRORED /why/ PAGE\n' +
+      '      ' + MIRROR + ' is not a git checkout, so there is no way to tell when that file was\n' +
+      '      last refreshed. Its list of sheets is rendered from its children at request time, so\n' +
+      '      an old copy shows an old list and nothing in the file itself says so. Treat anything\n' +
+      '      read out of that page as undated.');
+  } else if (newer.length) {
+    note('warn',
+      'THE MIRRORED /why/ PAGE IS OLDER THAN ' + newer.length + ' OF ITS OWN CHILDREN\n' +
+      '      That file was last refreshed ' + parentFetched.slice(0, 10) + '; these were published after:\n' +
       newer.map((n) => '        ' + n.slug + '  (' + n.date + ')').join('\n') + '\n' +
-      '      Its list of sheets is rendered from its children at request time, so the mirrored\n' +
-      '      copy shows the list as it stood in ' + parentModified.slice(0, 10) + ' and will never be\n' +
-      '      refreshed: the sync is incremental on `modified`, and a page whose RENDERED output\n' +
-      '      depends on other content never reports itself as modified.\n' +
-      '      Do not read that page out of the mirror. Nothing is wrong with the library.');
+      '      Its list of sheets is rendered from its children at request time, and the sync is\n' +
+      '      incremental on `modified` — which tracks the page\'s own content, not what its blocks\n' +
+      '      render. Nothing incremental will refresh it. Run:\n' +
+      '        wordpress_content.py sync --site stimpunks.org --full\n' +
+      '      Until then, do not read that page out of the mirror. Nothing is wrong with the library.');
   }
 
   /* A real failure, and the only one possible here: a sheet claimed as published

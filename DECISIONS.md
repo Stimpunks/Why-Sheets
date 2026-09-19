@@ -112,7 +112,13 @@ All three were already there. Two things were true at once, and each alone would
 1. **The list is not written by anyone.** The page's stored content is a single self-closing block, `<!-- wp:yoast-seo/subpages /-->`, which renders the page's published children at request time. There is no markup to add a link to, and a published child *is* listed. The set cannot drift.
 2. **The mirror cannot see that it changed.** The site mirror syncs incrementally on `modified_after`. `/why/`'s own stored content has not changed since 2026-06-17, so it has never been re-fetched — while its rendered output changed three times as those children were published in late August. The rest of the mirror was one day old; that one file was six weeks old, and nothing said so.
 
-The scrape is gone. What replaced it is the signal that would have caught it: if a sheet was published after the parent page was last modified, the mirrored parent predates it and must not be read as evidence of anything.
+The scrape is gone. What replaced it is a freshness signal — **and the first version of that was wrong too, in an instructive way.**
+
+It compared the page's own `modified:` against its children's `date:`. That condition is true and *stays* true however fresh the mirror is, because a page whose rendering depends on other content never reports itself as modified — which is the entire defect. The warning could never clear. It went on firing after a full re-pull had already fixed the file.
+
+The signal now is the mirror file's **own last commit**, which survives a fresh clone (unlike mtime) and answers the real question: was this copy written before or after the thing it is supposed to contain was published. Replayed against both states to prove it is not vacuous — at 2026-08-04 it fires on all three sheets, at 2026-09-19 it is silent.
+
+The mirror was re-pulled in full on 2026-09-19: 1,571 records, 0 added, 0 deleted, **34 modified**. That number is the measurable size of the defect. Corrections ran both ways — `/why/` gained the three sheets, six pages *lost* a fundraising block that is no longer published, and `/cookie-policy-eu/` collapsed from 1,570 lines to 15 because the live page renders nothing at all.
 
 **The general form is worth carrying elsewhere: `modified` tracks a page's own content, not what its blocks render.** Any page on stimpunks.org built out of subpages blocks, tables of contents, query loops or synced patterns is mirrored once and then frozen, while the live page moves. `audit-page` and `garden-spider` both read that mirror.
 
