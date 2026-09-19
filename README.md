@@ -11,9 +11,9 @@ Families navigating schools, hospitals and systems are constantly asked to justi
 
 | | |
 |---|---|
-| `*.md` at the root | **The fourteen Why Sheets.** These are the source. Everything else is derived from them. |
+| `*.md` at the root | **The sixteen Why Sheets.** These are the source. Everything else is derived from them. |
 | `sheets.json` | The manifest: slug, published URL, what each sheet is for, and when somebody reaches for it. |
-| `broadsides/source/` | Nine broadsides, mirrored read-only from the Stimpunks Knowledge System. |
+| `broadsides/source/` | Ten broadsides, mirrored read-only from the Stimpunks Knowledge System. |
 | `tools/` | The generators and the gates. Zero dependencies, Node 22+. |
 | everything else | Generated, and committed — the site as Netlify publishes it. |
 

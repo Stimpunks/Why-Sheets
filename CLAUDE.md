@@ -1,6 +1,6 @@
 # Working in this repository
 
-This repository is two things at once: **the fourteen Why Sheets**, and **the press that publishes them** at [whysheet.press](https://whysheet.press/). The sheets are the source. Everything else is derived from them and committed.
+This repository is two things at once: **the sixteen Why Sheets**, and **the press that publishes them** at [whysheet.press](https://whysheet.press/). The sheets are the source. Everything else is derived from them and committed.
 
 Read [README.md](README.md) first for what the press is. This file is how to work on it without breaking something quietly.
 
@@ -12,9 +12,44 @@ Read [README.md](README.md) first for what the press is. This file is how to wor
 node tools/ship.mjs
 ```
 
-Six stages, in the only order that works, stopping at the first failure. Run it before every commit. `--check` writes nothing.
+Nine stages, in the only order that works, stopping at the first failure. Run it before every commit. `--check` writes nothing.
 
 Running stages by hand is fine when you know why; running them **out of order** produces a site that is confidently wrong without erroring — PDFs printed from last week's pages, a drift report passing because it read files nothing regenerated.
+
+----
+
+## What this repository does not do
+
+The press builds and publishes **whysheet.press**. Three things that look like they belong here
+do not, and each lives in the **Stimpunks Knowledge System** (private) for a reason rather than
+by accident.
+
+**Broadsides are authored there, not here.** They are WordPress block markup destined for
+stimpunks.org; this repository mirrors them read-only so the press can show and print them. The
+authoring tools — contrast measurement, markup checking, print proofs, live-block verification —
+and the `draft-broadside` skill all live in that repository, and **that tooling is CC BY-SA 4.0
+while everything here is CC0**. Copying it in would relicense it by accident. See *The broadside
+mirror* below.
+
+**Publishing to stimpunks.org happens there.** It needs the WPVibe connection, the local `site/`
+mirror, and the post-publication checks. A sheet published from here would skip all of them.
+
+**Researching and writing a new sheet starts there.** The reason a Why Sheet can cite real
+sources is a local search index over some twenty thousand documents — the reading library, the
+highlights, the bookmark archive, the site mirror. That cannot move: it is built over a 2.6 GB
+`raw/` that is too large to commit and lives complete on exactly one machine. Research in the
+garden, write the `.md` into this checkout, run `ship` here.
+
+**None of that is an access boundary.** Both repositories sit on the same disk and a session in
+either can read and write the other. It is a *context* boundary: this file is what a session
+working on the press is given, so anything the press genuinely needs has to be written down here
+rather than left in the other repository's instructions. The hazards below are here for exactly
+that reason.
+
+**A checkout without the Knowledge System still works.** `sync-broadsides` is a soft stage in
+`ship.mjs` and `check-drift` reports a missing mirror rather than failing, because the mirrored
+blocks are committed here and a contributor should not need a private repository to build the
+site. Do not make either of them fatal.
 
 ----
 
@@ -33,7 +68,7 @@ This repository is a Ulysses external folder — there is a `.Ulysses-Group.plis
 - **Backslash escapes** on Markdown punctuation, which publish as literal asterisks and drag the surrounding emphasis onto the wrong words.
 - **Non-breaking spaces (U+00A0) in front of emphasis openers.** This is the quieter one and does far more damage: U+00A0 counts as whitespace to a Markdown parser, so an emphasis run whose opener is followed by one **never opens at all**.
 
-There were **126 non-breaking spaces across nine of the fourteen sheets** when the press was built, twenty-four of them inside a delimiter. The published pages on stimpunks.org were *not* the damaged copy — these were. The sheets had been published before Ulysses touched them, and were quietly decaying in an editor afterwards.
+There were **126 non-breaking spaces across nine of the fourteen sheets that existed then** when the press was built, twenty-four of them inside a delimiter. The published pages on stimpunks.org were *not* the damaged copy — these were. The sheets had been published before Ulysses touched them, and were quietly decaying in an editor afterwards.
 
 ```bash
 node tools/check-ulysses.mjs          # report
@@ -89,6 +124,91 @@ The blocks are CC0. The build tooling in that repository is CC BY-SA 4.0 and is 
 And on that site **a 3xx is a failure, not a pass**: WordPress core's `redirect_guess_404_permalink()` takes a wrong path carrying a known slug and sends it to whatever else owns that slug, so a link to a page that does not exist lands on a glossary term and looks like it worked.
 
 `check-drift.mjs` reads the mirror for exactly these reasons. Re-sync it first, or "not published" means "not synced yet".
+
+----
+
+## Publishing hazards on stimpunks.org
+
+Every one of these was found on a live page, never in a draft. **They share a shape, and it is
+why no pre-publication check catches them: the source is clean and only the rendered page is
+wrong.** They are recorded here, not only in the Knowledge System, because a session working on
+the press is the one most likely to touch a published page and the least likely to be holding
+that repository's instructions.
+
+### Two `$` in one passage become an image
+
+WordPress reads the pair as inline maths and replaces everything between them with a picture of
+itself. It has fired three times on our accountability writing — most recently on a reflection
+where a deficit figure vanished from the sentence whose whole job was publishing the deficit.
+The corruption lands in stored `post_content`, so the draft always looks fine.
+
+**Write published money as `&#36;`** — not `$`, and not `\$`, which protects the Markdown parser
+only and is a bare `$` by the time the filter runs. After publishing, grep the live HTML for
+`latex.php` and require zero.
+
+### An apostrophe in a heading becomes a hyphen, not nothing
+
+*"A Generation That Can't See a Toy Anymore"* gets the id `h-a-generation-that-can-t-see-a-toy-anymore`.
+The slug is generated by the platform at publish time and **cannot be derived from the source**,
+so every pre-publication link check passes it. Two of fourteen table-of-contents anchors on one
+post pointed at headings that did not exist — exactly the two containing apostrophes.
+
+Any post with a table of contents needs its anchors checked against the rendered HTML
+afterwards: every `href="#…"` must match a real `id=`. `tools/to-wordpress.mjs` sets anchors
+explicitly for this reason — do not let it stop.
+
+### A page built from other content is mirrored once and then frozen
+
+The sibling of the rule above about reading the mirror, and the more dangerous one: that makes a
+page *uneditable*, this makes it *silently stale*. The mirror syncs incrementally on `modified`,
+and `modified` tracks a page's own stored content — not what its blocks render. A page built from
+a subpages block, a table of contents, or a query loop keeps its old `modified` forever while the
+live page moves, and the sync correctly skips it every run.
+
+**`/why/` is the standing example.** Its list of Why Sheets is one self-closing block that renders
+the page's published children at request time. Three sheets were published and appeared on the
+live page within seconds; the mirrored copy went six weeks without re-fetching and still showed
+nine. A drift check read it and reported three published sheets as missing, with a recommended
+edit to markup that does not exist.
+
+**So before reasoning about any page's *rendered* content out of the mirror, compare that page's
+`modified` against the date of whatever it is supposed to contain.** Nothing incremental will
+refresh them — only a full re-sync.
+
+### A link to a page that does not exist yet keeps its slug
+
+The corollary of *a 3xx is a failure*. When a sheet links somewhere not yet published, keep the
+correct final slug and mark it `(planned)` beside the link, so it **self-heals** the moment that
+page goes up. Never drop the link instead: a missed marker leaves a page stale, a missed re-link
+leaves it broken, and stale is the cheaper failure. `check-drift.mjs` gates links into `/why/`
+that nothing is published at.
+
+### Editing a published page: the call shape, written down
+
+Use WPVibe's `POST /wpvibe/v1/content/edit` — surgical, **keeps a revision** so there is an undo,
+and the page content never enters the conversation. The parameters are not the obvious ones and
+guessing them costs quota, since a rejected call still counts:
+
+```json
+{ "target_type": "post", "post_id": 70000, "field": "post_content",
+  "old_content": "…exact bytes…", "new_content": "…", "replace_all": true }
+```
+
+Sent through the MCP's `rest_api` tool with `site_url` and `route`. `target_type` takes **post,
+meta, or option** only — the post type is inferred from the id, so a page, a glossary term and a
+synced pattern are all `post`. **Omit `replace_all` to keep the match-once guard** whenever you
+expect exactly one hit.
+
+**`replaced:` is the verification, and it only means something if you predicted it.** Count the
+occurrences first and compare. Two traps, both paid for: `grep -c` counts matching *lines*, not
+occurrences; and the returned `bytes` is a **byte** count while most string lengths you compute
+are **characters**, so a section containing one em dash comes back two larger than predicted.
+
+The account is on WPVibe's Pro plan — 500 calls per rolling 24 hours. Check `list_sites` for the
+live figure before a large batch rather than trusting this sentence.
+
+**Avoid `posts.update` / `pages.update`** — a full-content rewrite, and our block markup cannot be
+reproduced byte-exactly as tool input. Never raw SQL on `post_content`: no revision, so no undo.
 
 ----
 
