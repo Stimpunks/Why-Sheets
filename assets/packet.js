@@ -285,7 +285,7 @@ async function build() {
       footY -= 15;
     }
     page.drawText(
-      'Free to print, change and share. CC0 1.0. whysheets.press',
+      'Free to print, change and share. CC0 1.0. whysheet.press',
       { x: MARGIN, y: footY, size: 9, font: body, color: soft }
     );
     footY -= 13;

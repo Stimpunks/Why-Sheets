@@ -9,36 +9,36 @@ material, which belongs to the people who wrote it.
 
 ## Why Sheets
 
-- [Behaviorism](https://whysheets.press/sheets/behaviorism/): Behaviorism measures the surface, badly — and the primary legacy of ABA is trauma. Reach for it when compliance is being described as progress, and you need the evidence in one place. Also published at https://stimpunks.org/why/behaviorism/
-- [Alternatives to ABA](https://whysheets.press/sheets/alternatives-to-aba/): Fourteen neurodiversity-affirming frameworks, gathered, so “what would you do instead” has an answer. Reach for it when you have said no to ABA and the room asks what you want instead. Also published at https://stimpunks.org/why/alternatives-to-aba/
-- [ABA Tactics](https://whysheets.press/sheets/aba-tactics/): The tactics one by one — compliance training, extinction, quiet hands, forced eye contact — and what each one actually does. Reach for it when a programme is being described in technical language and you need to know what the words mean in a child’s day.
-- [Eye Contact](https://whysheets.press/sheets/eye-contact/): Forced eye contact is painful, it interferes with processing, and it is not evidence of attention. Reach for it in the meeting where eye contact is about to be written into a goal. Also published at https://stimpunks.org/why/eye-contact/
-- [Masking and Burnout](https://whysheets.press/sheets/masking-and-burnout/): Masking is a stress response, not a skill. Burnout is the bill. Observation does not see either one. Reach for it when “but they’re fine at school” is being used to close a file. Also published at https://stimpunks.org/why/masking-and-burnout/
-- [Monotropism](https://whysheets.press/sheets/monotropism/): Autistic experience explained through attention — and what stops looking like defiance once you can see the tunnel. Reach for it when transitions, “rigidity” or “obsession” are on the agenda. Also published at https://stimpunks.org/why/monotropism/
-- [Positive Greetings at the Door](https://whysheets.press/sheets/positive-greetings-at-the-door/): A greeting policy that turns a teacher into a threshold to be performed past. Reach for it when a school is adopting PGD and nobody has asked what it costs to walk through that door. Also published at https://stimpunks.org/why/positive-greetings-at-the-door/
-- [Hoodie](https://whysheets.press/sheets/hoodie/): One page, already written, asking that a student wear a hoodie instead of the blazer. Reach for it when you need to hand the school a reason in writing, today. Also published at https://stimpunks.org/why/hoodie/
-- [Sensory Access at Work](https://whysheets.press/sheets/sensory-access-at-work/): All eight senses, the common access needs at work, and the small changes that make a workplace livable. Reach for it in the accommodations conversation, when “what do you need?” needs a list rather than an apology.
-- [Cavendish Space](https://whysheets.press/sheets/cavendish-space/): Caves, campfires and watering holes — vocabulary for a space that supports bodyminds instead of demanding they adapt. Reach for it when a room is being designed and you want words for what it should do. Also published at https://stimpunks.org/why/cavendish-space/
-- [Neuroqueer Learning Spaces](https://whysheets.press/sheets/neuroqueer-learning-spaces/): The classroom as a bastion of neuronormativity, and what it takes to hold space against that. Reach for it when you are making the case for learning differently as a right, not a concession. Also published at https://stimpunks.org/why/neuroqueer-learning-spaces/
-- [Queer and Neurodivergent Liberation are Entwined](https://whysheets.press/sheets/queer-and-neurodivergent-liberation-are-entwined/): Why the two movements share a history, a set of enemies, and a conversion-therapy lineage. Reach for it when someone asks why a neurodiversity organisation is talking about queerness. Also published at https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/
-- [Neuromodulation & Autism](https://whysheets.press/sheets/neuromodulation/): TMS, tDCS and what is being sold alongside them. The evidence base is weak and the framing is the pathology paradigm. Reach for it when a clinic or an advertisement offers a treatment and you have an appointment on Thursday. Also published at https://stimpunks.org/why/neuromodulation/
-- [Boring Technology](https://whysheets.press/sheets/boring-technology/): Tools old, plain and open enough to outlive the companies that sell them. Reach for it when a service that holds someone’s access is about to be replaced by a platform. Also published at https://stimpunks.org/why/boring-technology/
+- [Behaviorism](https://whysheet.press/sheets/behaviorism/): Behaviorism measures the surface, badly — and the primary legacy of ABA is trauma. Reach for it when compliance is being described as progress, and you need the evidence in one place. Also published at https://stimpunks.org/why/behaviorism/
+- [Alternatives to ABA](https://whysheet.press/sheets/alternatives-to-aba/): Fourteen neurodiversity-affirming frameworks, gathered, so “what would you do instead” has an answer. Reach for it when you have said no to ABA and the room asks what you want instead. Also published at https://stimpunks.org/why/alternatives-to-aba/
+- [ABA Tactics](https://whysheet.press/sheets/aba-tactics/): The tactics one by one — compliance training, extinction, quiet hands, forced eye contact — and what each one actually does. Reach for it when a programme is being described in technical language and you need to know what the words mean in a child’s day.
+- [Eye Contact](https://whysheet.press/sheets/eye-contact/): Forced eye contact is painful, it interferes with processing, and it is not evidence of attention. Reach for it in the meeting where eye contact is about to be written into a goal. Also published at https://stimpunks.org/why/eye-contact/
+- [Masking and Burnout](https://whysheet.press/sheets/masking-and-burnout/): Masking is a stress response, not a skill. Burnout is the bill. Observation does not see either one. Reach for it when “but they’re fine at school” is being used to close a file. Also published at https://stimpunks.org/why/masking-and-burnout/
+- [Monotropism](https://whysheet.press/sheets/monotropism/): Autistic experience explained through attention — and what stops looking like defiance once you can see the tunnel. Reach for it when transitions, “rigidity” or “obsession” are on the agenda. Also published at https://stimpunks.org/why/monotropism/
+- [Positive Greetings at the Door](https://whysheet.press/sheets/positive-greetings-at-the-door/): A greeting policy that turns a teacher into a threshold to be performed past. Reach for it when a school is adopting PGD and nobody has asked what it costs to walk through that door. Also published at https://stimpunks.org/why/positive-greetings-at-the-door/
+- [Hoodie](https://whysheet.press/sheets/hoodie/): One page, already written, asking that a student wear a hoodie instead of the blazer. Reach for it when you need to hand the school a reason in writing, today. Also published at https://stimpunks.org/why/hoodie/
+- [Sensory Access at Work](https://whysheet.press/sheets/sensory-access-at-work/): All eight senses, the common access needs at work, and the small changes that make a workplace livable. Reach for it in the accommodations conversation, when “what do you need?” needs a list rather than an apology.
+- [Cavendish Space](https://whysheet.press/sheets/cavendish-space/): Caves, campfires and watering holes — vocabulary for a space that supports bodyminds instead of demanding they adapt. Reach for it when a room is being designed and you want words for what it should do. Also published at https://stimpunks.org/why/cavendish-space/
+- [Neuroqueer Learning Spaces](https://whysheet.press/sheets/neuroqueer-learning-spaces/): The classroom as a bastion of neuronormativity, and what it takes to hold space against that. Reach for it when you are making the case for learning differently as a right, not a concession. Also published at https://stimpunks.org/why/neuroqueer-learning-spaces/
+- [Queer and Neurodivergent Liberation are Entwined](https://whysheet.press/sheets/queer-and-neurodivergent-liberation-are-entwined/): Why the two movements share a history, a set of enemies, and a conversion-therapy lineage. Reach for it when someone asks why a neurodiversity organisation is talking about queerness. Also published at https://stimpunks.org/why/queer-and-neurodivergent-liberation-are-entwined/
+- [Neuromodulation & Autism](https://whysheet.press/sheets/neuromodulation/): TMS, tDCS and what is being sold alongside them. The evidence base is weak and the framing is the pathology paradigm. Reach for it when a clinic or an advertisement offers a treatment and you have an appointment on Thursday. Also published at https://stimpunks.org/why/neuromodulation/
+- [Boring Technology](https://whysheet.press/sheets/boring-technology/): Tools old, plain and open enough to outlive the companies that sell them. Reach for it when a service that holds someone’s access is about to be replaced by a platform. Also published at https://stimpunks.org/why/boring-technology/
 
 ## Broadsides
 
 One sheet, two sides, sized for A4 and US Letter alike.
 
-- [Behaviorism](https://whysheets.press/broadsides/behaviorism/)
-- [Boring Technology](https://whysheets.press/broadsides/boring-technology/)
-- [Cavendish Space](https://whysheets.press/broadsides/cavendish-space/)
-- [Developmental Pace](https://whysheets.press/broadsides/developmental-pace/)
-- [Eye Contact](https://whysheets.press/broadsides/eye-contact/)
-- [Masking and Burnout](https://whysheets.press/broadsides/masking-and-burnout/)
-- [Monotropism](https://whysheets.press/broadsides/monotropism/)
-- [Positive Greetings at the Door](https://whysheets.press/broadsides/positive-greetings-at-the-door/)
-- [Sensory Access at Work](https://whysheets.press/broadsides/sensory-access-at-work/)
+- [Behaviorism](https://whysheet.press/broadsides/behaviorism/)
+- [Boring Technology](https://whysheet.press/broadsides/boring-technology/)
+- [Cavendish Space](https://whysheet.press/broadsides/cavendish-space/)
+- [Developmental Pace](https://whysheet.press/broadsides/developmental-pace/)
+- [Eye Contact](https://whysheet.press/broadsides/eye-contact/)
+- [Masking and Burnout](https://whysheet.press/broadsides/masking-and-burnout/)
+- [Monotropism](https://whysheet.press/broadsides/monotropism/)
+- [Positive Greetings at the Door](https://whysheet.press/broadsides/positive-greetings-at-the-door/)
+- [Sensory Access at Work](https://whysheet.press/broadsides/sensory-access-at-work/)
 
 ## Optional
 
-- [About the press](https://whysheets.press/about/): where the form comes from, and the licence in plain words
-- [Build a packet](https://whysheets.press/packet/): assemble several sheets into one paginated PDF
+- [About the press](https://whysheet.press/about/): where the form comes from, and the licence in plain words
+- [Build a packet](https://whysheet.press/packet/): assemble several sheets into one paginated PDF

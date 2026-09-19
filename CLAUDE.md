@@ -1,6 +1,6 @@
 # Working in this repository
 
-This repository is two things at once: **the fourteen Why Sheets**, and **the press that publishes them** at [whysheets.press](https://whysheets.press/). The sheets are the source. Everything else is derived from them and committed.
+This repository is two things at once: **the fourteen Why Sheets**, and **the press that publishes them** at [whysheet.press](https://whysheet.press/). The sheets are the source. Everything else is derived from them and committed.
 
 Read [README.md](README.md) first for what the press is. This file is how to work on it without breaking something quietly.
 

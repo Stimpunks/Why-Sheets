@@ -3,7 +3,7 @@
 ## 2026-09-19 — The Why Sheet Press
 
 The first release. Fourteen Why Sheets and nine broadsides, published as a
-print-first library at [whysheets.press](https://whysheets.press/), generated
+print-first library at [whysheet.press](https://whysheet.press/), generated
 from the Markdown in this repository.
 
 **The press.** Every sheet gets a page and a PDF. Tick the ones you need and the

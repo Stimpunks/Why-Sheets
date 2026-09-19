@@ -1,4 +1,4 @@
-# Netlify response headers for whysheets.press.
+# Netlify response headers for whysheet.press.
 #
 # Kept in the repository rather than only in the dashboard, so the deploy setup
 # is reviewable in a diff like everything else here.

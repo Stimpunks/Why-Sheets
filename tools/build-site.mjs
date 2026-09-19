@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * build-site.mjs — turn the fourteen Markdown sheets and nine broadsides into
- * the pages of whysheets.press.
+ * the pages of whysheet.press.
  *
  * THE REPOSITORY IS THE SOURCE OF TRUTH AND THIS IS WHAT MAKES THAT TRUE.
  * Before the press existed there were three answers to "how many Why Sheets are

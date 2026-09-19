@@ -75,7 +75,7 @@ for (const s of manifest.sheets) {
       '<div style="width:100%;font:7.5pt -apple-system,Helvetica,sans-serif;color:#555;' +
       'padding:0 16mm;display:flex;justify-content:space-between;">' +
       '<span>' + esc(s.title) + ' · a Stimpunks Why Sheet' + (s.version ? ' · v' + esc(s.version) : '') + '</span>' +
-      '<span>whysheets.press · CC0</span></div>',
+      '<span>whysheet.press · CC0</span></div>',
     expect: null,
   });
 }

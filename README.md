@@ -1,7 +1,7 @@
 # Why Sheets
 
 **Free, editable, open-licensed sheets that make the case for you.**
-Fourteen of them, published as a print-first library at **[whysheets.press](https://whysheets.press/)**.
+Fourteen of them, published as a print-first library at **[whysheet.press](https://whysheet.press/)**.
 
 Families navigating schools, hospitals and systems are constantly asked to justify what should be obvious. The answers exist — in research, in law, in lived experience — but finding them, organising them and presenting them concisely in a meeting is exhausting work, and it lands on the people with the least left over. Why Sheets do that work in advance.
 
@@ -21,7 +21,7 @@ Families navigating schools, hospitals and systems are constantly asked to justi
 
 ## The press
 
-[whysheets.press](https://whysheets.press/) is the whole library, print-first.
+[whysheet.press](https://whysheet.press/) is the whole library, print-first.
 
 You tick the sheets you need for Thursday's meeting. It gives you back **one correctly paginated PDF**, with a cover page you can put a name and a date on, numbered straight through, citations intact. It is the difference between *"here are nine pages you could each print separately"* and *"here is the folder you carry into the room."*
 

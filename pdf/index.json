@@ -3,9 +3,9 @@
   "page": "190x259mm, the intersection of A4 and US Letter",
   "entries": {
     "hoodie": {
-      "hash": "e06cd5cca440258e",
+      "hash": "3a1dc1e0cbc647ac",
       "pages": 4,
-      "bytes": 228774,
+      "bytes": 228771,
       "title": "Hoodie",
       "kind": "sheet"
     },
@@ -17,93 +17,93 @@
       "kind": "broadside"
     },
     "behaviorism": {
-      "hash": "5254527bdcf82942",
+      "hash": "b4ecf0122d79a2d0",
       "pages": 11,
-      "bytes": 494449,
+      "bytes": 494442,
       "title": "Behaviorism",
       "kind": "sheet"
     },
     "alternatives-to-aba": {
-      "hash": "63c7259e5ede2c51",
+      "hash": "daedec7fa9ff7a41",
       "pages": 18,
-      "bytes": 607032,
+      "bytes": 607018,
       "title": "Alternatives to ABA",
       "kind": "sheet"
     },
     "aba-tactics": {
-      "hash": "3b30a9839c8012a2",
+      "hash": "f5c402fd98b54e5e",
       "pages": 8,
-      "bytes": 423037,
+      "bytes": 423031,
       "title": "ABA Tactics",
       "kind": "sheet"
     },
     "eye-contact": {
-      "hash": "819c25136883bd70",
+      "hash": "51961516ecdfa5d1",
       "pages": 8,
-      "bytes": 283009,
+      "bytes": 283002,
       "title": "Eye Contact",
       "kind": "sheet"
     },
     "masking-and-burnout": {
-      "hash": "2a3bcbb335ab9655",
+      "hash": "f5155d5f0c47eec8",
       "pages": 7,
-      "bytes": 347587,
+      "bytes": 347583,
       "title": "Masking and Burnout",
       "kind": "sheet"
     },
     "monotropism": {
-      "hash": "edcd3b0ef92bd1bd",
+      "hash": "1b81b7e07dd836f4",
       "pages": 10,
-      "bytes": 405597,
+      "bytes": 405590,
       "title": "Monotropism",
       "kind": "sheet"
     },
     "positive-greetings-at-the-door": {
-      "hash": "a3c713c4b46b310f",
+      "hash": "f126f26f68ba777e",
       "pages": 4,
-      "bytes": 227722,
+      "bytes": 227719,
       "title": "Positive Greetings at the Door",
       "kind": "sheet"
     },
     "sensory-access-at-work": {
-      "hash": "e07b30ba17ec8cb9",
+      "hash": "71597ef2c54581d3",
       "pages": 5,
-      "bytes": 247280,
+      "bytes": 247277,
       "title": "Sensory Access at Work",
       "kind": "sheet"
     },
     "cavendish-space": {
-      "hash": "5da846e14bfaea43",
+      "hash": "10a1eb3841c8b341",
       "pages": 7,
-      "bytes": 287617,
+      "bytes": 287616,
       "title": "Cavendish Space",
       "kind": "sheet"
     },
     "neuroqueer-learning-spaces": {
-      "hash": "f5753b846f0a6c60",
+      "hash": "76c2a0a550989a3f",
       "pages": 4,
-      "bytes": 244166,
+      "bytes": 244163,
       "title": "Neuroqueer Learning Spaces",
       "kind": "sheet"
     },
     "queer-and-neurodivergent-liberation-are-entwined": {
-      "hash": "5dff1dcab3f81136",
+      "hash": "254997dcd8c8579f",
       "pages": 7,
-      "bytes": 290428,
+      "bytes": 290423,
       "title": "Queer and Neurodivergent Liberation are Entwined",
       "kind": "sheet"
     },
     "neuromodulation": {
-      "hash": "6a3ae6d280413932",
+      "hash": "edd1f92e27f42aac",
       "pages": 7,
-      "bytes": 319146,
+      "bytes": 319141,
       "title": "Neuromodulation & Autism",
       "kind": "sheet"
     },
     "boring-technology": {
-      "hash": "a838294794f45fc1",
+      "hash": "bc1edc2b09e1ab63",
       "pages": 4,
-      "bytes": 208184,
+      "bytes": 208180,
       "title": "Boring Technology",
       "kind": "sheet"
     },

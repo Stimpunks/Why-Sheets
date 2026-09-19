@@ -1,4 +1,4 @@
-# Redirects for whysheets.press.
+# Redirects for whysheet.press.
 #
 # Kept deliberately short. Netlify's Pretty URLs already serve /about/ and
 # /packet/ from their index.html, so rules for those would be dead weight.

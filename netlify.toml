@@ -1,4 +1,4 @@
-# Netlify configuration for whysheets.press.
+# Netlify configuration for whysheet.press.
 #
 # THERE IS NO BUILD STEP, on purpose and in line with the sibling Stimpunks
 # sites. The generators in tools/ are run locally and their output — the pages,
