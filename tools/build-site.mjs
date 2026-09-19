@@ -119,6 +119,136 @@ const sheets = manifest.sheets.map((meta) => {
 
 const bySlug = new Map(sheets.map((s) => [s.slug, s]));
 
+/* ── privacy ────────────────────────────────────────────────────────────── */
+
+/* WHY THIS PAGE EXISTS AND WHY IT IS NOT A LINK TO stimpunks.org.
+ * The organisation's policy is the stock WordPress one: comments, Gravatar,
+ * login cookies, media uploads. This site has none of those and does one thing
+ * that policy does not mention — it remembers, on your own device, the name you
+ * type on a packet cover. Pointing here at a document describing practices we
+ * do not have, while omitting the one we do, is worse than having no page.
+ *
+ * The claims on /packet/ and on every prompt block ("nothing is uploaded",
+ * "nothing you type reaches us") are the strongest things this site says, and
+ * they are about a child's name. This states them as policy rather than prose. */
+emit(
+  'privacy/index.html',
+  shell({
+    host: HOST,
+    title: 'Privacy',
+    path: '/privacy/',
+    description:
+      'What this site does and does not do with your information. It sets no cookies, runs no analytics, and never receives what you type.',
+    image: og('privacy'),
+    imageAlt: 'Privacy on The Why Sheet Press. No cookies, no analytics, nothing sent to us.',
+    body: `<div class="wrap wrap--narrow">
+  <h1>Privacy</h1>
+  <p class="lede">This site sets no cookies, runs no analytics, and never receives what you type
+    into it. That is the whole summary. The rest is the detail, because a promise with no detail
+    behind it is just a nicer way of saying nothing.</p>
+  <p class="note">Last updated 19 September 2026.</p>
+
+  <h2>Who is responsible</h2>
+  <p><a href="https://stimpunks.org/" rel="noopener">Stimpunks Foundation</a>, a 501(c)(3)
+    non-profit, publishes this site and is the data controller for it. For anything on this page,
+    including a request about your own information, write to
+    <a href="mailto:stimpunks@stimpunks.org">stimpunks@stimpunks.org</a>. A postal address is
+    available on request through our <a href="https://stimpunks.org/contact/" rel="noopener">contact
+    page</a>.</p>
+
+  <h2>What we collect</h2>
+  <p><strong>Nothing you give us, because there is nothing here to give.</strong> No accounts, no
+    sign-up, no newsletter, no comments, no contact form, no payment. Every sheet, PDF, and prompt
+    downloads without identifying you.</p>
+  <p>Two things happen anyway, and you should know about both.</p>
+
+  <h3>Our host keeps server logs</h3>
+  <p>The site is served by <a href="https://www.netlify.com/" rel="noopener">Netlify</a>, which
+    records the ordinary things a web server records: the IP address a request came from, the time,
+    the page, and the browser's user-agent string. An IP address is personal data, so this is worth
+    saying plainly rather than filing under "technical". We do not read these logs page by page, we
+    do not join them to anything else, and we have no way to connect them to a person. They exist so
+    the site can be served and abuse can be stopped.</p>
+  <p>Netlify processes this on our behalf under its own
+    <a href="https://www.netlify.com/privacy/" rel="noopener">privacy policy</a>, and it is a US
+    company, so this involves a transfer outside the UK and EEA under its standard contractual
+    clauses. The lawful basis is our legitimate interest in running a website at all
+    (UK/EU GDPR Article 6(1)(f)).</p>
+  <p>We would like to tell you exactly how long those logs are kept, and we cannot: Netlify's
+    privacy statement says only that it retains data &quot;for a period of time consistent with the
+    original purpose of collection&quot; and asks you to contact it for the specifics. We would
+    rather write that down than print a confident number we have not verified. We keep no copy of
+    the logs ourselves, and we retain nothing at all beyond what Netlify holds.</p>
+
+  <h3>Your browser remembers your packet, on your device</h3>
+  <p>If you tick sheets for a packet, this site stores that list in your own browser using
+    <code>localStorage</code>, under the key <code>whysheets.packet.v1</code>. If you type a name and
+    a date on the packet cover, those are stored the same way, under
+    <code>whysheets.cover.v1</code>, so you do not have to type them again.</p>
+  <p><strong>Neither is ever sent to us or to anyone else.</strong> They sit on the device you are
+    using, we cannot read them, and no request carries them anywhere. This matters more here than in
+    most places: the name on a packet cover is often a child's. Clear your browser's site data for
+    this domain and both are gone. Nothing breaks if you do — the site works with no stored state at
+    all, and works in a private window where storage is blocked outright.</p>
+  <p>These are not cookies, nothing about them is used to track you, and they are strictly necessary
+    to the feature you asked for, so there is nothing here to consent to.</p>
+
+  <h2>What we do not do</h2>
+  <ul>
+    <li><strong>No cookies.</strong> Not ours, not anyone's.</li>
+    <li><strong>No analytics.</strong> We do not know how many people read any sheet.</li>
+    <li><strong>No third-party scripts, fonts, or embeds.</strong> Every script, stylesheet, and font
+      on this site is served from this domain. Your browser makes no request to any other company
+      while you are here — which is also enforced by the site's
+      Content-Security-Policy, not merely promised.</li>
+    <li><strong>No advertising, no trackers, no fingerprinting, no data sold or shared.</strong></li>
+    <li><strong>No profiling and no automated decisions</strong> about anybody.</li>
+  </ul>
+
+  <h2>The packet builder, and the prompts</h2>
+  <p>The packet builder assembles your PDF <em>in your browser</em>. It downloads the same public
+    PDFs anyone can download and joins them on your device. Nothing is uploaded, and no record of
+    which sheets you chose exists anywhere but your own machine.</p>
+  <p>The companion prompts are plain text files you copy. What you then type into your own AI
+    assistant — your child's name, their school, what happened — goes to whoever makes that
+    assistant, under their terms, and never to us. We never see it. Before you paste anything about
+    a child into any assistant, it is worth knowing that company's policy on keeping and training on
+    what you type.</p>
+
+  <h2>Your rights</h2>
+  <p>Under the UK GDPR and EU GDPR you have the right to access your personal data, to have it
+    corrected or erased, to restrict or object to processing, and to data portability. In practice
+    we hold nothing that identifies you, so for almost any request the honest answer is that there is
+    nothing to produce. Ask anyway if you want that confirmed in writing — write to
+    <a href="mailto:stimpunks@stimpunks.org">stimpunks@stimpunks.org</a> and we will answer within
+    one month.</p>
+  <p>If you are unhappy with how we have handled it, you can complain to your own supervisory
+    authority — in the UK the
+    <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">Information Commissioner's
+    Office</a>, and in the EEA your national data protection authority.</p>
+
+  <h2>Children</h2>
+  <p>This site is written for adults advocating for children, not for children, and it asks nobody
+    for their age. It collects no information from anyone, so it collects none from a child either.
+    The child a packet is about is named only on your own device, if you choose to type it.</p>
+
+  <h2>Changes</h2>
+  <p>If this changes, the date at the top changes with it, and the change is recorded in this
+    site's <a href="https://github.com/Stimpunks/Why-Sheets" rel="noopener">public repository</a>
+    along with everything else here — so you can see what it used to say, not just what it says
+    now.</p>
+
+  <div class="source-note">
+    <p><strong>This page describes this site only.</strong>
+      <a href="https://stimpunks.org/" rel="noopener">stimpunks.org</a> is a WordPress site with
+      comments, embedded media, and logins, and it has
+      <a href="https://stimpunks.org/privacy/" rel="noopener">its own privacy policy</a> covering
+      those. Do not read this one as describing that one.</p>
+  </div>
+</div>`,
+  })
+);
+
 /* ── broadsides ─────────────────────────────────────────────────────────── */
 
 const broadsides = manifest.broadsides.map((meta) => {
@@ -628,6 +758,7 @@ emit(
 const urls = [
   '/',
   '/about/',
+  '/privacy/',
   '/packet/',
   '/broadsides/',
   ...sheets.map((s) => '/sheets/' + s.slug + '/'),

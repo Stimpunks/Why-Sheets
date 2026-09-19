@@ -168,6 +168,15 @@ for (const [slug, c] of [
     },
   ],
   [
+    'privacy',
+    {
+      kicker: 'Privacy',
+      title: 'Nothing you type reaches us.',
+      note: 'No cookies, no analytics, no third-party scripts. Your packet and the name on its cover stay on your own device.',
+      foot: 'CC0 1.0',
+    },
+  ],
+  [
     'about',
     {
       kicker: 'About the press',

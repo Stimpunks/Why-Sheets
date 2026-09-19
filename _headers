@@ -82,3 +82,13 @@
   # link ever shared, not once per reader.
   Cache-Control: public, max-age=3600, must-revalidate
   Content-Type: image/png
+
+/broadsides/*/print.html
+  # NOT A PAGE — it is the standalone document Chrome prints to make a
+  # broadside's PDF: the block's own markup and its own stylesheet, with no site
+  # chrome, no landmarks and no navigation, because what the printer receives
+  # has to be exactly that. Nothing links to it and no sitemap lists it, but
+  # robots.txt allows everything, so without this it carries an implicit
+  # "index, follow" and a search engine that finds it indexes a bare fragment as
+  # if it were a page of the site. Thin content gets an explicit policy.
+  X-Robots-Tag: noindex, nofollow

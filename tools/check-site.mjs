@@ -194,6 +194,20 @@ for (const abs of pages) {
     fail(where, 'a broadside block\'s Side A / Side B toggle survived the build — it has no script and does nothing');
   }
 
+  /* --- every table names itself --- */
+  /* A screen reader announces a table by its <caption>. Without one it says
+     "table" and the listener has to read cells to work out what they are looking
+     at. lib/md.mjs derives one from the heading above the table, so this only
+     fires if that stops working or a table arrives from somewhere else. */
+  /* A GREEDY window, not a lazy one. `([\s\S]{0,200}?)<` stops at the FIRST
+     `<`, which is the newline before <caption> — so the capture is "\n", it
+     never contains <caption>, and the check fails on a table that is correct.
+     It fired when the caption was removed and went on firing once it was put
+     back, which is a gate stuck on rather than a gate working. */
+  for (const m of html.matchAll(/<table\b[^>]*>([\s\S]{0,200})/g)) {
+    if (!/<caption/.test(m[1])) fail(where, 'a <table> has no <caption>');
+  }
+
   /* --- the Open Graph card --- */
   /* An og:image is emitted as an absolute URL, so nothing else on this page
      resolves it and no link check would ever notice it rotting. A broken one is
@@ -236,7 +250,27 @@ for (const abs of pages) {
   }
 }
 
-console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, OG cards, prompts and PDFs.');
+/* --- the print documents are told not to be indexed --- */
+/* A print.html is a bare fragment with no landmarks and no navigation, served
+   publicly because the PDF build fetches it over HTTP. robots.txt allows
+   everything, so without an explicit header a search engine that finds one
+   indexes it as though it were a page of the site. This is a header rather than
+   a <meta>, because adding a meta robots tag to the printed document would
+   change what the printer receives — which is the one thing that file exists to
+   keep constant. */
+{
+  const headers = fs.readFileSync(path.join(REPO, '_headers'), 'utf8');
+  /* The window has to clear that rule's comment, which explains why the file is
+     not a page and runs well past 400 characters. Too small a window is a gate
+     that fails on its own correct configuration. */
+  const hasRule = /\/broadsides\/\*\/print\.html[\s\S]{0,1200}?X-Robots-Tag:\s*noindex/.test(headers);
+  const printDocs = pages.filter((p) => /(^|\/)print\.html$/.test(rel(p))).length;
+  if (printDocs && !hasRule) {
+    fail('_headers', printDocs + ' print.html documents are served with no X-Robots-Tag: noindex');
+  }
+}
+
+console.log('  ' + pages.length + ' pages checked for links, CSP shape, headings, ids, tables, OG cards, prompts and PDFs.');
 
 /* ── 4. contrast, in a browser, in both themes ──────────────────────────── */
 

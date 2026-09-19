@@ -312,8 +312,23 @@ export function render(md) {
       i += 2;
       const body = [];
       while (i < src.length && /^\s*\|.*\|\s*$/.test(src[i])) body.push(cells(src[i++]));
+      /* EVERY TABLE GETS A <caption>, TAKEN FROM THE HEADING ABOVE IT.
+         A screen reader announces a table by its caption; without one it says
+         "table" and the listener has to read cells to work out what they are
+         looking at. The nearest preceding heading is already the sentence that
+         introduces the table — on the Monotropism sheet, "Reframing The Words"
+         over a two-column instead/consider table — so the caption is derived
+         rather than invented, and a new table gets one with no extra syntax.
+         It is visually hidden because the heading is right there on screen
+         saying the same thing: repeating it visibly would be noise for sighted
+         readers while leaving the gap for everyone else. That is a recognised
+         technique, not a dodge — the element is in the accessibility tree and
+         names the table, which is the whole job. */
+      const caption = headings.length
+        ? headings[headings.length - 1].text
+        : 'Table';
       out.push(
-        '<table>\n<thead>\n<tr>' +
+        '<table>\n<caption class="visually-hidden">' + escapeHtml(caption) + '</caption>\n<thead>\n<tr>' +
           head.map((c) => '<th scope="col">' + inline(c) + '</th>').join('') +
           '</tr>\n</thead>\n<tbody>\n' +
           body
