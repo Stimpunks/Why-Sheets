@@ -27,6 +27,8 @@ Behaviorism is a theory of learning that attends only to observable, measurable 
 ABA formalizes this through the "functions of behavior" — the claim that any behavior exists to get attention, escape a demand, access something tangible, or for automatic/sensory reasons. A stress response, a pain signal, a moment of overwhelm, a communication attempt — all of it gets sorted into those four boxes and managed accordingly. The interior life of the child is treated as noise.
 
 > Behaviorism is a repudiation, an almost willful dismissal, of subjective experience.
+> 
+> — [Alfie Kohn](https://www.youtube.com/watch?v=7MJbqkzDTdg&t=613s)
 
 That dismissal is not a side effect of the tactics. It is the design. Keep it in mind as you read down the list.
 
