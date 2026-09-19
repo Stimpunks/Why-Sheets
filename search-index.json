@@ -2,6 +2,33 @@
   "generated": "from sheets.json and the Markdown sources",
   "records": [
     {
+      "url": "/sheets/aac/",
+      "title": "AAC Is Not a Last Resort",
+      "kind": "why-sheet",
+      "summary": "A robust communication system is a right, not a reward for proving you deserve one — and AAC does not delay speech, it supports it.",
+      "moment": "When a school or clinic says a child needs to develop speech before they can have a communication system.",
+      "topics": [
+        "school",
+        "communication",
+        "rights"
+      ],
+      "headings": [
+        "The Short Version",
+        "Why This Sheet Exists",
+        "The Myth, and the Profession That Refutes It",
+        "\"Prove You're Ready First\" Is the Thing They Warn Against",
+        "It Is a Right, and It Is Written Down as One",
+        "Presume Competence — the Least Dangerous Assumption",
+        "A Device Is Not Enough — Somebody Has to Model It",
+        "Everybody Communicates Already",
+        "What to Ask For in the Room",
+        "What This Sheet Is Not",
+        "The Principle",
+        "Further Reading",
+        "License"
+      ]
+    },
+    {
       "url": "/sheets/behaviorism/",
       "title": "Behaviorism",
       "kind": "why-sheet",

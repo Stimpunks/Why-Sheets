@@ -1,6 +1,17 @@
 {
   "sheets": [
     {
+      "slug": "aac",
+      "title": "AAC Is Not a Last Resort",
+      "version": "0.1",
+      "pdf": "/pdf/aac.pdf",
+      "topics": [
+        "school",
+        "communication",
+        "rights"
+      ]
+    },
+    {
       "slug": "behaviorism",
       "title": "Behaviorism",
       "version": "1.7",

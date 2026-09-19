@@ -35,6 +35,21 @@
   },
   "sheets": [
     {
+      "slug": "aac",
+      "letter": "school",
+      "file": "AAC Is Not a Last Resort.md",
+      "title": "AAC Is Not a Last Resort",
+      "published": null,
+      "broadside": null,
+      "summary": "A robust communication system is a right, not a reward for proving you deserve one — and AAC does not delay speech, it supports it.",
+      "moment": "When a school or clinic says a child needs to develop speech before they can have a communication system.",
+      "topics": [
+        "school",
+        "communication",
+        "rights"
+      ]
+    },
+    {
       "slug": "behaviorism",
       "letter": "school",
       "file": "Behaviorism.md",
