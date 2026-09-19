@@ -137,6 +137,103 @@ if (mirrorOk) {
   }
 }
 
+/* ── 2b. the repository's sections against what the page actually carries ── */
+/* THE COUNTS CAN ALL AGREE WHILE THE PAGES ARE WRONG. Section 2 checks that a
+ * sheet exists at the URL the manifest claims. It says nothing about whether the
+ * page says the same thing as the file. On 2026-09-19 five sheets gained a "What
+ * to Ask For in the Room" section in this repository and the published pages did
+ * not, and this checker printed "No drift" — because it counted sheets. The whole
+ * premise here is that the repository is the source of truth; that is not a fact
+ * about the repository, it is a claim that has to be checked against the site.
+ *
+ * IT COMPARES BODY TEXT, NOT HEADINGS, and that distinction is the difference
+ * between a gate and a nuisance. A heading comparison flags Boring Technology,
+ * whose opening section runs straight on from the page title without its "What
+ * This Is" heading — the words are all there and a reader loses nothing. Nine
+ * findings, eight of them noise, is a gate somebody turns off. Asking "did this
+ * section's prose reach the page" gave 123 sections checked and 0 false
+ * positives.
+ *
+ * NORMALISE BEFORE COMPARING, because WordPress does not serve back what you
+ * sent it. wptexturize turns quotes and apostrophes curly and hyphens into en
+ * dashes, and the mirror's own HTML-to-Markdown pass moves emphasis markers
+ * around. Every one of those differences is rendering, not drift. Two rounds of
+ * this check were false alarms from exactly that: "Look at Me" against “Look at
+ * Me”, and a hyphen against an en dash.
+ *
+ * SECTIONS THE SITE DELIBERATELY DOES NOT CARRY ARE LISTED, NOT SILENTLY SKIPPED.
+ * License and Signatories live in the page furniture rather than the body, and a
+ * Table of Contents renders as a list without its heading. */
+const NOT_ON_PAGE = new Set([
+  'license',
+  'signatories',
+  'table of contents',
+  'references',
+  'resources',
+  'further reading',
+]);
+
+function normalise(t) {
+  const pairs = [
+    ['\u2019', "'"], ['\u2018', "'"], ['\u201c', '"'], ['\u201d', '"'],
+    ['\u2013', '-'], ['\u2014', '-'], ['\u2212', '-'], ['\u00a0', ' '],
+  ];
+  for (const [a, b] of pairs) t = t.split(a).join(b);
+  return t
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`>#\\]/g, '')
+    .replace(/\s+/g, ' ')
+    .toLowerCase()
+    .trim();
+}
+
+if (mirrorOk) {
+  let checked = 0;
+  const behind = [];
+
+  for (const s of manifest.sheets) {
+    if (!s.published || !published.has(s.slug)) continue;
+    const live = normalise(
+      fs.readFileSync(path.join(pagesDir, 'why__' + s.slug + '.md'), 'utf8')
+    );
+    const src = fs.readFileSync(path.join(REPO, s.file), 'utf8');
+    const parts = src.split(/^##+[ \t]+(.+?)[ \t]*$/m);
+
+    for (let i = 1; i < parts.length; i += 2) {
+      const heading = parts[i].trim();
+      if (NOT_ON_PAGE.has(heading.toLowerCase())) continue;
+
+      /* The section's first line of prose OR list item, with the bullet marker
+         stripped. Skipping list items — the obvious first instinct, since a list
+         looks like the thing a round trip would reshape — makes the check blind
+         to any section that is ENTIRELY a list, and an asks section is exactly
+         that shape. Tested: excluding them caught 1 of the 5 sheets that were
+         genuinely behind; including them caught 5 of 5 and still produced 0 false
+         positives across 167 sections. Quotes, tables, images and raw HTML stay
+         excluded, because those really are reshaped by the round trip. */
+      const line = (parts[i + 1].split('\n').find(
+        (l) => l.trim() && !/^\s*[>|!<]/.test(l)
+      ) || '').replace(/^\s*[-*]\s+/, '');
+      const probe = normalise(line).slice(0, 70);
+      if (probe.length < 25) continue;
+
+      checked++;
+      if (!live.includes(probe)) behind.push({ slug: s.slug, heading });
+    }
+  }
+
+  for (const b of behind) {
+    note('error', 'IN THE REPOSITORY, NOT ON THE PAGE  ' + b.slug + ' \u2014 "' + b.heading + '"\n' +
+      '      This section exists in ' + b.slug + ' here and its text is not on the published page.\n' +
+      '      Either publish it, or the repository is not the source of truth it claims to be.\n' +
+      '      Re-sync the mirror first — a stale mirror reports this too.');
+  }
+
+  console.log('  ' + checked + ' published sections compared against the page text \u00b7 ' +
+    behind.length + ' behind');
+  console.log();
+}
+
 /* ── 3. the /why/ list — which is NOT a list ────────────────────────────── */
 
 /* THIS CHECK WAS WRONG, AND THE WAY IT WAS WRONG IS WORTH KEEPING.

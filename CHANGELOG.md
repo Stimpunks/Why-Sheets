@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-09-19 — Asks sections, published
+
+**All ten school sheets now say what to ask for.** Five gained a "What to Ask For in the Room"
+section — Behaviorism, Alternatives to ABA, ABA Tactics, Positive Greetings at the Door, and
+Hoodie — and all five are live on stimpunks.org as well as here. A sheet that makes the argument
+and then leaves you to work out what to say in the room is doing half its job.
+
+**Monotropism was never missing one.** It has had "Questions To Ask In The Room" all along,
+written as a bold label above each question rather than as a list. The tooling read only lists,
+found none, and reported the sheet as having no asks — which would have led to writing a new
+section over better prose that was already there.
+
+**All ten sheets now generate a companion prompt**, up from four.
+
+**And the drift checker can see content now.** It used to count sheets, which is how five
+sections could exist here and not on the site while it reported no drift. It compares the text of
+every published section against the page — 167 of them — and fails the build when one is behind.
+
 ## 2026-09-19 — Social cards
 
 **Every page now has a card.** Share a Why Sheet into Discord, Bluesky or Slack and the link

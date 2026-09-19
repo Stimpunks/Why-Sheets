@@ -30,6 +30,31 @@ card's content bottom, and it is now written down in the file so it is not redis
 time. A card that overflows at the minimum type sizes throws, because the alternative is finding
 out from somebody else's timeline.
 
+### check-drift compares page text, not headings — 2026-09-19
+
+Section 2 of the checker verifies a sheet exists at the URL the manifest claims. It says nothing
+about whether the page says the same thing as the file. On 2026-09-19 five sheets gained a "What
+to Ask For in the Room" section here and the published pages did not, and the checker printed
+**No drift** — because it counted sheets. "The repository is the source of truth" is not a fact
+about the repository; it is a claim, and a claim has to be checked against the site.
+
+**Body text, not headings, and the difference is gate versus nuisance.** A heading comparison
+produced nine findings across sixteen sheets, eight of them noise: Boring Technology's opening
+section runs straight on from the page title without its "What This Is" heading, and a reader
+loses nothing. Asking whether a section's prose reached the page gave 0 false positives.
+
+**Normalise first.** WordPress does not serve back what you sent it — wptexturize curls quotes
+and apostrophes and turns hyphens into en dashes, and the mirror's HTML-to-Markdown pass moves
+emphasis markers. Two rounds of this check were false alarms from exactly that.
+
+**List items count as prose, and leaving them out nearly shipped a useless gate.** The instinct
+is to skip lists, since a list looks like the thing a round trip would reshape. But a section
+that is *entirely* a list is then never checked — and an asks section is exactly that shape.
+Excluding list items caught 1 of the 5 sheets that were genuinely behind. Including them caught
+5 of 5, across 167 sections, with no false positives. **Proven in both directions against the
+mirror as it stood before those five were published**, which is the only test that means
+anything: a gate nobody has watched fire is a gate nobody knows works.
+
 ### Companion prompts are generated, gated twice, and carry their own evidence — 2026-09-19
 
 When we hand someone a Why Sheet, the next thing they need is a letter, and we have been
