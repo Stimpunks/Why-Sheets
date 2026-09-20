@@ -87,6 +87,15 @@ bottom out of habit publishes as the newest thing on the press.
 resolves against *their* site. It works perfectly on the page it came from, which is the only
 place anybody would think to check it. `check-site.mjs` gates it.
 
+**A new sheet is a release, and gets its own entry.** This was not written down until
+2026-09-20, and the omission showed: the first seven entries were all press infrastructure —
+prompts, social cards, a feed — and the seventeenth Why Sheet shipped without a line. Somebody
+subscribed to the feed to hear about sheets was told about the plumbing and not about AAC. The
+changelog and the feed are the only way a reader who found the press before the sheet they need
+existed ever learns it now does, so a sheet landing on the press is the most important thing the
+feed can carry, not the least. Write the entry when the sheet lands here, and say plainly whether
+it is on stimpunks.org yet — those are two different events and the reader cares about both.
+
 Nothing in the feed may come from the clock, for the reason in the next rule.
 
 ### No generated file may take a value from the clock

@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-09-20 — Demand Avoidance
+
+**An eighteenth Why Sheet, for the meeting where a child has been called defiant.** [Demand
+Avoidance](https://whysheet.press/sheets/demand-avoidance/) is for the room where a child's
+inability to meet demands has been filed as a choice, and the plan on the table is more pressure.
+The distinction the room keeps collapsing is the whole argument: can't, not won't.
+
+**The evidence points at the setting, not the child.** Connolly, Constable and Mullally record
+that an unrecognised demand avoidant presentation "is viewed as defiance and deliberately
+challenging behavior, leading to school exclusions", and that "pressure to comply with direct
+demands is well-documented to lead to escalation in emotional reactivity and challenging
+behavior". A 2018 survey they cite found 70% of school aged demand avoidant children were either
+not enrolled or unable to tolerate their school environment. Seventy percent is a description of
+a setting.
+
+**It does not ask the school to accept the label, and that is the design.** Truman and colleagues
+found parents reporting teachers who did not necessarily believe PDA exists, so a sheet that only
+works after a school concedes a contested diagnosis fails in most rooms. Richard Woods is the way
+round it: the adjustments recommended for PDA are "suitable for most children, not just those
+diagnosed with PDA". Ask for the practice, not the diagnosis.
+
+**The asks are practice, not statute.** The strongest legal framing in this literature is UK —
+the Equality Act, the unlawfulness of informal exclusions — and a US parent in an IEP meeting
+cannot use it. So the sheet asks for the demand to be reduced first, for choices instead of
+instructions, for rewards and sanctions named and removed, and for anger logged as communication
+rather than as an incident.
+
+**Twenty-two quotations, every one checked as a string against its source.** Including the two
+places a machine-generated caption mis-heard a word, which are marked in square brackets rather
+than quietly corrected. A companion prompt for a letter to school comes with it.
+
+Not yet published on stimpunks.org.
+
 ## 2026-09-20 — The staleness check can fail again
 
 **`security.txt` was rewriting itself on every build.** RFC 9116 wants a future expiry date, and
@@ -52,6 +85,25 @@ the changelog page, and the build fails if that anchor is not there — the same
 check the printed packets already get, in a medium where nobody would ever report it. A feed
 breaks silently and permanently: a reader sees an error once, or just stops getting updates, and
 concludes the press went quiet.
+
+## 2026-09-19 — AAC Is Not a Last Resort
+
+**A seventeenth Why Sheet, logged here late.** [AAC Is Not a Last
+Resort](https://whysheet.press/sheets/aac/) argues that a robust communication system is a right
+rather than a reward for proving you deserve one, and that AAC does not delay speech — it
+supports it. For the moment a school or clinic says a child needs to develop speech before they
+can have a communication system.
+
+**It answers the prerequisite myth with the profession that refutes it**, sets out where the
+right is written down, and makes the case for presuming competence as the least dangerous
+assumption. A device on its own is not enough: somebody has to model it.
+
+**It has a broadside and a companion prompt**, and it is published at
+[stimpunks.org/why/aac/](https://stimpunks.org/why/aac/).
+
+**This entry is a backfill.** The sheet shipped on 2026-09-19 and no release note was written,
+which is how a changelog with seven entries about prompts, cards and feeds had nothing to say
+about the seventeenth sheet. The policy is written down now.
 
 ## 2026-09-19 — Prompts for work and clinic
 

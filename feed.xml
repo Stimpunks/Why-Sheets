@@ -16,10 +16,23 @@
     </image>
     <lastBuildDate>Sun, 20 Sep 2026 12:00:00 GMT</lastBuildDate>
     <item>
+      <title>Demand Avoidance</title>
+      <link>https://whysheet.press/changelog/#2026-09-20-demand-avoidance</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-20-demand-avoidance</guid>
+      <pubDate>Sun, 20 Sep 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;An eighteenth Why Sheet, for the meeting where a child has been called defiant.&lt;/strong&gt; &lt;a href=&quot;https://whysheet.press/sheets/demand-avoidance/&quot; rel=&quot;noopener&quot;&gt;Demand Avoidance&lt;/a&gt; is for the room where a child&apos;s inability to meet demands has been filed as a choice, and the plan on the table is more pressure. The distinction the room keeps collapsing is the whole argument: can&apos;t, not won&apos;t.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The evidence points at the setting, not the child.&lt;/strong&gt; Connolly, Constable and Mullally record that an unrecognised demand avoidant presentation &amp;quot;is viewed as defiance and deliberately challenging behavior, leading to school exclusions&amp;quot;, and that &amp;quot;pressure to comply with direct demands is well-documented to lead to escalation in emotional reactivity and challenging behavior&amp;quot;. A 2018 survey they cite found 70% of school aged demand avoidant children were either not enrolled or unable to tolerate their school environment. Seventy percent is a description of a setting.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It does not ask the school to accept the label, and that is the design.&lt;/strong&gt; Truman and colleagues found parents reporting teachers who did not necessarily believe PDA exists, so a sheet that only works after a school concedes a contested diagnosis fails in most rooms. Richard Woods is the way round it: the adjustments recommended for PDA are &amp;quot;suitable for most children, not just those diagnosed with PDA&amp;quot;. Ask for the practice, not the diagnosis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The asks are practice, not statute.&lt;/strong&gt; The strongest legal framing in this literature is UK — the Equality Act, the unlawfulness of informal exclusions — and a US parent in an IEP meeting cannot use it. So the sheet asks for the demand to be reduced first, for choices instead of instructions, for rewards and sanctions named and removed, and for anger logged as communication rather than as an incident.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Twenty-two quotations, every one checked as a string against its source.&lt;/strong&gt; Including the two places a machine-generated caption mis-heard a word, which are marked in square brackets rather than quietly corrected. A companion prompt for a letter to school comes with it.&lt;/p&gt;
+&lt;p&gt;Not yet published on stimpunks.org.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>The staleness check can fail again</title>
       <link>https://whysheet.press/changelog/#2026-09-20-the-staleness-check-can-fail-again</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-20-the-staleness-check-can-fail-again</guid>
-      <pubDate>Sun, 20 Sep 2026 12:00:00 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 11:59:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;&lt;strong&gt;&lt;code&gt;security.txt&lt;/code&gt; was rewriting itself on every build.&lt;/strong&gt; RFC 9116 wants a future expiry date, and ours was computed as a year from &lt;code&gt;Date.now()&lt;/code&gt; — to the second. So that one file differed from its committed copy every single run, and &lt;code&gt;node tools/build-site.mjs --check&lt;/code&gt; reported it stale on a completely clean tree.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The cost was not the noise. It was the gate.&lt;/strong&gt; That check exists to answer one question — is the published site behind the sheets it is built from? — and it had been answering &amp;quot;yes&amp;quot; unconditionally since the day it was written. A gate that is always on says nothing: the next real drift would have arrived as one more line in a report that had cried wolf from the start.&lt;/p&gt;
@@ -31,7 +44,7 @@
       <title>A changelog you can subscribe to</title>
       <link>https://whysheet.press/changelog/#2026-09-20-a-changelog-you-can-subscribe-to</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-20-a-changelog-you-can-subscribe-to</guid>
-      <pubDate>Sun, 20 Sep 2026 11:59:00 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 11:58:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;&lt;strong&gt;This page.&lt;/strong&gt; The sheets get revised — a section added, a quotation re-sourced, a claim corrected — and somebody is carrying an earlier version into a meeting on Tuesday. A commit history does not answer them. &amp;quot;What changed, and does it change what I hand over&amp;quot; is a question in prose, and this file has been answering it in prose since the first release. Now it is published at &lt;a href=&quot;https://whysheet.press/changelog/&quot; rel=&quot;noopener&quot;&gt;whysheet.press/changelog&lt;/a&gt; rather than sitting in a repository, generated from the same Markdown like everything else here.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;And a feed, at &lt;a href=&quot;https://whysheet.press/feed.xml&quot; rel=&quot;noopener&quot;&gt;/feed.xml&lt;/a&gt;.&lt;/strong&gt; A reader who finds the press before the sheet they need exists has no way back except remembering to look. There are no accounts here and there is no mailing list, because both mean holding somebody&apos;s address in order to tell them a page changed. A feed is the version of that which collects nothing: your reader asks for a file, we never learn that it did, and you unsubscribe without telling us.&lt;/p&gt;
@@ -39,10 +52,21 @@
 &lt;p&gt;&lt;strong&gt;The feed is gated like everything else.&lt;/strong&gt; Every item&apos;s link is a permalink into an anchor on the changelog page, and the build fails if that anchor is not there — the same dangling-anchor check the printed packets already get, in a medium where nobody would ever report it. A feed breaks silently and permanently: a reader sees an error once, or just stops getting updates, and concludes the press went quiet.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>AAC Is Not a Last Resort</title>
+      <link>https://whysheet.press/changelog/#2026-09-19-aac-is-not-a-last-resort</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-aac-is-not-a-last-resort</guid>
+      <pubDate>Sat, 19 Sep 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;A seventeenth Why Sheet, logged here late.&lt;/strong&gt; &lt;a href=&quot;https://whysheet.press/sheets/aac/&quot; rel=&quot;noopener&quot;&gt;AAC Is Not a Last Resort&lt;/a&gt; argues that a robust communication system is a right rather than a reward for proving you deserve one, and that AAC does not delay speech — it supports it. For the moment a school or clinic says a child needs to develop speech before they can have a communication system.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It answers the prerequisite myth with the profession that refutes it&lt;/strong&gt;, sets out where the right is written down, and makes the case for presuming competence as the least dangerous assumption. A device on its own is not enough: somebody has to model it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It has a broadside and a companion prompt&lt;/strong&gt;, and it is published at &lt;a href=&quot;https://stimpunks.org/why/aac/&quot; rel=&quot;noopener&quot;&gt;stimpunks.org/why/aac/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This entry is a backfill.&lt;/strong&gt; The sheet shipped on 2026-09-19 and no release note was written, which is how a changelog with seven entries about prompts, cards and feeds had nothing to say about the seventeenth sheet. The policy is written down now.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Prompts for work and clinic</title>
       <link>https://whysheet.press/changelog/#2026-09-19-prompts-for-work-and-clinic</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-prompts-for-work-and-clinic</guid>
-      <pubDate>Sat, 19 Sep 2026 12:00:00 GMT</pubDate>
+      <pubDate>Sat, 19 Sep 2026 11:59:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;&lt;strong&gt;Every sheet that has somewhere to write now has a companion prompt&lt;/strong&gt; — twelve of sixteen, up from ten. The four without one argue a position with no decision-maker at the other end.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Sensory Access at Work&lt;/strong&gt; builds an accommodation request from the sheet&apos;s own menu of forty-five adjustments across eight senses. It asks what you want to disclose before it writes anything, and defaults to naming nothing: an adjustment can be asked for without naming a diagnosis, and naming one puts it in a file you do not control.&lt;/p&gt;
@@ -52,7 +76,7 @@
       <title>Asks sections, published</title>
       <link>https://whysheet.press/changelog/#2026-09-19-asks-sections-published</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-asks-sections-published</guid>
-      <pubDate>Sat, 19 Sep 2026 11:59:00 GMT</pubDate>
+      <pubDate>Sat, 19 Sep 2026 11:58:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;&lt;strong&gt;All ten school sheets now say what to ask for.&lt;/strong&gt; Five gained a &amp;quot;What to Ask For in the Room&amp;quot; section — Behaviorism, Alternatives to ABA, ABA Tactics, Positive Greetings at the Door, and Hoodie — and all five are live on stimpunks.org as well as here. A sheet that makes the argument and then leaves you to work out what to say in the room is doing half its job.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Monotropism was never missing one.&lt;/strong&gt; It has had &amp;quot;Questions To Ask In The Room&amp;quot; all along, written as a bold label above each question rather than as a list. The tooling read only lists, found none, and reported the sheet as having no asks — which would have led to writing a new section over better prose that was already there.&lt;/p&gt;
@@ -63,7 +87,7 @@
       <title>Social cards</title>
       <link>https://whysheet.press/changelog/#2026-09-19-social-cards</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-social-cards</guid>
-      <pubDate>Sat, 19 Sep 2026 11:58:00 GMT</pubDate>
+      <pubDate>Sat, 19 Sep 2026 11:57:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;&lt;strong&gt;Every page now has a card.&lt;/strong&gt; Share a Why Sheet into Discord, Bluesky or Slack and the link arrives with the sheet&apos;s title and the moment you reach for it, set in the site&apos;s own type on white — a document, not an advertisement. Thirty cards: the library, each of the sixteen sheets, each of the ten broadsides, the packet builder and the about page. Before this, every one of those links arrived as a line of grey text.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rendered from the pages, so they cannot drift.&lt;/strong&gt; A new sheet gets a card with no further work. The build fails if a card no longer matches its page, if a page has no card, or if a card overflows at the minimum type size.&lt;/p&gt;
@@ -73,7 +97,7 @@
       <title>Companion prompts</title>
       <link>https://whysheet.press/changelog/#2026-09-19-companion-prompts</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-companion-prompts</guid>
-      <pubDate>Sat, 19 Sep 2026 11:57:00 GMT</pubDate>
+      <pubDate>Sat, 19 Sep 2026 11:56:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;&lt;strong&gt;A prompt to go with the sheet.&lt;/strong&gt; Four Why Sheets now carry a companion prompt: plain text you copy into whatever AI assistant you already use, which asks you what happened — your child&apos;s name, their year, what was said, how the evening went — and then drafts the letter. Eye Contact, Masking and Burnout, Developmental Pace, and Recess and Play. Nothing you type reaches us.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Each one carries its sheet&apos;s quotations inside it, word for word, and forbids the assistant from adding any source it was not given.&lt;/strong&gt; That is the whole design. An assistant writing about school policy will reach for a study, and an invented or misattributed citation hands a school a free reason to dismiss you — in a room where you are already outnumbered. The generator refuses to put a quotation into a prompt without its attribution attached.&lt;/p&gt;
@@ -84,7 +108,7 @@
       <title>The Why Sheet Press</title>
       <link>https://whysheet.press/changelog/#2026-09-19-the-why-sheet-press</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-the-why-sheet-press</guid>
-      <pubDate>Sat, 19 Sep 2026 11:56:00 GMT</pubDate>
+      <pubDate>Sat, 19 Sep 2026 11:55:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;The first release. Fourteen Why Sheets and nine broadsides, published as a print-first library at &lt;a href=&quot;https://whysheet.press/&quot; rel=&quot;noopener&quot;&gt;whysheet.press&lt;/a&gt;, generated from the Markdown in this repository.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The press.&lt;/strong&gt; Every sheet gets a page and a PDF. Tick the ones you need and the packet builder returns a single correctly paginated PDF — cover page with a name and a date, contents list with real page numbers, everything numbered straight through. Assembled in your own browser; nothing is uploaded and nothing is recorded.&lt;/p&gt;
