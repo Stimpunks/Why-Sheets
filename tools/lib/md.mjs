@@ -35,6 +35,19 @@ const NUL = String.fromCharCode(0);
 const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 export const escapeHtml = (s) => s.replace(/[&<>"]/g, (c) => ESC[c]);
 
+/* The inverse, and it lives here so the two cannot drift apart. Needed wherever a
+   slug is derived from already-rendered HTML: stripping tags leaves entities
+   behind, and slugify() then turns `&quot;` into the word `quot`. That is how
+   `## "You're Just Giving In"` became `h-quot-youre-just-giving-in-quot` on
+   stimpunks.org while the press's own build, which slugifies the raw heading,
+   produced `youre-just-giving-in`. Ampersand last, or it double-decodes. */
+export const unescapeHtml = (s) =>
+  s
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+
 /* Slug for a heading id. Lowercase, strip apostrophes entirely (rather than
    turning them into hyphens, which is what WordPress does and which is why
    /why/ tables of contents can point at headings that do not exist), collapse

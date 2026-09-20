@@ -36,7 +36,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { render, resolveAnchors, slugify } from './lib/md.mjs';
+import { render, resolveAnchors, slugify, unescapeHtml } from './lib/md.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -86,7 +86,7 @@ export function toBlocks(markdown) {
     if (/^h[1-6]$/.test(tag)) {
       const level = Number(tag[1]);
       const inner = chunk.replace(/^<h\d[^>]*>/, '').replace(/<\/h\d>$/, '');
-      const text = inner.replace(/<[^>]+>/g, '');
+      const text = unescapeHtml(inner.replace(/<[^>]+>/g, ''));
       const anchor = 'h-' + slugify(text);
       const attrs = level === 2 ? { anchor } : { level, anchor };
       out.push(
