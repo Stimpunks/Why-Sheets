@@ -183,6 +183,15 @@ for (const [slug, c] of [
     },
   ],
   [
+    'changelog',
+    {
+      kicker: 'What changed',
+      title: 'Every release, in plain words.',
+      note: 'New sheets, revisions to the ones already out there, and changes to how they print. With a feed, so you can be told without giving us an address.',
+      foot: 'CC0 1.0',
+    },
+  ],
+  [
     'about',
     {
       kicker: 'About the press',

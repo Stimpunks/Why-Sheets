@@ -16,6 +16,10 @@
       ],
       "alternate": [
         {
+          "href": "https://whysheet.press/feed.xml",
+          "type": "application/rss+xml"
+        },
+        {
           "href": "https://whysheet.press/search-index.json",
           "type": "application/json"
         },

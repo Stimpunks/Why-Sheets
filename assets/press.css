@@ -522,6 +522,75 @@ main { padding: 2.4rem 0 4rem; }
   max-width: var(--measure);
 }
 
+/* ── the changelog ──────────────────────────────────────────────────────── */
+
+/* An <ol>, not a stack of <article>s, and the list markers are removed rather
+   than never asked for. The releases are IN ORDER and the order is the meaning
+   — a reader is looking for the point at which the sheet they printed stopped
+   being current. A screen reader announcing "list, 6 items" and counting down
+   carries that; six unrelated articles do not. */
+.releases {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+}
+.releases > li { margin: 0; }
+
+.release {
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 2.2rem;
+}
+.releases > li:first-child .release { border-top: 0; margin-top: 0; padding-top: 0; }
+
+.release__title { margin: 0; font-size: 1.32rem; }
+
+.release__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0.3rem 0 1.1rem;
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
+.release__meta time { font-variant-numeric: tabular-nums; }
+
+/* The permalink is always in the accessibility tree and always focusable — it
+   only fades visually until the release is hovered or something inside it takes
+   focus. Hiding it from a keyboard or a screen reader to keep the page tidy
+   would take away the one control on it. */
+.release__link { color: var(--ink-faint); opacity: 0; transition: opacity 0.12s ease; }
+.release:hover .release__link,
+.release:focus-within .release__link { opacity: 1; }
+.release__link:focus-visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .release__link { transition: none; }
+}
+
+.release__body > *:last-child { margin-bottom: 0; }
+
+.feed-note {
+  margin: 2rem 0 0;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--spot);
+  background: var(--spot-wash);
+  max-width: var(--measure);
+}
+.feed-note p { margin-bottom: 0.5rem; }
+.feed-note p:last-child { margin-bottom: 0; }
+/* Fine print, NOT .note. That class carries its own wash and its own rule, and
+   inside this block it renders as a second bordered box inside the first. */
+.feed-note__fine { font-size: 0.9rem; color: var(--ink-faint); }
+
+@media print {
+  /* Nothing on paper can be subscribed to, and a permalink to the page you are
+     holding is not a link. The releases themselves print. */
+  .feed-note,
+  .release__link { display: none; }
+  .release { break-inside: avoid; }
+}
+
 /* ── broadsides ─────────────────────────────────────────────────────────── */
 
 /* A broadside arrives as a self-contained block: its own namespaced stylesheet
@@ -687,13 +756,15 @@ main { padding: 2.4rem 0 4rem; }
      citation somebody cannot follow is not a citation. In-page anchors and
      mailto links are skipped: the first is meaningless on paper, the second is
      already written out. */
-  .sheet-body a[data-print-url]::after {
+  .sheet-body a[data-print-url]::after,
+  .release__body a[data-print-url]::after {
     content: ' (' attr(data-print-url) ')';
     font-size: 8pt;
     color: #333;
     word-break: break-all;
   }
-  .sheet-body a { color: #000; text-decoration: underline; }
+  .sheet-body a,
+  .release__body a { color: #000; text-decoration: underline; }
 
   .source-note { border: 0.5pt solid #999; border-left: 2pt solid #000; }
 }

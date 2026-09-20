@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Why Sheet Press</title>
+    <link>https://whysheet.press/</link>
+    <atom:link href="https://whysheet.press/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>What changed at The Why Sheet Press: new Why Sheets, revisions to the ones already out there, and changes to how they print. Print the argument. Carry it into the room.</description>
+    <language>en</language>
+    <copyright>CC0 1.0 Universal. Public domain. Quoted material belongs to the people who wrote it.</copyright>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <generator>tools/build-site.mjs</generator>
+    <image>
+      <url>https://whysheet.press/icon-512.png</url>
+      <title>The Why Sheet Press</title>
+      <link>https://whysheet.press/</link>
+    </image>
+    <lastBuildDate>Sun, 20 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <item>
+      <title>A changelog you can subscribe to</title>
+      <link>https://whysheet.press/changelog/#2026-09-20-a-changelog-you-can-subscribe-to</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-20-a-changelog-you-can-subscribe-to</guid>
+      <pubDate>Sun, 20 Sep 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;This page.&lt;/strong&gt; The sheets get revised — a section added, a quotation re-sourced, a claim corrected — and somebody is carrying an earlier version into a meeting on Tuesday. A commit history does not answer them. &amp;quot;What changed, and does it change what I hand over&amp;quot; is a question in prose, and this file has been answering it in prose since the first release. Now it is published at &lt;a href=&quot;https://whysheet.press/changelog/&quot; rel=&quot;noopener&quot;&gt;whysheet.press/changelog&lt;/a&gt; rather than sitting in a repository, generated from the same Markdown like everything else here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;And a feed, at &lt;a href=&quot;https://whysheet.press/feed.xml&quot; rel=&quot;noopener&quot;&gt;/feed.xml&lt;/a&gt;.&lt;/strong&gt; A reader who finds the press before the sheet they need exists has no way back except remembering to look. There are no accounts here and there is no mailing list, because both mean holding somebody&apos;s address in order to tell them a page changed. A feed is the version of that which collects nothing: your reader asks for a file, we never learn that it did, and you unsubscribe without telling us.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Same-day releases are a minute apart, and that is not a claim about the clock.&lt;/strong&gt; Four of the first five releases here landed on one day. A changelog records a day; RSS wants a timestamp, and a reader handed four identical ones sorts them however it likes — usually backwards, which would have presented the oldest entry as the newest thing on the press. The minutes exist to preserve the order this file states, and nothing else reads them.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The feed is gated like everything else.&lt;/strong&gt; Every item&apos;s link is a permalink into an anchor on the changelog page, and the build fails if that anchor is not there — the same dangling-anchor check the printed packets already get, in a medium where nobody would ever report it. A feed breaks silently and permanently: a reader sees an error once, or just stops getting updates, and concludes the press went quiet.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prompts for work and clinic</title>
+      <link>https://whysheet.press/changelog/#2026-09-19-prompts-for-work-and-clinic</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-prompts-for-work-and-clinic</guid>
+      <pubDate>Sat, 19 Sep 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;Every sheet that has somewhere to write now has a companion prompt&lt;/strong&gt; — twelve of sixteen, up from ten. The four without one argue a position with no decision-maker at the other end.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sensory Access at Work&lt;/strong&gt; builds an accommodation request from the sheet&apos;s own menu of forty-five adjustments across eight senses. It asks what you want to disclose before it writes anything, and defaults to naming nothing: an adjustment can be asked for without naming a diagnosis, and naming one puts it in a file you do not control.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Neuromodulation &amp;amp; Autism&lt;/strong&gt; prepares the appointment rather than writing a letter. Six questions to ask out loud, shaped to your situation, each with a line on what a good answer and a non-answer sound like. Its first rule is that it must not give medical advice — the questions are what make a decision informed, and the decision stays yours.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Asks sections, published</title>
+      <link>https://whysheet.press/changelog/#2026-09-19-asks-sections-published</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-asks-sections-published</guid>
+      <pubDate>Sat, 19 Sep 2026 11:59:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;All ten school sheets now say what to ask for.&lt;/strong&gt; Five gained a &amp;quot;What to Ask For in the Room&amp;quot; section — Behaviorism, Alternatives to ABA, ABA Tactics, Positive Greetings at the Door, and Hoodie — and all five are live on stimpunks.org as well as here. A sheet that makes the argument and then leaves you to work out what to say in the room is doing half its job.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Monotropism was never missing one.&lt;/strong&gt; It has had &amp;quot;Questions To Ask In The Room&amp;quot; all along, written as a bold label above each question rather than as a list. The tooling read only lists, found none, and reported the sheet as having no asks — which would have led to writing a new section over better prose that was already there.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;All ten sheets now generate a companion prompt&lt;/strong&gt;, up from four.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;And the drift checker can see content now.&lt;/strong&gt; It used to count sheets, which is how five sections could exist here and not on the site while it reported no drift. It compares the text of every published section against the page — 167 of them — and fails the build when one is behind.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Social cards</title>
+      <link>https://whysheet.press/changelog/#2026-09-19-social-cards</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-social-cards</guid>
+      <pubDate>Sat, 19 Sep 2026 11:58:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;Every page now has a card.&lt;/strong&gt; Share a Why Sheet into Discord, Bluesky or Slack and the link arrives with the sheet&apos;s title and the moment you reach for it, set in the site&apos;s own type on white — a document, not an advertisement. Thirty cards: the library, each of the sixteen sheets, each of the ten broadsides, the packet builder and the about page. Before this, every one of those links arrived as a line of grey text.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Rendered from the pages, so they cannot drift.&lt;/strong&gt; A new sheet gets a card with no further work. The build fails if a card no longer matches its page, if a page has no card, or if a card overflows at the minimum type size.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;og:image:alt&lt;/code&gt; carries what each card says.&lt;/strong&gt; A card is the only part of a shared link that a blind reader would otherwise get nothing from.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Companion prompts</title>
+      <link>https://whysheet.press/changelog/#2026-09-19-companion-prompts</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-companion-prompts</guid>
+      <pubDate>Sat, 19 Sep 2026 11:57:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;A prompt to go with the sheet.&lt;/strong&gt; Four Why Sheets now carry a companion prompt: plain text you copy into whatever AI assistant you already use, which asks you what happened — your child&apos;s name, their year, what was said, how the evening went — and then drafts the letter. Eye Contact, Masking and Burnout, Developmental Pace, and Recess and Play. Nothing you type reaches us.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Each one carries its sheet&apos;s quotations inside it, word for word, and forbids the assistant from adding any source it was not given.&lt;/strong&gt; That is the whole design. An assistant writing about school policy will reach for a study, and an invented or misattributed citation hands a school a free reason to dismiss you — in a room where you are already outnumbered. The generator refuses to put a quotation into a prompt without its attribution attached.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Generated from the sheets, so they cannot drift.&lt;/strong&gt; &lt;code&gt;tools/build-prompts.mjs&lt;/code&gt; reads the argument, the quotations and the asks out of the Markdown. &lt;code&gt;--check&lt;/code&gt; fails the build if any prompt no longer matches its sheet.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;And it only builds the ones it can build honestly.&lt;/strong&gt; A sheet with no &amp;quot;What to Ask For in the Room&amp;quot; section is skipped rather than shipped without asks, because the alternative is an assistant inventing what to demand of a school. Six school sheets are in that state and are named on every build.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Why Sheet Press</title>
+      <link>https://whysheet.press/changelog/#2026-09-19-the-why-sheet-press</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-19-the-why-sheet-press</guid>
+      <pubDate>Sat, 19 Sep 2026 11:56:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;The first release. Fourteen Why Sheets and nine broadsides, published as a print-first library at &lt;a href=&quot;https://whysheet.press/&quot; rel=&quot;noopener&quot;&gt;whysheet.press&lt;/a&gt;, generated from the Markdown in this repository.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The press.&lt;/strong&gt; Every sheet gets a page and a PDF. Tick the ones you need and the packet builder returns a single correctly paginated PDF — cover page with a name and a date, contents list with real page numbers, everything numbered straight through. Assembled in your own browser; nothing is uploaded and nothing is recorded.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;One source of truth.&lt;/strong&gt; The site, the PDFs and the packet are all generated from the Markdown, and &lt;code&gt;tools/check-drift.mjs&lt;/code&gt; prints every count side by side whether they agree or not.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;And the first thing it caught was itself.&lt;/strong&gt; It reported three sheets as published but missing from the list on &lt;code&gt;/why/&lt;/code&gt;. All three were already there. That list is generated from the page&apos;s child pages at request time, so it cannot drift — and the local site mirror had not re-fetched the page in six weeks, because a page whose &lt;em&gt;rendered&lt;/em&gt; output depends on other content never reports itself as modified. The scrape is gone; the staleness signal that would have caught it is in its place.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;126 non-breaking spaces repaired.&lt;/strong&gt; Nine of the fourteen sheets had been quietly damaged by Ulysses, twenty-four of the spaces sitting inside an emphasis delimiter where they stop the emphasis opening at all. The published pages were not the damaged copy; these files were. &lt;code&gt;tools/check-ulysses.mjs&lt;/code&gt; now finds them and repairs exactly that, never the prose.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Seven quotations that had become one.&lt;/strong&gt; The Hoodie sheet&apos;s seven separately sourced quotations were rendering as a single blockquote carrying a single citation — six sources folded into a seventh&apos;s attribution. A blank line ends a quotation now.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Two paper sizes, both measured.&lt;/strong&gt; Why Sheets print at 190 × 259 mm, the intersection of A4 and US Letter. Broadsides print at 208 × 277 mm, the largest page that fits both, giving the 194 mm column that is the narrowest width at which all nine clear. Measured, not chosen — and the measuring turned up that &lt;em&gt;Developmental Pace&lt;/em&gt; is already 0.6 mm over on A4 as published.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gates.&lt;/strong&gt; Broadside page counts are asserted rather than assumed. Contrast is measured in a real browser in both themes. Every internal link and anchor is resolved. The Content-Security-Policy is checked against the markup, because the local preview sends no CSP and an inline script breaks the page in production only.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

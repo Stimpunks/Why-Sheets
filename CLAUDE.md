@@ -68,6 +68,30 @@ Do not edit a generated page, a generated stylesheet, or a PDF. They are overwri
 
 `sheets.json` holds everything the sheets cannot: slugs, published URLs, what each one is for, and when somebody reaches for it. **Slugs are declared, never computed** — `Neuromodulation & Autism.md` publishes at `/why/neuromodulation/`, and a generator that guessed from the filename would link a printed packet at a 404.
 
+### `CHANGELOG.md` is a source file too, and its headings are a contract
+
+`/changelog/` and `/feed.xml` are both generated from it. Do not edit either one.
+
+```
+## YYYY-MM-DD — Title
+```
+
+An ISO date, an **em dash**, a title. The anchor a feed item permalinks to, the `pubDate` a
+reader sorts by, and the order the page lists releases in are all derived from that line, so
+`tools/lib/changelog.mjs` **refuses a heading that does not match** rather than folding the
+release into the one above it — where it reads fine on the page and never appears in the feed.
+Releases run **newest first**, and that is checked for the same reason: an entry appended at the
+bottom out of habit publishes as the newest thing on the press.
+
+**Every link in an entry must be absolute.** A feed reader has no base URL, so `/sheets/hoodie/`
+resolves against *their* site. It works perfectly on the page it came from, which is the only
+place anybody would think to check it. `check-site.mjs` gates it.
+
+Nothing in the feed may come from the clock — see the `lastBuildDate` note in
+[DECISIONS.md](DECISIONS.md). `.well-known/security.txt` already has that bug: its `Expires`
+carries the build second, so it rewrites on every run and `build-site.mjs --check` cannot pass on
+a clean tree. Do not add a second one.
+
 ### Ulysses damages these files, and the damage prints
 
 This repository is a Ulysses external folder — there is a `.Ulysses-Group.plist` beside the sheets. Ulysses rewrites Markdown when it saves, in two ways, and both land on disk before anything publishes:

@@ -239,6 +239,17 @@ for (const abs of pages) {
     }
   }
 
+  /* --- the feed autodiscovery link resolves --- */
+  /* Same blind spot as the line above, and the same fix. This one is on EVERY
+     page, so a typo in the shell would advertise a feed that is not there to
+     every reader that ever looks for one. */
+  for (const m of html.matchAll(/<link rel="alternate" type="application\/rss\+xml"[^>]*href="([^"]+)"/g)) {
+    const target = m[1].replace('https://' + HOST, '');
+    if (!fs.existsSync(path.join(REPO, target.replace(/^\//, '')))) {
+      fail(where, 'feed autodiscovery points at ' + m[1] + ', which resolves to nothing');
+    }
+  }
+
   /* --- JSON-LD is valid JSON --- */
   /* Structured data that does not parse is worse than none: a consumer that
      chokes on it may discard the page's metadata entirely. It is generated, so
@@ -373,6 +384,101 @@ for (const abs of pages) {
   }
 }
 
+/* --- the feed --- */
+/* A FEED FAILS SILENTLY AND PERMANENTLY. Nobody reports a broken feed: their
+   reader shows an error once, or simply stops updating, and they conclude the
+   press went quiet. There is no analytics here to notice the drop-off either.
+   So everything about it that could rot is asserted here.
+
+   The one that actually matters is the last: an item's guid is a permalink into
+   /changelog/, and a reader clicking it lands on the anchor. If the id it names
+   is not on that page, the browser drops them at the top of a page of releases
+   with no indication which one they came for. That is exactly the dangling
+   anchor this repository already gates on in printed packets — same failure,
+   different medium. */
+{
+  const feedPath = path.join(REPO, 'feed.xml');
+  if (!fs.existsSync(feedPath)) {
+    fail('feed.xml', 'missing — run tools/build-site.mjs');
+  } else {
+    const xml = fs.readFileSync(feedPath, 'utf8');
+
+    /* Well-formedness, without an XML parser. Strip every complete tag; what is
+       left is text content, and text content may not contain a bare `<`, `>` or
+       an `&` that does not open a known entity. This is the shape of the real
+       failure: a changelog entry quotes markup or an ampersand, the escaping
+       misses it, and every reader rejects the whole document — not just the one
+       item — because XML is not permitted to recover. */
+    const text = xml.replace(/<\?[\s\S]*?\?>/g, '').replace(/<[^<>]*>/g, '');
+    if (/[<>]/.test(text)) fail('feed.xml', 'an unescaped < or > reaches the XML text — no reader will parse this');
+    for (const m of text.matchAll(/&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);)/g)) {
+      fail('feed.xml', 'a bare & at offset ' + m.index + ' of the text — XML has no error recovery for it');
+    }
+
+    /* RSS 2.0 has no self-reference; this is the one Atom element it borrows,
+       and aggregators use it to tell where a feed lives after it is copied. */
+    const self = /<atom:link href="([^"]+)" rel="self"/.exec(xml);
+    if (!self) fail('feed.xml', 'no <atom:link rel="self"> — every validator asks for it');
+    else if (self[1] !== 'https://' + HOST + '/feed.xml')
+      fail('feed.xml', 'rel="self" says ' + self[1] + ', which is not where this file is served');
+
+    const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
+    if (!items.length) fail('feed.xml', 'has no items');
+
+    const stamps = new Set();
+    const changelogIds = idsByPath.get('/changelog/');
+    if (!changelogIds) fail('feed.xml', 'there is no /changelog/ page for its items to point at');
+
+    for (const item of items) {
+      const guid = /<guid[^>]*>([^<]+)<\/guid>/.exec(item);
+      const title = /<title>([^<]*)<\/title>/.exec(item);
+      const date = /<pubDate>([^<]+)<\/pubDate>/.exec(item);
+      const where = 'feed.xml item "' + (title ? title[1].slice(0, 40) : '(untitled)') + '"';
+
+      if (!title || !title[1].trim()) fail(where, 'has no title');
+      if (!/<description>/.test(item)) fail(where, 'has no description — it would show as a bare headline');
+
+      /* EVERY LINK IN A FEED ITEM MUST BE ABSOLUTE. A feed reader has no base
+         URL — it is showing our HTML inside its own document, often inside its
+         own origin — so an href of "/sheets/hoodie/" resolves against the
+         READER and 404s there. It works perfectly on the page it came from,
+         which is the only place anybody would think to check it. The entries in
+         CHANGELOG.md happen to be written with absolute URLs today; nothing
+         about writing the next one makes that obvious. */
+      for (const h of item.matchAll(/&lt;a href=&quot;(?!https?:|mailto:)([^&]*)&quot;/g)) {
+        fail(where, 'links to "' + h[1] + '", which is relative — in a feed reader that resolves against their site, not ours');
+      }
+
+      if (!date) fail(where, 'has no pubDate');
+      else {
+        const t = Date.parse(date[1]);
+        if (Number.isNaN(t)) fail(where, 'pubDate "' + date[1] + '" is not RFC 822');
+        else if (stamps.has(t)) {
+          /* Two items at the same instant sort arbitrarily, and most readers
+             reverse them — so the oldest release in the feed presents as the
+             newest thing on the press. lib/changelog.mjs spreads same-day
+             entries a minute apart to prevent exactly this. */
+          fail(where, 'shares a pubDate with another item — readers will not agree on their order');
+        } else stamps.add(t);
+      }
+
+      if (!guid) {
+        fail(where, 'has no guid — a reader cannot tell it from a revision of another item');
+        continue;
+      }
+      const pre = 'https://' + HOST + '/changelog/#';
+      if (!guid[1].startsWith(pre)) {
+        fail(where, 'guid ' + guid[1] + ' is not a permalink into /changelog/');
+        continue;
+      }
+      const frag = guid[1].slice(pre.length);
+      if (changelogIds && !changelogIds.has(frag)) {
+        fail(where, 'points at #' + frag + ', which is not an id on /changelog/');
+      }
+    }
+  }
+}
+
 /* --- the icon set and the manifest --- */
 /* A <link rel="icon"> pointing at nothing is invisible: the browser silently
    falls back to /favicon.ico, and if that is missing too the tab just shows a
@@ -486,7 +592,7 @@ if (!skipBrowser) {
      share one template and one stylesheet, so measuring all of them measures
      the same rules fourteen times. One of each kind, plus the longest sheet. */
   const sample = [
-    '/', '/about/', '/packet/', '/broadsides/',
+    '/', '/about/', '/packet/', '/broadsides/', '/changelog/',
     '/sheets/alternatives-to-aba/', '/sheets/monotropism/',
     '/broadsides/eye-contact/', '/404.html',
   ];

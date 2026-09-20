@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026-09-20 — A changelog you can subscribe to
+
+**This page.** The sheets get revised — a section added, a quotation re-sourced, a claim
+corrected — and somebody is carrying an earlier version into a meeting on Tuesday. A commit
+history does not answer them. "What changed, and does it change what I hand over" is a question
+in prose, and this file has been answering it in prose since the first release. Now it is
+published at [whysheet.press/changelog](https://whysheet.press/changelog/) rather than sitting in
+a repository, generated from the same Markdown like everything else here.
+
+**And a feed, at [/feed.xml](https://whysheet.press/feed.xml).** A reader who finds the press
+before the sheet they need exists has no way back except remembering to look. There are no
+accounts here and there is no mailing list, because both mean holding somebody's address in order
+to tell them a page changed. A feed is the version of that which collects nothing: your reader
+asks for a file, we never learn that it did, and you unsubscribe without telling us.
+
+**Same-day releases are a minute apart, and that is not a claim about the clock.** Four of the
+first five releases here landed on one day. A changelog records a day; RSS wants a timestamp, and
+a reader handed four identical ones sorts them however it likes — usually backwards, which would
+have presented the oldest entry as the newest thing on the press. The minutes exist to preserve
+the order this file states, and nothing else reads them.
+
+**The feed is gated like everything else.** Every item's link is a permalink into an anchor on
+the changelog page, and the build fails if that anchor is not there — the same dangling-anchor
+check the printed packets already get, in a medium where nobody would ever report it. A feed
+breaks silently and permanently: a reader sees an error once, or just stops getting updates, and
+concludes the press went quiet.
+
 ## 2026-09-19 — Prompts for work and clinic
 
 **Every sheet that has somewhere to write now has a companion prompt** — twelve of sixteen, up

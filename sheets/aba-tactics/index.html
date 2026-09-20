@@ -17,6 +17,11 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">
+<!-- Feed autodiscovery, on every page rather than only on /changelog/. Browsers
+     stopped surfacing this years ago, but readers and aggregators still look for
+     it on whatever URL somebody hands them, and that URL is a sheet far more
+     often than it is the changelog. -->
+<link rel="alternate" type="application/rss+xml" title="The Why Sheet Press — what changed" href="/feed.xml">
 <meta name="theme-color" content="#9a1750">
 <!-- Declared in the markup as well as in CSS. The stylesheet sets the same
      property on :root, but that only applies once the CSS has parsed, and a
@@ -288,6 +293,8 @@ Repository: <a href="https://github.com/Stimpunks/Why-Sheets/blob/main/ABA%20Tac
       The sheets are written and revised in the open at
       <a href="https://github.com/Stimpunks/Why-Sheets" rel="noopener">github.com/Stimpunks/Why-Sheets</a>,
       which is the source this site is built from.
+      <a href="/changelog/">What changed</a>, and <a href="/feed.xml">a feed</a> that says so without
+      us holding your address.
       <a href="https://stimpunks.org/fieldguide/operations/forms/sign-why-sheet/" rel="noopener">Sign a Why Sheet</a>.</p>
     <p><a href="/privacy/">Privacy</a> — no cookies, no analytics, and nothing you type reaches us.
       The long version says why you can check that rather than take our word for it.</p>

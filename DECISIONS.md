@@ -259,6 +259,52 @@ Live at **https://whysheet.press** (Netlify project `why-sheet-press`, Stimpunks
 
 **Still to confirm once the custom domain is attached:** HSTS is served as Netlify's `max-age=31536000; includeSubDomains; preload`, not the `max-age=63072000` without `preload` that `_headers` declares. The likely cause is that `*.netlify.app` is preloaded platform-wide and the platform header wins on that hostname — unverifiable until a custom domain exists. If the platform value still wins there, the comment in `_headers` explaining the two-year no-preload choice is describing something that is not happening, and should be corrected rather than left as decoration.
 
+### A changelog page and an RSS feed, generated from CHANGELOG.md — 2026-09-20
+
+`CHANGELOG.md` was already written in prose and already the right document; it was just not
+published. It is now the source for `/changelog/` and `/feed.xml`, on the same terms as a sheet:
+nobody edits the page, nobody edits the feed, and the heading form `## YYYY-MM-DD — Title` is a
+contract `tools/lib/changelog.mjs` refuses to guess at.
+
+**A feed rather than a mailing list, and that is a privacy decision before it is a technical
+one.** Telling somebody a page changed should not require holding their address. A feed reader
+asks for a file; we never learn that it did, and unsubscribing is something a reader does without
+telling us. It is the only notification mechanism consistent with what `/privacy/` already
+claims.
+
+**RSS 2.0 rather than Atom.** Atom is the better-specified format and it does not matter here:
+every reader parses RSS, and the people this press is for are not choosing a client on
+feed-format grounds. The one Atom element RSS has no answer for — `atom:link rel="self"` — is
+borrowed, because every validator asks for it.
+
+**Same-day entries are spread a minute apart.** Four of the first five releases landed on one
+day. A changelog records a day; RSS wants a timestamp, and a reader handed four identical ones
+sorts them however it likes — usually reversing them, which would present the first release as
+the newest thing on the press. The minutes preserve the order the file states and are not a claim
+about the clock. `check-site.mjs` fails on two items sharing a `pubDate`, so the day this stops
+working it says so.
+
+**There is deliberately no `lastBuildDate` taken from the clock.** Anything derived from the
+build time rather than from the sources makes the file differ from the committed copy on every
+run, which turns `--check` from a staleness signal into noise that is always on. The channel date
+is the newest release's date, because that is when the feed last had something to say.
+
+**Three failures a feed has that a page does not, all gated in `check-site.mjs`:**
+
+- **A guid is a permalink into an anchor on `/changelog/`.** If that id is not on the page, a
+  reader clicking through lands at the top of a list of releases with no indication which one
+  they came for. Same dangling-anchor failure the printed packets are already gated on.
+- **A relative `href` inside an item resolves against the *reader*, not against us.** It works
+  perfectly on the page it came from, which is the only place anybody would think to check it.
+- **XML has no error recovery.** One unescaped `&` from a changelog entry and every reader
+  rejects the whole document — not the one item. The entry bodies are escaped, and the escaping
+  is checked rather than trusted.
+
+None of these is reported by a reader. They see an error once, or simply stop getting updates,
+and conclude the press went quiet.
+
+----
+
 ----
 
 ## Open

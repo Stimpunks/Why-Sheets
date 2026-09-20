@@ -107,6 +107,27 @@
   Content-Type: text/markdown; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
 
+/feed.xml
+  # RSS 2.0. The registered type, explicitly: Netlify serves .xml as
+  # application/xml, which some readers accept and some refuse to subscribe to,
+  # and a refusal looks to the reader like the feed does not exist.
+  Content-Type: application/rss+xml; charset=utf-8
+  # An hour, unlike the pages. A feed is polled on a timer by every subscriber
+  # forever, and a changelog that gains an entry every few weeks does not need
+  # a revalidation round trip per reader per poll. must-revalidate afterwards,
+  # so nobody is served a stale one for longer than that.
+  Cache-Control: public, max-age=3600, must-revalidate
+  # Browser-based readers fetch the feed from their own origin. Without this
+  # they fail with a CORS error the reader reports as "invalid feed".
+  Access-Control-Allow-Origin: *
+
+/CHANGELOG.md
+  # The source the changelog page is generated from, declared on that page as a
+  # rel="alternate". Same reasoning as /sheets/*.md: without an explicit type a
+  # browser downloads it instead of showing it.
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
 /.well-known/security.txt
   # RFC 9116 requires text/plain. The Expires field inside is checked by
   # tools/check-site.mjs, which fails the build 30 days before it lapses.

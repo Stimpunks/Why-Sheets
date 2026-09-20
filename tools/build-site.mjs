@@ -19,6 +19,8 @@
  *   broadsides/<slug>/index.html  one broadside, both sides, print-first
  *   packet/index.html             assemble, order, cover, download
  *   about/index.html              what a Why Sheet is and where the form comes from
+ *   changelog/index.html          every release, from CHANGELOG.md
+ *   feed.xml                      the same releases, as RSS
  *   404.html  sitemap.xml  robots.txt  llms.txt  search-index.json
  *   assets/library.json           what the browser needs to know about the shelf
  *
@@ -36,6 +38,7 @@ import { fileURLToPath } from 'node:url';
 import { render, resolveAnchors, firstParagraph, escapeHtml } from './lib/md.mjs';
 import { shell } from './lib/page.mjs';
 import { splitBlock, printDocument } from './lib/broadside.mjs';
+import { parse as parseChangelog } from './lib/changelog.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -237,6 +240,7 @@ emit(
           describedby: [{ href: `https://${HOST}/llms.txt`, type: 'text/markdown' }],
           sitemap: [{ href: `https://${HOST}/sitemap.xml`, type: 'application/xml' }],
           alternate: [
+            { href: `https://${HOST}/feed.xml`, type: 'application/rss+xml' },
             { href: `https://${HOST}/search-index.json`, type: 'application/json' },
             { href: `https://${HOST}/assets/library.json`, type: 'application/json' },
           ],
@@ -1007,6 +1011,170 @@ emit(
   })
 );
 
+/* ── changelog and feed ─────────────────────────────────────────────────── */
+
+/* WHY THE PRESS HAS A CHANGELOG PAGE AT ALL. These sheets get revised — a
+ * section added, a quotation re-sourced, a claim corrected — and somebody
+ * carried an earlier version into a meeting. A repository of commits is not an
+ * answer for them: "what changed, and does it change what I hand over" is a
+ * question in prose, and CHANGELOG.md has been answering it in prose since the
+ * first release. This publishes that file rather than a second telling of it.
+ *
+ * AND WHY IT HAS A FEED. A reader who found the press before a sheet they need
+ * exists has no way back except remembering to look. There are no accounts here
+ * and no mailing list, because both mean holding somebody's address to tell
+ * them a page changed. A feed is the version of that which collects nothing:
+ * the reader's own client asks for a file, we never learn that they did, and
+ * unsubscribing is something they do without telling us. */
+
+const changelogSource = fs.readFileSync(path.join(REPO, 'CHANGELOG.md'), 'utf8');
+const { releases, problems: changelogProblems } = parseChangelog(changelogSource);
+for (const p of changelogProblems) problems.push(p);
+
+const MONTH_NAME = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+
+/* "19 September 2026". Written out rather than left as 2026-09-19 because the
+   numeric form is read as month-first by half the world and day-first by the
+   other half, and a changelog is a document about when. */
+const longDate = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return Number(d) + ' ' + MONTH_NAME[m - 1] + ' ' + y;
+};
+
+emit(
+  'changelog/index.html',
+  shell({
+    host: HOST,
+    title: 'What changed',
+    path: '/changelog/',
+    image: og('changelog'),
+    imageAlt: 'What changed at The Why Sheet Press. Every release, in plain words.',
+    description:
+      'Every release of the press and the sheets on it, newest first, in plain words — and a feed you can subscribe to without giving us anything.',
+    markdown: '/CHANGELOG.md',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'What changed — The Why Sheet Press',
+      url: `https://${HOST}/changelog/`,
+      publisher: PUBLISHER,
+      license: CC0,
+      hasPart: releases.map((r) => ({
+        '@type': 'Article',
+        headline: r.title,
+        datePublished: r.date,
+        url: `https://${HOST}/changelog/#${r.id}`,
+      })),
+    },
+    body: `<div class="wrap wrap--narrow">
+  <h1>What changed</h1>
+
+  <p class="lede">The sheets get revised, and somebody is carrying an earlier one into a meeting
+    on Tuesday. This says what moved and whether it changes what you hand over.</p>
+
+  <div class="feed-note">
+    <p><strong>Subscribe to the feed</strong> and your reader will tell you when a sheet is added or
+      revised: <a href="/feed.xml">whysheet.press/feed.xml</a>.</p>
+    <p class="feed-note__fine">No account, no address, nothing to unsubscribe from. Your reader asks for a
+      file; we never find out that it did. Most browsers will not offer to subscribe for you any
+      more — paste that address into whichever reader you already use.</p>
+  </div>
+
+  <ol class="releases">
+${releases
+  .map(
+    (r) => `    <li><article class="release" id="${escapeHtml(r.id)}">
+      <h2 class="release__title">${escapeHtml(r.title)}</h2>
+      <p class="release__meta"><time datetime="${escapeHtml(r.date)}">${escapeHtml(longDate(r.date))}</time>
+        <a class="release__link" href="#${escapeHtml(r.id)}">Link to this release</a></p>
+      <div class="release__body">
+${r.html
+  .split('\n')
+  .map((l) => (l ? '        ' + l : l))
+  .join('\n')}
+      </div>
+    </article></li>`
+  )
+  .join('\n')}
+  </ol>
+
+  <p class="source-note">This page is generated from
+    <a href="https://github.com/Stimpunks/Why-Sheets/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a>
+    in the repository, which is where it is written. Every revision to every sheet is in
+    <a href="https://github.com/Stimpunks/Why-Sheets/commits/main" rel="noopener">the commit history</a>
+    at the level of the line; this is the same story at the level of the meeting.</p>
+</div>`,
+  })
+);
+
+/* RSS 2.0 rather than Atom, and that is a reader-side decision rather than a
+ * technical one: every reader parses RSS, and the people this press is for are
+ * not choosing a client on feed-format grounds. The atom:link rel="self" is the
+ * one Atom element RSS 2.0 has no answer for, and every validator asks for it.
+ *
+ * THERE IS NO lastBuildDate, AND ITS ABSENCE IS LOAD-BEARING. Anything derived
+ * from the clock rather than from the sources makes this file differ from the
+ * committed copy on every single run, which turns `--check` from "the site is
+ * behind its sources" into noise that is always on. The channel's date is the
+ * newest release's date, because that IS when this feed last had something to
+ * say. (.well-known/security.txt has exactly this problem today — its Expires
+ * carries the build second — and it is why `build-site.mjs --check` cannot
+ * currently pass on a clean tree.)
+ *
+ * The full entry goes in <description>, HTML-escaped rather than wrapped in
+ * CDATA: a CDATA section ends at the first `]]>`, and these entries quote
+ * markup. Escaping has no such edge. */
+const xmlEsc = (s) =>
+  String(s).replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c])
+  );
+
+emit(
+  'feed.xml',
+  `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>The Why Sheet Press</title>
+    <link>https://${HOST}/</link>
+    <atom:link href="https://${HOST}/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>${xmlEsc(
+      'What changed at The Why Sheet Press: new Why Sheets, revisions to the ones already out there, and changes to how they print. ' +
+        manifest.press.tagline
+    )}</description>
+    <language>en</language>
+    <copyright>${xmlEsc('CC0 1.0 Universal. Public domain. Quoted material belongs to the people who wrote it.')}</copyright>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <generator>tools/build-site.mjs</generator>
+    <image>
+      <url>https://${HOST}/icon-512.png</url>
+      <title>The Why Sheet Press</title>
+      <link>https://${HOST}/</link>
+    </image>
+${releases.length ? `    <lastBuildDate>${releases[0].date822}</lastBuildDate>\n` : ''}${releases
+    .map(
+      (r) => `    <item>
+      <title>${xmlEsc(r.title)}</title>
+      <link>https://${HOST}/changelog/#${xmlEsc(r.id)}</link>
+      <guid isPermaLink="true">https://${HOST}/changelog/#${xmlEsc(r.id)}</guid>
+      <pubDate>${r.date822}</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>${xmlEsc(
+        /* data-print-url is a paper affordance: the stylesheet prints it after
+           the link because paper cannot be clicked. In a feed reader it is an
+           unknown attribute duplicating the href, and half of them strip
+           data-* anyway. It comes off here rather than never being added,
+           because the page IS printable and wants it. */
+        r.html.replace(/ data-print-url="[^"]*"/g, '')
+      )}</description>
+    </item>`
+    )
+    .join('\n')}
+  </channel>
+</rss>
+`
+);
+
 /* ── 404 ────────────────────────────────────────────────────────────────── */
 
 emit(
@@ -1031,6 +1199,7 @@ emit(
 const urls = [
   '/',
   '/about/',
+  '/changelog/',
   '/privacy/',
   '/packet/',
   '/broadsides/',
@@ -1142,6 +1311,8 @@ ${[...PROMPTS].sort().map((slug) => { const sh = sheets.find((x) => x.slug === s
 
 - [About the press](https://${HOST}/about/): where the form comes from, and the licence in plain words
 - [Build a packet](https://${HOST}/packet/): assemble several sheets into one paginated PDF
+- [What changed](https://${HOST}/changelog/): every release, newest first, in prose rather than commits
+- [Feed](https://${HOST}/feed.xml): RSS 2.0 of the same releases, for polling this site without scraping it
 `
 );
 

@@ -14,6 +14,7 @@ Families navigating schools, hospitals and systems are constantly asked to justi
 | `*.md` at the root | **The sixteen Why Sheets.** These are the source. Everything else is derived from them. |
 | `sheets.json` | The manifest: slug, published URL, what each sheet is for, and when somebody reaches for it. |
 | `broadsides/source/` | Ten broadsides, mirrored read-only from the Stimpunks Knowledge System. |
+| `CHANGELOG.md` | What changed, in prose. The source for [/changelog/](https://whysheet.press/changelog/) and the RSS feed. |
 | `tools/` | The generators and the gates. Zero dependencies, Node 22+. |
 | everything else | Generated, and committed — the site as Netlify publishes it. |
 
@@ -26,6 +27,8 @@ Families navigating schools, hospitals and systems are constantly asked to justi
 You tick the sheets you need for Thursday's meeting. It gives you back **one correctly paginated PDF**, with a cover page you can put a name and a date on, numbered straight through, citations intact. It is the difference between *"here are nine pages you could each print separately"* and *"here is the folder you carry into the room."*
 
 The sheets already do the argument. The press does the logistics, which is the part that eats an evening at eleven o'clock the night before.
+
+**[What changed](https://whysheet.press/changelog/)** lists every release in plain words, with a feed at **[/feed.xml](https://whysheet.press/feed.xml)** — because a sheet you printed in March may not be the sheet that is there now, and telling you so should not require us to hold your email address.
 
 Every PDF is **190 × 259 mm** — the intersection of A4 and US Letter — so it prints at actual size in either country with no scaling. Broadsides are **208 × 277 mm**, the largest page that still fits both, because they are fixed compositions rather than reflowing text. Nothing is uploaded: the packet is assembled in your own browser, and there is no account, no analytics and no record of which sheets anybody put together.
 

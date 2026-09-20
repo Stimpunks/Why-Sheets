@@ -76,3 +76,5 @@ letter. Nothing is sent to us. CC0, like the sheets.
 
 - [About the press](https://whysheet.press/about/): where the form comes from, and the licence in plain words
 - [Build a packet](https://whysheet.press/packet/): assemble several sheets into one paginated PDF
+- [What changed](https://whysheet.press/changelog/): every release, newest first, in prose rather than commits
+- [Feed](https://whysheet.press/feed.xml): RSS 2.0 of the same releases, for polling this site without scraping it

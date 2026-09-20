@@ -10,6 +10,16 @@
 /sheet/*         /sheets/:splat    301
 /broadside/*     /broadsides/:splat 301
 
+# The feed has one canonical address and four names people type. /feed and /rss
+# are what a reader guesses; /feed.rss and /atom.xml are what a client sometimes
+# probes for on its own. All of them reach the same RSS file — including the one
+# spelled atom.xml, because a client probing that path wants *a* feed and the
+# response says application/rss+xml regardless of which name it was asked by.
+/feed            /feed.xml         301
+/rss             /feed.xml         301
+/feed.rss        /feed.xml         301
+/atom.xml        /feed.xml         301
+
 # The packet has been called a few things in drafts; keep them all working.
 /build           /packet/          301
 /packets/*       /packet/          301
