@@ -121,6 +121,27 @@ than whatever window `check-site.mjs` fails on**, or there is a band of dates wh
 refuses the file and rebuilding does not produce a new one. That pair is currently 45 days
 against 30, and the reasoning is written beside both numbers.
 
+### Do not `--amend` a commit that contains a sheet endpoint
+
+The sibling of the rule above, and the reason it is a separate rule: the value here is derived
+from the sources *correctly*, and still moves.
+
+`sheets/<slug>.md` carries `updated:`, and `build-site.mjs` takes it from
+`git log -1 --format=%cI` on the sheet's Markdown — the commit date, not the clock. That is the
+right answer under the previous rule. It has one sharp edge. **Amending a commit changes `%cI`**,
+so an amend that includes a sheet endpoint invalidates the very file it was tidying: `--check`
+then reports that endpoint stale on a clean tree, rebuilding rewrites it, and amending again
+moves the date again. The loop closes on itself and every pass looks like progress.
+
+**The escape is a second commit rather than an amend.** Commit the source, rebuild, commit the
+built endpoint. The source's last-changed date is then pinned to a commit nobody is rewriting,
+so the endpoint stops moving.
+
+Hit on 2026-09-20 while committing the Demand Avoidance sheet, by trying to be tidy about a
+commit that was already fine. Worth stating because nothing about the symptom points at the
+cause: the file that reports itself stale is the one you have just rebuilt, twice, and the
+generator is behaving exactly as designed.
+
 ### Ulysses damages these files, and the damage prints
 
 This repository is a Ulysses external folder — there is a `.Ulysses-Group.plist` beside the sheets. Ulysses rewrites Markdown when it saves, in two ways, and both land on disk before anything publishes:
