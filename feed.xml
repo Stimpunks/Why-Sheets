@@ -16,10 +16,22 @@
     </image>
     <lastBuildDate>Sun, 20 Sep 2026 12:00:00 GMT</lastBuildDate>
     <item>
+      <title>The staleness check can fail again</title>
+      <link>https://whysheet.press/changelog/#2026-09-20-the-staleness-check-can-fail-again</link>
+      <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-20-the-staleness-check-can-fail-again</guid>
+      <pubDate>Sun, 20 Sep 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Stimpunks Foundation</dc:creator>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;code&gt;security.txt&lt;/code&gt; was rewriting itself on every build.&lt;/strong&gt; RFC 9116 wants a future expiry date, and ours was computed as a year from &lt;code&gt;Date.now()&lt;/code&gt; — to the second. So that one file differed from its committed copy every single run, and &lt;code&gt;node tools/build-site.mjs --check&lt;/code&gt; reported it stale on a completely clean tree.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The cost was not the noise. It was the gate.&lt;/strong&gt; That check exists to answer one question — is the published site behind the sheets it is built from? — and it had been answering &amp;quot;yes&amp;quot; unconditionally since the day it was written. A gate that is always on says nothing: the next real drift would have arrived as one more line in a report that had cried wolf from the start.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It carries the date forward now.&lt;/strong&gt; If the committed expiry has more than 45 days left it is kept exactly as it is; only when it is running out is a new one minted, a year ahead. The file stays valid, the build stays honest, and renewal is prompted by the date running down rather than by the clock ticking.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The renewal window is wider than the window that fails the build, on purpose.&lt;/strong&gt; The build refuses the file below 30 days and renews it below 45. The other way round would leave a stretch of dates where the check refuses and rebuilding does not fix it — a gate nothing can clear, which is worse than no gate at all.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;And the general rule is written down now:&lt;/strong&gt; nothing this repository generates may take a value from the clock. This was found while building the &lt;a href=&quot;https://whysheet.press/feed.xml&quot; rel=&quot;noopener&quot;&gt;feed&lt;/a&gt;, which was one decision away from the same bug.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>A changelog you can subscribe to</title>
       <link>https://whysheet.press/changelog/#2026-09-20-a-changelog-you-can-subscribe-to</link>
       <guid isPermaLink="true">https://whysheet.press/changelog/#2026-09-20-a-changelog-you-can-subscribe-to</guid>
-      <pubDate>Sun, 20 Sep 2026 12:00:00 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 11:59:00 GMT</pubDate>
       <dc:creator>Stimpunks Foundation</dc:creator>
       <description>&lt;p&gt;&lt;strong&gt;This page.&lt;/strong&gt; The sheets get revised — a section added, a quotation re-sourced, a claim corrected — and somebody is carrying an earlier version into a meeting on Tuesday. A commit history does not answer them. &amp;quot;What changed, and does it change what I hand over&amp;quot; is a question in prose, and this file has been answering it in prose since the first release. Now it is published at &lt;a href=&quot;https://whysheet.press/changelog/&quot; rel=&quot;noopener&quot;&gt;whysheet.press/changelog&lt;/a&gt; rather than sitting in a repository, generated from the same Markdown like everything else here.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;And a feed, at &lt;a href=&quot;https://whysheet.press/feed.xml&quot; rel=&quot;noopener&quot;&gt;/feed.xml&lt;/a&gt;.&lt;/strong&gt; A reader who finds the press before the sheet they need exists has no way back except remembering to look. There are no accounts here and there is no mailing list, because both mean holding somebody&apos;s address in order to tell them a page changed. A feed is the version of that which collects nothing: your reader asks for a file, we never learn that it did, and you unsubscribe without telling us.&lt;/p&gt;

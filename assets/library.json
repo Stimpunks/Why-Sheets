@@ -1,6 +1,17 @@
 {
   "sheets": [
     {
+      "slug": "demand-avoidance",
+      "title": "Demand Avoidance",
+      "version": "0.1",
+      "pdf": "/pdf/demand-avoidance.pdf",
+      "topics": [
+        "school",
+        "iep",
+        "understanding"
+      ]
+    },
+    {
       "slug": "aac",
       "title": "AAC Is Not a Last Resort",
       "version": "0.1",

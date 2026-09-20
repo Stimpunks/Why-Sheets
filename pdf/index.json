@@ -197,6 +197,13 @@
       "bytes": 180049,
       "title": "AAC Is Not a Last Resort",
       "kind": "broadside"
+    },
+    "demand-avoidance": {
+      "hash": "5f04d69fce0bc622",
+      "pages": 10,
+      "bytes": 361132,
+      "title": "Demand Avoidance",
+      "kind": "sheet"
     }
   }
 }
