@@ -295,16 +295,60 @@ emit(
 /* EXPIRES IS GENERATED, NOT TYPED, AND IT IS CHECKED. RFC 9116 makes the field
  * mandatory and a lapsed file invalid, and the spec's own advice is to treat it
  * like a certificate. A hand-typed date in a static file is a date nobody looks
- * at again, so it is computed a year out at build time and check-site.mjs fails
- * when the file is within 30 days of lapsing. That turns "remember to update
- * this" into something the build says out loud.
+ * at again, so it is generated, and check-site.mjs fails when the file is
+ * within 30 days of lapsing. That turns "remember to update this" into
+ * something the build says out loud.
+ *
+ * BUT IT IS CARRIED FORWARD RATHER THAN RECOMPUTED, AND THAT IS THE WHOLE
+ * POINT OF THIS FUNCTION. The first version was `Date.now() + a year`, to the
+ * second. That is a value derived from the clock rather than from the sources,
+ * so this file differed from its committed copy on EVERY run — which meant
+ * `build-site.mjs --check` reported it STALE on a completely clean tree and
+ * exited 1, every time, forever. The gate that exists to say "the committed
+ * site is behind its sources" was permanently on, and a gate that is always on
+ * says nothing: the next real staleness would have arrived as one more line in
+ * a report that had cried wolf since the day it was written. It went unnoticed
+ * for exactly as long as it existed, because `ship.mjs` without --check writes
+ * rather than compares, and that is the command anybody actually runs.
+ *
+ * So: keep whatever is already committed while it has time left, and only mint
+ * a new date when the old one is running out. The output is then a function of
+ * the sources like everything else here.
+ *
+ * THE TWO WINDOWS MUST NOT BE THE SAME SIZE, and this is the ordering that
+ * makes the pair work. check-site.mjs FAILS below 30 days; this renews below
+ * 45. The renewal window has to be the wider one, or there is a band of dates
+ * where the checker refuses the file and rebuilding does not produce a new one
+ * — a gate nothing can clear, which is worse than the gate not existing. The
+ * fifteen days between them are the margin, and they mean a rebuild always
+ * leaves the checker satisfied rather than only just satisfied.
  *
  * Contact is the address published across stimpunks.org and actually monitored.
  * An unmonitored address here is worse than no file at all. */
 const SECURITY_TXT_DAYS = 365;
-const securityExpires = new Date(Date.now() + SECURITY_TXT_DAYS * 864e5)
-  .toISOString()
-  .replace(/\.\d+Z$/, 'Z');
+const SECURITY_TXT_RENEW_WITHIN = 45;
+
+function securityTxtExpires() {
+  const fresh = () =>
+    new Date(Date.now() + SECURITY_TXT_DAYS * 864e5).toISOString().replace(/\.\d+Z$/, 'Z');
+
+  const f = path.join(REPO, '.well-known', 'security.txt');
+  if (!fs.existsSync(f)) return fresh();
+
+  const m = /^Expires:\s*(\S+)/m.exec(fs.readFileSync(f, 'utf8'));
+  if (!m) return fresh();
+
+  const days = (Date.parse(m[1]) - Date.now()) / 864e5;
+  if (!Number.isFinite(days) || days < SECURITY_TXT_RENEW_WITHIN) return fresh();
+
+  /* Returned VERBATIM, not reformatted. Echoing the exact bytes is what makes
+     the output byte-stable; normalising a date that already parses would
+     rewrite the file the first time this ran against anything written by an
+     older version of this code, for no gain. */
+  return m[1];
+}
+
+const securityExpires = securityTxtExpires();
 
 emit(
   '.well-known/security.txt',

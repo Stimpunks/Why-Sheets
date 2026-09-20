@@ -532,10 +532,20 @@ for (const abs of pages) {
 
 /* --- security.txt has not quietly lapsed --- */
 /* RFC 9116 makes Expires mandatory and a lapsed file INVALID — a researcher's
-   tooling will discard it, which is the opposite of the point. The date is
-   generated a year out at build time, so this only fires when nothing has been
-   rebuilt for eleven months; that is precisely the case a calendar reminder
-   never catches, because by then nobody is thinking about this file. */
+   tooling will discard it, which is the opposite of the point. This only fires
+   when nothing has been rebuilt for about eleven months; that is precisely the
+   case a calendar reminder never catches, because by then nobody is thinking
+   about this file.
+
+   THIS THRESHOLD IS HALF OF A PAIR. build-site.mjs carries the committed
+   Expires forward untouched while it has time left, and mints a new one when
+   fewer than 45 days remain (SECURITY_TXT_RENEW_WITHIN) — it does not recompute
+   it on every run, because a value taken from the clock made the file differ
+   from its committed copy on every build and jammed the staleness check on.
+   The renewal window there MUST stay wider than the 30 days here. If this
+   number ever rises above 45, there is a band of dates in which this fails and
+   rebuilding does not mint a new date, so nothing clears it. Move them
+   together, and keep the margin. */
 {
   const f = path.join(REPO, '.well-known', 'security.txt');
   if (!fs.existsSync(f)) {

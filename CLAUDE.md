@@ -87,10 +87,30 @@ bottom out of habit publishes as the newest thing on the press.
 resolves against *their* site. It works perfectly on the page it came from, which is the only
 place anybody would think to check it. `check-site.mjs` gates it.
 
-Nothing in the feed may come from the clock — see the `lastBuildDate` note in
-[DECISIONS.md](DECISIONS.md). `.well-known/security.txt` already has that bug: its `Expires`
-carries the build second, so it rewrites on every run and `build-site.mjs --check` cannot pass on
-a clean tree. Do not add a second one.
+Nothing in the feed may come from the clock, for the reason in the next rule.
+
+### No generated file may take a value from the clock
+
+Every file this repository writes is compared, byte for byte, against its committed copy —
+that is the whole mechanism behind `--check` and the sentence *"the committed site is behind the
+sources."* A generator that reaches for `Date.now()` puts a value in its output that no source
+can account for, so **that file reports itself stale on every run, on a completely clean tree**.
+
+This is not a cosmetic failure. It is a gate stuck on, and a gate that is always on says nothing:
+the next real staleness arrives as one more line in a report that has cried wolf since the day it
+was written.
+
+**`.well-known/security.txt` did exactly this**, and for as long as it existed nobody noticed,
+because `ship.mjs` without `--check` writes rather than compares and that is the command anybody
+actually runs. RFC 9116 needs a future `Expires`, so the date cannot be hardcoded either. The way
+out is to make the value a function of the sources: **carry the committed one forward while it
+has time left, and mint a new one only when it is running out.** `feed.xml` has the same shape of
+problem and the same answer — its channel date is the newest release's date, not the build's.
+
+If you add a generator that genuinely needs a future date, **its renewal window must be wider
+than whatever window `check-site.mjs` fails on**, or there is a band of dates where the checker
+refuses the file and rebuilding does not produce a new one. That pair is currently 45 days
+against 30, and the reasoning is written beside both numbers.
 
 ### Ulysses damages these files, and the damage prints
 

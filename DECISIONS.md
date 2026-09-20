@@ -305,6 +305,41 @@ and conclude the press went quiet.
 
 ----
 
+### `security.txt` carries its expiry forward instead of recomputing it — 2026-09-20
+
+RFC 9116 makes `Expires` mandatory and a lapsed file invalid, so the date has to be in the future
+and cannot be hardcoded. The first version computed it as `Date.now()` plus a year, **to the
+second**. That is a value derived from the clock rather than from the sources, so the file
+differed from its committed copy on every single run: `build-site.mjs --check` reported it
+`STALE` on a completely clean tree and exited 1, and so did `ship.mjs --check`.
+
+**The cost was not the noise, it was the gate.** `--check` exists to answer one question — is the
+committed site behind its sources? — and it had been answering "yes" unconditionally since the
+day it was written. A gate that is always on says nothing; the next real staleness would have
+arrived as one more line in a report that had cried wolf from the start. It survived unnoticed
+because `ship.mjs` without `--check` *writes* rather than compares, and that is the command
+anybody actually runs.
+
+**The fix keeps the date a function of the sources.** Read the `Expires` already committed; if it
+has more than 45 days left, return those exact bytes; otherwise mint a new one a year out. Output
+is byte-stable between builds, the file stays valid, and renewal is prompted by the date running
+down rather than by the clock ticking.
+
+**The two windows are deliberately different sizes, and the order matters.** `check-site.mjs`
+fails below **30** days; the generator renews below **45**. The renewal window has to be the
+wider one. If they were the other way round there would be a band of dates in which the checker
+refuses the file and rebuilding does not mint a new one — a gate nothing can clear, which is
+worse than no gate. Verified across the boundary: at 40 days the checker passes and the build
+renews anyway; at 29 days and at already-lapsed, the checker fails and a single rebuild clears
+it.
+
+**The general rule this settles**, now written into CLAUDE.md as its own: no generated file may
+take a value from the clock. `feed.xml` was built the same week and has the same shape of problem
+— its channel date is the newest release's date, not the build's — which is how this one came to
+light.
+
+----
+
 ----
 
 ## Open

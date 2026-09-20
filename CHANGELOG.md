@@ -1,5 +1,31 @@
 # Changelog
 
+## 2026-09-20 — The staleness check can fail again
+
+**`security.txt` was rewriting itself on every build.** RFC 9116 wants a future expiry date, and
+ours was computed as a year from `Date.now()` — to the second. So that one file differed from its
+committed copy every single run, and `node tools/build-site.mjs --check` reported it stale on a
+completely clean tree.
+
+**The cost was not the noise. It was the gate.** That check exists to answer one question — is
+the published site behind the sheets it is built from? — and it had been answering "yes"
+unconditionally since the day it was written. A gate that is always on says nothing: the next
+real drift would have arrived as one more line in a report that had cried wolf from the start.
+
+**It carries the date forward now.** If the committed expiry has more than 45 days left it is
+kept exactly as it is; only when it is running out is a new one minted, a year ahead. The file
+stays valid, the build stays honest, and renewal is prompted by the date running down rather than
+by the clock ticking.
+
+**The renewal window is wider than the window that fails the build, on purpose.** The build
+refuses the file below 30 days and renews it below 45. The other way round would leave a stretch
+of dates where the check refuses and rebuilding does not fix it — a gate nothing can clear, which
+is worse than no gate at all.
+
+**And the general rule is written down now:** nothing this repository generates may take a value
+from the clock. This was found while building the
+[feed](https://whysheet.press/feed.xml), which was one decision away from the same bug.
+
 ## 2026-09-20 — A changelog you can subscribe to
 
 **This page.** The sheets get revised — a section added, a quotation re-sourced, a claim
