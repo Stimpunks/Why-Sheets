@@ -1,6 +1,7 @@
 ---
 title: "Demand Avoidance"
 url: "https://whysheet.press/sheets/demand-avoidance/"
+published_at: "https://stimpunks.org/why/demand-avoidance/"
 summary: "The refusal is a threat response, not defiance. Compliance pressure is the one reply guaranteed to escalate it — and the adjustments that do work are good teaching for every child."
 reach_for_it: "When a school has decided a child is being defiant, and the child is drowning."
 topics: [school, iep, understanding]
@@ -208,7 +209,7 @@ It does not have to work that way. Richard Woods looked at the adjustments recom
 
 The list he is describing — a trusted key adult, flexibility, indirect praise, letting things go, negotiating by offering choices, tone of voice, treating anger as communication, humour, variety in how material is presented — is good teaching. Ask for the practice, not the label.
 
-The label itself is genuinely contested, and this sheet does not need to settle it. Damian Milton argues the behaviours could be read as "the behaviours of an autistic person who has gained a modicum of normative social skills and is simply asserting their agency," and that "the labelling of the expressions of autistic agency as pathological is in itself disempowering" ([Milton, 2013](https://kar.kent.ac.uk/62694/)). Woods argues elsewhere that the category "attributes actions, behaviour and temperament onto the individual and away from the organisations and how organisations treat such individuals" ([Woods, *Disability & Society*, 2017](https://www.tandfonline.com/doi/full/10.1080/09687599.2017.1308705)).
+The label itself is genuinely contested, and this sheet does not need to settle it. Damian Milton argues the behaviours could be read as "the behaviours of an autistic person who has gained a modicum of normative social skills and is simply asserting their agency," and that "the labelling of the expressions of autistic agency as pathological is in itself disempowering" ([Milton, 2013](https://web.archive.org/web/20240223111844/https://kar.kent.ac.uk/62694/)). Woods argues elsewhere that the category "attributes actions, behaviour and temperament onto the individual and away from the organisations and how organisations treat such individuals" ([Woods, *Disability & Society*, 2017](https://www.tandfonline.com/doi/full/10.1080/09687599.2017.1308705)).
 
 Both critiques point the same way this sheet does: at the room, not the child.
 

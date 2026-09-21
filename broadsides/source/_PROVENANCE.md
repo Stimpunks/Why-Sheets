@@ -7,7 +7,7 @@ sync and never reaches the published page on stimpunks.org.
 - **Source repository:** Stimpunks Knowledge System (private), `broadsides/`
 - **Source commit:** `977796f43e25be2b475bda48e9ad39b5b9d6ad5c`
 - **Source commit date:** 2026-09-20T18:39:07-05:00
-- **Mirrored:** 2026-09-20
+- **Mirrored:** 2026-09-21
 - **Files:** 11
 
 ## Licence

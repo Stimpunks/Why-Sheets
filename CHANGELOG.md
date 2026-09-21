@@ -31,7 +31,7 @@ rather than as an incident.
 places a machine-generated caption mis-heard a word, which are marked in square brackets rather
 than quietly corrected. A companion prompt for a letter to school comes with it.
 
-Not yet published on stimpunks.org.
+Published at [stimpunks.org/why/demand-avoidance/](https://stimpunks.org/why/demand-avoidance/).
 
 ## 2026-09-20 — The staleness check can fail again
 
