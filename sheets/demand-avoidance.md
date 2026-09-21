@@ -5,7 +5,7 @@ published_at: "https://stimpunks.org/why/demand-avoidance/"
 summary: "The refusal is a threat response, not defiance. Compliance pressure is the one reply guaranteed to escalate it — and the adjustments that do work are good teaching for every child."
 reach_for_it: "When a school has decided a child is being defiant, and the child is drowning."
 topics: [school, iep, understanding]
-updated: "2026-09-20T18:42:14-05:00"
+updated: "2026-09-20T19:03:25-05:00"
 licence: "CC0 1.0"
 licence_url: "https://creativecommons.org/publicdomain/zero/1.0/"
 source: "https://github.com/Stimpunks/Why-Sheets/blob/main/Demand%20Avoidance.md"

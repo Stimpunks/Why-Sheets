@@ -250,6 +250,11 @@
       "slug": "aac",
       "title": "AAC Is Not a Last Resort",
       "pdf": "/pdf/broadside-aac.pdf"
+    },
+    {
+      "slug": "demand-avoidance",
+      "title": "Demand Avoidance",
+      "pdf": "/pdf/broadside-demand-avoidance.pdf"
     }
   ]
 }

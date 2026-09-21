@@ -31,6 +31,12 @@ rather than as an incident.
 places a machine-generated caption mis-heard a word, which are marked in square brackets rather
 than quietly corrected. A companion prompt for a letter to school comes with it.
 
+**It has a broadside too** — [Demand Avoidance](https://whysheet.press/broadsides/demand-avoidance/),
+the twelfth, in blue and violet. One sheet, printed both sides, for carrying into the meeting
+rather than reading on a screen. Side A answers the three sentences you will actually hear; side
+B is what counts as a demand and what to ask for. Spending that colour pair put all six spot
+hues back on four uses each, which is arithmetic rather than design and will not last.
+
 Published at [stimpunks.org/why/demand-avoidance/](https://stimpunks.org/why/demand-avoidance/).
 
 ## 2026-09-20 — The staleness check can fail again

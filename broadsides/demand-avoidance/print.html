@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Demand Avoidance</title>
+<style>
+
+@font-face{font-family:'Atkinson Hyperlegible Next';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/atkinson-hyperlegible-next-roman-latin.woff2) format('woff2')}
+@font-face{font-family:'Atkinson Hyperlegible Next';font-style:italic;font-weight:200 800;font-display:swap;src:url(/fonts/atkinson-hyperlegible-next-italic-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/spacemono-normal-400-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/spacemono-normal-700-latin.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/spacemono-italic-400-latin.woff2) format('woff2')}
+/* Scoped reset. Never `*` on its own — this block's CSS is document-wide. */
+.sb-root, .sb-root * { box-sizing: border-box; }
+.sb-root p, .sb-root h1, .sb-root h2, .sb-root ul, .sb-root li, .sb-root figure { margin: 0; padding: 0; }
+.sb-root ul { list-style: none; }
+
+.sb-root {
+  --sb-sheet:  #ffffff;
+  --sb-ink:    #002b36;   /* Solarized base03 · 15.0:1 on white */
+  --sb-ink-2:  #073642;   /* base02 · 13.0:1 — secondary prose   */
+  --sb-ink-3:  #586e75;   /* base01 ·  5.4:1 — small print only  */
+  --sb-spot:   #175a7d;   /* Solarized blue, darkened ·     7.5:1 */
+  --sb-spot-2: #4c50a0;   /* Solarized violet, darkened · 7.1:1 */
+  --sb-rule:   #d8d2c4;
+
+  font-family: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* ── Controls (screen only; removed from the print document) ── */
+.sb-controls { display: flex; gap: 0.6rem; margin-bottom: 1.1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+.sb-ctrl-label { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sb-ink-3); }
+.sb-btn {
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  background: #fff; color: var(--sb-ink-2);
+  border: 1px solid var(--sb-ink-3); border-radius: 2px;
+  padding: 0.5rem 1rem; cursor: pointer; line-height: 1.2;
+}
+.sb-btn:hover { border-color: var(--sb-ink); color: var(--sb-ink); }
+.sb-btn:focus-visible { outline: 3px solid var(--sb-spot); outline-offset: 2px; }
+.sb-btn.is-active { background: var(--sb-ink); color: #fff; border-color: var(--sb-ink); }
+.sb-ctrl-sep { width: 1px; height: 18px; background: var(--sb-rule); }
+
+/* ── The sheet ── */
+.sb-sheet {
+  width: 190mm; max-width: 100%; min-height: 259mm;
+  background: var(--sb-sheet); color: var(--sb-ink);
+  padding: 11mm 12mm 9mm;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--sb-rule);
+  border-top: 3mm solid var(--sb-spot);
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+.sb-sheet[hidden] { display: none; }
+.sb-sheet--b { border-top-color: var(--sb-spot-2); }
+
+/* ── Masthead ── */
+.sb-mast { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; padding-bottom: 3mm; border-bottom: 0.6mm solid var(--sb-ink); }
+.sb-mast-org { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.28em; text-transform: uppercase; color: var(--sb-ink-2); line-height: 1.9; }
+.sb-mast-org strong { display: block; font-size: 7pt; letter-spacing: 0.2em; color: var(--sb-ink); }
+.sb-mast-side { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.9; white-space: nowrap; }
+.sb-sheet--b .sb-mast-side { color: var(--sb-spot-2); }
+
+/* ── Face ── */
+.sb-title { font-weight: 800; font-size: 34pt; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; margin-top: 5mm; color: var(--sb-ink); }
+.sb-title em { font-style: normal; color: var(--sb-spot); }
+.sb-standfirst { font-style: italic; font-weight: 300; font-size: 11.5pt; line-height: 1.44; color: var(--sb-ink-2); margin-top: 4mm; max-width: 158mm; }
+.sb-rule { height: 0.8mm; background: var(--sb-ink); margin-top: 5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-claim { margin-top: 5mm; text-align: center; }
+.sb-claim-line { font-weight: 800; font-size: 33pt; line-height: 1.06; letter-spacing: -0.02em; text-transform: uppercase; color: var(--sb-ink); }
+.sb-claim-line em { font-style: normal; color: var(--sb-spot); }
+.sb-claim-sub { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-2); margin-top: 3mm; line-height: 1.8; }
+
+.sb-panels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; margin-top: 5mm; }
+.sb-panel { border-left: 0.8mm solid var(--sb-spot); padding-left: 3.5mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-panel:nth-child(3) { border-left-color: var(--sb-spot-2); }
+.sb-panel-name { font-family: 'Space Mono', ui-monospace, monospace; font-size: 7.4pt; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-spot); margin-bottom: 2.2mm; line-height: 1.5; }
+.sb-panel:nth-child(3) .sb-panel-name { color: var(--sb-spot-2); }
+.sb-panel p { font-size: 10pt; line-height: 1.45; color: var(--sb-ink-2); }
+
+.sb-quote { margin-top: 5mm; padding-left: 4mm; border-left: 0.8mm solid var(--sb-spot); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-quote p { font-style: italic; font-weight: 500; font-size: 12.5pt; line-height: 1.34; color: var(--sb-ink); }
+.sb-quote cite { display: block; font-family: 'Space Mono', ui-monospace, monospace; font-style: normal; font-size: 6.8pt; letter-spacing: 0.13em; text-transform: uppercase; color: var(--sb-ink-3); margin-top: 2.2mm; line-height: 1.7; }
+.sb-sheet--b .sb-quote { border-left-color: var(--sb-spot-2); }
+
+/* ── Reverse ── */
+.sb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 9mm; margin-top: 5mm; }
+.sb-colhead { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sb-spot-2); padding-bottom: 2.2mm; margin-bottom: 3.5mm; border-bottom: 0.4mm solid var(--sb-rule); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+.sb-do li { font-size: 10.5pt; line-height: 1.42; color: var(--sb-ink-2); margin-bottom: 2.6mm; padding-left: 5mm; position: relative; }
+.sb-do li::before { content: '→'; position: absolute; left: 0; color: var(--sb-spot-2); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-do strong { color: var(--sb-ink); }
+
+.sb-look li { font-family: 'Space Mono', ui-monospace, monospace; font-size: 8.4pt; line-height: 1.5; color: var(--sb-ink-2); margin-bottom: 1.6mm; padding-left: 5mm; position: relative; }
+.sb-look li::before { content: '✓'; position: absolute; left: 0; color: var(--sb-spot); font-weight: 700; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.sb-note { font-size: 10pt; line-height: 1.42; color: var(--sb-ink-2); margin-top: 3mm; }
+.sb-note strong { color: var(--sb-ink); }
+
+.sb-principle { margin-top: 4mm; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); }
+.sb-principle p { font-size: 10.5pt; line-height: 1.45; color: var(--sb-ink-2); margin-top: 2mm; }
+.sb-principle strong { color: var(--sb-ink); }
+
+.sb-refusals-note { margin-top: 3.5mm; }
+
+.sb-sources { margin-top: 3.5mm; font-family: 'Space Mono', ui-monospace, monospace; font-size: 7pt; line-height: 1.6; color: var(--sb-ink-2); }
+.sb-sources em { font-style: italic; }
+
+/* ── Foot ── */
+.sb-foot { margin-top: auto; padding-top: 3mm; border-top: 0.6mm solid var(--sb-ink); display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; }
+.sb-foot-left { font-family: 'Space Mono', ui-monospace, monospace; font-size: 6pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); line-height: 1.95; }
+.sb-foot-right { font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sb-spot); text-align: right; line-height: 1.5; }
+.sb-sheet--b .sb-foot-right { color: var(--sb-spot-2); }
+
+.sb-hint { font-family: 'Space Mono', ui-monospace, monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sb-ink-3); text-align: center; margin-top: 1rem; }
+
+/* If someone prints the WORDPRESS PAGE rather than using the Print button, the
+   controls come with it — and `.sb-btn.is-active` is white text on a dark
+   background, so the background drops out (browsers omit background graphics)
+   and it prints as white-on-white. Caught by running the contrast gate against
+   the published URL. These are screen furniture; they never belong on paper.
+   Scoped to our own classes: this must not try to hide the theme's chrome. */
+@media print {
+  .sb-controls, .sb-hint { display: none !important; }
+}
+
+/* Breakpoint sits BELOW the narrowest printed page box — A4 at 9 mm margins is
+   192 mm ≈ 726 px. Print media queries resolve against the page box, not the
+   screen, so a breakpoint above that reflows on paper and silently clips. */
+@media (max-width: 700px) {
+  .sb-sheet { width: 100%; min-height: 0; padding: 8mm 6mm; }
+  .sb-panels, .sb-cols { grid-template-columns: 1fr; }
+  .sb-title { font-size: 26pt; }
+  .sb-claim-line { font-size: 22pt; }
+  .sb-foot { flex-direction: column; align-items: flex-start; gap: 3mm; }
+  .sb-foot-right { text-align: left; }
+}
+
+/* ---- print document, as the block's own script builds it, less its @page ---- */
+*{box-sizing:border-box;margin:0;padding:0}html,body{background:#fff}.sb-root{display:block;max-width:none}.sb-controls,.sb-hint{display:none}.sb-sheet{width:100%;min-height:0;height:259mm;padding:0;border:0;border-top:3mm solid var(--sb-spot)}.sb-sheet--b{border-top-color:var(--sb-spot-2)}.sb-sheet--a{page-break-after:always;break-after:page}.sb-mast{padding-top:6mm}.sb-panel,.sb-do li,.sb-look li{page-break-inside:avoid;break-inside:avoid}
+
+/* ---- the page, pinned ----
+   The block prints with @page { size: auto; margin: 9mm }, which is right for a
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   THE COLUMN IS 194 mm, AND THAT NUMBER WAS MEASURED, NOT CHOSEN. Each sheet is
+   a fixed 259 mm tall with overflow clipped, so a column narrower than the
+   composition needs does not look wrong — it loses the bottom of side B. The
+   nine sheets were rendered under emulated print media at widths from 188 mm
+   up, and the tallest side of any of them came out:
+
+       188 mm -> 269.1 mm   overflows by 10.1
+       190 mm -> 265.4 mm   overflows by  6.4
+       192 mm -> 259.6 mm   overflows by  0.6      <- this is the A4 case
+       194 mm -> 256.6 mm   fits, with 2.4 mm spare
+       198 mm -> 256.6 mm   fits                   <- this is the US Letter case
+
+   Two things follow. The press uses 194 mm, the narrowest width at which all
+   nine clear. And DEVELOPMENTAL PACE IS ALREADY 0.6 mm OVER ON A4 as published —
+   a real finding about the upstream sheet, not about this build, and one for
+   that repository to fix at the source.
+
+   The page is therefore 208 x 277 mm with margins of 9 mm top, 7 mm sides and
+   bottom: 208 fits inside A4's 210 and Letter's 216, and 277 inside A4's 297 and
+   Letter's 279. Content box 194 x 261 mm — the same 261 mm height these sheets
+   already get on US Letter, which is the tightest case known to print correctly.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 7mm 7mm; }
+   reader hitting Print on a WordPress page: it flexes to whatever paper is in
+   their tray. It is wrong for a PDF we hand out, because auto resolves to
+   Chrome's default paper — US Letter, 216 mm wide — and a Letter-sized PDF does
+   NOT fit A4, which is 210 mm. The reader gets it scaled or clipped, silently.
+
+   208 x 277 mm IS THE LARGEST PAGE THAT FITS BOTH PAPERS: under A4's 210 x 297
+   and under Letter's 216 x 279. With the 9 mm margin the block already expects,
+   the content box is exactly 190 x 259 mm — the dimensions the broadsides were
+   designed to, so nothing reflows and the composition is the one that was
+   checked upstream.
+
+   The conservative 190 x 259 PAGE was tried first, and it is the wrong shape for
+   this object: it makes the content box 172 x 241, and Sensory Access at Work —
+   the fullest of the nine — spilled onto a third side. That is the page the Why
+   Sheets use, where the type reflows freely and a narrower column is merely a
+   narrower column. A broadside is a fixed composition; it needs its own page.
+
+   THE BOTTOM MARGIN IS 7 mm, NOT 9, AND THAT 2 mm IS THE WHOLE MARGIN OF ERROR.
+   A sheet is exactly 259 mm tall, so a 259 mm content box leaves nothing: with a
+   symmetric 9 mm margin, Developmental Pace and Masking and Burnout both tipped
+   onto a third side while the other seven held. 7 mm makes the content box
+   190 x 261 — which is precisely the box these sheets get on US Letter with the
+   9 mm margin they were designed against, and the tightest case that is known to
+   print correctly. The page still fits inside both papers.
+
+   THE BLOCK'S OWN @page IS REMOVED ABOVE RATHER THAN OVERRIDDEN. Declaring a
+   second one after it and trusting the cascade does not work: the PDF still came
+   out 612 x 792. Chrome resolves preferCSSPageSize from the page rule it finds,
+   so there has to be exactly one. */
+@page { size: 208mm 277mm; margin: 9mm 9mm 7mm; }
+</style>
+</head>
+<body>
+<div class="sb-root" id="sb-demand-avoidance" data-sb-style="sb-css-demand-avoidance" data-sb-doc-title="Demand Avoidance — a Stimpunks Broadside">
+
+    <!-- SIDE A -->
+  <article class="sb-sheet sb-sheet--a" aria-label="Demand Avoidance broadside, side A">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        for the meeting where a child has already been called defiant
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side A of B</div>
+    </div>
+
+    <h2 class="sb-title">Demand <em>Avoidance</em></h2>
+
+    <p class="sb-standfirst">A demand arrives and the body blocks the action. The driver underneath is anxiety; the need underneath the anxiety is autonomy. It is not defiance, it is not laziness, and it is not procrastination &mdash; and it fires on the thing a person has waited years for as readily as on the chore.</p>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-claim">
+      <p class="sb-claim-line">Can&rsquo;t,<br><em>not won&rsquo;t.</em></p>
+      <p class="sb-claim-sub">the knowing is intact &middot; the doing is not</p>
+    </div>
+
+    <div class="sb-panels">
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">&ldquo;He can do it when he wants to.&rdquo;</div>
+        <p>Offered as proof of choice. It describes a threat response that varies with load. The same demand is possible on a light day and impossible on a heavy one, and nothing about that is a decision.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">&ldquo;She managed it yesterday.&rdquo;</div>
+        <p>Yesterday was lighter. Demand avoidance is not about whether the task is wanted &mdash; it lands on a favourite film, on eating, on going to bed when tired. Desirability never enters into it.</p>
+      </div>
+
+      <div class="sb-panel">
+        <div class="sb-panel-name">&ldquo;You&rsquo;re just giving in.&rdquo;</div>
+        <p>Dropping a demand a child cannot meet is not a concession in a negotiation. It is removing the load that was producing the response you want to reduce.</p>
+      </div>
+
+    </div>
+
+    <div class="sb-quote">
+      <p>&ldquo;we know what we should do, but the anxiety we&rsquo;re feeling disables us. We just can&rsquo;t do it.&rdquo;</p>
+      <cite>Wenn Lawson, Autistic psychologist &middot; &lsquo;Different, not Less&rsquo;, 2026</cite>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        the full why sheet, with every source:<br>
+        stimpunks.org/why/demand-avoidance<br>
+        free to print, copy, change and share &middot; CC0 1.0
+      </div>
+      <div class="sb-foot-right">See<br>reverse</div>
+    </div>
+
+  </article>
+
+  <!-- SIDE B -->
+  <article class="sb-sheet sb-sheet--b" aria-label="Demand Avoidance broadside, side B">
+
+    <div class="sb-mast">
+      <div class="sb-mast-org">
+        <strong>Stimpunks Foundation</strong>
+        what counts as a demand, and what to ask for
+      </div>
+      <div class="sb-mast-side">Broadside &middot; Open edition<br>Side B of B</div>
+    </div>
+
+    <div class="sb-cols">
+
+      <div>
+        <div class="sb-colhead">What counts as a demand</div>
+        <p class="sb-note">Far more than a teacher&rsquo;s instruction. Lawson lists the ones that arrive from nowhere:</p>
+        <ul class="sb-do">
+          <li>a request from another person</li>
+          <li>the turn of someone&rsquo;s voice</li>
+          <li>a clock, or a time of day</li>
+          <li>your own body asking you to eat, sleep, or use the bathroom</li>
+          <li>a plan you made yourself and were looking forward to</li>
+        </ul>
+        <p class="sb-note">A child who cannot start a task they chose, or cannot eat when hungry, is not negotiating for advantage.</p>
+      </div>
+
+      <div>
+        <div class="sb-colhead">What to ask for in the room</div>
+        <ul class="sb-do">
+          <li>the demand reduced <strong>first</strong>, not as a reward for progress</li>
+          <li>choices offered instead of instructions given</li>
+          <li>one trusted adult who holds the relationship</li>
+          <li>rewards, sanctions and time-out named and taken off the table</li>
+          <li>anger recorded as communication, not as an incident</li>
+          <li>the question asked of the environment: what changed on the bad days?</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sb-refusals-note">
+      <div class="sb-colhead">What this sheet does, and doesn&rsquo;t</div>
+      <ul class="sb-look">
+        <li>it does treat the refusal as a nervous system under load</li>
+        <li>it does ask for the practice rather than the diagnosis</li>
+        <li>it does hold the label as genuinely contested</li>
+        <li>it does <strong>not</strong> claim PDA is a settled diagnostic category</li>
+        <li>it does <strong>not</strong> claim every refusal is demand avoidance</li>
+        <li>it does <strong>not</strong> argue that no demand can ever be made</li>
+      </ul>
+    </div>
+
+    <div class="sb-quote">
+      <p>You do not need the school to accept the label. The adjustments recommended for demand avoidance are &ldquo;suitable for most children, not just those diagnosed with PDA.&rdquo;</p>
+      <cite>Richard Woods &middot; Autonomy, 2019 &middot; ask for the practice, not the diagnosis</cite>
+    </div>
+
+    <div class="sb-sources">
+      Adapted from the <em>Demand Avoidance</em> Why Sheet at stimpunks.org/why/demand-avoidance, which carries every quotation and its source. Connolly, Constable &amp; Mullally (<em>Frontiers in Psychiatry</em>, 2023) record that an unrecognised demand avoidant presentation is &ldquo;viewed as defiance and deliberately challenging behavior, leading to school exclusions,&rdquo; that &ldquo;pressure to comply with direct demands is well-documented to lead to escalation,&rdquo; and that a 2018 survey found <strong>70% of school aged demand avoidant children were either not enrolled in school or unable to tolerate their school environment</strong>. Truman, Crane, Howlin &amp; Pellicano (<em>International Journal of Inclusive Education</em>, 28(1), 2024) found the operative factors &ldquo;external to the child.&rdquo; Wenn Lawson is an Autistic psychologist; his talks are quoted from the videos&rsquo; own machine-generated captions. <em>The asks on this sheet are practice, not statute &mdash; the strongest legal framing in this literature is UK, and a parent in a US meeting cannot use it.</em>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-left">
+        stimpunks.org/why/demand-avoidance &middot; stimpunks.org/library/broadsides<br>
+        free to print, copy, change and share &mdash; no permission needed<br>
+        CC0 1.0 &middot; no rights reserved
+      </div>
+      <div class="sb-foot-right">Stimpunks<br>Foundation</div>
+    </div>
+
+  </article>
+
+
+  <p class="sb-hint">One sheet &middot; print double-sided &middot; bring it to the meeting &middot; share freely</p>
+</div>
+
+</body>
+</html>

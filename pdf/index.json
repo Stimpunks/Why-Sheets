@@ -199,11 +199,18 @@
       "kind": "broadside"
     },
     "demand-avoidance": {
-      "hash": "6f19dd35d19b80c0",
+      "hash": "b604713a6d5ae34b",
       "pages": 10,
-      "bytes": 360689,
+      "bytes": 362115,
       "title": "Demand Avoidance",
       "kind": "sheet"
+    },
+    "broadside-demand-avoidance": {
+      "hash": "49d0919dee6b4911",
+      "pages": 2,
+      "bytes": 129976,
+      "title": "Demand Avoidance",
+      "kind": "broadside"
     }
   }
 }
