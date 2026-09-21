@@ -1,5 +1,28 @@
 # Changelog
 
+## 2026-09-20 — The Demand Avoidance broadside
+
+**A twelfth broadside, in blue and violet.**
+[Demand Avoidance](https://whysheet.press/broadsides/demand-avoidance/) compresses the Why Sheet
+released the same day onto one sheet, printed both sides, for carrying into a meeting rather than
+reading on a screen. 190 × 259 mm — the intersection of A4 and US Letter, so it prints uncropped
+in either country. Free and CC0.
+
+**Side A answers three sentences rather than stating one claim**, and that is the shape decision.
+The other argument sheets put a claim on the face and the alternative on the reverse. This one
+gets handed across a table to somebody who has already made an argument at you, so the face is
+the three sentences you will actually hear — *he can do it when he wants to*, *she managed it
+yesterday*, *you're just giving in* — each answered in its own panel.
+
+**Side B is what counts as a demand, and what to ask for.** The demands are the surprising part:
+a clock, the turn of someone's voice, your own body asking you to eat or sleep. The asks are
+practice rather than statute, because the strongest legal framing in this literature is UK and a
+parent in a US meeting cannot use it.
+
+**It spent the last colour pair at the minimum**, and in doing so put all six spot hues back on
+four uses each. That evenness is arithmetic rather than design and will go again at the next
+sheet. The pair, not the hue, is what tells sheets apart when several are face-down in a stack.
+
 ## 2026-09-20 — Demand Avoidance
 
 **An eighteenth Why Sheet, for the meeting where a child has been called defiant.** [Demand
@@ -31,11 +54,8 @@ rather than as an incident.
 places a machine-generated caption mis-heard a word, which are marked in square brackets rather
 than quietly corrected. A companion prompt for a letter to school comes with it.
 
-**It has a broadside too** — [Demand Avoidance](https://whysheet.press/broadsides/demand-avoidance/),
-the twelfth, in blue and violet. One sheet, printed both sides, for carrying into the meeting
-rather than reading on a screen. Side A answers the three sentences you will actually hear; side
-B is what counts as a demand and what to ask for. Spending that colour pair put all six spot
-hues back on four uses each, which is arithmetic rather than design and will not last.
+**It has a [broadside](https://whysheet.press/broadsides/demand-avoidance/) too**, released the
+same day and written up in its own entry above.
 
 Published at [stimpunks.org/why/demand-avoidance/](https://stimpunks.org/why/demand-avoidance/).
 

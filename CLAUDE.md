@@ -96,6 +96,14 @@ existed ever learns it now does, so a sheet landing on the press is the most imp
 feed can carry, not the least. Write the entry when the sheet lands here, and say plainly whether
 it is on stimpunks.org yet — those are two different events and the reader cares about both.
 
+**A new broadside gets its own entry too, and folding it into the sheet's entry is not good
+enough.** That was tried on 2026-09-20 and is wrong for a mechanical reason rather than an
+editorial one: **a feed reader does not re-notify on an edited item.** Anyone who had already
+received the sheet's entry would never learn the broadside existed. An entry edited after
+publication reaches nobody new, so anything that deserves an announcement deserves its own
+dated heading. The same applies to any later artefact of an existing sheet — a translation,
+a second broadside, a companion prompt added to a sheet that shipped without one.
+
 Nothing in the feed may come from the clock, for the reason in the next rule.
 
 ### No generated file may take a value from the clock
